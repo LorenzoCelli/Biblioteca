@@ -3,6 +3,7 @@ body{
     margin:0;
     background-color: #3c3c3c;
     overflow: hidden;
+    color: white;
 }
 #main_container{
     position: absolute;
@@ -24,7 +25,6 @@ h1{
     font-family: 'Vollkorn', serif;
     font-size:40px;
     margin-bottom: 0;
-    color: white;
 }
 .login_field, .login_button{
     background-color: white;
