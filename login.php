@@ -34,7 +34,7 @@
                   echo "<script>window.open('main/main.html','_self');</script>";
                 }elseif ($results->num_rows == 0){
                   $_SESSION['log'] = 0;
-                  echo "<br><b style='color:red;'>Username o Password non corretti, riprova.</b>";
+                  echo "<b style='color:red;'>Username o Password non corretti, riprova.</b><br>";
                 }
 
                 mysqli_close($conn);
