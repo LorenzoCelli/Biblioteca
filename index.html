@@ -7,28 +7,38 @@
     <link href="https://fonts.googleapis.com/css?family=Vollkorn:400,900" rel="stylesheet">
 </head>
 <body>
-    <div class="left_container">
-        <div style="display: inline-block; text-align: left;">
-            <h1>biblioteca.</h1>
-            <form>
-                <input class="login_field" type="text" placeholder="username" required>
-                <input class="login_field" type="password" placeholder="password" required>
-                <input class="login_button" type="submit" value="login">
-            </form>
-            <a onclick="scroll_up('bottom_container')">registrati</a>
+    <div id="main_container">
+        <div class="container">
+            <div style="display: inline-block; text-align: left;">
+                <h1>login</h1>
+                <form>
+                    <input class="login_field" type="text" placeholder="username" required>
+                    <input class="login_field" type="password" placeholder="password" required>
+                    <input class="login_button" type="submit" value="login">
+                </form>
+                <a onclick="scroll_to_right('main_container')">registrati</a>
+            </div>
         </div>
-    </div>
-    <div id="right_container" class="container" style="top:100%; background-color: #565656">
-        <div style="display: inline-block; text-align: left">
-            <h1>Registrazione</h1>
-            <form>
-                <input class="login_field" type="text" placeholder="e-mail" required>
-                <input class="login_field" type="text" placeholder="username" required>
-                <input class="login_field" type="password" placeholder="password" required>
-                <input class="login_field" type="password" placeholder="conferma password" required>
-                <input class="login_button" type="submit" value="registrati">
-            </form>
-            <a onclick="scroll_down('bottom_container')">login</a>
+        <div class="container">
+            <div style="display: inline-block; text-align: left">
+                <h1>Biblioteca</h1>
+                <button class="login_button">login</button>
+                <button class="login_button">registrati</button>
+                <a onclick="scroll_to_center('main_container')">login</a>
+            </div>
+        </div>
+        <div class="container">
+            <div style="display: inline-block; text-align: left">
+                <h1>Registrazione</h1>
+                <form>
+                    <input class="login_field" type="text" placeholder="e-mail" required>
+                    <input class="login_field" type="text" placeholder="username" required>
+                    <input class="login_field" type="password" placeholder="password" required>
+                    <input class="login_field" type="password" placeholder="conferma password" required>
+                    <input class="login_button" type="submit" value="registrati">
+                </form>
+                <a onclick="scroll_to_left('main_container')">login</a>
+            </div>
         </div>
     </div>
     <script src="script.js"></script>

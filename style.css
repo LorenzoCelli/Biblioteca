@@ -1,18 +1,23 @@
 body{
     font-family: 'Vollkorn', serif;
-    margin-top: 100px;
+    margin:0;
     background-color: #3c3c3c;
-    overflow: hidden;
+    overflow: scroll;
+}
+#main_container{
+    position: absolute;
+    white-space: nowrap;
+    width: 300%;
+    height: 100%;
+    transform: translate(-33.33%,0);
+    transition: transform 1s;
 }
 .container{
-    background-color: #3c3c3c;
-    position: absolute;
-    top:0;
-    left: 0;
+    /*background-color: #3c3c3c;*/
+    display: inline-block;
     height:100%;
-    width: 100%;
+    width: 33.3%;
     text-align: center;
-    transition: transform 500ms;
     overflow: hidden;
 }
 h1{
