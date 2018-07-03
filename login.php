@@ -11,11 +11,34 @@
         <div class="container">
             <div style="display: inline-block; text-align: left;">
                 <h1>login</h1>
-                <form action="login.php" method="post">
-                    <input class="login_field" type="text" placeholder="username" name="username" required>
-                    <input class="login_field" type="password" placeholder="password" name="password" required>
+                <form>
+                    <input class="login_field" type="text" placeholder="username" required>
+                    <input class="login_field" type="password" placeholder="password" required>
                     <input class="login_button" type="submit" value="login">
                 </form>
+                <?php
+
+                $uname = $_POST["username"];
+                $_SESSION['var'] = $uname;
+                $_SESSION['log'] = 1;
+                $pass = $_POST["password"];
+
+                include 'connection.php';
+
+                $sql = "SELECT * FROM login WHERE username = '$uname' AND password = '$pass'";
+
+                $results = mysqli_query($conn, $sql);
+
+                if ($results->num_rows == 1) {
+                  echo "<script>window.open('main/main.html','_self');</script>";}
+                }elseif ($results->num_rows == 0){
+                  $_SESSION['log'] = 0;
+                  echo "<br><br><b style='color:red;'>Username o Password non corretti, riprova.</b>";
+                }
+
+                mysqli_close($conn);
+
+                ?>
                 <a onclick="scroll_to_center('main_container')">indietro</a>
             </div>
         </div>
@@ -29,7 +52,7 @@
         <div class="container">
             <div style="display: inline-block; text-align: left">
                 <h1>Registrazione</h1>
-                <form action="registrazione.php" method="post">
+                <form>
                     <input class="login_field" type="text" placeholder="e-mail" required>
                     <input class="login_field" type="text" placeholder="username" required>
                     <input class="login_field" type="password" placeholder="password" required>
