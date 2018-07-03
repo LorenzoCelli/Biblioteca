@@ -9,7 +9,7 @@ body{
     white-space: nowrap;
     width: 300%;
     height: 100%;
-    transform: translate(-33.33%,0);
+    transform: translateX(-33.33%);
     transition: transform 1s;
 }
 .container{
