@@ -13,9 +13,9 @@
             <div style="display: inline-block; text-align: left;">
                 <h1>login</h1>
                 <form>
-                    <input class="login_field" type="text" placeholder="username" required>
-                    <input class="login_field" type="password" placeholder="password" required>
-                    <input class="login_button" type="submit" value="login">
+                  <input class="login_field" type="text" placeholder="username" name="username" required>
+                  <input class="login_field" type="password" placeholder="password" name="password" required>
+                  <input class="login_button" type="submit" value="login">
                 </form>
                 <?php
 
@@ -54,10 +54,10 @@
             <div style="display: inline-block; text-align: left">
                 <h1>Registrazione</h1>
                 <form>
-                    <input class="login_field" type="text" placeholder="e-mail" required>
-                    <input class="login_field" type="text" placeholder="username" required>
-                    <input class="login_field" type="password" placeholder="password" required>
-                    <input class="login_field" type="password" placeholder="conferma password" required>
+                    <input class="login_field" type="text" placeholder="e-mail" name="email" required>
+                    <input class="login_field" type="text" placeholder="username" name="username" required>
+                    <input class="login_field" type="password" placeholder="password" name="password" required>
+                    <input class="login_field" type="password" placeholder="conferma password" name="confpass" required>
                     <input class="login_button" type="submit" value="registrati">
                 </form>
                 <a onclick="scroll_to_center('main_container')">indietro</a>
