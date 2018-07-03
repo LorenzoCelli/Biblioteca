@@ -22,3 +22,7 @@ body{
     font-size: 20px;
     padding: 0 20px;
 }
+.menu_button{
+    height: 50px;
+    width: 50px;
+}
