@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +6,6 @@
     <title>Login</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Vollkorn:400,900" rel="stylesheet">
-    <?php session_start();?>
 </head>
 <body>
     <div id="main_container" style="transform:translateX(0);">
