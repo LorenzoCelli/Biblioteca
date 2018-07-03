@@ -5,9 +5,10 @@
     <title>Login</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Vollkorn:400,900" rel="stylesheet">
+    <?php session_start();?>
 </head>
 <body>
-    <div id="main_container">
+    <div id="main_container" style="transform:translateX(0);">
         <div class="container">
             <div style="display: inline-block; text-align: left;">
                 <h1>login</h1>
@@ -25,15 +26,15 @@
 
                 include 'connection.php';
 
-                $sql = "SELECT * FROM login WHERE username = '$uname' AND password = '$pass'";
+                $sql = "SELECT * FROM utenti WHERE username = '$uname' AND password = '$pass'";
 
                 $results = mysqli_query($conn, $sql);
 
                 if ($results->num_rows == 1) {
-                  echo "<script>window.open('main/main.html','_self');</script>";}
+                  echo "<script>window.open('main/main.html','_self');</script>";
                 }elseif ($results->num_rows == 0){
                   $_SESSION['log'] = 0;
-                  echo "<br><br><b style='color:red;'>Username o Password non corretti, riprova.</b>";
+                  echo "<br><b style='color:red;'>Username o Password non corretti, riprova.</b>";
                 }
 
                 mysqli_close($conn);
