@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Vollkorn:400,900" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div style="display: inline-block; text-align: left;">
+            <h1>biblioteca.</h1>
+            <form>
+                <input class="login_field" type="text" placeholder="username" required>
+                <input class="login_field" type="password" placeholder="password" required>
+                <input class="login_button" type="submit" value="login">
+            </form>
+            <a onclick="scroll_up('bottom_container')">registrati</a>
+        </div>
+    </div>
+    <div id="bottom_container" class="container" style="top:100%; background-color: #565656">
+        <div style="display: inline-block; text-align: left">
+            <h1>Registrazione</h1>
+            <form>
+                <input class="login_field" type="text" placeholder="e-mail" required>
+                <input class="login_field" type="text" placeholder="username" required>
+                <input class="login_field" type="password" placeholder="password" required>
+                <input class="login_field" type="password" placeholder="conferma password" required>
+                <input class="login_button" type="submit" value="registrati">
+            </form>
+            <a onclick="scroll_down('bottom_container')">login</a>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

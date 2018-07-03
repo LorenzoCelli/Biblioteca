@@ -1,0 +1,47 @@
+body{
+    font-family: 'Vollkorn', serif;
+    margin-top: 100px;
+    background-color: #3c3c3c;
+    overflow: hidden;
+}
+.container{
+    background-color: #3c3c3c;
+    position: absolute;
+    top:0;
+    left: 0;
+    height:100%;
+    width: 100%;
+    text-align: center;
+    transition: transform 500ms;
+    overflow: hidden;
+}
+h1{
+    font-family: 'Vollkorn', serif;
+    font-size:40px;
+    margin-bottom: 0;
+    color: white;
+}
+.login_field, .login_button{
+    background-color: white;
+    display: block;
+    margin: 10px 0;
+    padding: 10px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Vollkorn', serif;
+    font-weight: 400;
+    font-size: 15px;
+}
+input{
+    transition: transform 200ms;
+}
+input:hover{
+    transform: scale(1.03);
+}
+a{
+    color: white;
+}
+a:hover{
+    text-decoration: underline;
+}
