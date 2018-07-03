@@ -12,7 +12,7 @@
         <div class="container">
             <div style="display: inline-block; text-align: left;">
                 <h1>login</h1>
-                <form>
+                <form action="login.php" method="post">
                   <input class="login_field" type="text" placeholder="username" name="username" required>
                   <input class="login_field" type="password" placeholder="password" name="password" required>
                   <input class="login_button" type="submit" value="login">
@@ -53,7 +53,7 @@
         <div class="container">
             <div style="display: inline-block; text-align: left">
                 <h1>Registrazione</h1>
-                <form>
+                <form action="registrazione.php" method="post">
                     <input class="login_field" type="text" placeholder="e-mail" name="email" required>
                     <input class="login_field" type="text" placeholder="username" name="username" required>
                     <input class="login_field" type="password" placeholder="password" name="password" required>
