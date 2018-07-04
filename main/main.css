@@ -11,7 +11,7 @@ body{
 }
 .book_container:hover{
     transform: scale(1.05,1.05);
-    transition: scale 0.5s;
+    transition: scale 1s;
 }
 .book_image{
     display: inline-block;
