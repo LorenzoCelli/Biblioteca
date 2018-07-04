@@ -16,6 +16,7 @@ body{
 }
 .book_text{
     display: inline-block;
+    color: black;
     height: 100px;
     line-height: 100px;
     vertical-align: top;
