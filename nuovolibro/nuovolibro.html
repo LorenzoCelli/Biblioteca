@@ -4,39 +4,64 @@
     <meta charset="UTF-8">
     <title>La tua biblioteca</title>
     <link rel="stylesheet" type="text/css" href="../style.css">
+    <link rel="stylesheet" type="text/css" href="../main/main.css">
     <link rel="stylesheet" type="text/css" href="nuovolibro.css">
     <link href="https://fonts.googleapis.com/css?family=Vollkorn:400,900" rel="stylesheet">
 </head>
 <body>
 
-<div class="outer">
-<h1>Nuovo libro</h1>
-<form>
-    <input type="text" placeholder="ISBN"><br>
-    <input type="text" placeholder="Titolo"><br>
-    <input type="text" placeholder="Autore"><br>
-    <h2>Dove si trova?</h2>
-    <div class="select_box">
-        <div class="select_box_text">Libreria:</div>
-        <select>
-            <option>Libreria rossa</option>
-            <option>Libreria verde</option>
-            <option>Libreria arancione</option>
-        </select>
-    </div>
-    <br>
-    <div class="select_box">
-        <div class="select_box_text">Scaffale:</div>
-        <select>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-        </select>
-    </div><br>
-    <input style="margin-top: 30px" type="submit" value="aggiungi"><br>
-    <input type="button" value="annulla">
-</form>
+<h1 style="color: white"> La tua biblioteca. </h1>
+
+<div style="margin:10px 0; background-color: #f8f8f8; border-radius: 50px; overflow: hidden; height:50px; display: inline-block"><!--
+ --><div class="hover_button"><img class="menu_button" src="../imgs/piu.svg"></div><!--
+ --><div class="hover_button"><img class="menu_button" src="../imgs/ordina.svg"></div><!--
+ --><div onclick="show_hide('search_bar')" class="hover_button"><img style="border: none" class="menu_button" src="../imgs/lente.svg"></div><!--
+ --><input id="search_bar" class="menu_input" type="text"></div>
+<br>
+
+<div class="book_container">
+    <div class="book_image" style="background-image: url(https://images-na.ssl-images-amazon.com/images/I/51V%2Bb2rUV3L._SX356_BO1,204,203,200_.jpg)"></div><!--
+ --><div class="book_text"> La mia casa è dove sono </div>
+</div>
+<div class="book_container">
+    <div class="book_image" style="background-image: url(https://mr.comingsoon.it/imgdb/PrimoPiano/impaginate/AnimaliFantastici.jpg)"></div><!--
+ --><div class="book_text"> Gino Bottiglieri </div>
+</div>
+<div class="book_container">
+    <div class="book_image" style="background-image: url(http://pennablu.it/img/copertina.jpg)"></div><!--
+ --><div class="book_text"> asdads </div>
+</div>
+
+
+<div class="aside">
+    <h1>Nuovo libro</h1>
+    <form>
+        <input type="text" placeholder="ISBN"><br>
+        <input type="text" placeholder="Titolo"><br>
+        <input type="text" placeholder="Autore"><br>
+        <h2>Dove si trova?</h2>
+        <div class="select_box">
+            <div class="select_box_text">Libreria:</div>
+            <select>
+                <option>Libreria rossa</option>
+                <option>Libreria verde</option>
+                <option>Libreria arancione</option>
+            </select>
+        </div>
+        <br>
+        <div class="select_box">
+            <div class="select_box_text">Scaffale:</div>
+            <select>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+            </select>
+        </div><br>
+        <input style="margin-top: 30px" type="submit" value="aggiungi"><br>
+        <input type="button" value="annulla">
+    </form>
 </div>
 </form>
+<script src="nuovolibro.js"></script>
 </body>
 </html>

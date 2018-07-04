@@ -1,10 +1,12 @@
 body{
-    background-color: white;
+    background-color: #3a3a3a;
     color: #3a3a3a;
-    margin: 5%;
+    margin: 3%;
+    overflow: scroll;
 }
 h1{
     margin-top: 0;
+    line-height: 35px;
 }
 h2{
     margin: 0;
@@ -34,15 +36,58 @@ select{
     padding: 8px;
     border-radius: 20px;
 }
-.outer{
+.aside{
+    position: fixed;
+    height: 100%;
+    width: 400px;
+    right: 0;
+    top:0;
     display: inline-block;
     border: 1px solid #efefef;
-    border-radius: 10px;
-    padding: 20px;
+    padding: 10px 30px;
+    box-sizing: border-box;
     background-color: #f8f8f8;
-    /*
-    -webkit-box-shadow: 0px 0px 13px 2px rgba(0,0,0,0.08);
-    -moz-box-shadow: 0px 0px 13px 2px rgba(0,0,0,0.08);
-    box-shadow: 0px 0px 13px 2px rgba(0,0,0,0.08);
-    */
+}
+.menu_button{
+    margin: 0;
+    height: 50px;
+    width: 50px;
+    border-right: 1px solid #efefef;
+}
+.menu_input{
+    height: 50px;
+    background-color: transparent;
+    border: 1px solid #efefef;
+    vertical-align: top;
+    border-radius: 0;
+    width: 0;
+    margin: 0;
+    padding: 0;
+    transition: width 500ms;
+    box-sizing: border-box;
+}
+.menu_input:hover{
+    transform: scale(1);
+}
+.single_button{
+    box-sizing: border-box;
+    height: 50px;
+    width: 150px;
+}
+.hover_button{
+    height: 50px;
+    display: inline-block;
+}
+.hover_button:hover{
+    background-color: #efefef;
+}
+
+
+.book_container{
+    display: inline-block;
+    background-color: white;
+    height: 100px;
+    margin: 0 10px 10px 0;
+    border-radius: 5px;
+    overflow: hidden;
 }
