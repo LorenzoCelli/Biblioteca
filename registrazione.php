@@ -59,7 +59,7 @@
                   ('$id','$uname','$email','$pass')";
                   $results = mysqli_query($conn, $sql);
 
-                  if ($results) echo "<script>window.open('main/main.html','_self');</script>";
+                  if ($results) echo "<script>window.open('main/main.php','_self');</script>";
                   else echo "<b style='color:red;'>Qualcosa è andato storto, riprova.</b><br>";
 
                 }else {

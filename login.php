@@ -31,7 +31,7 @@
                 $results = mysqli_query($conn, $sql);
 
                 if ($results->num_rows == 1) {
-                  echo "<script>window.open('main/main.html','_self');</script>";
+                  echo "<script>window.open('main/main.php','_self');</script>";
                 }elseif ($results->num_rows == 0){
                   $_SESSION['log'] = 0;
                   echo "<b style='color:red;'>Username o Password non corretti, riprova.</b><br>";
