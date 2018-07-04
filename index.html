@@ -32,9 +32,10 @@
                 <form action="registrazione.php" method="post">
                     <input class="login_field" type="text" placeholder="e-mail" name="email" required>
                     <input class="login_field" type="text" placeholder="username" name="username" required>
-                    <input class="login_field" type="password" placeholder="password" name="password" required>
-                    <input class="login_field" type="password" placeholder="conferma password" name="confpass" required>
-                    <input class="login_button" type="submit" value="registrati">
+                    <input class="login_field" type="password" placeholder="password" name="password" id="password_confirm" onkeyup="checkPassword();" required>
+                    <input class="login_field" type="password" placeholder="conferma password" name="confpass" id="password_confirm_check" onkeyup="checkPassword();" required>
+                    <p id="message"></p>
+                    <input class="login_button" type="submit" value="registrati" id="register_button">
                 </form>
                 <a onclick="scroll_to_center('main_container')">indietro</a>
             </div>
