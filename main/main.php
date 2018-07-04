@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,8 +11,32 @@
 <body>
 
 <h1>La tua biblioteca.</h1>
-<a href="../aggiungi.html"><img class="menu_button" src="../imgs/piu.png" style="border-right: 2px solid #ececec"></a><!--
+<a href="../nuovolibro.html"><img class="menu_button" src="../imgs/piu.png" style="border-right: 2px solid #ececec"></a><!--
 --><a href="../cerca.html"><img class="menu_button" src="../imgs/lente.png"></a><br>
+
+<?php
+
+$id_utente = $_SESSION['id_utente'];
+
+include 'connection.php';
+
+$sql = "SELECT * FROM libri WHERE id_utente = '$id_utente'";
+$result = mysqli_query($conn, $sql);
+
+while($row = mysqli_fetch_assoc($result)){
+  echo "
+  <div class='book_container'>
+      <div class='book_image' style='background-image: url()'></div><!--
+   --><div class='book_text'>
+        ".$row['titolo']."<br>
+        ".$row['autore']."<br>
+        ".$row['desc']."
+      </div>
+  </div>
+  ";
+}
+
+?>
 
 <div class="book_container">
     <div class="book_image" style="background-image: url(https://images-na.ssl-images-amazon.com/images/I/51V%2Bb2rUV3L._SX356_BO1,204,203,200_.jpg)"></div><!--
