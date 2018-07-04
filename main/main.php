@@ -41,7 +41,17 @@ while($row = mysqli_fetch_assoc($result)){
       </div>
       <div class='book_info'>
         Autore: ".$row['autore']."<br>
-        Descrizione: ".$row['desc']."
+        Descrizione: ".$row['desc']."<br>
+        Generi:
+  ";
+  $id_libro = $row['id'];
+  $generi = mysqli_query($conn, "SELECT * FROM generi WHERE id_libro = '$id_libro'");
+  if ($generi->num_rows == 0) echo "---";
+  else{
+    while ($gen = mysqli_fetch_assoc($generi)) echo $gen['genere']."<br>";
+  }
+  echo "
+      
       </div>
   </div>
   ";
@@ -50,6 +60,7 @@ while($row = mysqli_fetch_assoc($result)){
 
 ?>
 
+<br><br>
 <div class="book_container" onclick="ingrandisci(this)">
     <div class="book_image" style="background-image: url(https://images-na.ssl-images-amazon.com/images/I/51V%2Bb2rUV3L._SX356_BO1,204,203,200_.jpg)"></div><!--
  --><div class="book_text"> La mia casa è dove sono </div>
