@@ -41,18 +41,17 @@
 
                 $_SESSION['log'] = 1;
                 $uname = $_POST["username"];
-                $_SESSION['var'] = $uname;
                 $email = $_POST["email"];
                 $pass = $_POST["password"];
-                $confpass = $_POST["confpass"];
 
                 include 'connection.php';
 
                 $usercheck = mysqli_query($conn, "SELECT * FROM utenti WHERE username = '$uname'")->num_rows;
                 $emailcheck = mysqli_query($conn, "SELECT * FROM utenti WHERE email = '$email'")->num_rows;
-                if ($usercheck == 0 && $emailcheck == 0 && $pass == $confpass) {
+                if ($usercheck == 0 && $emailcheck == 0) {
 
                   $id = mysqli_query($conn, "SELECT * FROM utenti")->num_rows;
+                  $_SESSION['id_utente'] = $id;
                   $sql = "INSERT INTO utenti
                   (id,username,email,password)
                   VALUES
@@ -65,7 +64,6 @@
                 }else {
                   if ($usercheck != 0) echo "*username già in uso<br>";
                   if ($emailcheck != 0) echo "*email già in uso<br>";
-                  if ($pass != $confpass) echo "*password non coincidono<br>";
                 }
 
                 mysqli_close($conn);

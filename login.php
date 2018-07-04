@@ -20,7 +20,6 @@
                 <?php
 
                 $uname = $_POST["username"];
-                $_SESSION['var'] = $uname;
                 $_SESSION['log'] = 1;
                 $pass = $_POST["password"];
 
@@ -29,6 +28,8 @@
                 $sql = "SELECT * FROM utenti WHERE username = '$uname' AND password = '$pass'";
 
                 $results = mysqli_query($conn, $sql);
+                $row = mysqli_fetch_assoc($result);
+                $_SESSION['id_utente'] = $row['id'];
 
                 if ($results->num_rows == 1) {
                   echo "<script>window.open('main/main.php','_self');</script>";
