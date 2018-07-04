@@ -1,0 +1,25 @@
+body {
+  text-align: center;
+  overflow: auto;
+}
+input{
+      background-color: white;
+      border: 1px solid #cbcbcb;
+      height: 40px;
+      width: 300px;
+      border-radius: 10px;
+      outline: none;
+      margin-bottom: 5px;
+      font-family: 'Vollkorn', serif;
+      font-size: 15px;
+      padding-left: 10px;
+}
+.scaffale {
+    display: block;
+}
+.libreria {
+  display: inline-block;
+}
+.tasto {
+  width: 390px;
+}
