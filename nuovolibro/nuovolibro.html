@@ -9,6 +9,7 @@
 </head>
 <body>
 
+<div class="outer">
 <h1>Nuovo libro</h1>
 <form>
     <input type="text" placeholder="ISBN"><br>
@@ -18,17 +19,24 @@
     <div class="select_box">
         <div class="select_box_text">Libreria:</div>
         <select>
-            <option>Libreria gialla</option>
-            <option>Libreria nera</option>
+            <option>Libreria rossa</option>
+            <option>Libreria verde</option>
+            <option>Libreria arancione</option>
         </select>
     </div>
     <br>
-    Scaffale:<br>
-    <select>
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-    </select>
+    <div class="select_box">
+        <div class="select_box_text">Scaffale:</div>
+        <select>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+        </select>
+    </div><br>
+    <input style="margin-top: 30px" type="submit" value="aggiungi"><br>
+    <input type="button" value="annulla">
+</form>
+</div>
 </form>
 </body>
 </html>

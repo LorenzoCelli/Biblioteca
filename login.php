@@ -28,7 +28,7 @@
                 $sql = "SELECT * FROM utenti WHERE username = '$uname' AND password = '$pass'";
 
                 $results = mysqli_query($conn, $sql);
-                $row = mysqli_fetch_assoc($result);
+                $row = mysqli_fetch_assoc($results);
                 $_SESSION['id_utente'] = $row['id'];
 
                 if ($results->num_rows == 1) {

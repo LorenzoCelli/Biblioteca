@@ -18,7 +18,7 @@
 
 $id_utente = $_SESSION['id_utente'];
 
-include 'connection.php';
+include '../connection.php';
 
 $sql = "SELECT * FROM libri WHERE id_utente = '$id_utente'";
 $result = mysqli_query($conn, $sql);
@@ -34,6 +34,7 @@ while($row = mysqli_fetch_assoc($result)){
       </div>
   </div>
   ";
+
 }
 
 ?>
