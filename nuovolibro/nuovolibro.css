@@ -1,0 +1,44 @@
+body{
+    background-color: white;
+    color: #3a3a3a;
+    margin: 5%;
+}
+h1{
+    margin-top: 0;
+}
+h2{
+    margin: 0;
+}
+input, select{
+    background-color: white;
+    border: 1px solid #cbcbcb;
+    height: 40px;
+    width: 300px;
+    border-radius: 10px;
+    outline: none;
+    margin-bottom: 5px;
+    font-family: 'Vollkorn', serif;
+    font-size: 15px;
+}
+select{
+    box-sizing: border-box;
+    height: 50px;
+    margin: 0;
+    border-radius: 0;
+    float:right;
+
+    border: none;
+    background-color: #e2e2e2;
+}
+.select_box{
+    border-radius: 50px;
+    height: 50px;
+    background-color: #f4f4f4;
+    display: block;
+    overflow: hidden;
+}
+.select_box_text{
+    display: inline-block;
+    height: 50px;
+    line-height: 50px;
+}
