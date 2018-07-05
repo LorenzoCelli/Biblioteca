@@ -10,7 +10,7 @@ body{
     transition: width 0.2s, height 0.2s;
 }
 .book_container:hover{
-    transform: scale(1.05,1.05);
+    transform: scale(1.02,1.02);
     transition: scale 1s;
 }
 .book_image{
