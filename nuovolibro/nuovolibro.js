@@ -26,3 +26,17 @@ function slide_right(element_id){
         element.is_open = false;
     }
 }
+function ingrandisci(container) {
+  container.style.width = "1000px";
+  container.style.height = "200px";
+  container.getElementsByClassName("book_info")[0].style.display = "inline-block";
+}
+function changee() {
+  var select = document.querySelector('select[name=nome_libreria]');
+  var select2 = document.querySelector('select[name=scaffale]');
+  var num_scaffali = libreria[select.value];
+  select2.innerHTML = "";
+  for (var i = 1; i <= num_scaffali; i++) {
+    select2.innerHTML += "<option value='"+i+"'>"+i+"</option>";
+  }
+}

@@ -11,7 +11,7 @@ h1{
 h2{
     margin: 0;
 }
-input, select{
+input, select, textarea{
     background-color: white;
     border: 1px solid #cbcbcb;
     height: 40px;
@@ -47,6 +47,7 @@ select{
     box-sizing: border-box;
     background-color: #f8f8f8;
     transition: transform 300ms;
+    overflow: auto;
 }
 .menu_button{
     margin: 0;
@@ -117,7 +118,7 @@ select{
     padding: 100px 0 0 50px;
     box-sizing: border-box;
     white-space: normal;
-    overflow: scroll;
+    overflow: auto;
     -webkit-box-shadow: inset 10px 0 35px -16px rgba(0,0,0,0.75);
     -moz-box-shadow: inset 10px 0 35px -16px rgba(0,0,0,0.75);
     box-shadow: inset 10px 0 35px -16px rgba(0,0,0,0.75);
