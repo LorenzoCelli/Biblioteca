@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="../style.css">
     <link href="https://fonts.googleapis.com/css?family=Vollkorn:400,900" rel="stylesheet">
 </head>
 <body>
@@ -26,6 +26,7 @@
                 <button class="login_button" style="width: 200px" onclick="scroll_to_left('main_container')">login</button>
                 <button class="login_button" style="width: 200px" onclick="scroll_to_right('main_container')">registrati</button>
             </div>
+<<<<<<< HEAD:registrazione.php
         </div>
         <div class="container">
             <div style="display: inline-block; text-align: left">
@@ -41,6 +42,20 @@
                     <input class="login_button" type="submit" value="registrati">
                 </form>
                 <?php
+=======
+            <div class="input_container">
+                <input class="login_field" type="password" placeholder="password" name="password" id="pass" onkeyup="check_pass()" required>
+            </div>
+            <div class="input_container">
+                <input onfocus="first_focus=true;" class="login_field" type="password" placeholder="conferma password" name="confpass" id="pass_check" onkeyup="check_pass()" required>
+                <div id="pass_alarm" class="alert"><div class="point">!</div>Le password non coincidono!</div>
+            </div>
+            <div class="input_container">
+                <input class="login_button" type="submit" value="registrati" id="register_button">
+            </div>
+        </form>
+        <script src="../script.js"></script>
+>>>>>>> 369c518628cc301cf412c07cdce112d36ebd2565:registrazione/registrazione.php
 
                 $_SESSION['log'] = 1;
                 $uname = $_POST["username"];
@@ -61,20 +76,31 @@
                   ('$id','$uname','$email','$pass')";
                   $results = mysqli_query($conn, $sql);
 
+<<<<<<< HEAD:registrazione.php
                   if ($results) echo "<script>window.open('main/main.php','_self');</script>";
                   else echo "<b style='color:red;'>Qualcosa è andato storto, riprova.</b><br>";
+=======
+          if ($results) echo "<script>window.open('../nuovolibro/main.php','_self');</script>";
+          else echo "<b style='color:red;'>Qualcosa è andato storto, riprova.</b><br>";
+>>>>>>> 369c518628cc301cf412c07cdce112d36ebd2565:registrazione/registrazione.php
 
                 }else{
                   if ($usercheck != 0) echo "<script>document.getElementById('usermsg').innerHTML = 'Username già in uso';</script>";
                   if ($emailcheck != 0) echo "<script>document.getElementById('emailmsg').innerHTML = 'Email già in uso';</script>";
                 }
 
+<<<<<<< HEAD:registrazione.php
                 mysqli_close($conn);
 
                 ?>
                 <a onclick="scroll_to_center('main_container')">indietro</a>
             </div>
         </div>
+=======
+        mysqli_close($conn);
+        ?>
+        <a href="../index.html">indietro</a>
+>>>>>>> 369c518628cc301cf412c07cdce112d36ebd2565:registrazione/registrazione.php
     </div>
     <script src="script.js"></script>
 </body>

@@ -6,6 +6,7 @@ function scroll_to_center(element_id) {
     var element = document.getElementById(element_id);
     element.style.transform = "translateX(-33.33%)";
 }
+<<<<<<< HEAD
 function scroll_to_left(element_id) {
     var element = document.getElementById(element_id);
     element.style.transform = "translateX(0)";
@@ -24,4 +25,16 @@ function checkPassword() {
   if (first_password == "" || second_password == ""){
     document.getElementById('message').innerHTML = "";
   }
+=======
+
+function wrong_user(){
+    usr_msg.style.display="block";
+    usr_field.onkeyup = function () {
+        if(this.value === uname){
+            usr_msg.style.display = "block";
+        }else{
+            usr_msg.style.display = "none";
+        }
+    }
+>>>>>>> 369c518628cc301cf412c07cdce112d36ebd2565
 }

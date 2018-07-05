@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="../style.css">
     <link href="https://fonts.googleapis.com/css?family=Vollkorn:400,900" rel="stylesheet">
 </head>
 <body>
@@ -31,14 +31,20 @@
                 $row = mysqli_fetch_assoc($results);
                 $_SESSION['id_utente'] = $row['id'];
 
+<<<<<<< HEAD:login.php
                 if ($results->num_rows == 1) echo "<script>window.open('main/main.php','_self');</script>";
                 elseif ($results->num_rows == 0){
                   $_SESSION['log'] = 0;
                   echo "<b style='color:red;'>Username o Password non corretti, riprova.</b><br>";
                 }
+=======
+            if ($results->num_rows == 1) echo "<script>window.open('../nuovolibro/main.php','_self');</script>";
+            elseif ($results->num_rows == 0)echo "<div class='err_box'>Ups, username o password sbagliati!</div>";
+>>>>>>> 369c518628cc301cf412c07cdce112d36ebd2565:login/login.php
 
                 mysqli_close($conn);
 
+<<<<<<< HEAD:login.php
                 ?>
                 <a onclick="scroll_to_center('main_container')">indietro</a>
             </div>
@@ -63,7 +69,11 @@
                 <a onclick="scroll_to_center('main_container')">indietro</a>
             </div>
         </div>
+=======
+            ?>
+            <a href="../index.html">indietro</a>
+>>>>>>> 369c518628cc301cf412c07cdce112d36ebd2565:login/login.php
     </div>
-    <script src="script.js"></script>
+    <script src="../script.js"></script>
 </body>
 </html>
