@@ -52,7 +52,7 @@ Main container
               </div>
               <div class='book_info'>
                 Autore: ".$row['autore']."<br>
-                Descrizione: ".$row['desc']."<br>
+                Descrizione: ".$row['descr']."<br>
                 Generi:
           ";
           $id_libro = $row['id'];
@@ -94,7 +94,7 @@ New book aside
         <input type="text" placeholder="ISBN" name="isbn"><br>
         <input type="text" placeholder="Titolo" name="titolo"><br>
         <input type="text" placeholder="Autore" name="autore"><br>
-        <textarea rows="4" cols="50" placeholder="Descrizione" name="descr" ></textarea>
+        <textarea rows="4" cols="50" name="descr"></textarea>
         <h2>Dove si trova?</h2>
         <div class="select_box">
             <div class="select_box_text">Libreria:</div>
@@ -130,6 +130,38 @@ New book aside
         </div><br>
         <input style="margin-top: 30px" type="submit" value="aggiungi"><br>
         <input type="button" value="annulla" onclick="slide_left('new_book')">
+        <?php
+
+        $isbn = $_POST["isbn"];
+        $titolo = $_POST["titolo"];
+        $autore = $_POST["autore"];
+        $descr = $_POST["descr"];
+        $nome = $_POST["nome"];
+        $scaffale = $_POST["scaffale"];
+
+        include 'connection.php';
+
+
+        $sql = "INSERT INTO libri
+        (isbn,id_utente,titolo,autore,descr)
+        VALUES
+        ('$isbn','$id_utente','$titolo','$autore','$descr')";
+        $results = mysqli_query($conn, $sql);
+
+        $id_libro = mysqli_query($conn, "SELECT * FROM libri")->num_rows;
+        $libr = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM libreria WHERE id_utente = '$id_utente' AND nome = '$nome'"));
+        $id_libreria = $libr['id'];
+        $sql = "INSERT INTO posizione
+        (id_libro,n_scaffale,id_libreria)
+        VALUES
+        ('$id_libro','$scaffale','$id_libreria')";
+        $results = mysqli_query($conn, $sql);
+
+        if ($results) echo "<script>window.open('nuovolibro/main.php','_self');</script>";
+
+        mysqli_close($conn);
+
+        ?>
     </form>
 </div>
 
