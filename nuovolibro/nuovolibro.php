@@ -157,7 +157,7 @@ New book aside
         ('$id_libro','$scaffale','$id_libreria')";
         $results = mysqli_query($conn, $sql);
 
-        if ($results) echo "<script>window.open('nuovolibro/main.php','_self');</script>";
+        if ($results) echo "<script>window.open('main.php','_self');</script>";
 
         mysqli_close($conn);
 
