@@ -114,8 +114,37 @@ select{
     width: 100%;
     padding: 100px 0 0 50px;
     box-sizing: border-box;
-
+    white-space: normal;
+    overflow: scroll;
     -webkit-box-shadow: inset 10px 0 35px -16px rgba(0,0,0,0.75);
     -moz-box-shadow: inset 10px 0 35px -16px rgba(0,0,0,0.75);
     box-shadow: inset 10px 0 35px -16px rgba(0,0,0,0.75);
+}
+
+.book_container{
+    display: inline-block;
+    background-color: white;
+    height: 100px;
+    margin: 0 10px 10px 0;
+    transition: transform 500ms;
+}
+.book_container:hover{
+    transform: scale(1.02,1.02);
+
+}
+.book_image{
+    display: inline-block;
+    height: 100px;
+    width: 100px;
+    background-size: cover;
+    background-position: center;
+}
+.book_text{
+    display: inline-block;
+    color: black;
+    height: 100px;
+    line-height: 100px;
+    vertical-align: top;
+    font-size: 20px;
+    padding: 0 20px;
 }
