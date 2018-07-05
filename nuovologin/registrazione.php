@@ -1,0 +1,70 @@
+<?php session_start();?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Vollkorn:400,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+</head>
+<body>
+            <div class="container">
+                <h1>Registrazione</h1>
+                <form action="registrazione.php" method="post">
+                    <div class="input_container">
+                        <input class="login_field" type="email" placeholder="e-mail" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
+                        <div id="emailmsg" class="alert"><div class="point">!</div>Email già in uso!</div>
+                    </div>
+                    <div class="input_container">
+                        <input class="login_field" type="text" placeholder="username" name="username" required>
+                        <div id="usrmsg" class="alert"><div class="point">!</div>Username già in uso!</div>
+                    </div>
+                    <div class="input_container">
+                        <input class="login_field" type="password" placeholder="password" name="password" id="pass" onmouseout="check_pass()" onblur="check_pass()" required>
+                    </div>
+                    <div class="input_container">
+                        <input class="login_field" type="password" placeholder="conferma password" name="confpass" id="pass_check" onmouseout="check_pass()" onblur="check_pass()" required>
+                        <div id="pass_alarm" class="alert"><div class="point">!</div>Le password non coincidono!</div>
+                    </div>
+                    <div class="input_container">
+                        <input class="login_button" type="submit" value="registrati" id="register_button">
+                    </div>
+                </form>
+                <?php
+                $uname = $_POST["username"];
+                $email = $_POST["email"];
+                $pass = $_POST["password"];
+
+                include '../connection.php';
+
+                $usercheck = mysqli_query($conn, "SELECT * FROM utenti WHERE username = '$uname'")->num_rows;
+                $emailcheck = mysqli_query($conn, "SELECT * FROM utenti WHERE email = '$email'")->num_rows;
+
+                if ($usercheck == 0 && $emailcheck == 0) {
+
+                  $id = mysqli_query($conn, "SELECT * FROM utenti")->num_rows;
+                  $_SESSION['id_utente'] = $id;
+                  $sql = "INSERT INTO utenti
+                  (username,email,password)
+                  VALUES
+                  ('$uname','$email','$pass')";
+                  $results = mysqli_query($conn, $sql);
+
+                  if ($results) echo "<script>window.open('main/main.php','_self');</script>";
+                  else echo "<b style='color:red;'>Qualcosa è andato storto, riprova.</b><br>";
+
+                }else{
+                  if ($usercheck != 0) echo "<script>document.getElementById('usrmsg').style.display = 'block' </script>";
+                  if ($emailcheck != 0) echo "<script>document.getElementById('emailmsg').style.display = 'block' </script>";
+                }
+
+                mysqli_close($conn);
+                ?>
+                <a href="index.html">indietro</a>
+            </div>
+        </div>
+    <script src="script.js"></script>
+</body>
+</html>
