@@ -1,11 +1,17 @@
 body{
     margin: 100px 0 0 100px;
+    overflow: auto;
 }
 .book_container{
     display: inline-block;
     background-color: white;
     height: 100px;
     margin: 0 10px 10px 0;
+    transition: width 0.2s, height 0.2s;
+}
+.book_container:hover{
+    transform: scale(1.05,1.05);
+    transition: scale 1s;
 }
 .book_image{
     display: inline-block;
@@ -22,6 +28,13 @@ body{
     vertical-align: top;
     font-size: 20px;
     padding: 0 20px;
+}
+.book_info{
+  display: none;
+  color: black;
+  height: auto;
+  font-size: 20px;
+  padding: 0 20px;
 }
 .menu_button{
     border-radius: 0;

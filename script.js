@@ -14,15 +14,14 @@ function checkPassword() {
   var first_password = document.getElementById('password_confirm').value;
   var second_password = document.getElementById('password_confirm_check').value;
   if(first_password == second_password) {
-    document.getElementById('message').style.color = 'green';
-    document.getElementById('message').innerHTML = 'Password corrispondenti!';
+    document.getElementById('message').innerHTML = '';
     document.getElementById('register_button').disabled = false;
-  } else if (first_password != second_password) {
+  } else {
     document.getElementById('message').style.color = 'red';
     document.getElementById('message').innerHTML = 'Password non corrispondenti!';
     document.getElementById('register_button').disabled = true;
   }
-  if (first_password == "" && second_password == ""){
+  if (first_password == "" || second_password == ""){
     document.getElementById('message').innerHTML = "";
   }
 }
