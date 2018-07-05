@@ -16,10 +16,16 @@ body{
 .container{
     /*background-color: #3c3c3c;*/
     display: inline-block;
-    height:100%;
+    height: 100%;
     width: 33.3%;
     text-align: center;
     overflow: hidden;
+}
+.inner_login{
+    width: 230px;
+}
+.inner_register{
+    width: 500px;
 }
 h1{
     font-family: 'Vollkorn', serif;
