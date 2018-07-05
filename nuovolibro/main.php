@@ -3,6 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>La tua biblioteca</title>
     <link rel="stylesheet" type="text/css" href="../style.css">
     <link rel="stylesheet" type="text/css" href="nuovolibro.css">
@@ -32,14 +33,6 @@ Main container
          --><div onclick="show_hide('search_bar')" class="hover_button"><img style="border: none" class="menu_button" src="../imgs/lente.svg"></div><!--
          --><input id="search_bar" class="menu_input" type="text"></div>
         <br>
-
-        <script>
-          function ingrandisci(container) {
-            container.style.width = "1000px";
-            container.style.height = "200px";
-            container.getElementsByClassName("book_info")[0].style.display = "inline-block";
-          }
-        </script>
 
         <?php
 

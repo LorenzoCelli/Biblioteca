@@ -26,3 +26,8 @@ function slide_right(element_id){
         element.is_open = false;
     }
 }
+function ingrandisci(container) {
+  container.style.width = "1000px";
+  container.style.height = "200px";
+  container.getElementsByClassName("book_info")[0].style.display = "inline-block";
+}
