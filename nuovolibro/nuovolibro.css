@@ -1,7 +1,7 @@
 body{
-    background-color: #3a3a3a;
+    background-color: #f8f8f8;
     color: #3a3a3a;
-    margin: 3%;
+    margin: 0;
     overflow: scroll;
 }
 h1{
@@ -40,13 +40,13 @@ select{
     position: fixed;
     height: 100%;
     width: 400px;
-    right: 0;
     top:0;
     display: inline-block;
     border: 1px solid #efefef;
-    padding: 10px 30px;
+    padding: 20px 30px;
     box-sizing: border-box;
     background-color: #f8f8f8;
+    transition: transform 300ms;
 }
 .menu_button{
     margin: 0;
@@ -81,8 +81,6 @@ select{
 .hover_button:hover{
     background-color: #efefef;
 }
-
-
 .book_container{
     display: inline-block;
     background-color: white;
@@ -90,4 +88,35 @@ select{
     margin: 0 10px 10px 0;
     border-radius: 5px;
     overflow: hidden;
+}
+.main_container{
+    transform: translateX(-300px);
+    transition: transform 300ms;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    white-space: nowrap;
+}
+.menu_aside{
+    display: inline-block;
+    height: 100%;
+    width: 300px;
+    transition: transform 500ms;
+}
+.content{
+    position: relative;
+    vertical-align: top;
+    background-color: #3a3a3a;
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    padding: 100px 0 0 50px;
+    box-sizing: border-box;
+
+
+    -webkit-box-shadow: inset 10px 0 35px -16px rgba(0,0,0,0.75);
+    -moz-box-shadow: inset 10px 0 35px -16px rgba(0,0,0,0.75);
+    box-shadow: inset 10px 0 35px -16px rgba(0,0,0,0.75);
 }
