@@ -7,19 +7,22 @@
     <link rel="stylesheet" type="text/css" href="../main/main.css">
     <link rel="stylesheet" type="text/css" href="nuovalibreria.css">
     <link href="https://fonts.googleapis.com/css?family=Vollkorn:400,900" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 
 <!--
 Main container
 -->
-
+<div class="header">
+<h5  class="logo">|  librerie. |</h5>
+</div>
 <div id="a" class="main_container">
     <div class="menu_aside">
 
     </div><!--
  --><div class="content">
-        <img onclick="slide_right('a')" src="../imgs/menu.svg" style="position: absolute; top: 0; left: -1px; height: 90px;cursor: pointer;">
+        <img onclick="slide_right('a')" src="../imgs/menu.svg" style="position: absolute; top: 0; left: -1px; height: 90px;cursor: pointer;border-top: 1px solid black;">
         <div class="top">
         <h1 style="color: white"> Le tue librerie. </h1>
 
@@ -30,7 +33,7 @@ Main container
          --><input id="search_bar" class="menu_input" type="text"></div>
        </div>
         <br>
-
+        
         <div class="book_container">
             <div class="book_image" style="background-image: url(bookshelf.png)"></div><!--
          --><div class="book_text2"> libreria #1 </div>
@@ -43,6 +46,10 @@ Main container
             <div class="book_image" style="background-image: url(bookshelf.png)"></div><!--
          --><div class="book_text2"> libreria #3 </div>
         </div>
+        <div class="book_container">
+            <div class="book_image" style="background-image: url(bookshelf.png)"></div><!--
+         --><div class="book_text2"> libreria #4 </div>
+        </div>
     </div></div>
 
 <!--
@@ -50,9 +57,9 @@ New book aside
 -->
 
 <div class="aside" style="left: 100%" id="new_library">
-  <h1 style="    display: inline-block;">Nuova libreria</h1>
+  <h1 style="display: inline-block;">Nuova libreria</h1>
   <button onclick="slide_left('new_library')" style="margin-left: 4%;">x</button>
-  
+
   <form>
     <div class="form">
       <span>Nome libreria:</span><br>
