@@ -18,7 +18,7 @@ function checkPassword() {
     document.getElementById('register_button').disabled = false;
   } else {
     document.getElementById('message').style.color = 'red';
-    document.getElementById('message').innerHTML = 'Password non corrispondenti!';
+    document.getElementById('message').innerHTML = '*Password non corrispondenti!';
     document.getElementById('register_button').disabled = true;
   }
   if (first_password == "" || second_password == ""){

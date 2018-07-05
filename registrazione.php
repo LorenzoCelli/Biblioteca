@@ -3,6 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Vollkorn:400,900" rel="stylesheet">
@@ -10,7 +11,7 @@
 <body>
     <div id="main_container" style="transform:translateX(-66.66%);">
         <div class="container">
-            <div style="display: inline-block; text-align: left;">
+            <div class="inner_login" style="display: inline-block; text-align: left;">
                 <h1>login</h1>
                 <form action="login.php" method="post">
                     <input class="login_field" type="text" placeholder="username" name="username" required>
@@ -28,21 +29,28 @@
             </div>
         </div>
         <div class="container">
-            <div style="display: inline-block; text-align: left">
+            <div class="inner_register" style="display: inline-block; text-align: left">
                 <h1>Registrazione</h1>
                 <form action="registrazione.php" method="post">
-                    <input class="login_field" type="email" placeholder="e-mail" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
-                    <p id="usermsg"></p>
-                    <input class="login_field" type="text" placeholder="username" name="username" required>
-                    <p id="emailmsg"></p>
-                    <input class="login_field" type="password" placeholder="password" name="password" id="password_confirm" onkeyup="checkPassword();" required>
-                    <input class="login_field" type="password" placeholder="conferma password" name="confpass" id="password_confirm_check" onkeyup="checkPassword();" required>
-                    <p id="message"></p>
-                    <input class="login_button" type="submit" value="registrati">
+                  <div style="display:block;white-space:normal;" class="">
+                    <div style="display:inline-block;" class=""><input class="login_field" type="email" placeholder="e-mail" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required></div>
+                    <div style="display:inline-block;color:red;" id="emailmsg" class=""></div>
+                  </div>
+                  <div style="display:block;white-space:normal;" class="">
+                    <div style="display:inline-block;" class=""><input class="login_field" type="text" placeholder="username" name="username" required></div>
+                    <div style="display:inline-block;color:red;" id="usermsg" class=""></div>
+                  </div>
+                  <div style="display:block;white-space:normal;" class="">
+                    <div style="display:inline-block;" class=""><input class="login_field" type="password" placeholder="password" name="password" id="password_confirm" onkeyup="checkPassword();" required></div>
+                  </div>
+                  <div style="display:block;white-space:normal;" class="">
+                    <div style="display:inline-block;" class=""><input class="login_field" type="password" placeholder="conferma password" name="confpass" id="password_confirm_check" onkeyup="checkPassword();" required></div>
+                    <div style="display:inline-block;" id="message" class=""></div>
+                  </div>
+                    <input class="login_button" type="submit" value="registrati" id="register_button">
                 </form>
                 <?php
 
-                $_SESSION['log'] = 1;
                 $uname = $_POST["username"];
                 $email = $_POST["email"];
                 $pass = $_POST["password"];
@@ -65,8 +73,8 @@
                   else echo "<b style='color:red;'>Qualcosa è andato storto, riprova.</b><br>";
 
                 }else{
-                  if ($usercheck != 0) echo "<script>document.getElementById('usermsg').innerHTML = 'Username già in uso';</script>";
-                  if ($emailcheck != 0) echo "<script>document.getElementById('emailmsg').innerHTML = 'Email già in uso';</script>";
+                  if ($usercheck != 0) echo "<script>document.getElementById('usermsg').innerHTML = '*Username già in uso';</script>";
+                  if ($emailcheck != 0) echo "<script>document.getElementById('emailmsg').innerHTML = '*Email già in uso';</script>";
                 }
 
                 mysqli_close($conn);

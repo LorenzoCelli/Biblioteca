@@ -10,7 +10,7 @@
 <body>
     <div id="main_container" style="transform:translateX(0);">
         <div class="container">
-            <div style="display: inline-block; text-align: left;">
+            <div class="inner_login" style="display: inline-block; text-align: left;">
                 <h1>login</h1>
                 <form action="login.php" method="post">
                   <input class="login_field" type="text" placeholder="username" name="username" required>
@@ -20,7 +20,6 @@
                 <?php
 
                 $uname = $_POST["username"];
-                $_SESSION['log'] = 1;
                 $pass = $_POST["password"];
 
                 include 'connection.php';
@@ -32,10 +31,7 @@
                 $_SESSION['id_utente'] = $row['id'];
 
                 if ($results->num_rows == 1) echo "<script>window.open('main/main.php','_self');</script>";
-                elseif ($results->num_rows == 0){
-                  $_SESSION['log'] = 0;
-                  echo "<b style='color:red;'>Username o Password non corretti, riprova.</b><br>";
-                }
+                elseif ($results->num_rows == 0)echo "<b style='color:red;'>Username o password errati,<br> riprova.</b><br>";
 
                 mysqli_close($conn);
 
@@ -51,14 +47,15 @@
             </div>
         </div>
         <div class="container">
-            <div style="display: inline-block; text-align: left">
+            <div class="inner_register" style="display: inline-block; text-align: left">
                 <h1>Registrazione</h1>
                 <form action="registrazione.php" method="post">
                     <input class="login_field" type="email" placeholder="e-mail" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
                     <input class="login_field" type="text" placeholder="username" name="username" required>
-                    <input class="login_field" type="password" placeholder="password" name="password" id="password_confirm" onkeyup="checkPassword();" required>
-                    <input class="login_field" type="password" placeholder="conferma password" name="confpass" id="password_confirm_check" onkeyup="checkPassword();" required>
-                    <input class="login_button" type="submit" value="registrati">
+                    <input style="margin-bottom:0;" class="login_field" type="password" placeholder="password" name="password" id="password_confirm" onkeyup="checkPassword();" required>
+                    <input style="display:inline-block;margin-bottom:0;" class="login_field" type="password" placeholder="conferma password" name="confpass" id="password_confirm_check" onkeyup="checkPassword();" required>
+                    <span id="message"></span>
+                    <input class="login_button" type="submit" value="registrati" id="register_button">
                 </form>
                 <a onclick="scroll_to_center('main_container')">indietro</a>
             </div>

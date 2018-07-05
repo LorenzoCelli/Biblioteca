@@ -32,9 +32,9 @@
                 <form action="registrazione.php" method="post">
                     <input class="login_field" type="email" placeholder="e-mail" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
                     <input class="login_field" type="text" placeholder="username" name="username" required>
-                    <input class="login_field" type="password" placeholder="password" name="password" id="password_confirm" onkeyup="checkPassword();" required>
-                    <input class="login_field" type="password" placeholder="conferma password" name="confpass" id="password_confirm_check" onkeyup="checkPassword();" required>
-                    <p id="message"></p>
+                    <input style="margin-bottom:0;" class="login_field" type="password" placeholder="password" name="password" id="password_confirm" onkeyup="checkPassword();" required>
+                    <input style="display:inline-block;margin-bottom:0;" class="login_field" type="password" placeholder="conferma password" name="confpass" id="password_confirm_check" onkeyup="checkPassword();" required>
+                    <span id="message"></span>
                     <input class="login_button" type="submit" value="registrati" id="register_button">
                 </form>
                 <a onclick="scroll_to_center('main_container')">indietro</a>
