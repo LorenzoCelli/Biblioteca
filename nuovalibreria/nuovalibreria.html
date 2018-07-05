@@ -11,14 +11,21 @@
 <body>
 <div class="libreria">
 <h1>Nuova libreria</h1>
+<hr>
 <form>
-    <input type="text" placeholder="Nome libreria"><br>
-    <input type="text" placeholder="Descrizione libreria"><br><br>
+  <div class="form">
+    <span>Nome libreria:</span><br>
+    <input type="text" placeholder="Nome"><br>
+    <span>Descrizione libreria:</span><br>
+    <input type="text" placeholder="Descrizione"><br><br>
+    <p>Numero scaffali: </p><p id="counter">1</p>
+    <img src="newsc11.png" width="300" height="100" alt="scaffale" class="scaffale">
+  </div>
+<img class="tasto" onclick="addLibrary('newsc111.png')" src="tasto2.png">
+<input type="submit" name="newlibraryButton" value="Crea nuova libreria" style="margin-top:15%">
 </form>
-<img src="newsc11.png" width="390" alt="scaffale" class="scaffale">
 </div>
 <br>
-<img class="tasto" onclick="addLibrary('newsc111.png','libreria')" src="tasto2.png">
 <br>
 </body>
 </html>

@@ -9,11 +9,11 @@ h1{
 h2{
     margin: 0;
 }
-input, select{
+input{
     background-color: white;
     border: 1px solid #cbcbcb;
     height: 40px;
-    width: 300px;
+    width: 200px;
     border-radius: 10px;
     outline: none;
     margin-bottom: 5px;
