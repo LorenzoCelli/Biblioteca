@@ -54,7 +54,7 @@
             <div style="display: inline-block; text-align: left">
                 <h1>Registrazione</h1>
                 <form action="registrazione.php" method="post">
-                    <input class="login_field" type="text" placeholder="e-mail" name="email" required>
+                    <input class="login_field" type="email" placeholder="e-mail" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
                     <input class="login_field" type="text" placeholder="username" name="username" required>
                     <input class="login_field" type="password" placeholder="password" name="password" id="password_confirm" onkeyup="checkPassword();" required>
                     <input class="login_field" type="password" placeholder="conferma password" name="confpass" id="password_confirm_check" onkeyup="checkPassword();" required>
