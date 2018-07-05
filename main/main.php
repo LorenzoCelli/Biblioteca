@@ -51,11 +51,10 @@ while($row = mysqli_fetch_assoc($result)){
     while ($gen = mysqli_fetch_assoc($generi)) echo $gen['genere']."<br>";
   }
   echo "
-      
+
       </div>
   </div>
   ";
-
 }
 
 ?>

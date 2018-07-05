@@ -1,6 +1,7 @@
-body {
+body, html {
   text-align: center;
   overflow: auto;
+  height: 100%;
 }
 input{
       background-color: white;
@@ -13,13 +14,43 @@ input{
       font-family: 'Vollkorn', serif;
       font-size: 15px;
       padding-left: 10px;
+      margin-bottom: 25px;
 }
-.scaffale {
-    display: block;
+h1 {
+  color: black;
 }
+span {
+  color: black;
+  float: left;
+  padding-left: 48px;
+}
+p {
+  color: black;
+  margin-top: auto;
+  float: left;
+  padding-left: 48px;
+}
+
 .libreria {
   display: inline-block;
+  float:right;
+  background-color:	#F5F5F5;
+  width: 400px;
+}
+.form {
+  margin: inherit;
+  margin-top: 40px;
 }
 .tasto {
-  width: 390px;
+  width: 300px;
+  cursor: pointer;
+  transition: all .2s ease-in-out;
+}
+.tasto:hover {
+  transition: transform 200ms;
+  transform: scale(1.01);
+}
+#counter {
+  padding-left: 0px;
+  margin-left: 5px;
 }

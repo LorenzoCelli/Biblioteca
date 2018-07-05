@@ -14,6 +14,7 @@ function checkPassword() {
   var first_password = document.getElementById('password_confirm').value;
   var second_password = document.getElementById('password_confirm_check').value;
   if(first_password == second_password) {
+    document.getElementById('message').innerHTML = '';
     document.getElementById('register_button').disabled = false;
   } else {
     document.getElementById('message').style.color = 'red';
