@@ -25,9 +25,6 @@ function check_pass(){
     }
 }
 
-//uname
-//email
-
 function wrong_user(){
     usr_msg.style.display="block";
     usr_field.onkeyup = function () {

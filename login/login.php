@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="../style.css">
     <link href="https://fonts.googleapis.com/css?family=Vollkorn:400,900" rel="stylesheet">
 </head>
 <body>
@@ -40,8 +40,8 @@
             mysqli_close($conn);
 
             ?>
-            <a href="index.html">indietro</a>
+            <a href="../index.html">indietro</a>
     </div>
-    <script src="script.js"></script>
+    <script src="../script.js"></script>
 </body>
 </html>

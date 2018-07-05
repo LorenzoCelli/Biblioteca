@@ -9,7 +9,7 @@ $pass = $_POST["password"];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="../style.css">
     <link href="https://fonts.googleapis.com/css?family=Vollkorn:400,900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 </head>
@@ -36,7 +36,7 @@ $pass = $_POST["password"];
                 <input class="login_button" type="submit" value="registrati" id="register_button">
             </div>
         </form>
-        <script src="script.js"></script>
+        <script src="../script.js"></script>
 
         <?php
         include '../connection.php';
@@ -70,7 +70,7 @@ $pass = $_POST["password"];
 
         mysqli_close($conn);
         ?>
-        <a href="index.html">indietro</a>
+        <a href="../index.html">indietro</a>
     </div>
 </body>
 </html>
