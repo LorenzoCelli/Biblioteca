@@ -21,10 +21,10 @@
             <div id="emailmsg" class="alert"><div class="point">!</div>Username già in uso!</div>
         </div>
         <div class="input_container">
-            <input class="login_field" type="password" placeholder="password" name="password" id="pass" onmouseout="check_pass()" onblur="check_pass()" required>
+            <input class="login_field" type="password" placeholder="password" name="password" id="pass" onkeyup="check_pass()" required>
         </div>
         <div class="input_container">
-            <input class="login_field" type="password" placeholder="conferma password" name="confpass" id="pass_check" onmouseout="check_pass()" onblur="check_pass()" required>
+            <input onfocus="first_focus=true;" class="login_field" type="password" placeholder="conferma password" name="confpass" id="pass_check" onkeyup="check_pass()" required>
             <div id="pass_alarm" class="alert"><div class="point">!</div>Le password non coincidono!</div>
         </div>
         <div class="input_container">
