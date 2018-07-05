@@ -113,7 +113,7 @@ New book aside
             </select>
         </div><br>
         <input style="margin-top: 30px" type="submit" value="aggiungi"><br>
-        <input type="button" value="annulla">
+        <input type="button" value="annulla" onclick="slide_left('new_book')">
     </form>
 </div>
 
