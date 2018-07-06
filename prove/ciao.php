@@ -17,7 +17,7 @@ VALUES ('$isbn','$id_utente','$titolo','$autore','$descr')";
 $result = mysqli_query($conn, $sql) or trigger_error(mysqli_error($conn)." ".$sql);
 echo $result;
 
-if ($result/* && $results*/) echo "bravoooo".$titolo;
+if ($result) echo "bravoooo".$titolo;
 else echo "qualcosa è andato storto col database";
 
 mysqli_close($conn);

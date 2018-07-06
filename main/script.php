@@ -4,11 +4,13 @@ $id_utente = $_SESSION['id_utente'];
 include '../connection.php';
 
 $isbn = $_POST["isbn"];
-$titolo = $_POST["titolo"];
+$titolo = mysqli_real_escape_string($conn, $_POST["titolo"]);
 $autore = $_POST["autore"];
 $descr = $_POST["descr"];
 $nome = $_POST["nome_libreria"];
 $scaffale = $_POST["scaffale"];
+
+
 
 $sql = "INSERT INTO libri (isbn,id_utente,titolo,autore,descr)
 VALUES ('$isbn','$id_utente','$titolo','$autore','$descr')";

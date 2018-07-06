@@ -34,7 +34,7 @@
             $row = mysqli_fetch_assoc($results);
             $_SESSION['id_utente'] = $row['id'];
 
-            if ($results->num_rows == 1) echo "<script>window.open('../nuovolibro/main.php','_self');</script>";
+            if ($results->num_rows == 1) echo "<script>window.open('../main/main.php','_self');</script>";
             elseif ($results->num_rows == 0)echo "<div class='err_box'>Ups, username o password sbagliati!</div>";
 
             mysqli_close($conn);
@@ -42,6 +42,5 @@
             ?>
             <a href="../index.html">indietro</a>
     </div>
-    <script src="../script.js"></script>
 </body>
 </html>

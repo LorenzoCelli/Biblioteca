@@ -36,7 +36,7 @@ $pass = $_POST["password"];
                 <input class="login_button" type="submit" value="registrati" id="register_button">
             </div>
         </form>
-        <script src="../script.js"></script>
+        <script src="script.js"></script>
 
         <?php
         include '../connection.php';
@@ -54,7 +54,7 @@ $pass = $_POST["password"];
           ('$uname','$email','$pass')";
           $results = mysqli_query($conn, $sql);
 
-          if ($results) echo "<script>window.open('../nuovolibro/main.php','_self');</script>";
+          if ($results) echo "<script>window.open(mainmain</script>";
           else echo "<b style='color:red;'>Qualcosa è andato storto, riprova.</b><br>";
 
         }else{

@@ -35,6 +35,7 @@ function wrong_user(){
         }
     }
 }
+
 function wrong_email(){
     email_msg.style.display="block";
     email_field.onkeyup = function () {
