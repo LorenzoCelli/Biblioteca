@@ -92,6 +92,7 @@ select{
     border-radius: 5px;
     overflow: hidden;
 }
+
 .main_container{
     transform: translateX(-300px);
     transition: transform 300ms;
@@ -154,10 +155,13 @@ p {
   padding-left: 48px;
 }
 .book_image {
-  width: 270px;
+  width: 180px;
+  height: 69px;
   display: block;
   cursor: pointer;
   position: relative;
+  background-size: 100%;
+  background-repeat: no-repeat;
 }
 
 .book_image:after {
@@ -168,6 +172,7 @@ p {
     opacity: 0;
     transition: all 0.2s;
     -webkit-transition: all 0.2s;
+    background-repeat: no-repeat;
 }
 .book_image:hover:after {
     opacity: 1;
@@ -177,17 +182,19 @@ p {
 }
 .book_text2 {
 display: inline-block;
-color: black;
+color: white;
 height: 50px;
 line-height: 60px;
 vertical-align: top;
 font-size: 20px;
 padding: 0 20px;
 cursor: pointer;
-background-color: white;
-width: 100%;
 }
 
 .book_text2:hover {
 text-decoration: underline;
+}
+
+.scaffale {
+    margin-top: -9px;
 }
