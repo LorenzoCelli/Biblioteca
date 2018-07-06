@@ -90,7 +90,7 @@ New book aside
 
 <div class="aside" style="left: 100%" id="new_book">
     <h1>Nuovo libro</h1>
-    <form action="scriptnuovolibro.php" method="post">
+    <form action="script.php" method="post">
         <input type="number" placeholder="ISBN" name="isbn"><br>
         <input type="text" placeholder="Titolo" name="titolo" required><br>
         <input type="text" placeholder="Autore" name="autore" required><br>
