@@ -92,13 +92,13 @@ New book aside
     <h1>Nuovo libro</h1>
     <form action="nuovolibro.php" method="post">
         <input type="text" placeholder="ISBN" name="isbn"><br>
-        <input type="text" placeholder="Titolo" name="titolo"><br>
-        <input type="text" placeholder="Autore" name="autore"><br>
+        <input type="text" placeholder="Titolo" name="titolo" required><br>
+        <input type="text" placeholder="Autore" name="autore" required><br>
         <textarea rows="4" cols="50" placeholder="Descrizione" name="descr" ></textarea>
         <h2>Dove si trova?</h2>
         <div class="select_box">
             <div class="select_box_text">Libreria:</div>
-            <select name="nome_libreria" onchange="changee()">
+            <select name="nome_libreria" onchange="listalibrerie()" required>
                 <option></option>
                 <?php
                 $sql = "SELECT * FROM libreria WHERE id_utente = '$id_utente'";
@@ -124,7 +124,7 @@ New book aside
           }
           ?>
         </script>
-        <div class="select_box">
+        <div class="select_box" required>
             <div class="select_box_text">Scaffale:</div>
             <select name="scaffale"></select>
         </div><br>

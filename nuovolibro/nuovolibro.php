@@ -91,9 +91,9 @@ New book aside
 <div class="aside" style="left: 100%" id="new_book">
     <h1>Nuovo libro</h1>
     <form action="nuovolibro.php" method="post">
-        <input type="text" placeholder="ISBN" name="isbn"><br>
-        <input type="text" placeholder="Titolo" name="titolo"><br>
-        <input type="text" placeholder="Autore" name="autore"><br>
+        <input type="number" placeholder="ISBN" name="isbn"><br>
+        <input type="text" placeholder="Titolo" name="titolo" required><br>
+        <input type="text" placeholder="Autore" name="autore" required><br>
         <textarea rows="4" cols="50" name="descr"></textarea>
         <h2>Dove si trova?</h2>
         <div class="select_box">
@@ -136,11 +136,10 @@ New book aside
         $titolo = $_POST["titolo"];
         $autore = $_POST["autore"];
         $descr = $_POST["descr"];
-        $nome = $_POST["nome"];
+        $nome = $_POST["nome_libreria"];
         $scaffale = $_POST["scaffale"];
 
-        include 'connection.php';
-
+        include '../connection.php';
 
         $sql = "INSERT INTO libri
         (isbn,id_utente,titolo,autore,descr)
@@ -157,7 +156,7 @@ New book aside
         ('$id_libro','$scaffale','$id_libreria')";
         $results = mysqli_query($conn, $sql);
 
-        if ($results) echo "<script>window.open('main.php','_self');</script>";
+        echo "<script>window.open('main.php','_self');</script>";
 
         mysqli_close($conn);
 

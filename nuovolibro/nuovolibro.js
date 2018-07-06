@@ -31,7 +31,7 @@ function ingrandisci(container) {
   container.style.height = "200px";
   container.getElementsByClassName("book_info")[0].style.display = "inline-block";
 }
-function changee() {
+function listalibrerie() {
   var select = document.querySelector('select[name=nome_libreria]');
   var select2 = document.querySelector('select[name=scaffale]');
   var num_scaffali = libreria[select.value];
