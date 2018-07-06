@@ -2,7 +2,7 @@ body{
     background-color: #f8f8f8;
     color: #3a3a3a;
     margin: 0;
-    overflow: hidden;
+    overflow: auto;
     height: 100%;
 }
 h1{
@@ -23,6 +23,32 @@ input, select{
     font-family: 'Vollkorn', serif;
     font-size: 15px;
     padding-left: 10px;
+}
+#counter{
+  background-color: inherit;
+  text-align: center;
+  border: none;
+  height: 20px;
+  width: 40px;
+  border-radius: 10px;
+  outline: none;
+  margin-bottom: 0px;
+  font-family: 'Arial', serif;
+  font-size: 20px;
+}
+#counter:hover{
+  transform: scale(1);
+}
+#buttonX{
+  background-color: inherit;
+  border: none;
+  outline: none;
+  color: black;
+  font-size: 40px;
+  transition: transform 0.5s;
+}
+#buttonX:hover{
+    transform: scale(1.2);
 }
 select{
     box-sizing: border-box;
@@ -49,7 +75,7 @@ select{
     transition: transform 300ms;
     text-align: center;
     padding-top: 30px;
-    overflow: scroll;
+    overflow: auto;
 }
 .menu_button{
     margin: 0;
@@ -90,7 +116,7 @@ select{
     height: auto;
     margin: 0 10px 10px 0;
     border-radius: 5px;
-    overflow: hidden;
+    overflow: auto;
 }
 
 .main_container{
@@ -135,10 +161,6 @@ select{
 .tasto:hover {
   transition: transform 200ms;
   transform: scale(1.01);
-}
-#counter {
-  padding-left: 0px;
-  margin-left: 5px;
 }
 h1 {
   color: black;

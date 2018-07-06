@@ -26,12 +26,17 @@ function slide_right(element_id){
         element.is_open = false;
     }
 }
-var contatoreScaffali = 2;
+var contatoreScaffali = 1;
 
 function addLibrary(libraryImg) {
   document.getElementsByClassName("form")[0].appendChild(library(libraryImg));
-  document.getElementById("counter").innerHTML = contatoreScaffali;
   contatoreScaffali++;
+  document.getElementById("counter").value = contatoreScaffali;
+}
+function removeLibrary(libraryImg) {
+  document.getElementsByClassName("form")[0].appendChild(library(libraryImg));
+  contatoreScaffali--;
+  document.getElementById("counter").value = contatoreScaffali;
 }
 function library(libraryImg) {
   var y = document.createElement("IMG");

@@ -1,7 +1,9 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>La tua biblioteca</title>
     <link rel="stylesheet" type="text/css" href="../style.css">
     <link rel="stylesheet" type="text/css" href="../main/main.css">
@@ -30,6 +32,25 @@ Main container
          --><input id="search_bar" class="menu_input" type="text"></div>
         <br>
 
+        <?php
+
+        $id_utente = $_SESSION['id_utente'];
+
+        include '../connection.php';
+
+        $sql = "SELECT * FROM libreria WHERE id_utente = '$id_utente'";
+        $result = mysqli_query($conn, $sql);
+
+        while($row = mysqli_fetch_assoc($result)){
+          echo "
+          <div class='book_container'>
+              <div class='book_image' style='background-image: url(newsc11.png)'></div><!--
+           --><div class='book_text2'> ".$row['nome']." </div>
+          </div>
+          ";
+        }
+        ?>
+
         <div class="book_container">
             <div class="book_image" style="background-image: url(newsc11.png)"></div><!--
          --><div class="book_text2"> Libreria #1 </div>
@@ -49,16 +70,15 @@ New book aside
 -->
 
 <div class="aside" style="left: 100%" id="new_library">
-  <h1 style="    display: inline-block;">Nuova libreria</h1>
-  <button onclick="slide_left('new_library')" style="margin-left: 4%;">x</button>
+  <h1 style="display: inline-block;">Nuova libreria</h1>
+  <button id="buttonX" onclick="slide_left('new_library')" style="margin-left: 4%;">x</button>
   <hr>
   <form>
     <div class="form">
-      <span>Nome libreria:</span><br>
-      <input type="text" placeholder="Nome"><br>
-      <span>Descrizione libreria:</span><br>
-      <input type="text" placeholder="Descrizione"><br><br>
-      <p>Numero scaffali: </p><p id="counter">1</p>
+      <input type="text" placeholder="Nome libreria" name="nome"><br>
+      <input type="text" placeholder="Descrizione" name="descr"><br><br>
+      <p>Numero scaffali: </p><input type="text" id="counter" value="1" name="n_scaffali" disabled>
+      <img class="tasto" onclick="addLibrary('newsc111.png')" src="tasto2.png">
       <img src="newsc11.png" width="300" height="100" alt="scaffale" class="scaffale">
     </div>
   <img class="tasto" onclick="addLibrary('newsc111.png')" src="tasto2.png">
