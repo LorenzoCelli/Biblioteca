@@ -7,48 +7,40 @@
     <link rel="stylesheet" type="text/css" href="../main/main.css">
     <link rel="stylesheet" type="text/css" href="nuovalibreria.css">
     <link href="https://fonts.googleapis.com/css?family=Vollkorn:400,900" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 
 <!--
 Main container
 -->
-<div class="header">
-<h5  class="logo">|  librerie. |</h5>
-</div>
+
 <div id="a" class="main_container">
     <div class="menu_aside">
 
     </div><!--
  --><div class="content">
-        <img onclick="slide_right('a')" src="../imgs/menu.svg" style="position: absolute; top: 0; left: -1px; height: 90px;cursor: pointer;border-top: 1px solid black;">
-        <div class="top">
+        <img onclick="slide_right('a')" src="../imgs/menu.svg" style="position: absolute; top: 0; left: -1px; height: 90px;cursor: pointer;">
+
         <h1 style="color: white"> Le tue librerie. </h1>
 
-        <div class="buttons" style="background-color: #f8f8f8; border-radius: 50px; overflow: hidden; height:50px; display: inline-block;margin: -21px 0;"><!--
+        <div style="margin:10px 0; background-color: #f8f8f8; border-radius: 50px; overflow: hidden; height:50px; display: inline-block"><!--
         --><div class="hover_button" onclick="slide_left('new_library')"><img class="menu_button" src="../imgs/piu.svg"></div><!--
          --><div class="hover_button"><img class="menu_button" src="../imgs/ordina.svg"></div><!--
          --><div onclick="show_hide('search_bar')" class="hover_button"><img style="border: none" class="menu_button" src="../imgs/lente.svg"></div><!--
          --><input id="search_bar" class="menu_input" type="text"></div>
-       </div>
         <br>
-        
+
         <div class="book_container">
-            <div class="book_image" style="background-image: url(bookshelf.png)"></div><!--
-         --><div class="book_text2"> libreria #1 </div>
+            <div class="book_image" style="background-image: url(newsc11.png)"></div><!--
+         --><div class="book_text2"> Libreria #1 </div>
         </div>
         <div class="book_container">
-            <div class="book_image" style="background-image: url(bookshelf.png)"></div><!--
-         --><div class="book_text2"> libreria #2 </div>
+            <div class="book_image" style="background-image: url(newsc11.png)"></div><!--
+         --><div class="book_text2"> Libreria #2 </div>
         </div>
         <div class="book_container">
-            <div class="book_image" style="background-image: url(bookshelf.png)"></div><!--
-         --><div class="book_text2"> libreria #3 </div>
-        </div>
-        <div class="book_container">
-            <div class="book_image" style="background-image: url(bookshelf.png)"></div><!--
-         --><div class="book_text2"> libreria #4 </div>
+            <div class="book_image" style="background-image: url(newsc11.png)"></div><!--
+         --><div class="book_text2"> Libreria #3 </div>
         </div>
     </div></div>
 
@@ -57,9 +49,9 @@ New book aside
 -->
 
 <div class="aside" style="left: 100%" id="new_library">
-  <h1 style="display: inline-block;">Nuova libreria</h1>
+  <h1 style="    display: inline-block;">Nuova libreria</h1>
   <button onclick="slide_left('new_library')" style="margin-left: 4%;">x</button>
-
+  <hr>
   <form>
     <div class="form">
       <span>Nome libreria:</span><br>
