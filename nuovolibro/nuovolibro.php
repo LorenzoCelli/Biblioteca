@@ -139,8 +139,6 @@ New book aside
         $nome = $_POST["nome_libreria"];
         $scaffale = $_POST["scaffale"];
 
-        include '../connection.php';
-
         $sql = "INSERT INTO libri
         (isbn,id_utente,titolo,autore,descr)
         VALUES
