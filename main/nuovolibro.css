@@ -84,7 +84,7 @@ button bar
 .button_bar{
     margin:10px 0;
     background-color: #f8f8f8;
-    border-radius: 50px;
+    border-radius: 10px;
     overflow: hidden;
     height:50px;
     display: inline-block
@@ -125,7 +125,7 @@ Book box
     overflow: hidden;
     display: inline-block;
     background-color: white;
-    height: 100px;
+    height: 170px;
     margin: 0 10px 10px 0;
     transition: transform 500ms;
 }
@@ -135,19 +135,23 @@ Book box
 }
 .book_image{
     display: inline-block;
-    height: 100px;
-    width: 100px;
+    height: 100%;
+    width: 130px;
     background-size: cover;
     background-position: center;
 }
 .book_text{
     display: inline-block;
     color: black;
-    height: 100px;
-    line-height: 100px;
+    height: 100%;
     vertical-align: top;
+    font-size: 18px;
+    padding: 20px 20px;
+}
+.book_title{
+    font-weight: 600;
     font-size: 20px;
-    padding: 0 20px;
+    margin: 0;
 }
 
 /*
@@ -185,14 +189,17 @@ Containers
 little menu
 */
 
-.little_menu_box{
+#little_menu_box{
     position: absolute;
     top: 190px;
     left: 100px;
     width: 150px;
     border-bottom: 1px solid #cbcbcb;
-    border-radius: 0 10px;
+    border-radius: 0 10px 10px 10px;
     overflow: hidden;
+    z-index: 100;
+    height: 0;
+    display: none;
 }
 .little_menu_button{
     outline: none;
@@ -202,9 +209,10 @@ little menu
     font-size: 13px;
     border-bottom: 1px solid #cbcbcb;
     font-family: 'Open Sans', serif;
+    background-color: #f8f8f8;
 }
 .little_menu_button:hover{
-    background-color: #f8f8f8;
+    background-color: #efefef;
 }
 
 

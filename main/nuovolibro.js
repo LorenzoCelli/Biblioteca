@@ -1,6 +1,15 @@
 var search_bar = document.getElementById("search_bar");
-function slide_search_bar(element_id) {
+function slide_search_bar() {
     if(search_bar.style.width === "" || search_bar.style.width === "0px"){
+        search_bar.style.width = "500px";
+    }else{
+        search_bar.style.width = "0px";
+    }
+}
+
+var little_menu = document.getElementById("little_menu");
+function slide_search_bar() {
+    if(little_menu.style.height === "" || search_bar.style.width === "0px"){
         search_bar.style.width = "500px";
     }else{
         search_bar.style.width = "0px";
