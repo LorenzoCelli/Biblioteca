@@ -6,12 +6,13 @@ include '../connection.php';
 $nome = $_POST["nome"];
 $descr = $_POST["descr"];
 $scaffali = $_POST["n_scaffali"];
+$colore = $_POST["colore"];
 
-$sql = "INSERT INTO librerie (id_utente,nome,descr,n_scaffali)
-VALUES ('$id_utente','$nome','$descr','$scaffali')";
+$sql = "INSERT INTO libreria (id_utente,nome,descr,n_scaffali,colore)
+VALUES ('$id_utente','$nome','$descr','$scaffali','$colore')";
 $result = mysqli_query($conn, $sql);
 
-if ($result) echo "<script>window.open('main.php','_self');</script>";
+if ($result) echo "<script>window.open('nuovalibreria.php','_self');</script>";
 else echo "qualcosa è andato storto col database";
 
 mysqli_close($conn);

@@ -5,8 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>La tua biblioteca</title>
-    <link rel="stylesheet" type="text/css" href="../style.css">
-    <link rel="stylesheet" type="text/css" href="../main/main.css">
+    <link rel="stylesheet" type="text/css" href="../main/nuovolibro.css">
     <link rel="stylesheet" type="text/css" href="nuovalibreria.css">
     <link href="https://fonts.googleapis.com/css?family=Vollkorn:400,900" rel="stylesheet">
 </head>
@@ -70,14 +69,14 @@ New book aside
 -->
 
 <div class="aside" style="left: 100%" id="new_library">
-  <h1 style="display: inline-block;">Nuova libreria</h1>
-  <button id="buttonX" onclick="slide_left('new_library')" style="margin-left: 4%;">x</button>
-  <hr>
+  <button id="buttonX" onclick="slide_left('new_library')">x</button><br>
+  <h1>Nuova libreria</h1>
   <form>
     <div class="form">
       <input type="text" placeholder="Nome libreria" name="nome"><br>
-      <input type="text" placeholder="Descrizione" name="descr"><br><br>
-      <p>Numero scaffali: </p><input type="text" id="counter" value="1" name="n_scaffali" disabled>
+      <input type="text" placeholder="Descrizione" name="descr"><br>
+      <input type="color" name="colore"><br><br>
+      <p>Numero scaffali: <input type="text" id="counter" value="1" name="n_scaffali" disabled></p>
       <img class="tasto" onclick="addLibrary('newsc111.png')" src="tasto2.png">
       <img src="newsc11.png" width="300" height="100" alt="scaffale" class="scaffale">
     </div>

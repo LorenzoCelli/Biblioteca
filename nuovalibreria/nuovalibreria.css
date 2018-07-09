@@ -6,8 +6,8 @@ body{
     height: 100%;
 }
 h1{
-    margin-top: 0;
-    line-height: 35px;
+    line-height: 10px;
+    color: black;
 }
 h2{
     margin: 0;
@@ -25,22 +25,25 @@ input, select{
     padding-left: 10px;
 }
 #counter{
-  background-color: inherit;
+  background-color: transparent;
   text-align: center;
   border: none;
   height: 20px;
   width: 40px;
-  border-radius: 10px;
   outline: none;
   margin-bottom: 0px;
-  font-family: 'Arial', serif;
+  font-family: 'Open Sans', sans-serif;
   font-size: 20px;
+  padding-left: 0px;
 }
 #counter:hover{
   transform: scale(1);
 }
 #buttonX{
-  background-color: inherit;
+  background-color: transparent;
+  position: relative;
+  top: -35px;
+  float: left;
   border: none;
   outline: none;
   color: black;
@@ -48,7 +51,9 @@ input, select{
   transition: transform 0.5s;
 }
 #buttonX:hover{
-    transform: scale(1.2);
+    transform: scale(1.05);
+    color: grey;
+
 }
 select{
     box-sizing: border-box;
@@ -161,9 +166,6 @@ select{
 .tasto:hover {
   transition: transform 200ms;
   transform: scale(1.01);
-}
-h1 {
-  color: black;
 }
 span {
   color: black;
