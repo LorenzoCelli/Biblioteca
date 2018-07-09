@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>La tua biblioteca</title>
     <link rel="stylesheet" type="text/css" href="nuovolibro.css">
-    <link href="https://fonts.googleapis.com/css?family=Vollkorn:400,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Vollkorn:400,600,900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 </head>
 <body>
@@ -23,11 +23,11 @@ Main container
         <input style="border-bottom:1px solid #cbcbcb; border-radius: 0 0 10px 10px" class="main_menu_button" type="button" value="annulla">
     </div><!--
  --><div class="content">
-        <div class="little_menu_box">
+        <div id="little_menu_box">
             <button class="little_menu_button" style="height: 30px" disabled>ordina per:</button>
-            <button class="little_menu_button">ciao ragaz</button>
-            <button class="little_menu_button">ciao ragaz</button>
-            <button style="border-bottom: none" class="little_menu_button">ciao ragaz</button>
+            <button class="little_menu_button">nome</button>
+            <button class="little_menu_button">autore</button>
+            <button style="border-bottom: none" class="little_menu_button">genere</button>
         </div>
 
         <img onclick="slide_main_menu()" src="../imgs/menu.svg" style="position: absolute; top: 0; left: -1px; height: 90px">
@@ -53,8 +53,11 @@ Main container
         while($row = mysqli_fetch_assoc($result)){
           echo "
           <div class='book_container'>
-              <div class='book_image' style='background-image: url(".$row['img_url'].")'></div><!--
-           --><div class='book_text'>".$row['titolo']."</div>
+                <div class='book_image' style='background-image: url(".$row['img_url'].")'></div><!--
+             --><div class='book_text'>
+                    <p class='book_title'>".$row['titolo']."</p>
+                    ".$row['autore']."
+                </div>
           </div>
           ";
         }
@@ -75,7 +78,10 @@ Main container
 
         <div class="book_container">
             <div class="book_image" style="background-image: url(https://images-na.ssl-images-amazon.com/images/I/51V%2Bb2rUV3L._SX356_BO1,204,203,200_.jpg)"></div><!--
-         --><div class="book_text"> La mia casa è dove sono </div>
+         --><div class="book_text">
+                <p class="book_title">La mia casa è dove sono</p>
+                Giovannino
+            </div>
         </div>
     </div></div>
 
