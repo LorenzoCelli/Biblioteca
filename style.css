@@ -38,7 +38,8 @@ form{
     width: 100%;
     font-size: 15px;
     padding-left: 10px;
-    font-family: 'Vollkorn', serif;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
     outline: none;
 }
 input, button{
