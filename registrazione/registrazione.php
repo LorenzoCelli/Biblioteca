@@ -1,8 +1,13 @@
 <?php session_start();
 
+$flagerror = false;
+$flag = false;
+
 if (isset($_POST['username'])) {
-  
+
+  $flag = true;
   $uname = $_POST["username"];
+  $_SESSION['uname'] = $uname;
   $email = $_POST["email"];
   $pass = $_POST["password"];
 
@@ -25,25 +30,20 @@ if (isset($_POST['username'])) {
       header('Location: ../main/main.php');
       return;
     }
-    else echo "<b style='color:red;'>Qualcosa è andato storto, riprova.</b><br>";
+    else{
+      $flagerror = true;
+      $error = "<b style='color:red;'>Qualcosa è andato storto, riprova.</b><br>";
+    }
 
   }else{
       echo '<script> var uname = "'.$uname.'" </script>';
       echo '<script> var email = "'.$email.'" </script>';
-      if ($usercheck != 0){
-          echo " <script> wrong_user(); </script> ";
-      }
-      if ($emailcheck != 0){
-          echo " <script> wrong_email(); </script> ";
-      }
   }
+
+  mysqli_close($conn);
+
 }
 
-$registratoconsuccesso = false;
-if ($registratoconsuccesso) {
-  header('Location: ../main/main.php');
-  return;
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -60,11 +60,11 @@ if ($registratoconsuccesso) {
         <h1>Registrazione</h1>
         <form action="registrazione.php" method="post">
             <div class="input_container">
-                <input id="email" value="<?php echo $email; ?>" class="login_field" type="email" placeholder="e-mail" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
+                <input id="email" <?php if($flag) echo "value='$email'"; ?> class="login_field" type="email" placeholder="e-mail" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
                 <div id="emailmsg" class="alert"><div class="point">!</div>Email già in uso!</div>
             </div>
             <div class="input_container">
-                <input id="usr" value="<?php echo $uname; ?>" class="login_field" type="text" placeholder="username" name="username" required>
+                <input id="usr" <?php if($flag) echo "value='$uname'"; ?> class="login_field" type="text" placeholder="username" name="username" required>
                 <div id="usrmsg" class="alert"><div class="point">!</div>Username già in uso!</div>
             </div>
             <div class="input_container">
@@ -81,9 +81,21 @@ if ($registratoconsuccesso) {
         <script src="script.js"></script>
 
         <?php
+        if ($flag) {
+          if ($flagerror) {
+            if ($usercheck == 0 && $emailcheck == 0 && !$results) echo $error;
+          }
+          if ($usercheck != 0){
+              echo "<script> wrong_user(); </script>";
+          }
+          if ($emailcheck != 0){
+              echo "<script> wrong_email(); </script>";
+          }
+        }
 
 
-        mysqli_close($conn);
+
+
         ?>
         <a href="../index.html">indietro</a>
     </div>

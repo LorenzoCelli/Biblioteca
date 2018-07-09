@@ -1,4 +1,35 @@
-<?php session_start();?>
+<?php session_start();
+
+$flagerror = false;
+
+if (isset($_POST['username'])) {
+
+  $uname = $_POST["username"];
+  $_SESSION['uname'] = $uname;
+  $pass = $_POST["password"];
+
+  include '../connection.php';
+
+  $sql = "SELECT * FROM utenti WHERE username = '$uname' AND password = '$pass'";
+
+  $results = mysqli_query($conn, $sql);
+  $row = mysqli_fetch_assoc($results);
+  $_SESSION['id_utente'] = $row['id'];
+
+  if ($results->num_rows == 1){
+    header('Location: ../main/main.php');
+    return;
+  }
+  elseif ($results->num_rows == 0){
+    $flagerror = true;
+    $error = "<div class='err_box'>Ups, username o password sbagliati!</div>";
+  }
+
+  mysqli_close($conn);
+
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,21 +54,9 @@
             </form>
             <?php
 
-            $uname = $_POST["username"];
-            $pass = $_POST["password"];
-
-            include '../connection.php';
-
-            $sql = "SELECT * FROM utenti WHERE username = '$uname' AND password = '$pass'";
-
-            $results = mysqli_query($conn, $sql);
-            $row = mysqli_fetch_assoc($results);
-            $_SESSION['id_utente'] = $row['id'];
-
-            if ($results->num_rows == 1) echo "<script>window.open('../main/main.php','_self');</script>";
-            elseif ($results->num_rows == 0)echo "<div class='err_box'>Ups, username o password sbagliati!</div>";
-
-            mysqli_close($conn);
+            if ($flagerror) {
+              if ($results->num_rows == 0) echo $error;
+            }
 
             ?>
             <a href="../index.html">indietro</a>
