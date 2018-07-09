@@ -20,7 +20,7 @@ echo $isbn."<br>".$titolo."<br>".$autore."<br>".$descr."<br>".$img_url."<br>";
 
 $sql = "INSERT INTO libri (isbn,id_utente,titolo,autore,descr,img_url)
 VALUES ('$isbn','$id_utente','$titolo','$autore','$descr','$img_url')";
-$result = mysqli_query($conn, $sql) or trigger_error(mysqli_error($conn));;
+$result = mysqli_query($conn, $sql) or trigger_error(mysqli_error($conn));
 /*$id_libro = mysqli_query($conn, "SELECT * FROM libri")->num_rows;
 $libr = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM libreria WHERE id_utente = '$id_utente' AND nome = '$nome'"));
 $id_libreria = $libr['id'];

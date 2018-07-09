@@ -52,7 +52,7 @@ Main container
 
         while($row = mysqli_fetch_assoc($result)){
           echo "
-          <div class='book_container'>
+          <div class='book_container' onclick='fill_info_book(".$row['id'].")'>
                 <div class='book_image' style='background-image: url(".$row['img_url'].")'></div><!--
              --><div class='book_text'>
                     <p class='book_title'>".$row['titolo']."</p>
@@ -61,19 +61,6 @@ Main container
           </div>
           ";
         }
-
-        /*
-        Autore: ".$row['autore']."<br>
-        Descrizione: ".$row['desc']."<br>
-        Generi:
-        $id_libro = $row['id'];
-        $generi = mysqli_query($conn, "SELECT * FROM generi WHERE id_libro = '$id_libro'");
-        if ($generi->num_rows == 0) echo "---";
-        else{
-        while ($gen = mysqli_fetch_assoc($generi)) echo $gen['genere']."<br>";
-        }
-        */
-
         ?>
 
         <div class="book_container" pippo="ciao">
@@ -139,48 +126,6 @@ Info book aside menu
 -->
 
 <div id="info_menu" style="left: 100%">
-    <form action="script.php" method="post">
-        <div id="new_menu_img" class="book_image"></div>
-        <h1>Nuovo libro</h1>
-        <input type="number" placeholder="ISBN" name="isbn">
-        <input type="text" placeholder="Titolo" name="titolo" required>
-        <input type="text" placeholder="Autore" name="autore" required>
-        <textarea rows="4" cols="50" placeholder="Descrizione" name="descr" ></textarea>
-        <input type="text" placeholder="Url immagine" name="img_url" required>
-        <h2>Dove si trova?</h2>
-        Libreria:
-        <select name="nome_libreria" onchange="listalibrerie()">
-            <option></option>
-            <?php
-            $sql = "SELECT * FROM libreria WHERE id_utente = '$id_utente'";
-            $result = mysqli_query($conn, $sql);
-
-            while($row = mysqli_fetch_assoc($result)){
-                echo "
-              <option value='".$row['nome']."'>".$row['nome']."</option>
-              ";
-            }
-            ?>
-        </select>
-        <script>
-            var libreria = {};
-            <?php
-            $sql = "SELECT * FROM libreria WHERE id_utente = '$id_utente'";
-            $result = mysqli_query($conn, $sql);
-            while($row = mysqli_fetch_assoc($result)){
-                echo "
-            libreria['".$row['nome']."'] = ".$row['n_scaffali'].";
-            ";
-            }
-            ?>
-        </script>
-        Scaffale:
-        <select name="scaffale">
-            <option></option>
-        </select>
-        <input type="submit" value="aggiungi">
-        <input type="reset" value="annulla" onclick="slide_new_menu()">
-    </form>
 </div>
 
 

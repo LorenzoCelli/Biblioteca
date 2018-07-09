@@ -59,7 +59,6 @@ function listalibrerie() {
 
 
 isbn.onblur = fill_isbn_data;
-
 function fill_isbn_data() {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
@@ -85,18 +84,15 @@ function fill_isbn_data() {
     xhttp.send();
 }
 
-info_menu = document.getElementById("info_menu");
-info_menu.onclick = fill_info_book;
-function fill_info_book(){
-    console.log("asddas");
+var info_menu = document.getElementById("info_menu");
+function fill_info_book(id_libro){
+    info_menu.style.transform = "translateX(-500px)";
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("info_menu").innerHTML = this.responseText;
-            console.log(typeof this.responseText);
+            info_menu.innerHTML = this.responseText;
         }
     };
-    xhttp.open("POST", "infolibro.php", true);
-    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhttp.send("titolo=baretto");
+    xhttp.open("GET", "infolibro.php"+"?id="+id_libro, true);
+    xhttp.send(null);
 }

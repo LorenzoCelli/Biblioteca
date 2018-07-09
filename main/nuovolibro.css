@@ -20,16 +20,26 @@ Info book menu
 #info_menu{
     position: fixed;
     height: 100%;
-    width: 800px;
+    width: 500px;
     top:0;
     display: inline-block;
     border: 1px solid #efefef;
     padding: 20px 30px;
     box-sizing: border-box;
     background-color: #f8f8f8;
-    transition: transform 300ms;
+    transition: transform 500ms;
     overflow: auto;
-    transform: translateX(-800px);
+}
+.info_title{
+    margin-bottom: 5px;
+}
+
+.info_p{
+    margin: 0 0 5px 0;
+}
+
+.info_b{
+    font-weight: 600;
 }
 
 /*
