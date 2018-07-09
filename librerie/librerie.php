@@ -1,4 +1,6 @@
-<?php session_start();?>
+<?php session_start();
+$uname = $_SESSION['uname'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="../main/nuovolibro.css">
     <link rel="stylesheet" type="text/css" href="nuovalibreria.css">
     <link href="https://fonts.googleapis.com/css?family=Vollkorn:400,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 </head>
 <body>
 
@@ -20,8 +23,11 @@ Main container
 
     </div><!--
  --><div class="content">
-        <img onclick="slide_right('a')" src="../imgs/menu.svg" style="position: absolute; top: 0; left: -1px; height: 90px;cursor: pointer;">
-
+        <img onclick="slide_right('a')" src="../imgs/menu.svg" style="position:absolute;top:0;left:-1px;height:90px;cursor:pointer;">
+        <div class="" style="position:absolute;top:5px;right:20px;height:auto;padding:3px;">
+          <p2 style="line-height:50px;vertical-align:top;padding:3px;"><?php echo $uname;?></p2>
+          <img src="../imgs/usericon.png" alt="icona_utente_non_trovata" style="width:50px;height:50px;">
+        </div>
         <h1 style="color: white"> Le tue librerie. </h1>
 
         <div style="margin:10px 0; background-color: #f8f8f8; border-radius: 50px; overflow: hidden; height:50px; display: inline-block"><!--
