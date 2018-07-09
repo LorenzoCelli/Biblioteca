@@ -1,7 +1,49 @@
 <?php session_start();
-$uname = $_POST["username"];
-$email = $_POST["email"];
-$pass = $_POST["password"];
+
+if (isset($_POST['username'])) {
+  
+  $uname = $_POST["username"];
+  $email = $_POST["email"];
+  $pass = $_POST["password"];
+
+  include '../connection.php';
+
+  $usercheck = mysqli_query($conn, "SELECT * FROM utenti WHERE username = '$uname'")->num_rows;
+  $emailcheck = mysqli_query($conn, "SELECT * FROM utenti WHERE email = '$email'")->num_rows;
+
+  if ($usercheck == 0 && $emailcheck == 0) {
+
+    $id = mysqli_query($conn, "SELECT * FROM utenti")->num_rows;
+    $_SESSION['id_utente'] = $id;
+    $sql = "INSERT INTO utenti
+    (username,email,password)
+    VALUES
+    ('$uname','$email','$pass')";
+    $results = mysqli_query($conn, $sql);
+
+    if ($results){
+      header('Location: ../main/main.php');
+      return;
+    }
+    else echo "<b style='color:red;'>Qualcosa è andato storto, riprova.</b><br>";
+
+  }else{
+      echo '<script> var uname = "'.$uname.'" </script>';
+      echo '<script> var email = "'.$email.'" </script>';
+      if ($usercheck != 0){
+          echo " <script> wrong_user(); </script> ";
+      }
+      if ($emailcheck != 0){
+          echo " <script> wrong_email(); </script> ";
+      }
+  }
+}
+
+$registratoconsuccesso = false;
+if ($registratoconsuccesso) {
+  header('Location: ../main/main.php');
+  return;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -39,34 +81,7 @@ $pass = $_POST["password"];
         <script src="script.js"></script>
 
         <?php
-        include '../connection.php';
 
-        $usercheck = mysqli_query($conn, "SELECT * FROM utenti WHERE username = '$uname'")->num_rows;
-        $emailcheck = mysqli_query($conn, "SELECT * FROM utenti WHERE email = '$email'")->num_rows;
-
-        if ($usercheck == 0 && $emailcheck == 0) {
-
-          $id = mysqli_query($conn, "SELECT * FROM utenti")->num_rows;
-          $_SESSION['id_utente'] = $id;
-          $sql = "INSERT INTO utenti
-          (username,email,password)
-          VALUES
-          ('$uname','$email','$pass')";
-          $results = mysqli_query($conn, $sql);
-
-          if ($results) echo "<script>window.open('../main/main.php','_self');</script>";
-          else echo "<b style='color:red;'>Qualcosa è andato storto, riprova.</b><br>";
-
-        }else{
-            echo '<script> var uname = "'.$uname.'" </script>';
-            echo '<script> var email = "'.$email.'" </script>';
-            if ($usercheck != 0){
-                echo " <script> wrong_user(); </script> ";
-            }
-            if ($emailcheck != 0){
-                echo " <script> wrong_email(); </script> ";
-            }
-        }
 
         mysqli_close($conn);
         ?>
