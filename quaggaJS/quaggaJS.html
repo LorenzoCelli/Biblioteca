@@ -16,45 +16,12 @@
 </head>
 
 <body>
-    <!-- Div to show the scanner -->
     <div id="scanner-container"></div>
     <p id="ciao"></p>
 
-    <!-- Include the image-diff library -->
     <script src="dist/quagga.min.js"></script>
-    <script src="lib/quagga.js"></script>
     <script src="adapter.js"></script>
-
-    <script>
-    Quagga.init({
-      inputStream : {
-        name : "Live",
-        type : "LiveStream",
-        target: document.querySelector('#scanner-container')    // Or '#yourElement' (optional)
-      },
-      decoder : {
-        readers : ["code_128_reader"]
-      }
-      }, function(err) {
-        if (err) {
-            console.log(err);
-            return
-        }
-        console.log("Initialization finished. Ready to start");
-        Quagga.start();
-      });
-
-        var resultCollector = Quagga.ResultCollector.create({
-        capture: true,
-        capacity: 20,
-        blacklist: [{code: "3574660239843", format: "ean_13"}],
-        filter: function(codeResult) {
-            return true;
-        }
-    });
-    console.log(Quagga.registerResultCollector(resultCollector));
-
-    </script>
+    <script src="scriptquagga.js"></script>
 </body>
 
 </html>
