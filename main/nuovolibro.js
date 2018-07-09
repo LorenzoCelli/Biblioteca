@@ -7,12 +7,14 @@ function slide_search_bar() {
     }
 }
 
-var little_menu = document.getElementById("little_menu");
-function slide_search_bar() {
-    if(little_menu.style.height === "" || search_bar.style.width === "0px"){
-        search_bar.style.width = "500px";
+var little_menu = document.getElementById("little_menu_box");
+function show_little_menu() {
+    if(little_menu.style.height === "" || little_menu.style.height === "0px"){
+        little_menu.style.display = "block";
+        little_menu.style.height = "auto";
     }else{
-        search_bar.style.width = "0px";
+        little_menu.style.display = "none";
+        little_menu.style.height = "0px";
     }
 }
 
@@ -56,9 +58,9 @@ function listalibrerie() {
 }
 
 
-isbn.onblur = fill_data;
+isbn.onblur = fill_isbn_data;
 
-function fill_data() {
+function fill_isbn_data() {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
@@ -81,4 +83,20 @@ function fill_data() {
     console.log("https://www.googleapis.com/books/v1/volumes?q=isbn"+isbn.value);
     xhttp.open("GET", "https://www.googleapis.com/books/v1/volumes?q=isbn"+isbn.value, true);
     xhttp.send();
+}
+
+info_menu = document.getElementById("info_menu");
+info_menu.onclick = fill_info_book;
+function fill_info_book(){
+    console.log("asddas");
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("info_menu").innerHTML = this.responseText;
+            console.log(typeof this.responseText);
+        }
+    };
+    xhttp.open("POST", "infolibro.php", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send("titolo=baretto");
 }

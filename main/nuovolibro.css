@@ -14,7 +14,26 @@ h2{
 }
 
 /*
-new book menu
+Info book menu
+*/
+
+#info_menu{
+    position: fixed;
+    height: 100%;
+    width: 800px;
+    top:0;
+    display: inline-block;
+    border: 1px solid #efefef;
+    padding: 20px 30px;
+    box-sizing: border-box;
+    background-color: #f8f8f8;
+    transition: transform 300ms;
+    overflow: auto;
+    transform: translateX(-800px);
+}
+
+/*
+New book menu
 */
 
 #new_menu{
@@ -127,7 +146,7 @@ Book box
     background-color: white;
     height: 170px;
     margin: 0 10px 10px 0;
-    transition: transform 500ms;
+    transition: transform 500ms, width 500ms, height 500ms;
 }
 .book_container:hover{
     transform: scale(1.02,1.02);
@@ -135,7 +154,7 @@ Book box
 }
 .book_image{
     display: inline-block;
-    height: 100%;
+    height: 170px;
     width: 130px;
     background-size: cover;
     background-position: center;
