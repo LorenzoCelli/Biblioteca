@@ -7,6 +7,7 @@
     <title>La tua biblioteca</title>
     <link rel="stylesheet" type="text/css" href="nuovolibro.css">
     <link href="https://fonts.googleapis.com/css?family=Vollkorn:400,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 </head>
 <body>
 
@@ -22,6 +23,13 @@ Main container
         <input style="border-bottom:1px solid #cbcbcb; border-radius: 0 0 10px 10px" class="main_menu_button" type="button" value="annulla">
     </div><!--
  --><div class="content">
+        <div class="little_menu_box">
+            <button class="little_menu_button" style="height: 30px" disabled>ordina per:</button>
+            <button class="little_menu_button">ciao ragaz</button>
+            <button class="little_menu_button">ciao ragaz</button>
+            <button style="border-bottom: none" class="little_menu_button">ciao ragaz</button>
+        </div>
+
         <img onclick="slide_main_menu()" src="../imgs/menu.svg" style="position: absolute; top: 0; left: -1px; height: 90px">
 
         <h1 style="color: white; margin: 0; line-height: 30px"> La tua biblioteca. </h1>
@@ -45,7 +53,7 @@ Main container
         while($row = mysqli_fetch_assoc($result)){
           echo "
           <div class='book_container'>
-              <div class='book_image' style='background-image: url()'></div><!--
+              <div class='book_image' style='background-image: url(".$row['img_url'].")'></div><!--
            --><div class='book_text'>".$row['titolo']."</div>
           </div>
           ";
@@ -69,14 +77,6 @@ Main container
             <div class="book_image" style="background-image: url(https://images-na.ssl-images-amazon.com/images/I/51V%2Bb2rUV3L._SX356_BO1,204,203,200_.jpg)"></div><!--
          --><div class="book_text"> La mia casa è dove sono </div>
         </div>
-        <div class="book_container">
-            <div class="book_image" style="background-image: url(https://mr.comingsoon.it/imgdb/PrimoPiano/impaginate/AnimaliFantastici.jpg)"></div><!--
-         --><div class="book_text"> Gino Bottiglieri </div>
-        </div>
-        <div class="book_container">
-            <div class="book_image" style="background-image: url(http://pennablu.it/img/copertina.jpg)"></div><!--
-         --><div class="book_text"> asdads </div>
-        </div>
     </div></div>
 
 <!--
@@ -84,12 +84,14 @@ New book aside menu
 -->
 
 <div id="new_menu" style="left: 100%">
-    <h1>Nuovo libro</h1>
     <form action="script.php" method="post">
+        <div id="new_menu_img" class="book_image"></div>
+        <h1>Nuovo libro</h1>
         <input type="number" placeholder="ISBN" name="isbn">
         <input type="text" placeholder="Titolo" name="titolo" required>
         <input type="text" placeholder="Autore" name="autore" required>
         <textarea rows="4" cols="50" placeholder="Descrizione" name="descr" ></textarea>
+        <input type="text" placeholder="Url immagine" name="img_url" required>
         <h2>Dove si trova?</h2>
         Libreria:
         <select name="nome_libreria" onchange="listalibrerie()">
@@ -106,23 +108,27 @@ New book aside menu
             ?>
         </select>
         <script>
-          var libreria = {};
-          <?php
-          $sql = "SELECT * FROM libreria WHERE id_utente = '$id_utente'";
-          $result = mysqli_query($conn, $sql);
-          while($row = mysqli_fetch_assoc($result)){
+            var libreria = {};
+            <?php
+            $sql = "SELECT * FROM libreria WHERE id_utente = '$id_utente'";
+            $result = mysqli_query($conn, $sql);
+            while($row = mysqli_fetch_assoc($result)){
             echo "
             libreria['".$row['nome']."'] = ".$row['n_scaffali'].";
             ";
-          }
-          ?>
+            }
+            ?>
         </script>
         Scaffale:
-        <select name="scaffale"></select>
+        <select name="scaffale">
+            <option></option>
+        </select>
         <input type="submit" value="aggiungi">
         <input type="reset" value="annulla" onclick="slide_new_menu()">
     </form>
 </div>
+
+
 
 <script src="nuovolibro.js"></script>
 </body>

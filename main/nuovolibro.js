@@ -29,6 +29,13 @@ function slide_main_menu(){
     }
 }
 
+var img = document.getElementById("new_menu_img");
+var img_url = document.querySelector('input[name=img_url]');
+var isbn = document.querySelector('input[name=isbn]');
+var titolo = document.querySelector('input[name=titolo]');
+var autore = document.querySelector('input[name=autore]');
+var descr = document.querySelector('textarea[name=descr]');
+
 function listalibrerie() {
   var select = document.querySelector('select[name=nome_libreria]');
   var select2 = document.querySelector('select[name=scaffale]');
@@ -37,4 +44,32 @@ function listalibrerie() {
   for (var i = 1; i <= num_scaffali; i++) {
     select2.innerHTML += "<option value='"+i+"'>"+i+"</option>";
   }
+}
+
+
+isbn.onblur = fill_data;
+
+function fill_data() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var r = JSON.parse(this.response);
+            console.log(r);
+            if(r.totalItems !== 1) return;
+            r = r.items[0].volumeInfo;
+            titolo.value = r.title;
+            var authors = "";
+            for(var i=0;i<r.authors.length; i++){
+                authors+=r.authors[i];
+                if(i!==r.authors.length-1) authors+=", ";
+            }
+            autore.value = authors;
+            descr.value = r.description;
+            img.style.backgroundImage = "url('"+r.imageLinks.thumbnail+"')";
+            img_url.value = r.imageLinks.thumbnail;
+        }
+    };
+    console.log("https://www.googleapis.com/books/v1/volumes?q=isbn"+isbn.value);
+    xhttp.open("GET", "https://www.googleapis.com/books/v1/volumes?q=isbn"+isbn.value, true);
+    xhttp.send();
 }
