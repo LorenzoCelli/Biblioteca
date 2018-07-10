@@ -20,10 +20,10 @@ Main container
 
 <div id="main_container">
     <div id="main_menu">
-      <input style="border-radius: 10px 10px 0 0" class="main_menu_button" type="button" value="La mia biblioteca">
-      <input class="main_menu_button" type="button" value="Le mie librerie" disabled>
-      <input class="main_menu_button" type="button" value="annulla">
-      <input style="border-bottom:1px solid #cbcbcb; border-radius: 0 0 10px 10px" class="main_menu_button" type="button" value="annulla">
+      <a href="../main/main.php"><button style="border-radius: 10px 10px 0 0" class="main_menu_button">La mia biblioteca</button></a>
+      <a href=""><button class="main_menu_button" disabled>Le mie librerie</button></a>
+      <a href=""><button class="main_menu_button">Annulla</button></a>
+      <a href=""><button style="border-bottom:1px solid #cbcbcb; border-radius: 0 0 10px 10px" class="main_menu_button">Annulla</button></a>
     </div><!--
  --><div class="content">
          <div id="little_menu_box">
@@ -34,13 +34,13 @@ Main container
          </div>
 
         <img onclick="slide_right('main_container')" src="../imgs/menu.svg" style="position:absolute;top:0;left:-1px;height:90px;cursor:pointer;">
-        <div class="" style="position:absolute;top:5px;right:20px;height:auto;padding:3px;">
-          <p2 style="line-height:50px;vertical-align:top;padding:3px;margin-right:5px;"><?php echo $uname;?></p2>
+        <div class="account_container">
+          <p2 id="nome_utente"><?php echo $uname;?></p2>
           <img src="../imgs/usericon.png" alt="icona_utente_non_trovata" style="width:50px;height:50px;">
         </div>
         <h1 style="color: white"> Le tue librerie. </h1>
 
-        <div style="margin:10px 0; background-color: #f8f8f8; border-radius: 50px; overflow: hidden; height:50px; display: inline-block"><!--
+        <div class="button_bar"><!--
         --><div class="hover_button" onclick="slide_left('new_menu')"><img class="menu_button" src="../imgs/piu.svg"></div><!--
          --><div class="hover_button"><img class="menu_button" src="../imgs/ordina.svg"></div><!--
          --><div onclick="show_hide('search_bar')" class="hover_button"><img style="border: none" class="menu_button" src="../imgs/lente.svg"></div><!--
@@ -60,7 +60,7 @@ Main container
           echo "
           <div class='book_container'>
               <div class='book_image' style='background-image: url(../imgs/newsc11.png)'></div><!--
-           --><div class='book_text2'> ".$row['nome']." </div>
+           --><div class='book_text'> ".$row['nome']." </div>
           </div>
           ";
         }
@@ -68,15 +68,15 @@ Main container
 
         <div class="book_container">
             <div class="book_image" style="background-image: url(../imgs/newsc11.png)"></div><!--
-         --><div class="book_text2"> Libreria #1 </div>
+         --><div class="book_text"> Libreria #1 </div>
         </div>
         <div class="book_container">
             <div class="book_image" style="background-image: url(../imgs/newsc11.png)"></div><!--
-         --><div class="book_text2"> Libreria #2 </div>
+         --><div class="book_text"> Libreria #2 </div>
         </div>
         <div class="book_container">
             <div class="book_image" style="background-image: url(../imgs/newsc11.png)"></div><!--
-         --><div class="book_text2"> Libreria #3 </div>
+         --><div class="book_text"> Libreria #3 </div>
         </div>
     </div></div>
 

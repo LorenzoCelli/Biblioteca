@@ -285,5 +285,21 @@ little menu
     background-color: #efefef;
 }
 
+/*
+account menu
+*/
 
-
+.account_container{
+  position:absolute;
+  top:5px;
+  right:20px;
+  height:auto;
+  padding:3px;
+  color: white;
+}
+#nome_utente{
+  line-height:50px;
+  vertical-align:top;
+  padding:3px;
+  margin-right:5px;
+}

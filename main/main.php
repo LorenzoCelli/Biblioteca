@@ -1,4 +1,6 @@
-<?php session_start();?>
+<?php session_start();
+$uname = $_SESSION['uname'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,10 +19,10 @@ Main container
 
 <div id="main_container">
     <div id="main_menu">
-        <a href="../librerie/nuovalibreria.php"><button style="border-radius: 10px 10px 0 0" class="main_menu_button">le mie librerie</button></a>
-        <input class="main_menu_button" type="button" value="annulla">
-        <input class="main_menu_button" type="button" value="annulla">
-        <input style="border-bottom:1px solid #cbcbcb; border-radius: 0 0 10px 10px" class="main_menu_button" type="button" value="annulla">
+        <a href=""><button style="border-radius: 10px 10px 0 0" class="main_menu_button" disabled>La mia biblioteca</button></a>
+        <a href="../librerie/librerie.php"><button class="main_menu_button">Le mie librerie</button></a>
+        <a href=""><button class="main_menu_button">Annulla</button></a>
+        <a href=""><button style="border-bottom:1px solid #cbcbcb; border-radius: 0 0 10px 10px" class="main_menu_button">Annulla</button></a>
     </div><!--
  --><div class="content">
         <div id="little_menu_box">
@@ -31,6 +33,10 @@ Main container
         </div>
 
         <img onclick="slide_main_menu()" src="../imgs/menu.svg" style="position: absolute; top: 0; left: -1px; height: 90px">
+        <div class="account_container">
+          <p2 id="nome_utente"><?php echo $uname;?></p2>
+          <img src="../imgs/usericon.png" alt="icona_utente_non_trovata" style="width:50px;height:50px;">
+        </div>
 
         <h1 style="color: white; margin: 0; line-height: 30px"> La tua biblioteca. </h1>
 
