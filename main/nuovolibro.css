@@ -197,6 +197,7 @@ Book box
     height: 170px;
     margin: 0 10px 10px 0;
     transition: transform 500ms, width 500ms, height 500ms;
+    white-space: nowrap;
 }
 .book_container:hover{
     transform: scale(1.02,1.02);

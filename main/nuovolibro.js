@@ -21,6 +21,7 @@ function show_little_menu() {
 var new_menu = document.getElementById("new_menu");
 function slide_new_menu(){
     if(!new_menu.is_open){
+        close_info_menu();
         new_menu.style.transform = "translateX(-400px)";
         new_menu.is_open = true;
     }else{
