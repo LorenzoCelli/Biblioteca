@@ -9,7 +9,7 @@ $uname = $_SESSION['uname'];
     <title>La tua biblioteca</title>
     <link rel="stylesheet" type="text/css" href="nuovolibro.css">
     <link href="https://fonts.googleapis.com/css?family=Vollkorn:400,600,900" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="../opensans/opensans.css" rel="stylesheet">
 </head>
 <body>
 
@@ -19,10 +19,10 @@ Main container
 
 <div id="main_container">
     <div id="main_menu">
-        <a href=""><button style="border-radius: 10px 10px 0 0" class="main_menu_button" disabled>La mia biblioteca</button></a>
+        <a href=""><button class="main_menu_button" disabled>La mia biblioteca</button></a>
         <a href="../librerie/librerie.php"><button class="main_menu_button">Le mie librerie</button></a>
-        <a href=""><button class="main_menu_button">Annulla</button></a>
-        <a href=""><button style="border-bottom:1px solid #cbcbcb; border-radius: 0 0 10px 10px" class="main_menu_button">Annulla</button></a>
+        <a href=""><button class="main_menu_button">I miei amici</button></a>
+        <a href=""><button class="main_menu_button">Tua sorella</button></a>
     </div><!--
  --><div class="content">
         <div id="little_menu_box">
@@ -32,10 +32,10 @@ Main container
             <button style="border-bottom: none" class="little_menu_button">genere</button>
         </div>
 
-        <img onclick="slide_main_menu()" src="../imgs/menu.svg" style="position: absolute; top: 0; left: -1px; height: 90px">
+        <div style="border-radius: 0 0 20px 0; height: 70px; width:70px; position: absolute; top:0; left: 0; background-color: #f8f8f8; display: inline-block"><img onclick="slide_main_menu()" src="../imgs/menu.svg" style="height: 70px"></div>
         <div class="account_container">
           <p2 id="nome_utente"><?php echo $uname;?></p2>
-          <img src="../imgs/usericon.png" alt="icona_utente_non_trovata" style="width:50px;height:50px;">
+          <div style="display: inline-block; height: 50px; width: 50px; overflow: hidden"><img src="../imgs/usericon.svg" alt="icona_utente_non_trovata" style="width:50px;height:50px;"></div>
         </div>
 
         <h1 style="color: white; margin: 0; line-height: 30px"> La tua biblioteca. </h1>

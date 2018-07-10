@@ -8,10 +8,10 @@ h1{
     line-height: 30px;
 }
 a{
+    font-family: open_sans_regular, sans-serif;
     color: #3c3c3c;
     text-decoration: none;
 }
-
 a:hover{
     text-decoration: underline;
 }
@@ -38,15 +38,14 @@ form{
     width: 100%;
     font-size: 15px;
     padding-left: 10px;
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 300;
+    font-family: open_sans_light, sans-serif;
     outline: none;
 }
 input, button{
     transition: transform 200ms;
 }
 input:hover, button:hover{
-    transform: scale(1.03);
+    transform: scale(1.02);
 }
 .input_container{
     position: relative;
@@ -73,10 +72,9 @@ input:hover, button:hover{
     transition: height 100ms, width 100ms;
     border-radius: 10px 0 10px 10px;
     line-height: 48px;
-    font-weight: 300;
     padding-left: 10px;
     box-sizing: border-box;
-    font-family: 'Open Sans', sans-serif;
+    font-family: open_sans_light, sans-serif;
     font-size: 13px;
     z-index: 100;
 }

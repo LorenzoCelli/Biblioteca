@@ -53,7 +53,7 @@ if (isset($_POST['username'])) {
     <title>Registrazione</title>
     <link rel="stylesheet" type="text/css" href="../style.css">
     <link href="https://fonts.googleapis.com/css?family=Vollkorn:400,900" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="../opensans/opensans.css" rel="stylesheet">
 </head>
 <body>
     <div class="container">
