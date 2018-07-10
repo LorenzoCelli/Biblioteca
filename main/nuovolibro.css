@@ -33,14 +33,54 @@ Info book menu
 .info_title{
     margin-bottom: 5px;
 }
-
 .info_p{
     margin: 0 0 5px 0;
 }
-
 .info_b{
     font-weight: 600;
 }
+.info_hover_div{
+    height: 50px;
+    width: 50px;
+    display: inline-block;
+    border-right: 1px solid #efefef;
+    background-color: white;
+}
+.info_hover_div:hover{
+    background-color: #f8f8f8;
+}
+.info_modifica{
+    height: 50px;
+    line-height: 50px;
+    font-family: 'Open Sans', sans-serif;
+    padding: 0 10px;
+    background-color: white;
+    border-right: 1px solid #efefef;
+    display: inline-block;
+    vertical-align: top;
+}
+.info_button_bar{
+    height: 50px;
+    border-radius: 10px;
+    border: 1px solid #efefef;
+    overflow: hidden;
+    float: right;
+}
+#loading {
+    text-align: center;
+    display: block;
+    margin: auto;
+    margin-top: 10%;
+    width: 120px;
+    height: 120px;
+    -webkit-animation:spin 1s linear infinite;
+    -moz-animation:spin 1s linear infinite;
+    animation:spin 1s linear infinite;
+    opacity: 0.3;
+}
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
 
 /*
 New book menu

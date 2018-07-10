@@ -86,6 +86,7 @@ function fill_isbn_data() {
 
 var info_menu = document.getElementById("info_menu");
 function fill_info_book(id_libro){
+    info_menu.innerHTML = '<img id="loading" src="../imgs/loading.svg" alt="loading.." width="120" height="120">';
     info_menu.style.transform = "translateX(-500px)";
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
@@ -95,4 +96,7 @@ function fill_info_book(id_libro){
     };
     xhttp.open("GET", "infolibro.php"+"?id="+id_libro, true);
     xhttp.send(null);
+}
+function close_info_menu() {
+    info_menu.style.transform = "translateX(0)"
 }

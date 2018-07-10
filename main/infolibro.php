@@ -31,7 +31,10 @@ else{
     while ($gen = mysqli_fetch_assoc($gen)) $generi.=$gen['genere']."-";
 }
 ?>
-
+<div class="info_button_bar">
+    <div class="info_hover_div"><img src="../imgs/matita.svg" style="height: 50px"></div><!--
+ --><div onclick="close_info_menu()" class="info_hover_div"><img src="../imgs/croce.svg" style="height: 50px"></div>
+</div>
 <div id="new_menu_img" class="book_image" style="background-image: url('<?echo $img_url;?>')"></div>
 <h1 class="info_p, info_title"><?echo $titolo;?></h1>
 <hr class="info_p">

@@ -17,7 +17,7 @@ Main container
 
 <div id="main_container">
     <div id="main_menu">
-        <input style="border-radius: 10px 10px 0 0" class="main_menu_button" type="button" value="le mie librerie">
+        <a href="../librerie/nuovalibreria.php"><button style="border-radius: 10px 10px 0 0" class="main_menu_button">le mie librerie</button></a>
         <input class="main_menu_button" type="button" value="annulla">
         <input class="main_menu_button" type="button" value="annulla">
         <input style="border-bottom:1px solid #cbcbcb; border-radius: 0 0 10px 10px" class="main_menu_button" type="button" value="annulla">
@@ -126,6 +126,7 @@ Info book aside menu
 -->
 
 <div id="info_menu" style="left: 100%">
+    <img id="loading" src="../imgs/loading.svg" alt="loading.." width="120" height="120">
 </div>
 
 
