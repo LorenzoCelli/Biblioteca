@@ -12,7 +12,7 @@ $sql = "INSERT INTO libreria (id_utente,nome,descr,n_scaffali,colore)
 VALUES ('$id_utente','$nome','$descr','$scaffali','$colore')";
 $result = mysqli_query($conn, $sql);
 
-if ($result) echo "<script>window.open('nuovalibreria.php','_self');</script>";
+if ($result) header('Location: librerie.php');//echo "<script>window.open('librerie.php','_self');</script>";
 else echo "qualcosa è andato storto col database";
 
 mysqli_close($conn);

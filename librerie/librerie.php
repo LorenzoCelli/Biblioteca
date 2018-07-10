@@ -8,7 +8,7 @@ $uname = $_SESSION['uname'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>La tua biblioteca</title>
     <link rel="stylesheet" type="text/css" href="../main/nuovolibro.css">
-    <link rel="stylesheet" type="text/css" href="nuovalibreria.css">
+    <link rel="stylesheet" type="text/css" href="librerie.css">
     <link href="https://fonts.googleapis.com/css?family=Vollkorn:400,900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 </head>
@@ -87,7 +87,7 @@ New book aside
 <div id="new_menu" style="left: 100%">
   <button id="buttonX" onclick="slide_left('new_menu')">x</button><br>
   <h1>Nuova libreria</h1>
-  <form>
+  <form action="script.php" method="post">
     <div class="form">
       <input type="text" placeholder="Nome libreria" name="nome"><br>
       <input type="text" placeholder="Descrizione" name="descr"><br>
