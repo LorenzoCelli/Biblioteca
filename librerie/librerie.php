@@ -85,14 +85,13 @@ New book aside
 -->
 
 <div id="new_menu" style="left: 100%">
-  <button id="buttonX" onclick="slide_left('new_menu')">x</button><br>
   <h1>Nuova libreria</h1>
   <form action="script.php" method="post">
     <div class="form">
       <input type="text" placeholder="Nome libreria" name="nome"><br>
       <input type="text" placeholder="Descrizione" name="descr"><br>
       <input type="color" name="colore"><br><br>
-      <p>Numero scaffali: <input type="number" id="counter" value="1" name="n_scaffali"></p>
+      <p>Numero scaffali: <input type="number" id="counter" value="1" name="n_scaffali" oninput="addMoreLibrary('../imgs/newsc111.png')"></p>
       <img class="tasto" onclick="removeLibrary()" src="../imgs/tasto3.png">
       <img src="../imgs/newsc11.png" width="300" height="100" alt="scaffale" class="scaffale">
     </div>

@@ -13,22 +13,6 @@
 #counter:hover{
   transform: scale(1);
 }
-#buttonX{
-  background-color: transparent;
-  position: relative;
-  top: -35px;
-  float: left;
-  border: none;
-  outline: none;
-  color: black;
-  font-size: 40px;
-  transition: transform 0.5s;
-}
-#buttonX:hover{
-  transform: scale(1.05);
-  color: grey;
-
-}
 .select_box{
   margin-bottom: 5px;
   display: inline-block;
@@ -48,10 +32,6 @@
   height: auto;
   margin: 0 10px 10px 0;
   overflow: hidden;
-}
-.form {
-  margin: inherit;
-  margin-top: 40px;
 }
 .tasto {
   width: 300px;

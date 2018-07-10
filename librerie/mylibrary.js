@@ -34,9 +34,30 @@ function addLibrary(libraryImg) {
   document.getElementById("counter").value = contatoreScaffali;
 }
 function removeLibrary() {
-  document.getElementsByClassName("form")[0].removeChild(document.getElementsByClassName("scaffale")[1]);
-  contatoreScaffali--;
-  document.getElementById("counter").value = contatoreScaffali;
+  if (contatoreScaffali > 1) {
+    document.getElementsByClassName("form")[0].removeChild(document.getElementsByClassName("scaffale")[1]);
+    contatoreScaffali--;
+    document.getElementById("counter").value = contatoreScaffali;
+  }
+}
+function addMoreLibrary(libraryImg) {
+  var count = document.getElementById("counter").value;
+  if (count >= 1) {
+    if (count > contatoreScaffali) {
+      var temp = count;
+      count = count - contatoreScaffali;
+      contatoreScaffali = temp;
+      for (var i = 0; i < count; i++) {
+        document.getElementsByClassName("form")[0].appendChild(library(libraryImg));
+      }
+    }else if (count < contatoreScaffali) {
+      contatoreScaffali = contatoreScaffali - count;
+      for (var i = 0; i < contatoreScaffali; i++) {
+        document.getElementsByClassName("form")[0].removeChild(document.getElementsByClassName("scaffale")[1]);
+      }
+      contatoreScaffali = count;
+    }
+  }
 }
 function library(libraryImg) {
   var y = document.createElement("IMG");
