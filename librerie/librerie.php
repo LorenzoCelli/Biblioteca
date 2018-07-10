@@ -92,13 +92,13 @@ New book aside
       <input type="text" placeholder="Nome libreria" name="nome"><br>
       <input type="text" placeholder="Descrizione" name="descr"><br>
       <input type="color" name="colore"><br><br>
-      <p>Numero scaffali: <input type="text" id="counter" value="1" name="n_scaffali" disabled></p>
+      <p>Numero scaffali: <input type="number" id="counter" value="1" name="n_scaffali"></p>
       <img class="tasto" onclick="removeLibrary()" src="../imgs/tasto3.png">
       <img src="../imgs/newsc11.png" width="300" height="100" alt="scaffale" class="scaffale">
     </div>
-  <img class="tasto" onclick="addLibrary('../imgs/newsc111.png')" src="../imgs/tasto2.png">
-  <input type="submit" name="newlibraryButton" value="Crea nuova libreria" style="margin-top:15%">
-  <input type="reset" name="newlibraryButton" value="Annulla" onclick="slide_left('new_menu')">
+    <img class="tasto" onclick="addLibrary('../imgs/newsc111.png')" src="../imgs/tasto2.png">
+    <input type="submit" name="newlibraryButton" value="Crea nuova libreria" style="margin-top:15%">
+    <input type="reset" name="newlibraryButton" value="Annulla" onclick="slide_left('new_menu')">
   </form>
 </div>
 

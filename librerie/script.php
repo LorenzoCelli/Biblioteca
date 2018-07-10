@@ -7,6 +7,7 @@ $nome = $_POST["nome"];
 $descr = $_POST["descr"];
 $scaffali = $_POST["n_scaffali"];
 $colore = $_POST["colore"];
+echo $scaffali;
 
 $sql = "INSERT INTO libreria (id_utente,nome,descr,n_scaffali,colore)
 VALUES ('$id_utente','$nome','$descr','$scaffali','$colore')";
