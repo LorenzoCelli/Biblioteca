@@ -93,9 +93,6 @@ if (isset($_POST['username'])) {
           }
         }
 
-
-
-
         ?>
         <a href="../index.html">indietro</a>
     </div>
