@@ -33,8 +33,8 @@ function addLibrary(libraryImg) {
   contatoreScaffali++;
   document.getElementById("counter").value = contatoreScaffali;
 }
-function removeLibrary(libraryImg) {
-  document.getElementsByClassName("form")[0].appendChild(library(libraryImg));
+function removeLibrary() {
+  document.getElementsByClassName("form")[0].removeChild(document.getElementsByClassName("scaffale")[1]);
   contatoreScaffali--;
   document.getElementById("counter").value = contatoreScaffali;
 }
@@ -44,5 +44,6 @@ function library(libraryImg) {
   y.setAttribute("width", "300");
   y.setAttribute("alt", "scaffale");
   y.setAttribute("class","scaffale");
+  y.style.margin = "-30px 0 0";
   return y;
 }

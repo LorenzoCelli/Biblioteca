@@ -18,20 +18,30 @@ $uname = $_SESSION['uname'];
 Main container
 -->
 
-<div id="a" class="main_container">
-    <div class="menu_aside">
-
+<div id="main_container">
+    <div id="main_menu">
+      <input style="border-radius: 10px 10px 0 0" class="main_menu_button" type="button" value="La mia biblioteca">
+      <input class="main_menu_button" type="button" value="Le mie librerie" disabled>
+      <input class="main_menu_button" type="button" value="annulla">
+      <input style="border-bottom:1px solid #cbcbcb; border-radius: 0 0 10px 10px" class="main_menu_button" type="button" value="annulla">
     </div><!--
  --><div class="content">
-        <img onclick="slide_right('a')" src="../imgs/menu.svg" style="position:absolute;top:0;left:-1px;height:90px;cursor:pointer;">
+         <div id="little_menu_box">
+           <button class="little_menu_button" style="height: 30px" disabled>ordina per:</button>
+           <button class="little_menu_button">nome</button>
+           <button class="little_menu_button">autore</button>
+           <button style="border-bottom: none" class="little_menu_button">genere</button>
+         </div>
+
+        <img onclick="slide_right('main_container')" src="../imgs/menu.svg" style="position:absolute;top:0;left:-1px;height:90px;cursor:pointer;">
         <div class="" style="position:absolute;top:5px;right:20px;height:auto;padding:3px;">
-          <p2 style="line-height:50px;vertical-align:top;padding:3px;"><?php echo $uname;?></p2>
+          <p2 style="line-height:50px;vertical-align:top;padding:3px;margin-right:5px;"><?php echo $uname;?></p2>
           <img src="../imgs/usericon.png" alt="icona_utente_non_trovata" style="width:50px;height:50px;">
         </div>
         <h1 style="color: white"> Le tue librerie. </h1>
 
         <div style="margin:10px 0; background-color: #f8f8f8; border-radius: 50px; overflow: hidden; height:50px; display: inline-block"><!--
-        --><div class="hover_button" onclick="slide_left('new_library')"><img class="menu_button" src="../imgs/piu.svg"></div><!--
+        --><div class="hover_button" onclick="slide_left('new_menu')"><img class="menu_button" src="../imgs/piu.svg"></div><!--
          --><div class="hover_button"><img class="menu_button" src="../imgs/ordina.svg"></div><!--
          --><div onclick="show_hide('search_bar')" class="hover_button"><img style="border: none" class="menu_button" src="../imgs/lente.svg"></div><!--
          --><input id="search_bar" class="menu_input" type="text"></div>
@@ -74,8 +84,8 @@ Main container
 New book aside
 -->
 
-<div class="aside" style="left: 100%" id="new_library">
-  <button id="buttonX" onclick="slide_left('new_library')">x</button><br>
+<div id="new_menu" style="left: 100%">
+  <button id="buttonX" onclick="slide_left('new_menu')">x</button><br>
   <h1>Nuova libreria</h1>
   <form>
     <div class="form">
@@ -83,15 +93,16 @@ New book aside
       <input type="text" placeholder="Descrizione" name="descr"><br>
       <input type="color" name="colore"><br><br>
       <p>Numero scaffali: <input type="text" id="counter" value="1" name="n_scaffali" disabled></p>
-      <img class="tasto" onclick="addLibrary('../imgs/newsc111.png')" src="../imgs/tasto2.png">
+      <img class="tasto" onclick="removeLibrary()" src="../imgs/tasto3.png">
       <img src="../imgs/newsc11.png" width="300" height="100" alt="scaffale" class="scaffale">
     </div>
   <img class="tasto" onclick="addLibrary('../imgs/newsc111.png')" src="../imgs/tasto2.png">
   <input type="submit" name="newlibraryButton" value="Crea nuova libreria" style="margin-top:15%">
-  <input type="reset" name="newlibraryButton" value="Annulla" onclick="slide_left('new_library')">
+  <input type="reset" name="newlibraryButton" value="Annulla" onclick="slide_left('new_menu')">
   </form>
 </div>
 
 <script src="mylibrary.js"></script>
+<script src="../main/nuovolibro.js"></script>
 </body>
 </html>
