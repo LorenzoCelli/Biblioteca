@@ -1,11 +1,13 @@
 <link rel="stylesheet" type="text/css" href="main.css">
 <?php session_start();
+error_reporting(-1);
+ini_set('display_errors', 'On');
 
 include '../connection.php';
 
 $uname = $_SESSION['uname'];
 $id_utente = $_SESSION['id_utente'];
-$ordina = 'autoreza';//$_POST['ordina'];
+$ordina = 'libreria';//$_POST['ordina'];
 
 if ($ordina == 'titoloaz') {
   $sql = "SELECT * FROM libri
@@ -29,13 +31,15 @@ if ($ordina == 'titoloaz') {
 
 }elseif ($ordina == 'libreria') {
   $sql = "SELECT * FROM libri
-  INNER JOIN posizione ON libri.id = posizione.id_libro
-  INNER JOIN libreria ON libreria.id = posizione.id_libreria
-  WHERE id_utente = '$id_utente'";
+  INNER JOIN posizione
+  ON libri.id = posizione.id_libro
+  INNER JOIN libreria
+  ON libreria.id = posizione.id_libreria
+  WHERE libri.id_utente = '$id_utente'";
 
 }
 
-$result = mysqli_query($conn, $sql);
+$result = mysqli_query($conn, $sql) or trigger_error(mysqli_error($conn));
 
 while($row = mysqli_fetch_assoc($result)){
   echo "
