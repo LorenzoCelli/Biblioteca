@@ -101,3 +101,6 @@ function fill_info_book(id_libro){
 function close_info_menu() {
     info_menu.style.transform = "translateX(0)"
 }
+function edit_menu() {
+    
+}
