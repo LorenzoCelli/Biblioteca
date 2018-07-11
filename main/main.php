@@ -93,13 +93,13 @@ New book aside menu
         <h1>Nuovo libro</h1>
         <input type="number" placeholder="ISBN" name="isbn">
         <input type="text" placeholder="Titolo" name="titolo" required>
-        <input type="text" placeholder="Autore" name="autore" required>
-        <textarea rows="4" cols="50" placeholder="Descrizione" name="descr" ></textarea>
+        <input type="text" placeholder="Autore" name="autore" required><!--
+        --><textarea rows="4" cols="50" placeholder="Descrizione" name="descr" ></textarea>
         <input type="text" placeholder="Url immagine" name="img_url" required>
         <h2>Dove si trova?</h2>
         Libreria:
         <select name="nome_libreria" onchange="listalibrerie()">
-            <option></option>
+            <option value="">Nessuna</option>
             <?php
             $sql = "SELECT * FROM libreria WHERE id_utente = '$id_utente'";
             $result = mysqli_query($conn, $sql);

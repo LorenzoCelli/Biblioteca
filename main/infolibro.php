@@ -43,17 +43,38 @@ if($result && $result->num_rows > 0){
 
 ?>
 <div class="info_button_bar">
-    <div onclick="edit_menu(<?echo $id_libro;?>)" class="info_hover_div"><img src="../imgs/matita.svg" style="height: 50px"></div><!--
+    <div onclick="edit_book(<?echo $id_libro;?>)" class="info_hover_div"><img src="../imgs/matita.svg" style="height: 50px"></div><!--
  --><div onclick="delete_book(<?echo $id_libro;?>,this)" class="info_hover_div"><img src="../imgs/cestino.svg" style="height: 50px"></div><!--
  --><div onclick="close_info_menu()" class="info_hover_div"><img src="../imgs/croce.svg" style="height: 50px"></div>
 </div>
 <div id="new_menu_img" class="book_image" style="background-image: url('<?echo $img_url;?>')"></div>
-<h1 class="info_p, info_title"><?echo $titolo;?></h1>
-<hr class="info_p">
-<h2 class="info_p"><?echo $autore?></h2>
-<p class="info_p"><b class="info_b">Libreria</b> <?echo $libreria?></p>
-<p class="info_p"><b class="info_b">Scaffale</b> <?echo $scaffale?></p>
-<p class="info_p"><b class="info_b">ISBN</b> <?echo $isbn?></p>
+<div class="info_box">
+    <div style="display: none" class="info_tooltip">titolo</div>
+    <h1 class="info_p"><?echo $titolo;?></h1>
+</div>
+<hr>
+<div class="info_box">
+    <div style="display: none" class="info_tooltip">autore</div>
+    <h2 class="info_p"><?echo $autore?></h2>
+</div>
+<div class="info_box">
+    <div class="info_tooltip">libreria</div>
+    <div class="info_p"><?echo $libreria?></div>
+</div>
+<div class="info_box">
+    <div class="info_tooltip">scaffale</div>
+    <div class="info_p"><?echo $scaffale?></div>
+</div>
+<div class="info_box">
+    <div class="info_tooltip">isbn</div>
+    <div class="info_p"><?echo $isbn?></div>
+</div>
 
-<p class="info_p"><?echo $descr?></p>
-<p class="info_p"><b class="info_b"> Generi: </b><?echo $generi?></p>
+<div class="info_box">
+    <div style="display: none" class="info_tooltip">descrizione</div>
+    <div class="info_p"><?echo $descr?></div>
+</div>
+<div class="info_box">
+    <div style="display: none" class="info_tooltip">generi</div>
+    <div class="info_p"><?echo $generi?></div>
+</div>
