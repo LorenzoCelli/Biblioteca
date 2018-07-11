@@ -77,12 +77,8 @@ Info book menu
 }
 
 #loading {
-    text-align: center;
     display: block;
     margin: auto;
-    margin-top: 10%;
-    width: 120px;
-    height: 120px;
     -webkit-animation: spin 1s linear infinite;
     -moz-animation: spin 1s linear infinite;
     animation: spin 1s linear infinite;

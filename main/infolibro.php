@@ -30,7 +30,7 @@ else{
     while ($gen = mysqli_fetch_assoc($gen)) $generi.=$gen['genere']."-";
 }
 
-$sql = "SELECT * FROM posizione WHERE id_libro = ".$id_libro;
+$sql = "SELECT libreria.nome, posizione.n_scaffale FROM libreria INNER JOIN posizione ON libreria.id = posizione.id_libreria WHERE id_libro = ".$id_libro;
 $result = mysqli_query($conn, $sql) or trigger_error(mysqli_error($conn));
 
 $scaffale = "";
@@ -38,20 +38,13 @@ $libreria = "";
 if($result && $result->num_rows > 0){
     $row = mysqli_fetch_assoc($result);
     $scaffale = $row["n_scaffale"];
-    $id_libreria = $row["id_libreria"];
-
-    $sql = "SELECT nome FROM libreria WHERE id_libreria = ".$id_libreria;
-    $result = mysqli_query($conn, $sql) or trigger_error(mysqli_error($conn));
-
-    if($result){
-        $row = mysqli_fetch_assoc($result);
-        $nome_libreria = $row["nome"];
-    }
+    $libreria = $row["nome"];
 }
 
 ?>
 <div class="info_button_bar">
     <div onclick="edit_menu(<?echo $id_libro;?>)" class="info_hover_div"><img src="../imgs/matita.svg" style="height: 50px"></div><!--
+ --><div onclick="delete_book(<?echo $id_libro;?>,this)" class="info_hover_div"><img src="../imgs/cestino.svg" style="height: 50px"></div><!--
  --><div onclick="close_info_menu()" class="info_hover_div"><img src="../imgs/croce.svg" style="height: 50px"></div>
 </div>
 <div id="new_menu_img" class="book_image" style="background-image: url('<?echo $img_url;?>')"></div>

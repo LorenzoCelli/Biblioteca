@@ -101,6 +101,20 @@ function fill_info_book(id_libro){
 function close_info_menu() {
     info_menu.style.transform = "translateX(0)"
 }
-function edit_menu() {
-    
+function delete_book(id_libro, el) {
+    el.innerHTML = '<img id="loading" style="box-sizing: border-box; height: 50px;width: 50px" src="../imgs/loading.svg" alt="loading..">';
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            close_info_menu();
+            info_menu.innerHTML = this.responseText;
+            if(this.responseText === "libro eliminato"){
+                var e = document.querySelector('.book_container[onclick="fill_info_book('+id_libro+')"]');
+                e.parentNode.removeChild(e);
+            }
+        }
+    };
+    xhttp.open("POST", "eliminalibro.php", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send("id="+id_libro);
 }

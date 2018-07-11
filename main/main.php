@@ -32,7 +32,7 @@ Main container
             <button style="border-bottom: none" class="little_menu_button">genere</button>
         </div>
 
-        <div style="border-radius: 0 0 20px 0; height: 70px; width:70px; position: absolute; top:0; left: 0; background-color: #f8f8f8; display: inline-block"><img onclick="slide_main_menu()" src="../imgs/menu.svg" style="height: 70px"></div>
+        <div style="border-radius: 0 0 10px 0; height: 50px; width:50px; position: absolute; top:0; left: 0; background-color: #f8f8f8; display: inline-block"><img onclick="slide_main_menu()" src="../imgs/menu.svg" style="height: 50px"></div>
         <div class="account_container">
           <p2 id="nome_utente"><?php echo $uname;?></p2>
           <div style="display: inline-block; height: 50px; width: 50px; overflow: hidden"><img src="../imgs/usericon.svg" alt="icona_utente_non_trovata" style="width:50px;height:50px;"></div>
