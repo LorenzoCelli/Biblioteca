@@ -7,7 +7,7 @@ $uname = $_SESSION['uname'];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>La tua biblioteca</title>
-    <link rel="stylesheet" type="text/css" href="nuovolibro.css">
+    <link rel="stylesheet" type="text/css" href="main.css">
     <link href="https://fonts.googleapis.com/css?family=Vollkorn:400,600,900" rel="stylesheet">
     <link href="../opensans/opensans.css" rel="stylesheet">
 </head>
@@ -137,6 +137,6 @@ Info book aside menu
 
 
 
-<script src="nuovolibro.js"></script>
+<script src="main.js"></script>
 </body>
 </html>

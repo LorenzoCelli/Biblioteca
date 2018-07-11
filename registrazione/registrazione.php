@@ -57,7 +57,7 @@ if (isset($_POST['username'])) {
 </head>
 <body>
     <div class="container">
-        <h1>Registrazione</h1>
+        <h1 style="margin-bottom: 10px;">Registrazione</h1>
         <form action="registrazione.php" method="post">
             <div class="input_container">
                 <input id="email" <?php if($flag) echo "value='$email'"; ?> class="login_field" type="email" placeholder="e-mail" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>

@@ -41,7 +41,7 @@ if (isset($_POST['username'])) {
 </head>
 <body>
     <div class="container">
-            <h1>login</h1>
+            <h1 style="margin-bottom: 10px;">login</h1>
             <form action="login.php" method="post">
                 <div class="input_container">
                     <input class="login_field" type="text" placeholder="username" name="username" required>

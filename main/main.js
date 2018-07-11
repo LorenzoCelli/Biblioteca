@@ -17,7 +17,14 @@ function show_little_menu() {
         little_menu.style.height = "0px";
     }
 }
-
+var menu_account = document.getElementById("menu_account");
+function show_menu_account() {
+    if(menu_account.style.display === "" || menu_account.style.display === "none"){
+        menu_account.style.display = "block";
+    }else{
+        menu_account.style.display = "none";
+    }
+}
 var new_menu = document.getElementById("new_menu");
 function slide_new_menu(){
     if(!new_menu.is_open){

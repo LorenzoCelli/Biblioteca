@@ -7,10 +7,10 @@ $uname = $_SESSION['uname'];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Le tue librerie</title>
-    <link rel="stylesheet" type="text/css" href="../main/nuovolibro.css">
+    <link rel="stylesheet" type="text/css" href="../opensans/opensans.css">
+    <link rel="stylesheet" type="text/css" href="../main/main.css">
     <link rel="stylesheet" type="text/css" href="librerie.css">
     <link href="https://fonts.googleapis.com/css?family=Vollkorn:400,900" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 </head>
 <body>
 
@@ -34,10 +34,17 @@ Main container
          </div>
 
         <img onclick="slide_right('main_container')" src="../imgs/menu.svg" style="position:absolute;top:0;left:-1px;height:90px;cursor:pointer;">
-        <div class="account_container">
+
+        <a onclick="show_menu_account()"><div class="account_container">
           <p2 id="nome_utente"><?php echo $uname;?></p2>
-          <img src="../imgs/usericon.png" alt="icona_utente_non_trovata" style="width:50px;height:50px;">
+          <img src="../imgs/usericon.svg" alt="icona_utente_non_trovata" style="width:50px;height:50px;">
+        </div></a>
+        <div id="menu_account">
+            <button class="account_button" disabled>Il tuo account</button>
+            <button class="account_button">Impostazioni</button>
+            <button style="border-bottom: none" class="account_button">Logout</button>
         </div>
+
         <h1 style="color: white"> Le tue librerie. </h1>
 
         <div class="button_bar"><!--
@@ -101,7 +108,7 @@ New book aside
   </form>
 </div>
 
-<script src="mylibrary.js"></script>
-<script src="../main/nuovolibro.js"></script>
+<script src="librerie.js"></script>
+<script src="../main/main.js"></script>
 </body>
 </html>
