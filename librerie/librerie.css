@@ -7,7 +7,7 @@
   outline: none;
   margin-bottom: 0px;
   font-family: open_sans_regular, sans-serif;
-  font-size: 20px;
+  font-size: 16px;
   padding-left: 0px;
 }
 #counter:hover{
@@ -42,17 +42,10 @@
   transition: transform 200ms;
   transform: scale(1.01);
 }
-span {
-  color: black;
-  float: left;
-  padding-left: 48px;
-}
 p{
-  color: black;
-  margin-top: auto;
-  float: left;
-  padding-left: 48px;
+  margin-top: 24px;
 }
+
 .book_image {
   width: 180px;
   height: 69px;
@@ -88,4 +81,112 @@ p{
 }
 .book_text:hover {
   text-decoration: underline;
+}
+.colorContainer {
+  border: 1px solid #cbcbcb;
+background-color: white;
+border-radius: 10px;
+padding: 10px 40px 10px 40px;
+text-align: center;
+height: 360px;
+max-height: 20px;
+overflow: hidden;
+transition: max-height 0.25s ease-out;
+cursor:pointer;
+}
+
+ul {
+  list-style-type: none;
+  text-align: left;
+  padding-left: 0px;
+}
+.colore {
+  width: 100%;
+  height: 35px;
+  border-radius: 100px;
+  transition: transform 300ms;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+.colore:hover {
+  transform: scale(1.05, 1.05);
+}
+#rosso {
+  background-color: red;
+}
+#verde {
+  background-color: MediumSeaGreen;
+}
+#viola {
+  background-color: purple;
+}
+#blu {
+  background-color: DodgerBlue;
+}
+#arancio {
+  background-color: Orange;
+}
+#rosa {
+  background-color: Violet;
+}
+#verdeacqua {
+  background-color: #20B2AA;
+}
+.confirmButton {
+  width: 100%;
+  border: 1px solid #cbcbcb;
+  height: 40px;
+  border-radius: 10px;
+}
+.confirm {
+  padding-top: 10px;
+}
+#pickerTitle {
+  cursor: pointer;
+  padding-left: 0px;
+  text-align: center;
+  border: 0px;
+}
+#pickerAnimation {
+    display: none;
+    height: auto;
+    border: 1px solid #cbcbcb;
+    background-color: white;
+    border-radius: 10px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-top: 0px;
+    padding: 10px 40px 10px 40px;
+    text-align: center;
+    overflow: hidden;
+    transition: max-height 0.25s ease-out;
+}
+#check {
+  padding-left: 85%;
+  display: none;
+}
+.tasto {
+  display: inline-block;
+  height: 90px;
+  width: 90px;
+  background-color: #f8f8f8;
+  color: black;
+  font-size: 20%;
+  font-size: 30px;
+  border-radius: 10px;
+  text-align: center;
+  border: 1px solid #cbcbcb;
+}
+#sinistro {
+  margin-right: 50px;
+}
+.tasti {
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
+.containerScaffali {
+  width: 100%;
+  text-align: center;
+  margin-top: 50px;
 }

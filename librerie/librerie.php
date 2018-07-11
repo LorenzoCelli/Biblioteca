@@ -97,12 +97,29 @@ New book aside
     <div class="form">
       <input type="text" placeholder="Nome libreria" name="nome"><br>
       <input type="text" placeholder="Descrizione" name="descr"><br>
-      <input type="color" name="colore"><br><br>
+      <div class="colorContainer" onclick="changeHeightDown();">
+        <span id="pickerTitle">Colore etichetta</span>
+        </div>
+        <div id="pickerAnimation">
+        <ul id="listaColori">
+          <div class="colore" id="rosso" onclick="getColor('red');"><img src="../imgs/check2.svg" width="32px" height="32px" id="check" name="red"></div>
+          <div class="colore" id="verde" onclick="getColor('MediumSeaGreen');"><img src="../imgs/check2.svg" width="32px" height="32px" id="check" name="MediumSeaGreen"></div>
+          <div class="colore" id="viola" onclick="getColor('purple');"><img src="../imgs/check2.svg" width="32px" height="32px" id="check" name="purple"></div>
+          <div class="colore" id="blu" onclick="getColor('DodgerBlue');"><img src="../imgs/check2.svg" width="32px" height="32px" id="check" name="DodgerBlue"></div>
+          <div class="colore" id="arancio" onclick="getColor('Orange');"><img src="../imgs/check2.svg" width="32px" height="32px" id="check" name="Orange"></div>
+          <div class="colore" id="rosa" onclick="getColor('Violet');"><img src="../imgs/check2.svg" width="32px" height="32px" id="check" name="Violet"></div>
+          <div class="colore" id="verdeacqua" onclick="getColor('#20B2AA');"><img src="../imgs/check2.svg" width="32px" height="32px" id="check" name="#20B2AA"></div>
+      </ul>
+    </div>
+    <div class="containerScaffali">
       <p>Numero scaffali: <input type="number" id="counter" value="1" name="n_scaffali" oninput="addMoreLibrary('../imgs/newsc111.png')"></p>
-      <img class="tasto" onclick="removeLibrary()" src="../imgs/tasto3.png">
       <img src="../imgs/newsc11.png" width="300" height="100" alt="scaffale" class="scaffale">
     </div>
-    <img class="tasto" onclick="addLibrary('../imgs/newsc111.png')" src="../imgs/tasto2.png">
+    </div>
+    <div class="tasti">
+    <div class="tasto" id="sinistro" onclick="removeLibrary()"><p id="meno">-</p></div>
+    <div class="tasto" id="destro" onclick="addLibrary('../imgs/newsc111.png')"><p id="piu">+</p></div>
+  </div>
     <input type="submit" name="newlibraryButton" value="Crea nuova libreria" style="margin-top:15%">
     <input type="reset" name="newlibraryButton" value="Annulla" onclick="slide_left('new_menu')">
   </form>
