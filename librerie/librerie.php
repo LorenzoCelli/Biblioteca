@@ -73,17 +73,12 @@ Main container
         }
         ?>
 
-        <div class="book_container">
-            <div class="book_image" style="background-image: url(../imgs/newsc11.png)"></div><!--
-         --><div class="book_text"> Libreria #1 </div>
-        </div>
-        <div class="book_container">
-            <div class="book_image" style="background-image: url(../imgs/newsc11.png)"></div><!--
-         --><div class="book_text"> Libreria #2 </div>
-        </div>
-        <div class="book_container">
-            <div class="book_image" style="background-image: url(../imgs/newsc11.png)"></div><!--
-         --><div class="book_text"> Libreria #3 </div>
+        <div class="book_container" pippo="ciao">
+            <div class="book_image" style="background-image: url(https://images-na.ssl-images-amazon.com/images/I/51V%2Bb2rUV3L._SX356_BO1,204,203,200_.jpg)"></div><!--
+         --><div class="book_text">
+                <p class="book_title">La mia casa è dove sono</p>
+                Giovannino
+            </div>
         </div>
     </div></div>
 
@@ -111,15 +106,16 @@ New book aside
           <div class="colore" id="verdeacqua" onclick="getColor('#20B2AA');"><img src="../imgs/check2.svg" width="32px" height="32px" id="check" name="#20B2AA"></div>
       </ul>
     </div>
-    <div class="containerScaffali">
-      <p>Numero scaffali: <input type="number" id="counter" value="1" name="n_scaffali" oninput="addMoreLibrary('../imgs/newsc111.png')"></p>
-      <img src="../imgs/newsc11.png" width="300" height="100" alt="scaffale" class="scaffale">
-    </div>
-    </div>
+    <h1 style="margin-top: 20px;">Aggiungi scaffali</h1>
     <div class="tasti">
-    <div class="tasto" id="sinistro" onclick="removeLibrary()"><p id="meno">-</p></div>
-    <div class="tasto" id="destro" onclick="addLibrary('../imgs/newsc111.png')"><p id="piu">+</p></div>
+    <div class="tasto" id="destro" onclick="addLibrary('../imgs/newsc111.png')"><p id="piu">Aggiungi</p></div>
+    <div class="tasto" id="sinistro" onclick="removeLibrary()"><p id="meno">Rimuovi</p></div>
   </div>
+    <div class="containerScaffali">
+      <p style="font-size: 20px;margin-bottom: 8px;">Numero scaffali: <input type="number" id="counter" value="1" name="n_scaffali" oninput="addMoreLibrary('../imgs/newsc111.png')"></p>
+      <img src="../imgs/newsc11.png" height="100" alt="scaffale" class="scaffale">
+    </div>
+    </div>
     <input type="submit" name="newlibraryButton" value="Crea nuova libreria" style="margin-top:15%">
     <input type="reset" name="newlibraryButton" value="Annulla" onclick="slide_left('new_menu')">
   </form>
