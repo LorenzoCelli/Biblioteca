@@ -77,7 +77,7 @@ Main container
           <div class="etichettalib">
           </div>
           <div class="library_img">
-            <img src="bookshelf.svg" width="170px">
+            <img src="../imgs/bookshelf.svg" width="170px">
           </div>
           <div class="library_text">
             <p class="library_title">Libreria #1</p>
@@ -87,7 +87,7 @@ Main container
             <div class="etichettalib">
             </div>
             <div class="library_img">
-              <img src="bookshelf.svg" width="170px">
+              <img src="../imgs/bookshelf.svg" width="170px">
             </div>
             <div class="library_text">
               <p class="library_title">Libreria #</p>
