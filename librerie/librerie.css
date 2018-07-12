@@ -50,21 +50,6 @@ p{
   margin-top: 8px;
 }
 
-.book_image {
-    display: inline-block;
-    height: 170px;
-    width: 130px;
-    background-size: cover;
-    background-position: center;
-}
-
-.book_title {
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 20px;
-    margin: 0;
-}
-
 .colorContainer {
   border: 1px solid #cbcbcb;
   background-color: white;
@@ -174,4 +159,28 @@ ul {
 .scaffale {
   width: 100%;
   border-radius: 10px
+}
+.etichettalib {
+  height: 100%;
+  background-color: green;
+  width: 15px;
+  display: inline-block;
+}
+
+.library_img {
+  display: inline-block;
+  margin: 0px 15px 0px 15px;
+}
+.library_text {
+  display: inline-block;
+  width: auto;
+  height: 100%;
+  vertical-align: middle;
+  padding: 20px 20px;
+}
+.library_title {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 20px;
+    margin: 0;
 }
