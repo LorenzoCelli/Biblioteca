@@ -28,8 +28,8 @@ function slide_right(element_id){
         element.is_open = false;
     }
 }
-var contatoreScaffali = 1;
 
+var contatoreScaffali = 1;
 function addLibrary(libraryImg) {
   document.getElementsByClassName("containerScaffali")[0].appendChild(library(libraryImg));
   contatoreScaffali++;
@@ -44,22 +44,14 @@ function removeLibrary() {
 }
 function addMoreLibrary(libraryImg) {
   var count = document.getElementById("counter").value;
-  if (count >= 1) {
-    if (count > contatoreScaffali) {
-      var temp = count;
-      count = count - contatoreScaffali;
-      contatoreScaffali = temp;
-      for (var i = 0; i < count; i++) {
-        document.getElementsByClassName("containerScaffali")[0].appendChild(library(libraryImg));
-      }
-    }else if (count < contatoreScaffali) {
-      contatoreScaffali = contatoreScaffali - count;
-      for (var i = 0; i < contatoreScaffali; i++) {
-        document.getElementsByClassName("containerScaffali")[0].removeChild(document.getElementsByClassName("scaffale")[1]);
-      }
-      contatoreScaffali = count;
-    }
+  var elimina = document.getElementsByClassName("scaffale").length;
+  for (var i = 0; i < elimina-1; i++) {
+    document.getElementsByClassName("containerScaffali")[0].removeChild(document.getElementsByClassName("scaffale")[1]);
   }
+  for (var i = 0; i < count-1; i++) {
+    document.getElementsByClassName("containerScaffali")[0].appendChild(library(libraryImg));
+  }
+  contatoreScaffali = count;
 }
 function library(libraryImg) {
   var y = document.createElement("IMG");
@@ -90,7 +82,7 @@ function getColor(color) {
   document.getElementsByClassName("colorContainer")[0].style.backgroundColor = color;
   document.getElementById("pickerTitle").style.color = "white";
   document.getElementsByName(color)[0].style.display = "block";
-  checkColor++;
+  checkColor = 1;
 }
 function changeCheck(color) {
   document.getElementsByName(color)[0].style.display = "none";

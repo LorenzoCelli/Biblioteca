@@ -10,7 +10,7 @@ $id_utente = $_SESSION['id_utente'];
 //$ricerca = $_POST['search_bar'];
 $ricerca = 'pennacchio';
 
-$sql = "SELECT * FROM libri WHERE MATCH(titolo,autore,descr) AGAINST ('$ricerca');";
+$sql = "SELECT * FROM libri WHERE MATCH(titolo, autore, descr) AGAINST ('978' IN NATURAL LANGUAGE MODE) OR isbn LIKE '%978%';";
 
 $result = mysqli_query($conn, $sql) or trigger_error(mysqli_error($conn));
 
