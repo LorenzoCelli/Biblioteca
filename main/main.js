@@ -62,17 +62,6 @@ var titolo = document.querySelector('input[name=titolo]');
 var autore = document.querySelector('input[name=autore]');
 var descr = document.querySelector('textarea[name=descr]');
 
-function listalibrerie() {
-    var select = new_menu.querySelector('select[name=nome_libreria]');
-    var select2 = new_menu.querySelector('select[name=scaffale]');
-    var num_scaffali = libreria[select.value];
-    select2.innerHTML = "";
-    for (var i = 1; i <= num_scaffali; i++) {
-        select2.innerHTML += "<option value='" + i + "'>" + i + "</option>";
-    }
-}
-
-
 isbn.onblur = fill_isbn_data;
 
 function fill_isbn_data() {
@@ -103,7 +92,8 @@ function fill_isbn_data() {
 var info_menu = document.getElementById("info_menu");
 
 function fill_info_book(id_libro) {
-    info_menu.innerHTML = '<img id="loading" src="../imgs/loading.svg" alt="loading.." width="120" height="120">';
+    info_menu.innerHTML = "";
+    info_menu.appendChild(loading_img(120));
     info_menu.style.transform = "translateX(-500px)";
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
@@ -120,12 +110,10 @@ function close_info_menu() {
 }
 
 function edit_book(id_libro) {
-    var mute = info_menu.getElementsByClassName("info_p");
-    console.log(mute.length);
-    while (mute.length) {
-        console.log("s");
+    var edit = info_menu.getElementsByClassName("info_p");
+    while (edit.length) {
         var input = document.createElement("INPUT");
-        var tt = mute[0].parentElement.getElementsByClassName("info_tooltip")[0];
+        var tt = edit[0].parentElement.getElementsByClassName("info_tooltip")[0];
         tt.style.display = "inline-block";
         if (tt.innerText === "descrizione") {
             input = document.createElement("TEXTAREA")
@@ -138,11 +126,11 @@ function edit_book(id_libro) {
 
         }
         input.name = tt.innerText;
-        var value = mute[0].innerHTML;
+        var value = edit[0].innerHTML;
         input.value = value;
-        mute[0].parentElement.replaceChild(input, mute[0]);
+        edit[0].parentElement.replaceChild(input, edit[0]);
         if (tt.innerText === "scaffale"){
-            scaffali();
+            info_menu.querySelector('select[name=libreria]').onchange();
             input.value = value;
         }
     }
@@ -152,15 +140,18 @@ function edit_book(id_libro) {
     info_menu.appendChild(salva);
     var annulla = document.createElement("BUTTON");
     annulla.innerText = "annulla modifiche";
+    annulla.onclick = function () {fill_info_book(id_libro)};
     info_menu.appendChild(annulla);
 }
 
 function update_book(id_libro, el) {
-    el.innerHTML = '<img id="loading" style="box-sizing: border-box; height: 40px;width: 40px" src="../imgs/loading.svg" alt="loading..">';
+    el.innerHTML = "";
+    el.appendChild(loading_img(40));
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            info_menu.innerHTML = this.responseText;
+            fill_info_book(id_libro);
+            document.querySelector('.book_container[onclick="fill_info_book(' + id_libro + ')"]').innerHTML = this.responseText;
         }
     };
     xhttp.open("POST", "aggiornalibro.php", true);
@@ -172,12 +163,15 @@ function update_book(id_libro, el) {
     var descr = info_menu.querySelector('textarea[name=descrizione]').value;
     var libreria = info_menu.querySelector('select[name=libreria]').value;
     var scaffale = info_menu.querySelector('select[name=scaffale]').value;
+    var img_url = info_menu.querySelector('input[name=img_url]').value;
 
-    xhttp.send("id="+id_libro+"&titolo="+titolo+"&autore="+autore+"&isbn="+isbn+"&descr="+descr+"&libreria="+libreria+"&scaffale="+scaffale);
+    var a = "id="+id_libro+"&titolo="+titolo+"&autore="+autore+"&isbn="+isbn+"&descr="+descr+"&libreria="+libreria+"&scaffale="+scaffale+"&img_url="+encodeURIComponent(img_url);
+    xhttp.send(a);
 }
 
 function delete_book(id_libro, el) {
-    el.innerHTML = '<img id="loading" style="box-sizing: border-box; height: 50px;width: 50px" src="../imgs/loading.svg" alt="loading..">';
+    el.innerHTML = "";
+    el.appendChild(loading_img(50));
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
@@ -205,17 +199,26 @@ function librerie_select() {
         option.textContent = prop;
         selectBox.add(option);
     }
-    selectBox.onchange = scaffali;
+    selectBox.onchange = function () { scaffali(this, info_menu.querySelector('select[name=scaffale]')); };
     return selectBox;
 }
 
-function scaffali() {
-    var select =  info_menu.querySelector('select[name=libreria]');
-    var select2 = info_menu.querySelector('select[name=scaffale]');
-    select2.disabled = select.value === "nessuna libreria";
-    var num_scaffali = libreria[select.value];
-    select2.innerHTML = "";
+function scaffali(libreria_select, scaffale_select) {
+    scaffale_select.disabled = libreria_select.value === "nessuna libreria";
+    var num_scaffali = libreria[libreria_select.value];
+    scaffale_select.innerHTML = "";
     for (var i = 1; i <= num_scaffali; i++) {
-        select2.innerHTML += "<option value='" + i + "'>" + i + "</option>";
+        scaffale_select.innerHTML += "<option value='" + i + "'>" + i + "</option>";
     }
+}
+
+var l_img = document.createElement("IMG");
+l_img.id = "loading";
+l_img.src = "../imgs/loading.svg";
+
+function loading_img(l) {
+    l_img.alt = "loading..";
+    l_img.style.width = l+"px";
+    l_img.style.height = l+"px";
+    return l_img;
 }
