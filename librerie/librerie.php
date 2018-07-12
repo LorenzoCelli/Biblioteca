@@ -120,6 +120,69 @@ New book aside
   </form>
 </div>
 
+
+<div id="info_menu" style="left: 100%; transform: translateX(-500px);"><div class="info_button_bar">
+    <div onclick="edit_book(<?echo $id_libro;?>)" class="info_hover_div"><img src="../imgs/matita.svg" style="height: 50px"></div><!--
+ --><div onclick="delete_book(<?echo $id_libro;?>,this)" class="info_hover_div"><img src="../imgs/cestino.svg" style="height: 50px"></div><!--
+ --><div onclick="close_info_menu()" class="info_hover_div"><img src="../imgs/croce.svg" style="height: 50px"></div>
+</div>
+<div class="libtitle_menu">
+  <h1 style="margin-top: 20px;">Libreria #1</h1>
+</div>
+<hr>
+<div class="libdesc_menu">
+  <h4>Libreria in soggiorno</h4>
+</div>
+
+<div class="cercaInput"><input class="cercaLib"><img src="../imgs/lente2.svg" width="32px" class="cercaImg"></div>
+<div class="scaffaleTitolo">
+  <h5>Scaffale 1</h5>
+</div>
+<div class="libscaffale_menu">
+  <div class="boxlibro_menu">
+    <img src="../imgs/copertine_libri/copertina1.jpg" class="libriscaffali">
+  </div>
+  <div class="boxlibro_menu">
+    <img src="../imgs/copertine_libri/copertina5.jpg" class="libriscaffali">
+  </div>
+  <div class="boxlibro_menu">
+    <img src="../imgs/copertine_libri/copertina4.jpg" class="libriscaffali">
+  </div>
+  <div class="boxlibro_menu">
+    <img src="../imgs/copertine_libri/copertina3.jpg" class="libriscaffali">
+  </div>
+</div>
+<div class="scaffaleTitolo">
+  <h5>Scaffale 2</h5>
+</div>
+<div class="libscaffale_menu">
+  <div class="boxlibro_menu">
+    <img src="../imgs/copertine_libri/copertina6.jpg" class="libriscaffali">
+  </div>
+  <div class="boxlibro_menu">
+    <img src="../imgs/copertine_libri/copertina2.jpg" class="libriscaffali">
+  </div>
+  <div class="boxlibro_menu">
+    <img src="../imgs/copertine_libri/copertina7.jpg" class="libriscaffali">
+  </div>
+</div>
+<div class="scaffaleTitolo">
+  <h5>Scaffale 3</h5>
+</div>
+<div class="libscaffale_menu">
+  <div class="boxlibro_menu">
+    <img src="../imgs/copertine_libri/copertina8.jpg" class="libriscaffali">
+  </div>
+  <div class="boxlibro_menu">
+    <img src="../imgs/copertine_libri/copertina9.jpg" class="libriscaffali">
+  </div>
+  <div class="boxlibro_menu">
+    <img src="../imgs/copertine_libri/copertina3.jpg" class="libriscaffali">
+  </div>
+</div>
+
+</div>
+
 <script src="librerie.js"></script>
 <script src="../main/main.js"></script>
 </body>
