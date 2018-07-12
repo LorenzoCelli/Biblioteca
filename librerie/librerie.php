@@ -91,7 +91,7 @@ Main container
             </div>
             <div class="library_text">
               <p class="library_title">Libreria #</p>
-              </div>
+              </div> 
             </div>
         </div>
     </div></div>
