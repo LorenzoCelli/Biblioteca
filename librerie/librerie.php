@@ -73,17 +73,12 @@ Main container
         }
         ?>
 
-        <div class="book_container">
-            <div class="book_image" style="background-image: url(../imgs/newsc11.png)"></div><!--
-         --><div class="book_text"> Libreria #1 </div>
-        </div>
-        <div class="book_container">
-            <div class="book_image" style="background-image: url(../imgs/newsc11.png)"></div><!--
-         --><div class="book_text"> Libreria #2 </div>
-        </div>
-        <div class="book_container">
-            <div class="book_image" style="background-image: url(../imgs/newsc11.png)"></div><!--
-         --><div class="book_text"> Libreria #3 </div>
+        <div class="book_container" pippo="ciao">
+            <div class="book_image" style="background-image: url(https://images-na.ssl-images-amazon.com/images/I/51V%2Bb2rUV3L._SX356_BO1,204,203,200_.jpg)"></div><!--
+         --><div class="book_text">
+                <p class="book_title">La mia casa è dove sono</p>
+                Giovannino
+            </div>
         </div>
     </div></div>
 
