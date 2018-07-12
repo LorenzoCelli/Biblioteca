@@ -52,49 +52,34 @@ Main container
          --><div class="hover_button"><img class="menu_button" src="../imgs/ordina.svg"></div><!--
          --><div onclick="show_hide('search_bar')" class="hover_button"><img style="border: none" class="menu_button" src="../imgs/lente.svg"></div><!--
          --><input id="search_bar" class="menu_input" type="text"></div>
-        <br>
+         <br>
 
-        <?php
+         <?php
 
-        $id_utente = $_SESSION['id_utente'];
+         $id_utente = $_SESSION['id_utente'];
 
-        include '../connection.php';
+         include '../connection.php';
 
-        $sql = "SELECT * FROM libreria WHERE id_utente = '$id_utente'";
-        $result = mysqli_query($conn, $sql);
+         $sql = "SELECT * FROM libreria WHERE id_utente = '$id_utente'";
+         $result = mysqli_query($conn, $sql);
 
-        while($row = mysqli_fetch_assoc($result)){
-          echo "
-          <div class='book_container'>
-              <div class='book_image' style='background-image: url(../imgs/newsc11.png)'></div><!--
-           --><div class='book_text'> ".$row['nome']." </div>
-          </div>
-          ";
-        }
-        ?>
+         while($row = mysqli_fetch_assoc($result)){
+           echo "
+           <div class='book_container'>
+           <div class='etichettalib' style='background-color:".$row['colore'].";'></div>
+           <div class='library_img'>
+           <img src='../imgs/bookshelf.svg' width='170px'>
+           </div>
+           <div class='library_text'>
+           <p class='library_title'>".$row['nome']."</p>
+           </div>
+           </div>
+           ";
+         }
+         ?>
 
-        <div class="book_container" pippo="ciao">
-          <div class="etichettalib">
-          </div>
-          <div class="library_img">
-            <img src="../imgs/bookshelf.svg" width="170px">
-          </div>
-          <div class="library_text">
-            <p class="library_title">Libreria #1</p>
-            </div>
-          </div>
-          <div class="book_container" pippo="ciao">
-            <div class="etichettalib">
-            </div>
-            <div class="library_img">
-              <img src="../imgs/bookshelf.svg" width="170px">
-            </div>
-            <div class="library_text">
-              <p class="library_title">Libreria #</p>
-              </div> 
-            </div>
-        </div>
-    </div></div>
+       </div>
+     </div></div>
 
 <!--
 New book aside
