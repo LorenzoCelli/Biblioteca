@@ -232,3 +232,31 @@ h5 {
   margin-bottom: -25px;
     margin-top: 15px;
 }
+
+/*
+* Scrollbar
+* modificato
+*/
+::-webkit-scrollbar {
+    width: 2px;
+    height:2px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f8f8f8;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #f8f8f8;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background:#f8f8f8;
+}
+/*
+* Scrollbar
+* modificato
+*/
