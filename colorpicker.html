@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #cubo{
+            display: inline-block;
+            background-color: #ff00ff;
+            border-radius: 10px;
+            height: 30px;
+            width: 30px;
+            margin-right: 0;
+        }
+        #container {
+            position: relative;
+            height: 30px;
+            width: 200px;
+            display: inline-block;
+            border-radius: 30px;
+            overflow: hidden;
+        }
+        img{
+            height: 100%;
+            width: 100%;
+        }
+        #pointer{
+            transform: translateX(30px);
+            position: absolute;
+            display: inline-block;
+            height: 100%;
+            width: 1px;
+            background-color: white;
+            top:0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="cubo">
+    </div>
+    <div id = "container">
+        <img onmousemove="ciao(event)" src="imgs/line.png">
+        <div id="pointer"></div>
+    </div>
+    <script>
+        var w = 200;
+        var container = document.getElementById("container");
+        var pointer = document.getElementById("pointer");
+        var cubo = document.getElementById("cubo");
+
+        var step = w/6;
+        var colori =[
+            [0,2,1],
+            [2,1,-1],
+            [2,1,1],
+            [1,2,-1],
+            [1,0,1],
+            [0,1,-1]
+        ];
+
+        function ciao(ev) {
+            var l = ev.clientX-getX(container);
+            pointer.style.transform = "translateX("+l+"px)";
+            var s = Math.floor(l/step);
+            var rest = l/step-s;
+            var colore = colori[s];
+            var a = [];
+            a[colore[0]] = 255;
+            if(colore[2]>0){
+                a[colore[1]] = 255*rest;
+            }else{
+                a[colore[1]] = 255-255*rest;
+            }
+            for (var i = 0; i<3; i++){
+                if(!a[i]){
+                    a[i] = 0;
+                }
+            }
+            cubo.style.backgroundColor = "rgb("+a[0]+","+a[1]+","+a[2]+")";
+        }
+        function getX(element) {
+            var xPosition = 0;
+            while(element) {
+                xPosition += (element.offsetLeft - element.scrollLeft + element.clientLeft);
+                element = element.offsetParent;
+            }
+            return xPosition;
+        }
+    </script>
+</body>
+</html>
