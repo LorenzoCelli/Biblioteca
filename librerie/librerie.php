@@ -90,7 +90,7 @@ Main container
               <img src="bookshelf.svg" width="170px">
             </div>
             <div class="library_text">
-              <p class="library_title">Libreria #1</p>
+              <p class="library_title">Libreria #</p>
               </div>
             </div>
         </div>
