@@ -56,37 +56,113 @@ function slide_main_menu() {
 }
 
 var img = document.getElementById("new_menu_img");
-var img_url = document.querySelector('input[name=img_url]');
-var isbn = document.querySelector('input[name=isbn]');
-var titolo = document.querySelector('input[name=titolo]');
-var autore = document.querySelector('input[name=autore]');
-var descr = document.querySelector('textarea[name=descr]');
+var img_url = new_menu.querySelector('input[name=img_url]');
+var isbn = new_menu.querySelector('input[name=isbn]');
+var titolo = new_menu.querySelector('input[name=titolo]');
+var autore = new_menu.querySelector('input[name=autore]');
+var descr = new_menu.querySelector('textarea[name=descr]');
 
-isbn.onblur = fill_isbn_data;
+isbn.oninput = function (){
+    var l = this.value.toString().length;
+    if(l<10 || l>13) return;
+    request_isbn_data(isbn_menu_options, "q=isbn:"+this.value);
+};
+titolo.onblur = function () {
+    if(this.value.length < 1) return;
+    request_isbn_data(title_menu_options, "q=intitle:"+this.value);
+};
+autore.onblur = function () {
+    if(this.value.length < 1) return;
+    request_isbn_data(author_menu_options, "q=inauthor:"+this.value);
+};
 
-function fill_isbn_data() {
+var isbn_menu_options = document.getElementById("isbn_menu_options");
+var title_menu_options = document.getElementById("title_menu_options");
+var author_menu_options = document.getElementById("author_menu_options");
+
+var def_list = [img_url, isbn, titolo, autore, descr];
+defocussers("isbn", function (){ isbn_menu_options.innerHTML = ""});
+defocussers("titolo", function (){ title_menu_options.innerHTML = ""});
+defocussers("autore", function (){ author_menu_options.innerHTML = ""});
+
+
+function defocussers(avoid_name, func){
+    for(var i = 0; i<def_list.length; i++){
+        var el = def_list[i];
+        if(el.name != avoid_name){
+            el.addEventListener("focus", func);
+        }
+    }
+}
+
+function request_isbn_data(menu_options, query) {
+    menu_options.innerHTML = "";
+    menu_options.appendChild(isbn_menu_option(null,null,null,true));
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
+            menu_options.innerHTML = "";
             var r = JSON.parse(this.response);
-            console.log(r);
-            if (r.totalItems !== 1) return;
-            r = r.items[0].volumeInfo;
-            titolo.value = r.title;
-            var authors = "";
-            for (var i = 0; i < r.authors.length; i++) {
-                authors += r.authors[i];
-                if (i !== r.authors.length - 1) authors += ", ";
+            if(!r.items){
+                console.log("nothing found"); return;
             }
-            autore.value = authors;
-            descr.value = r.description;
-            img.style.backgroundImage = "url('" + r.imageLinks.thumbnail + "')";
-            img_url.value = r.imageLinks.thumbnail;
+            if (r.totalItems == 1){
+                fill_isbn_data(r.items[0].volumeInfo)
+            }else{
+                var items = r.items;
+                for(var i = 0; i< items.length; i++){
+                    var titolo = items[i].volumeInfo.title;
+                    var autore = authors(items[i].volumeInfo);
+                    menu_options.appendChild(isbn_menu_option(titolo, autore, items[i].volumeInfo));
+                }
+            }
+        }else{
+            menu_options.innerHTML = "";
         }
     };
-    console.log("https://www.googleapis.com/books/v1/volumes?q=isbn" + isbn.value);
-    xhttp.open("GET", "https://www.googleapis.com/books/v1/volumes?q=isbn" + isbn.value, true);
+    xhttp.open("GET", "https://www.googleapis.com/books/v1/volumes?"+query, true);
     xhttp.send();
+}
+
+function fill_isbn_data(volumeInfo) {
+    isbn.value = parseInt(volumeInfo.industryIdentifiers[0]["identifier"]);
+    titolo.value = volumeInfo.title;
+    autore.value = authors(volumeInfo);
+    if('description' in volumeInfo){
+        descr.value = volumeInfo.description;
+    }else{
+        descr.value = "";
+    }
+    if('imageLinks' in volumeInfo) {
+        img.style.backgroundImage = "url('" + volumeInfo.imageLinks.thumbnail + "')";
+        img_url.value = volumeInfo.imageLinks.thumbnail;
+    }else{
+        img.style.backgroundImage = "url('')";
+    }
+}
+
+function authors(volumeInfo) {
+    if(!("authors" in volumeInfo)) return "";
+    console.log(volumeInfo);
+    var authors = "";
+    for (var i = 0; i < volumeInfo.authors.length; i++) {
+        authors += volumeInfo.authors[i];
+        if (i !== volumeInfo.authors.length - 1) authors += ", ";
+    }
+    return authors;
+}
+
+function isbn_menu_option(titolo, autore, volumeInfo,l){ // <div class="isbn_menu_option"><b>Giovanninoioino</b> autore tuo padre</div>
+    var div = document.createElement("DIV");
+    div.className = "isbn_menu_option";
+    if(l){
+        div.appendChild(loading_img(40));
+    }else{
+        div.innerHTML = "<b>"+titolo+"</b> "+autore;
+        div.vi = volumeInfo;
+        div.onclick = function () { this.parentElement.innerHTML = ""; fill_isbn_data(this.vi) };
+    }
+    return div;
 }
 
 var info_menu = document.getElementById("info_menu");
@@ -106,7 +182,7 @@ function fill_info_book(id_libro) {
 }
 
 function close_info_menu() {
-    info_menu.style.transform = "translateX(0)"
+    info_menu.style.transform = "translateX(0)";
 }
 
 function edit_book(id_libro) {

@@ -153,6 +153,37 @@ textarea {
     background-color: white
 }
 
+.menu_container{
+    border-radius: 10px;
+    border: 1px solid #cbcbcb;
+    overflow: hidden;
+    margin-bottom: 5px;
+}
+
+.menu_container input{
+    margin: 0;
+    border: none;
+    border-radius: 0;
+}
+
+.isbn_menu_option{
+    cursor: pointer;
+    white-space: nowrap;
+    font-family: open_sans_light, sans-serif;
+    height: 40px;
+    line-height: 40px;
+    box-sizing: border-box;
+    padding: 0 10px;
+    overflow: hidden;
+    width: 100%;
+}
+.isbn_menu_option:hover{
+    background-color: white;
+}
+.isbn_menu_option b{
+    font-family: open_sans_regular, sans-serif;
+}
+
 /*
 main menu
 */
@@ -170,6 +201,7 @@ a {
 }
 
 .main_menu_button {
+    border-radius: 0;
     font-family: open_sans_light, sans-serif;
     background-color: transparent;
     display: block;

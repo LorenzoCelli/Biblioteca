@@ -91,10 +91,19 @@ New book aside menu
     <form action="script.php" method="post">
         <div id="new_menu_img" class="book_image"></div>
         <h1>Nuovo libro</h1>
-        <input type="number" placeholder="ISBN" name="isbn">
-        <input type="text" placeholder="Titolo" name="titolo" required>
-        <input type="text" placeholder="Autore" name="autore" required><!--
-        --><textarea rows="4" cols="50" placeholder="Descrizione" name="descr" ></textarea>
+        <div class="menu_container"><!--
+         --><input type="number" placeholder="ISBN" name="isbn"><!--
+         --><div id="isbn_menu_options"></div></div>
+
+        <div class="menu_container"><!--
+         --><input type="text" placeholder="Titolo" name="titolo" required><!--
+         --><div id="title_menu_options"></div></div>
+
+        <div class="menu_container"><!--
+         --><input type="text" placeholder="Autore" name="autore" required><!--
+         --><div id="author_menu_options"></div></div>
+
+        <textarea rows="4" cols="50" placeholder="Descrizione" name="descr" ></textarea>
         <input type="text" placeholder="Url immagine" name="img_url" required>
         <h2>Dove si trova?</h2>
         Libreria:
