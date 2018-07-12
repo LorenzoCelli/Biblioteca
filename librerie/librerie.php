@@ -74,10 +74,24 @@ Main container
         ?>
 
         <div class="book_container" pippo="ciao">
-            <div class="book_image" style="background-image: url(https://images-na.ssl-images-amazon.com/images/I/51V%2Bb2rUV3L._SX356_BO1,204,203,200_.jpg)"></div><!--
-         --><div class="book_text">
-                <p class="book_title">La mia casa è dove sono</p>
-                Giovannino
+          <div class="etichettalib">
+          </div>
+          <div class="library_img">
+            <img src="bookshelf.svg" width="170px">
+          </div>
+          <div class="library_text">
+            <p class="library_title">Libreria #1</p>
+            </div>
+          </div>
+          <div class="book_container" pippo="ciao">
+            <div class="etichettalib">
+            </div>
+            <div class="library_img">
+              <img src="bookshelf.svg" width="170px">
+            </div>
+            <div class="library_text">
+              <p class="library_title">Libreria #1</p>
+              </div>
             </div>
         </div>
     </div></div>
