@@ -87,3 +87,10 @@ function getColor(color) {
 function changeCheck(color) {
   document.getElementsByName(color)[0].style.display = "none";
 }
+
+function openLibrary() {
+  document.getElementById("info_menu").style.transform = "translateX(-500px)";
+}
+function closeLibrary() {
+    document.getElementById("info_menu").style.transform = "translateX(0)";
+}

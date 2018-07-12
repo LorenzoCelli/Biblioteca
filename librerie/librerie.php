@@ -65,7 +65,7 @@ Main container
 
          while($row = mysqli_fetch_assoc($result)){
            echo "
-           <div class='book_container'>
+           <div class='book_container' onclick='openLibrary()'>
            <div class='etichettalib' style='background-color:".$row['colore'].";'></div>
            <div class='library_img'>
            <img src='../imgs/bookshelf.svg' width='170px'>
@@ -121,10 +121,10 @@ New book aside
 </div>
 
 
-<div id="info_menu" style="left: 100%; transform: translateX(-500px);"><div class="info_button_bar">
+<div id="info_menu" style="left: 100%;"><div class="info_button_bar">
     <div onclick="edit_book(<?echo $id_libro;?>)" class="info_hover_div"><img src="../imgs/matita.svg" style="height: 50px"></div><!--
  --><div onclick="delete_book(<?echo $id_libro;?>,this)" class="info_hover_div"><img src="../imgs/cestino.svg" style="height: 50px"></div><!--
- --><div onclick="close_info_menu()" class="info_hover_div"><img src="../imgs/croce.svg" style="height: 50px"></div>
+ --><div onclick="closeLibrary()" class="info_hover_div"><img src="../imgs/croce.svg" style="height: 50px"></div>
 </div>
 <div class="libtitle_menu">
   <h1 style="margin-top: 20px;">Libreria #1</h1>
