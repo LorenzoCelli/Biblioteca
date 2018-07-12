@@ -11,7 +11,7 @@ $sql = "SELECT * FROM libri WHERE id_utente = ".$id_utente." AND id = ".$id_libr
 $result = mysqli_query($conn, $sql) or trigger_error(mysqli_error($conn));
 
 if($result->num_rows == 0){
-    echo "<img src='http://pa1.narvii.com/6776/24a0a36313ea44f1abac45bcc3c70465fd27f0a2_00.gif' height='200px'>";
+    echo "<l_img src='http://pa1.narvii.com/6776/24a0a36313ea44f1abac45bcc3c70465fd27f0a2_00.gif' height='200px'>";
     return;
 }
 
@@ -78,3 +78,9 @@ if($result && $result->num_rows > 0){
     <div style="display: none" class="info_tooltip">generi</div>
     <div class="info_p"><?echo $generi?></div>
 </div>
+<div class="info_box">
+    <div style="display: none" class="info_tooltip">img_url</div>
+    <div style="display: none" class="info_p"><?echo $img_url;?></div>
+</div>
+<?php
+mysqli_close($conn);

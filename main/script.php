@@ -38,12 +38,6 @@ if($result){
     }
 }
 
-
-if($result) echo "primo ok";
-
-/*if ($result) echo "<script>window.open('main.php','_self');</script>";
-else echo "qualcosa è andato storto col database";
-*/
 mysqli_close($conn);
 
 ?>
