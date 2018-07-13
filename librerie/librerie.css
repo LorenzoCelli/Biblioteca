@@ -50,19 +50,6 @@ p{
   margin-top: 8px;
 }
 
-.colorContainer {
-  border: 1px solid #cbcbcb;
-  background-color: white;
-  border-radius: 10px;
-  padding: 10px 40px 10px 40px;
-  text-align: center;
-  height: 360px;
-  max-height: 20px;
-  overflow: hidden;
-  transition: max-height 0.25s ease-out;
-  cursor:pointer;
-}
-
 ul {
   list-style-type: none;
   text-align: left;
@@ -79,27 +66,6 @@ ul {
 .colore:hover {
   transform: scale(1.05, 1.05);
 }
-#rosso {
-  background-color: red;
-}
-#verde {
-  background-color: MediumSeaGreen;
- }
-#viola {
-  background-color: purple;
-}
-#blu {
-  background-color: DodgerBlue;
-}
-#arancio {
-  background-color: Orange;
-}
-#rosa {
-  background-color: Violet;
-}
-#verdeacqua {
-  background-color: #20B2AA;
-}
 .confirmButton {
   width: 100%;
   border: 1px solid #cbcbcb;
@@ -108,30 +74,6 @@ ul {
 }
 .confirm {
   padding-top: 10px;
-}
-#pickerTitle {
-  cursor: pointer;
-  padding-left: 0px;
-  text-align: center;
-  border: 0px;
-}
-#pickerAnimation {
-    display: none;
-    height: auto;
-    border: 1px solid #cbcbcb;
-    background-color: white;
-    border-radius: 10px;
-    border-top-left-radius: 0px;
-    border-top-right-radius: 0px;
-    border-top: 0px;
-    padding: 10px 40px 10px 40px;
-    text-align: center;
-    overflow: hidden;
-    transition: max-height 0.25s ease-out;
-}
-#check {
-  padding-left: 85%;
-  display: none;
 }
 .tasto {
     height: 35px;
@@ -210,12 +152,11 @@ ul {
   border-top-right-radius: 0px;
   border-bottom-right-radius: 0px;
   padding-left: 10px;
-  height: 32px;
+  height: 35px;
   border-left: 0px;
   border-top: 0px;
   border-right: 0px;
 }
-
 .cercaInput{
   display: inline-flex;
   width: 100%;
@@ -224,13 +165,86 @@ ul {
   background-color: #3a3a3a;
   border-bottom-right-radius: 10px;
   border-top-right-radius: 10px;
-  height: 31px;
+  height: 34px;
+  width: 34px;
   border-bottom: 1px solid #cbcbcb;
   cursor: pointer;
+}
+.cercaImg:hover {
+  background-color: #cbcbcb;
 }
 h5 {
   margin-bottom: -25px;
     margin-top: 15px;
+}
+#info_book_menu {
+    position: fixed;
+    height: 100%;
+    width: 500px;
+    top: 0;
+    display: inline-block;
+    border: 1px solid #efefef;
+    padding: 20px 30px;
+    box-sizing: border-box;
+    background-color: #f8f8f8;
+    transition: transform 500ms;
+    overflow: auto;
+}
+
+/*
+color picker
+*/
+
+#cubo{
+  display: inline-block;
+  background-color: #ff00ff;
+  border-radius: 10px;
+  height: 30px;
+  width: 30px;
+  margin-right: 0;
+  vertical-align: middle;
+}
+#container {
+  position: relative;
+  height: 30px;
+  width: 200px;
+  display: inline-block;
+  border-radius: 10px;
+  overflow: hidden;
+  vertical-align: middle;
+}
+#picker{
+  height: 100%;
+  width: 100%;
+}
+#pointer{
+  transform: translateX(30px);
+  position: absolute;
+  display: inline-block;
+  height: 100%;
+  width: 2px;
+  background-color: white;
+  top:0;
+  left: 0;
+}
+#cover{
+  background-color: white;
+  font-family: open_sans_regular, sans-serif;
+  color: grey;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top:0;
+  left: 0;
+  padding: 4px;
+}
+.box_colorpicker{
+  background-color: white;
+  border: 1px solid #cbcbcb;
+  border-radius: 10px;
+  margin-bottom: 5px;
+  padding: 5px;
+  display: inline-block;
 }
 
 /*
@@ -244,7 +258,7 @@ h5 {
 
 /* Track */
 ::-webkit-scrollbar-track {
-    
+
 }
 
 /* Handle */
