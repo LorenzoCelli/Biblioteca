@@ -156,3 +156,15 @@ function getX(element) {
     }
     return xPosition;
 }
+
+var cover = document.getElementById("cover");
+var picker = document.getElementById("picker");
+function show_cover() {
+    if (cover.style.display === "" || cover.style.display === "block") {
+        cover.style.display = "none";
+        picker.style.display = "inline-block";
+    } else {
+        cover.style.display = "block";
+        picker.style.display = "none";
+    }
+}

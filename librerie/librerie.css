@@ -209,7 +209,7 @@ color picker
   height: 30px;
   width: 200px;
   display: inline-block;
-  border-radius: 30px;
+  border-radius: 10px;
   overflow: hidden;
   vertical-align: middle;
 }
@@ -226,6 +226,17 @@ color picker
   background-color: white;
   top:0;
   left: 0;
+}
+#cover{
+  background-color: white;
+  font-family: open_sans_regular, sans-serif;
+  color: grey;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top:0;
+  left: 0;
+  padding: 4px;
 }
 .box_colorpicker{
   background-color: white;

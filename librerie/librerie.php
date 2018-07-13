@@ -93,11 +93,12 @@ New book aside
       <input type="text" placeholder="Descrizione" name="descr"><br>
       Colore etichetta:
       <div class="box_colorpicker">
-        <div id="cubo">
+        <div id="cubo" onclick="show_cover()">
         </div>
         <div id = "container">
-          <img id="picker" onmousemove="ciao(event)" src="../imgs/line.png">
+          <img id="picker" onmousemove="ciao(event)" src="../imgs/line.png" style="display:none;">
           <div id="pointer"></div>
+          <div id="cover">Colore etichetta</div>
         </div>
       </div>
     <h1 style="margin-top: 20px;">Aggiungi scaffali</h1>
