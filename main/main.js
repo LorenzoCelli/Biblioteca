@@ -55,7 +55,7 @@ function slide_main_menu() {
     }
 }
 
-var img = document.getElementById("new_menu_img");
+var preview_img = document.getElementById("new_menu_img");
 var img_url = new_menu.querySelector('input[name=img_url]');
 var isbn = new_menu.querySelector('input[name=isbn]');
 var titolo = new_menu.querySelector('input[name=titolo]');
@@ -89,7 +89,7 @@ defocussers("autore", function (){ author_menu_options.innerHTML = ""});
 function defocussers(avoid_name, func){
     for(var i = 0; i<def_list.length; i++){
         var el = def_list[i];
-        if(el.name != avoid_name){
+        if(el.name !== avoid_name){
             el.addEventListener("focus", func);
         }
     }
@@ -110,6 +110,7 @@ function request_isbn_data(menu_options, query) {
                 fill_isbn_data(r.items[0].volumeInfo)
             }else{
                 var items = r.items;
+                menu_options.appendChild(isbn_hide_option());
                 for(var i = 0; i< items.length; i++){
                     var titolo = items[i].volumeInfo.title;
                     var autore = authors(items[i].volumeInfo);
@@ -134,10 +135,16 @@ function fill_isbn_data(volumeInfo) {
         descr.value = "";
     }
     if('imageLinks' in volumeInfo) {
-        img.style.backgroundImage = "url('" + volumeInfo.imageLinks.thumbnail + "')";
+        preview_img.style.backgroundImage = "url('" + volumeInfo.imageLinks.thumbnail + "')";
         img_url.value = volumeInfo.imageLinks.thumbnail;
     }else{
-        img.style.backgroundImage = "url('')";
+        preview_img.style.backgroundImage = "url('')";
+    }
+    if('categories' in volumeInfo) {
+        generi.innerHTML = '<div class="genere_box" contenteditable="true"><img onclick="nuovo_genere(this)" src="../imgs/piu_pillola.svg"></div>';
+        for(var category in volumeInfo.categories){
+            generi.append(grigio_genere(volumeInfo.categories[category]));
+        }
     }
 }
 
@@ -162,6 +169,17 @@ function isbn_menu_option(titolo, autore, volumeInfo,l){ // <div class="isbn_men
         div.vi = volumeInfo;
         div.onclick = function () { this.parentElement.innerHTML = ""; fill_isbn_data(this.vi) };
     }
+    return div;
+}
+
+function isbn_hide_option(){
+    var div = document.createElement("DIV");
+    div.className = "isbn_menu_option";
+    div.style.fontStyle = "italic";
+    div.style.height = "30px";
+    div.style.padding = "0";
+    div.innerHTML = "<img src='../imgs/nascondi.svg' style='height: 30px; width: 30px'><div style='display: inline-block; height: 30px; line-height: 30px; vertical-align: top'>nascondi suggerimenti</div>";
+    div.onclick = function () { this.parentElement.innerHTML = "" };
     return div;
 }
 
@@ -204,6 +222,15 @@ function edit_book(id_libro) {
         input.name = tt.innerText;
         var value = edit[0].innerHTML;
         input.value = value;
+        if (tt.innerText === "generi") {
+            var div = document.createElement("DIV");
+            div.innerHTML = '<div class="genere_box" contenteditable="true"><img onclick="nuovo_genere(this)" src="../imgs/piu_pillola.svg"></div>';
+            gi = edit[0].innerHTML.split(",");
+            for (var i = 0; i<gi.length; i++){
+                div.appendChild(grigio_genere(gi[i]))
+            }
+            input = div;
+        }
         edit[0].parentElement.replaceChild(input, edit[0]);
         if (tt.innerText === "scaffale"){
             info_menu.querySelector('select[name=libreria]').onchange();
@@ -216,7 +243,7 @@ function edit_book(id_libro) {
     info_menu.appendChild(salva);
     var annulla = document.createElement("BUTTON");
     annulla.innerText = "annulla modifiche";
-    annulla.onclick = function () {fill_info_book(id_libro)};
+    annulla.onclick = function () { fill_info_book(id_libro) };
     info_menu.appendChild(annulla);
 }
 
@@ -241,7 +268,44 @@ function update_book(id_libro, el) {
     var scaffale = info_menu.querySelector('select[name=scaffale]').value;
     var img_url = info_menu.querySelector('input[name=img_url]').value;
 
-    var a = "id="+id_libro+"&titolo="+titolo+"&autore="+autore+"&isbn="+isbn+"&descr="+descr+"&libreria="+libreria+"&scaffale="+scaffale+"&img_url="+encodeURIComponent(img_url);
+    var generi_el = info_menu.querySelectorAll('.genere_box[contenteditable=false]');
+    var gi = "";
+    for(var i = 0; i<generi_el.length; i++){
+        gi += generi_el[i].innerText;
+        if(i!==generi_el.length-1) gi += ",";
+    }
+
+    var a = "id="+id_libro+"&generi="+gi+"&titolo="+titolo+"&autore="+autore+"&isbn="+isbn+"&descr="+descr+"&libreria="+libreria+"&scaffale="+scaffale+"&img_url="+encodeURIComponent(img_url);
+    xhttp.send(a);
+}
+
+function new_book(el) {
+    el.innerHTML = "";
+    el.appendChild(loading_img(40));
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            new_menu.innerHTML = this.responseText;
+        }
+    };
+    xhttp.open("POST", "nuovolibro.php", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+    var titolo = new_menu.querySelector('input[name=titolo]').value;
+    var autore = new_menu.querySelector('input[name=autore]').value;
+    var isbn = new_menu.querySelector('input[name=isbn]').value;
+    var descr = new_menu.querySelector('textarea[name=descr]').value;
+    var libreria = new_menu.querySelector('select[name=nome_libreria]').value;
+    var scaffale = new_menu.querySelector('select[name=scaffale]').value;
+    var img_url = new_menu.querySelector('input[name=img_url]').value;
+
+    var generi_el = new_menu.querySelectorAll('.genere_box[contenteditable=false]');
+    var generi = "";
+    for(var i = 0; i<generi_el.length; i++){
+        generi += generi_el[i].innerText;
+        if(i!==generi_el.length-1) generi += ",";
+    }
+    var a = "titolo="+titolo+"&autore="+autore+"&generi="+generi+"&isbn="+isbn+"&descr="+descr+"&nome_libreria="+libreria+"&scaffale="+scaffale+"&img_url="+encodeURIComponent(img_url);
     xhttp.send(a);
 }
 
@@ -297,4 +361,40 @@ function loading_img(l) {
     l_img.style.width = l+"px";
     l_img.style.height = l+"px";
     return l_img;
+}
+
+var generi = document.getElementById("generi");
+
+function nuovo_genere(el) {
+    if(el.parentElement.innerText.replace(/\s/g,'') === "") return;
+    var gen = genere();
+    gen.contentEditable = true;
+    gen.add_img.onclick = function () { nuovo_genere(this) };
+    el.parentElement.parentElement.insertBefore(gen, el.parentElement);
+    el.parentElement.contentEditable = false;
+    el.style.transform = "rotate(45deg)";
+    el.parentElement.style.backgroundColor = "#f6f6f6";
+    el.onclick = function () {
+        this.parentElement.parentElement.removeChild(this.parentElement);
+    }
+}
+
+function grigio_genere(text) {
+    var div = genere();
+    div.add_img.onclick = function () { this.parentElement.parentElement.removeChild(this.parentElement) };
+    div.add_img.style.transform = "rotate(45deg)";
+    div.style.backgroundColor = "#f6f6f6";
+    div.appendChild(document.createTextNode(text));
+    div.contentEditable = false;
+    return div;
+}
+
+function genere(){
+    var div = document.createElement("DIV");
+    div.className = "genere_box";
+    var img = document.createElement("IMG");
+    img.src = "../imgs/piu_pillola.svg";
+    div.add_img = img;
+    div.append(img);
+    return div;
 }

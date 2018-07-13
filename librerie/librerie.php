@@ -68,7 +68,7 @@ Main container
            <div class='book_container' onclick='openLibrary()'>
            <div class='etichettalib' style='background-color:".$row['colore'].";'></div>
            <div class='library_img'>
-           <img src='../imgs/bookshelf.svg' width='170px'>
+           <preview_img src='../imgs/bookshelf.svg' width='170px'>
            </div>
            <div class='library_text'>
            <p class='library_title'>".$row['nome']."</p>

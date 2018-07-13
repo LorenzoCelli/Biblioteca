@@ -88,7 +88,6 @@ New book aside menu
 -->
 
 <div id="new_menu" style="left: 100%">
-    <form action="script.php" method="post">
         <div id="new_menu_img" class="book_image"></div>
         <h1>Nuovo libro</h1>
         <div class="menu_container"><!--
@@ -102,6 +101,9 @@ New book aside menu
         <div class="menu_container"><!--
          --><input type="text" placeholder="Autore" name="autore" required><!--
          --><div id="author_menu_options"></div></div>
+
+        Generi: <br>
+        <div id="generi"><div class="genere_box" contenteditable="true"><img onclick="nuovo_genere(this)" src="../imgs/piu_pillola.svg"></div></div>
 
         <textarea rows="4" cols="50" placeholder="Descrizione" name="descr" ></textarea>
         <input type="text" placeholder="Url immagine" name="img_url" required>
@@ -136,9 +138,8 @@ New book aside menu
         <select name="scaffale">
             <option></option>
         </select>
-        <input type="submit" value="aggiungi">
+        <input type="button" value="aggiungi" onclick="new_book(this)">
         <input type="reset" value="annulla" onclick="slide_new_menu()">
-    </form>
 </div>
 
 <!--
@@ -146,7 +147,6 @@ Info book aside menu
 -->
 
 <div id="info_menu" style="left: 100%">
-    <img id="loading" src="../imgs/loading.svg" alt="loading.." width="120" height="120">
 </div>
 
 

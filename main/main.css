@@ -183,6 +183,30 @@ textarea {
 .isbn_menu_option b{
     font-family: open_sans_regular, sans-serif;
 }
+.genere_box{
+    vertical-align: middle;
+    margin: 0 5px 5px 0;
+    position: relative;
+    display: inline-block;
+    height: 35px;
+    line-height: 35px;
+    padding: 0 35px 0 10px;
+    outline: none;
+    background-color: white;
+    border: 1px solid #cbcbcb;
+    min-width: 50px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-family: open_sans_light, sans-serif;
+    overflow: hidden;
+}
+.genere_box img{
+    height: 35px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: transform 500ms;
+}
 
 /*
 main menu

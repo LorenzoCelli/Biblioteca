@@ -27,7 +27,10 @@ $generi = "";
 $gen = mysqli_query($conn, "SELECT * FROM generi WHERE id_libro = ".$id_libro);
 if ($gen->num_rows == 0) $generi = "---";
 else{
-    while ($gen = mysqli_fetch_assoc($gen)) $generi.=$gen['genere']."-";
+    while ($g = mysqli_fetch_assoc($gen)){
+        $generi.=$g['genere'].", ";
+    }
+    $generi = rtrim($generi,", ");
 }
 
 $sql = "SELECT libreria.nome, posizione.n_scaffale FROM libreria INNER JOIN posizione ON libreria.id = posizione.id_libreria WHERE id_libro = ".$id_libro;
@@ -75,7 +78,7 @@ if($result && $result->num_rows > 0){
     <div class="info_p"><?echo $descr?></div>
 </div>
 <div class="info_box">
-    <div style="display: none" class="info_tooltip">generi</div>
+    <div class="info_tooltip">generi</div>
     <div class="info_p"><?echo $generi?></div>
 </div>
 <div class="info_box">

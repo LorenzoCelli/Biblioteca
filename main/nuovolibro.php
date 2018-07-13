@@ -10,6 +10,7 @@ include '../connection.php';
 $isbn = $_POST["isbn"];
 $titolo = mysqli_real_escape_string($conn, $_POST["titolo"]);
 $autore = mysqli_real_escape_string($conn,$_POST["autore"]);
+$generi = explode(",",mysqli_real_escape_string($conn, $_POST["generi"]));
 $descr = mysqli_real_escape_string($conn,$_POST["descr"]);
 $img_url = mysqli_real_escape_string($conn,$_POST["img_url"]);
 $nome_libreria = mysqli_real_escape_string($conn,$_POST["nome_libreria"]);
@@ -31,11 +32,19 @@ if($result){
         $libr = mysqli_fetch_assoc($result);
         $id_libreria = $libr['id'];
         $sql = "INSERT INTO posizione (id_libro,n_scaffale,id_libreria)
-                VALUES ('$last_id','$scaffale','$id_libreria')";
+                VALUES ($last_id,'$scaffale','$id_libreria')";
         $results = mysqli_query($conn, $sql);
-        if ($result) echo "<script>window.open('main.php','_self');</script>";
+        if ($result) echo "tutto apposto";
         else echo "qualcosa è andato storto col database";
     }
+
+    for ($i = 0; $i < count($generi); $i++) {
+        $sql = "INSERT INTO generi (id_libro,genere)
+        VALUES ($last_id,'$generi[$i]')";
+        mysqli_query($conn, $sql);
+    }
+
+
 }
 
 mysqli_close($conn);

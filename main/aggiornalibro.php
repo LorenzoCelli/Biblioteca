@@ -8,6 +8,7 @@ include '../connection.php';
 $id_utente = $_SESSION['id_utente'];
 $id_libro = $_POST["id"];
 $isbn = $_POST["isbn"];
+$generi = explode(",",mysqli_real_escape_string($conn, $_POST["generi"]));
 $titolo = $_POST["titolo"];
 $autore = $_POST["autore"];
 $libreria = $_POST["libreria"];
@@ -42,10 +43,22 @@ if($result && $result->num_rows == 1){
             $sql = "INSERT INTO posizione (id_libro, n_scaffale, id_libreria) VALUES ($id_libro, $scaffale, $id_libreria)";
             $result = mysqli_query($conn, $sql) or trigger_error(mysqli_error($conn));
 
-            if($result){
+            if(!$result){
                 $err+=1;
             }
         }
+
+        $sql = "DELETE FROM generi WHERE id_libro = ".$id_libro;
+        $result = mysqli_query($conn, $sql) or trigger_error(mysqli_error($conn));
+
+        if($result){
+            for ($i = 0; $i < count($generi); $i++) {
+                if($generi[$i] == "") break;
+                $sql = "INSERT INTO generi (id_libro,genere) VALUES ($id_libro,'$generi[$i]')";
+                mysqli_query($conn, $sql);
+            }
+        }
+
 
         if($err == 0){
             echo "
