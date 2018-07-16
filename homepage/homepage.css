@@ -3,7 +3,7 @@ body {
 }
 .block {
   width: 100%;
-  height: 800px;
+  height: 700px;
 }
 .header {
   width: 100%;
@@ -32,23 +32,109 @@ body {
 .headerContainer {
   margin-top: 10px;
 }
+.firstBlockContent {
+  text-align: center;
+  margin-top: 130px;
+  width: 100%;
+  color: white;
+}
+.firstBlockContentFirst {
+  font-size:90px;
+  font-family: open_sans_bold, sans-serif;
+}
+.firstBlockContentSecond {
+  font-size:45px;
+  margin-top:-75px;
+  font-family: open_sans_light, sans-serif;
+}
+.firstBlockRegisterButton {
+  text-align: center;
+}
+.firstBlockRegisterButton button {
+  width: 700px;
+  height: 60px;
+  border-radius: 10px;
+  background-color: #fdfdfd;
+  font-size: 40px;
+  font-family: open_sans_light, sans-serif;
+}
 
+/*monitor piccolo*/
+@media screen and (max-width: 860px) {
+  .firstBlockRegisterButton button {
+    width: 500px;
+    border-radius: 10px;
+    background-color: #fdfdfd;
+    font-size: 40px;
+    font-family: open_sans_light, sans-serif;
+  }
+  .firstBlockContentFirst {
+    font-size:70px;
+    font-family: open_sans_bold, sans-serif;
+  }
+  .firstBlockContentSecond {
+    font-size:45px;
+    margin-top:-75px;
+    font-family: open_sans_light, sans-serif;
+  }
+  }
+
+/*tablet*/
 @media screen and (max-width: 650px) {
+  .firstBlockRegisterButton button {
+    width: 300px;
+    border-radius: 10px;
+    background-color: #fdfdfd;
+    font-size: 27px;
+    font-family: open_sans_light, sans-serif;
+  }
+  .firstBlockContentFirst {
+    font-size:40px;
+    font-family: open_sans_bold, sans-serif;
+  }
+  .firstBlockContentSecond {
+    font-size:29px;
+    margin-top:-35px;
+    font-family: open_sans_light, sans-serif;
+  }
   .headerTitle {
-    margin-top: 10px;
+    margin-top: 15px;
     font-size: 30px;
     float: left;
-    padding-left: 40px;
+    padding-left: 15px;
   }
   .login {
     font-size: 18px;
     display: block;
+    margin-top: 5px;
+    padding-right: 15px;
   }
 
-  @media screen and (max-width: 305px) {
+/*smartphone*/
+  @media screen and (max-width: 390px) {
+    .firstBlockRegisterButton button {
+      width: 180px;
+      height: 50px;
+      border-radius: 10px;
+      background-color: #fdfdfd;
+      font-size: 22px;
+      font-family: open_sans_light, sans-serif;
+    }
+    .firstBlockContent {
+      margin-top: 170px;
+    }
+    .firstBlockContentFirst {
+      font-size:32px;
+      font-family: open_sans_bold, sans-serif;
+    }
+    .firstBlockContentSecond {
+      font-size:25px;
+      margin-top:-31px;
+      font-family: open_sans_light, sans-serif;
+    }
     .headerTitle {
       font-size: 20px;
-      margin-top: 15px;
+      margin-top: 20px;
       padding-left: 10px;
     }
     .login {
