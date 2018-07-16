@@ -1,3 +1,54 @@
 .content{
-  
+  text-align: center;
+  color: white;
+}
+#change_div{
+  display: inline-block;
+  background-color: #464646;
+  color: white;
+  width: 300px;
+  height: auto;
+  line-height: 50px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+#big_icon{
+  width: 225px;
+  height: 225px;
+  border: 3px solid white;
+  border-radius: 100%;
+  box-sizing: border-box;
+}
+h1{
+  color: white;
+  margin-bottom: 10px;
+}
+#avatar_button{
+  background-color: rgba(255, 255, 255, 0.5);
+  font-family: open_sans_light, sans-serif;
+  font-size: 18pt;
+  border: 3px solid white;
+  box-sizing: border-box;
+  border-radius: 100%;
+  width: 225px;
+  height: 225px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin:0;
+  opacity: 0;
+  transition: opacity 200ms;
+}
+#avatar_button:hover{
+  opacity: 1;
+}
+
+.scelta{
+  width: 100px;
+  height: 100px;
+  margin-right: 10px;
+  transition: transform 500ms;
+}
+.scelta:hover{
+  transform: scale(1.2);
 }
