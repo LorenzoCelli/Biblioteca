@@ -1,3 +1,34 @@
 .content{
-  
+  text-align: center;
+  color: white;
+}
+#change_div{
+  display: inline-block;
+  background-color: #464646;
+  color: white;
+  width: 300px;
+  height: auto;
+  line-height: 50px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+#big_icon{
+  width: 225px;
+  height: 225px;
+}
+h1{
+  color: white;
+  margin-bottom: 10px;
+}
+#avatar_button{
+  width: 200px;
+}
+.scelta{
+  width: 100px;
+  height: 100px;
+  margin-right: 10px;
+  transition: transform 500ms;
+}
+.scelta:hover{
+  transform: scale(1.2);
 }
