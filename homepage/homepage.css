@@ -78,7 +78,7 @@ body {
 .thirdBlockContent {
   text-align: center;
   width: 100%;
-  padding-top: 25px;
+  padding-top: 1px;
 }
 .thirdBlockContentFirst {
   font-size:40px;
@@ -148,6 +148,11 @@ body {
 
 /*tablet*/
 @media screen and (max-width: 650px) {
+  .block {
+    width: 100%;
+    height: 630px;
+  }
+
   .thirdBlockbooksContainer {
     margin-bottom: 60px;
   }
@@ -211,6 +216,14 @@ margin-right: 10px;
 
 /*smartphone*/
   @media screen and (max-width: 390px) {
+    .block {
+      width: 100%;
+      height: 580px;
+    }
+
+    .thirdBlockContentFirst {
+    font-size: 30px;
+}
     .firstBlockRegisterButton button {
       width: 180px;
       height: 50px;
