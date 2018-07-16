@@ -9,7 +9,7 @@ include 'scriptusericon.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La tua biblioteca</title>
+    <title>Biblioteca - Impostazioni</title>
     <link rel="stylesheet" type="text/css" href="../main/main.css">
     <link rel="stylesheet" type="text/css" href="account.css">
     <link href="https://fonts.googleapis.com/css?family=Vollkorn:400,600,900" rel="stylesheet">
@@ -41,8 +41,10 @@ Main container
         </div>
 
         <div id="change_div"></div><br>
-        <img src="<?php echo $img; ?>" alt="" style="margin-bottom:10px;" id="big_icon"><br>
-        <button id="avatar_button" onclick="show_avatars();">Cambia avatar</button>
+        <div class="" style="position:relative;width:225px;height:225;display:inline-block;border-radius:100%;">
+          <img src="<?php echo $img; ?>" alt="" id="big_icon"><br>
+          <button id="avatar_button" onclick="show_avatars();">Cambia avatar</button>
+        </div>
         <div id="avatars" style="display:none;">
           <h1>Scegli il tuo avatar:</h1>
           <img src="../imgs/avatars/1.png" alt="1" class="scelta" onclick="change_avatar(this);">

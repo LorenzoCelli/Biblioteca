@@ -1,12 +1,9 @@
 var avatars = document.getElementById("avatars");
-var avatar_button = document.getElementById("avatar_button");
 function show_avatars() {
     if (avatars.style.display === "" || avatars.style.display === "none") {
         avatars.style.display = "block";
-        avatar_button.style.display = "none";
     } else {
         avatars.style.display = "none";
-        avatar_button.style.display = "inline-block";
     }
 }
 
@@ -22,6 +19,7 @@ function update_avatar() {
         if (this.readyState == 4 && this.status == 200) {
             change_div.innerHTML = this.responseText;
             document.getElementById('small_icon').src = big_icon.src;
+            avatars.style.display = "none";
         }
     };
     xhttp.open("GET", "cambioavatar.php" + "?id_avatar=" + big_icon.alt, true);
