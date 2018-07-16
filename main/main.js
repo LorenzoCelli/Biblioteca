@@ -1,4 +1,3 @@
-
 var preview_img = document.getElementById("new_menu_img");
 var img_url = new_menu.querySelector('input[name=img_url]');
 var isbn = new_menu.querySelector('input[name=isbn]');
@@ -127,8 +126,6 @@ function isbn_hide_option(){
     return div;
 }
 
-var info_menu = document.getElementById("info_menu");
-
 function fill_info_book(id_libro) {
     info_menu.innerHTML = "";
     info_menu.appendChild(loading_img(120));
@@ -141,10 +138,6 @@ function fill_info_book(id_libro) {
     };
     xhttp.open("GET", "infolibro.php" + "?id=" + id_libro, true);
     xhttp.send(null);
-}
-
-function close_info_menu() {
-    info_menu.style.transform = "translateX(0)";
 }
 
 function edit_book(id_libro) {
@@ -297,17 +290,6 @@ function scaffali(libreria_select, scaffale_select) {
     for (var i = 1; i <= num_scaffali; i++) {
         scaffale_select.innerHTML += "<option value='" + i + "'>" + i + "</option>";
     }
-}
-
-var l_img = document.createElement("IMG");
-l_img.id = "loading";
-l_img.src = "../imgs/loading.svg";
-
-function loading_img(l) {
-    l_img.alt = "loading..";
-    l_img.style.width = l+"px";
-    l_img.style.height = l+"px";
-    return l_img;
 }
 
 var generi = document.getElementById("generi");

@@ -1,0 +1,277 @@
+#counter{
+  background-color: transparent;
+  text-align: center;
+  border: none;
+  height: 20px;
+  width: 40px;
+  outline: none;
+  margin-bottom: 0px;
+  font-family: open_sans_regular, sans-serif;
+  font-size: 16px;
+  padding-left: 0px;
+}
+#counter:hover{
+  transform: scale(1);
+}
+.select_box{
+  margin-bottom: 5px;
+  display: inline-block;
+}
+.select_box_text{
+  display: inline-block;
+  padding: 8px;
+  border-radius: 20px;
+}
+.single_button{
+  box-sizing: border-box;
+  height: 50px;
+  width: 150px;
+}
+.book_container {
+    border-radius: 5px;
+    overflow: hidden;
+    display: inline-block;
+    background-color: white;
+    height: 170px;
+    margin: 0 10px 10px 0;
+    transition: transform 500ms, width 500ms, height 500ms;
+    white-space: nowrap;
+}
+.tasto {
+  width: 300px;
+  cursor: pointer;
+  transition: all .2s ease-in-out;
+}
+.tasto:hover {
+  transition: transform 200ms;
+  transform: scale(1.01);
+}
+p{
+  margin-top: 8px;
+}
+
+ul {
+  list-style-type: none;
+  text-align: left;
+  padding-left: 0px;
+}
+.colore {
+  width: 100%;
+  height: 35px;
+  border-radius: 100px;
+  transition: transform 300ms;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+.colore:hover {
+  transform: scale(1.05, 1.05);
+}
+.confirmButton {
+  width: 100%;
+  border: 1px solid #cbcbcb;
+  height: 40px;
+  border-radius: 10px;
+}
+.confirm {
+  padding-top: 10px;
+}
+.tasto {
+    height: 35px;
+    width: 100%;
+    background-color: white;
+    color: black;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px solid #cbcbcb;
+}
+#sinistro {
+  margin-top: 10px;
+}
+
+.tasti {
+  width: 100%;
+  text-align: center;
+  margin-top: 10px;
+}
+.containerScaffali {
+  width: 100%;
+  text-align: left;
+  margin-top: 30px;
+}
+.scaffale {
+  width: 100%;
+  border-radius: 10px
+}
+.etichettalib {
+  height: 100%;
+  background-color: green;
+  width: 15px;
+  display: inline-block;
+}
+
+.library_img {
+  display: inline-block;
+  margin: 0px 15px 0px 15px;
+}
+.library_text {
+  display: inline-block;
+  width: auto;
+  height: 100%;
+  vertical-align: middle;
+  padding: 20px 20px;
+}
+.library_title {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 20px;
+    margin: 0;
+}
+.libscaffale_menu {
+  border-bottom: 1px solid #cbcbcb;
+  margin-top: 22px;
+  overflow-x: scroll;
+  white-space: nowrap;
+}
+.libriscaffali {
+  width: 120px;
+  height: 172px;
+  margin-right: 60px;
+  border-radius: 5px;
+  box-shadow: 0 15px 15px -5px #333;
+  vertical-align: bottom;
+  margin-bottom: 3px;
+  z-index: 5;
+}
+.boxlibro_menu {
+  margin-top: 15px;
+  display: inline-block;
+}
+.cercaLib {
+  background-color: white;
+  border-bottom: 1px solid #cbcbcb;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  padding-left: 10px;
+  height: 35px;
+  border-left: 0px;
+  border-top: 0px;
+  border-right: 0px;
+}
+.cercaInput{
+  display: inline-flex;
+  width: 100%;
+}
+.cercaImg {
+  background-color: #3a3a3a;
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+  height: 34px;
+  width: 34px;
+  border-bottom: 1px solid #cbcbcb;
+  cursor: pointer;
+}
+.cercaImg:hover {
+  background-color: #cbcbcb;
+}
+h5 {
+  margin-bottom: -25px;
+    margin-top: 15px;
+}
+#info_book_menu {
+    position: fixed;
+    height: 100%;
+    width: 500px;
+    top: 0;
+    display: inline-block;
+    border: 1px solid #efefef;
+    padding: 20px 30px;
+    box-sizing: border-box;
+    background-color: #f8f8f8;
+    transition: transform 500ms;
+    overflow: auto;
+}
+
+/*
+color picker
+*/
+
+#cubo{
+  display: inline-block;
+  background-color: #ff00ff;
+  border-radius: 10px;
+  height: 30px;
+  width: 30px;
+  margin-right: 0;
+  vertical-align: middle;
+}
+#container {
+  position: relative;
+  height: 30px;
+  width: 200px;
+  display: inline-block;
+  border-radius: 10px;
+  overflow: hidden;
+  vertical-align: middle;
+}
+#picker{
+  height: 100%;
+  width: 100%;
+}
+#pointer{
+  transform: translateX(30px);
+  position: absolute;
+  display: inline-block;
+  height: 100%;
+  width: 2px;
+  background-color: white;
+  top:0;
+  left: 0;
+}
+#cover{
+  background-color: white;
+  font-family: open_sans_regular, sans-serif;
+  color: grey;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top:0;
+  left: 0;
+  padding: 4px;
+}
+.box_colorpicker{
+  background-color: white;
+  border: 1px solid #cbcbcb;
+  border-radius: 10px;
+  margin-bottom: 5px;
+  padding: 5px;
+  display: inline-block;
+}
+
+/*
+* Scrollbar
+* modificato
+*/
+::-webkit-scrollbar {
+    width: 0px;
+    height:3px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #cbcbcb;
+  border-radius: 10%;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+
+}
+/*
+* Scrollbar
+* modificato
+*/

@@ -25,7 +25,7 @@ $n_scaffali = $row["n_scaffali"];
 <div class="info_button_bar">
    <div onclick="edit_book(<?php echo $id_libreria;?>)" class="info_hover_div"><img src="../imgs/matita.svg" style="height: 50px"></div><!--
 --><div onclick="delete_book(<?php echo $id_libreria;?>,this)" class="info_hover_div"><img src="../imgs/cestino.svg" style="height: 50px"></div><!--
---><div onclick="closeLibrary()" class="info_hover_div"><img src="../imgs/croce.svg" style="height: 50px"></div>
+--><div onclick="close_info_menu()" class="info_hover_div"><img src="../imgs/croce.svg" style="height: 50px"></div>
 </div>
 <h1 style="margin-top: 20px;"><?php echo $nome;?></h1>
 <h4 style="margin-top: 0px; margin-bottom: 5px;"><?php echo $descr;?></h4>

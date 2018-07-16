@@ -54,3 +54,20 @@ function slide_main_menu() {
         main_menu.is_open = false;
     }
 }
+
+var info_menu = document.getElementById("info_menu");
+
+function close_info_menu() {
+    info_menu.style.transform = "translateX(0)";
+}
+
+var l_img = document.createElement("IMG");
+l_img.id = "loading";
+l_img.src = "../imgs/loading.svg";
+
+function loading_img(l) {
+    l_img.alt = "loading..";
+    l_img.style.width = l+"px";
+    l_img.style.height = l+"px";
+    return l_img;
+}
