@@ -138,7 +138,7 @@ New book aside menu
         <select name="scaffale">
             <option></option>
         </select>
-        <input type="button" value="aggiungi" onclick="new_book(this)">
+        <button onclick="new_book(this)">aggiungi</button>
         <input type="reset" value="annulla" onclick="slide_new_menu()">
 </div>
 
@@ -150,7 +150,7 @@ Info book aside menu
 </div>
 
 
-
+<script src="animazioni.js"></script>
 <script src="main.js"></script>
 </body>
 </html>

@@ -16,8 +16,6 @@ $img_url = mysqli_real_escape_string($conn,$_POST["img_url"]);
 $nome_libreria = mysqli_real_escape_string($conn,$_POST["nome_libreria"]);
 $scaffale = mysqli_real_escape_string($conn,$_POST["scaffale"]);
 
-echo $isbn."<br>".$titolo."<br>".$autore."<br>".$descr."<br>".$img_url."<br>";
-
 
 $sql = "INSERT INTO libri (isbn,id_utente,titolo,autore,descr,img_url)
 VALUES ('$isbn','$id_utente','$titolo','$autore','$descr','$img_url')";
@@ -34,8 +32,6 @@ if($result){
         $sql = "INSERT INTO posizione (id_libro,n_scaffale,id_libreria)
                 VALUES ($last_id,'$scaffale','$id_libreria')";
         $results = mysqli_query($conn, $sql);
-        if ($result) echo "tutto apposto";
-        else echo "qualcosa è andato storto col database";
     }
 
     for ($i = 0; $i < count($generi); $i++) {
@@ -44,7 +40,11 @@ if($result){
         mysqli_query($conn, $sql);
     }
 
-
+    echo   "<div class='book_image' style='background-image: url(" . $img_url . ")'></div><!--
+         --><div class='book_text'>
+            <p class='book_title'>" . $titolo . "</p>
+            " . $autore . "
+            </div>";
 }
 
 mysqli_close($conn);

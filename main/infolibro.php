@@ -25,7 +25,7 @@ $img_url = $row["img_url"];
 $generi = "";
 
 $gen = mysqli_query($conn, "SELECT * FROM generi WHERE id_libro = ".$id_libro);
-if ($gen->num_rows == 0) $generi = "---";
+if ($gen->num_rows == 0) $generi = "nessuno";
 else{
     while ($g = mysqli_fetch_assoc($gen)){
         $generi.=$g['genere'].", ";
