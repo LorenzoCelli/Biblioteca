@@ -1,0 +1,32 @@
+.content{
+  color: white;
+}
+h1{
+  margin-bottom: 10px;
+}
+p{
+  margin-bottom: 10px;
+  padding: 30px;
+  color: grey;
+}
+#search_bar{
+  display: inline-block;
+  vertical-align: top;
+  width: 300px;
+  border-radius: 10px 0 0 10px;
+}
+@media screen and (max-width: 600px) {
+  #search_bar{
+    width: 200px;
+  }
+}
+#search_button{
+  display: inline-block;
+  background-color: white;
+  background-image: url("../imgs/lente.svg");
+  background-size: 40px;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 0 10px 10px 0;
+}

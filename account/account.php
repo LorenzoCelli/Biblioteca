@@ -2,7 +2,12 @@
 include "../connection.php";
 $uname = $_SESSION['uname'];
 $id_utente = $_SESSION['id_utente'];
+$sql = "SELECT * FROM utenti WHERE id = '$id_utente'";
+$results = mysqli_query($conn, $sql);
+$row = mysqli_fetch_assoc($results);
+$id_avatar = $row['id_avatar'];
 include 'scriptusericon.php';
+$img = avatar($id_avatar);
 ?>
 <!DOCTYPE html>
 <html lang="en">
