@@ -1,0 +1,57 @@
+body {
+  margin: 0;
+}
+.block {
+  width: 100%;
+  height: 800px;
+}
+.header {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  padding: 10px 0px;
+  text-align: center;
+  color: white;
+}
+.headerTitle {
+  font-family: open_sans_light,sans-serif;
+  font-size: 40px;
+  text-decoration: none;
+  color: white;
+}
+.login {
+  padding-right: 40px;
+  padding-top: 20px;
+  text-decoration: none;
+  font-family: open_sans_light, sans-serif;
+  font-size: 22px;
+  color: white;
+  position: absolute;
+  right: 0;
+}
+.headerContainer {
+  margin-top: 10px;
+}
+
+@media screen and (max-width: 650px) {
+  .headerTitle {
+    margin-top: 10px;
+    font-size: 30px;
+    float: left;
+    padding-left: 40px;
+  }
+  .login {
+    font-size: 18px;
+    display: block;
+  }
+
+  @media screen and (max-width: 305px) {
+    .headerTitle {
+      font-size: 20px;
+      margin-top: 15px;
+      padding-left: 10px;
+    }
+    .login {
+      font-size: 16px;
+      padding-right: 10px;
+    }
