@@ -1,5 +1,13 @@
 <?php session_start();
+include "../connection.php";
 $uname = $_SESSION['uname'];
+$id_utente = $_SESSION['id_utente'];
+$sql = "SELECT * FROM utenti WHERE id = '$id_utente'";
+$results = mysqli_query($conn, $sql);
+$row = mysqli_fetch_assoc($results);
+$id_avatar = $row['id_avatar'];
+include '../scriptusericon.php';
+$img = avatar($id_avatar);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,7 +29,7 @@ Main container
     <div id="main_menu">
         <a href=""><button class="main_menu_button" disabled>La mia biblioteca</button></a>
         <a href="../librerie/librerie.php"><button class="main_menu_button">Le mie librerie</button></a>
-        <a href=""><button class="main_menu_button">I miei amici</button></a>
+        <a href="../amici/amici.php"><button class="main_menu_button">I miei amici</button></a>
         <a href=""><button class="main_menu_button">Tua sorella</button></a>
     </div><!--
  --><div class="content">
@@ -35,7 +43,7 @@ Main container
         <div style="border-radius: 0 10px 10px 0; height: 50px; width:50px; position: absolute; top:20px; left: 0; background-color: #f8f8f8; display: inline-block"><img onclick="slide_main_menu()" src="../imgs/menu.svg" style="height: 50px"></div>
         <a onclick="show_menu_account()"><div class="account_container">
           <p2 id="nome_utente"><?php echo $uname;?></p2>
-          <div style="display: inline-block; height: 50px; width: 50px; overflow: hidden"><img src="../imgs/usericon.svg" alt="icona_utente_non_trovata" style="width:50px;height:50px;"></div>
+          <div style="display: inline-block; height: 50px; width: 50px; overflow: hidden"><img src=<?php echo $img; ?> alt="icona_utente_non_trovata" style="width:50px;height:50px;"></div>
         </div></a>
         <div id="menu_account">
             <button class="account_button" disabled>Il tuo account</button>

@@ -6,7 +6,7 @@ $sql = "SELECT * FROM utenti WHERE id = '$id_utente'";
 $results = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($results);
 $id_avatar = $row['id_avatar'];
-include 'scriptusericon.php';
+include '../scriptusericon.php';
 $img = avatar($id_avatar);
 ?>
 <!DOCTYPE html>
@@ -28,9 +28,9 @@ $img = avatar($id_avatar);
 
 <div id="main_container">
   <div id="main_menu">
-    <a href=""><button class="main_menu_button" disabled>La mia biblioteca</button></a>
+    <a href="../main/main.php"><button class="main_menu_button">La mia biblioteca</button></a>
     <a href="../librerie/librerie.php"><button class="main_menu_button">Le mie librerie</button></a>
-    <a href=""><button class="main_menu_button">I miei amici</button></a>
+    <a href=""><button class="main_menu_button" disabled>I miei amici</button></a>
     <a href=""><button class="main_menu_button">Tua sorella</button></a>
   </div><!--
   --><div class="content">

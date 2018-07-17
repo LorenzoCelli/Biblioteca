@@ -6,7 +6,7 @@ $sql = "SELECT * FROM utenti WHERE id = '$id_utente'";
 $results = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($results);
 $id_avatar = $row['id_avatar'];
-include 'scriptusericon.php';
+include '../scriptusericon.php';
 $img = avatar($id_avatar);
 ?>
 <!DOCTYPE html>
