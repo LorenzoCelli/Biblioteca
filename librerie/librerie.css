@@ -17,14 +17,14 @@
 Color picker
  */
 
-#box_colorpicker{
+.box_colorpicker{
     position: relative;
     width: 100%;
     height: 40px;
     border-radius: 10px;
     overflow: hidden;
 }
-#box_colorpicker img{
+.box_colorpicker img{
     vertical-align: middle;
     width: 100%;
     height: 100%;
@@ -35,7 +35,7 @@ Color picker
     -webkit-user-select: none;
     -ms-user-select: none;
 }
-#box_colorpicker div{
+.box_colorpicker div{
     position: absolute;
     display: inline-block;
     height: 100%;
@@ -110,4 +110,61 @@ input[name=n_scaffali]{
     width: 50px;
     box-sizing: border-box;
     height: 25px;
+}
+
+/*
+Info box
+*/
+
+.info_button_bar{
+    float: none;
+    display: inline-block;
+}
+.to_show{
+    display: none;
+}
+p.info_p{
+    margin: 0 0 20px 0;
+}
+.scaffale_titolo{
+    font-weight: 600;
+}
+.scaffale_info_menu {
+    border-bottom: 1px solid #cbcbcb;
+    overflow-x: scroll;
+    white-space: nowrap;
+    margin-bottom: 20px;
+}
+.scaffale_info_menu div {
+    vertical-align: middle;
+    height: 150px;
+    width: 100px;
+    background-size: cover;
+    background-position: center;
+    display: inline-block;
+}
+
+/*
+Scrollbar
+*/
+
+::-webkit-scrollbar {
+    width: 0;
+    height:3px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #cbcbcb;
+    border-radius: 10%;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+
 }

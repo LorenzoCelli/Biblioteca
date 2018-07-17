@@ -39,7 +39,7 @@ Main container
         </div></a>
         <div id="menu_account">
             <button class="account_button" disabled>Il tuo account</button>
-            <button class="account_button">Impostazioni</button>
+            <a href="../account/account.php"><button class="account_button">Impostazioni</button></a>
             <button style="border-bottom: none" class="account_button">Logout</button>
         </div>
 

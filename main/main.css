@@ -31,6 +31,10 @@ Info book menu
     background-color: #f8f8f8;
     transition: transform 500ms;
     overflow: auto;
+
+    -webkit-box-shadow: -15px 0px 62px -24px rgba(0,0,0,0.45);
+    -moz-box-shadow: -15px 0px 62px -24px rgba(0,0,0,0.45);
+    box-shadow: -15px 0px 62px -24px rgba(0,0,0,0.45);
 }
 
 .info_title {
@@ -118,12 +122,15 @@ New book menu
     width: 400px;
     top: 0;
     display: inline-block;
-    border: 1px solid #efefef;
     padding: 20px 30px;
     box-sizing: border-box;
     background-color: #f8f8f8;
     transition: transform 300ms;
     overflow: auto;
+
+    -webkit-box-shadow: -15px 0px 62px -24px rgba(0,0,0,0.45);
+    -moz-box-shadow: -15px 0px 62px -24px rgba(0,0,0,0.45);
+    box-shadow: -15px 0px 62px -24px rgba(0,0,0,0.45);
 }
 
 input, select, textarea, button {

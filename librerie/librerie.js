@@ -89,6 +89,25 @@ function nuova_libreria(el) {
     xhttp.send(a);
 }
 
+function elimina_libreria(el, id) {
+    el.innerHTML = "";
+    el.appendChild(loading_img(50));
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            close_info_menu();
+            info_menu.innerHTML = this.responseText;
+            if (this.responseText === "libreria eliminata") {
+                var e = document.querySelector('.book_container[onclick="fill_info_library(' + id + ')"]');
+                e.parentNode.removeChild(e);
+            }
+        }
+    };
+    xhttp.open("POST", "eliminalibreria.php", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send("id="+id);
+}
+
 function fill_info_library(id_libreria) {
     document.getElementById("info_menu").innerHTML = "";
     document.getElementById("info_menu").appendChild(loading_img(120));
@@ -117,6 +136,29 @@ function fill_info_book2(id_libro) {
     xhttp.send(null);
 }
 
+function modifica_libreria() {
+    var info_boxes = info_menu.getElementsByClassName("info_box");
+    console.log(info_boxes);
+    for(var i=0; i<info_boxes.length; i++){
+        var info_box = info_boxes[i];
+        info_box.style.display = "block";
+        var info_p = info_box.getElementsByClassName("info_p")[0];
+        var input = document.createElement("input");
+        input.value = info_p.innerHTML;
+        var info_tooltip = info_box.getElementsByClassName("info_tooltip")[0];
+        if(info_tooltip.innerHTML === "colore etichetta"){
+            input = color_picker(500);
+        }
+        if(info_tooltip.innerHTML === "numero scaffali"){
+            input.type = "number";
+        }
+        info_box.replaceChild(input, info_p);
+        info_tooltip.style.display = "block";
+    }
+    info_menu.getElementsByClassName("to_hide")[0].style.display = "none";
+    info_menu.getElementsByClassName("to_show")[0].style.display = "block";
+}
+
 var l_img = document.createElement("IMG");
 l_img.id = "loading";
 l_img.src = "../imgs/loading.svg";
@@ -132,91 +174,6 @@ function loading_img(l) {
 color picker
 */
 
+var container = document.getElementsByClassName("box_colorpicker")[0];
+container.parentElement.replaceChild(color_picker(400),container);
 
-var container = document.getElementById("box_colorpicker");
-var pointer = container.getElementsByTagName("DIV")[0];
-var w = container.offsetWidth;
-
-var step = w/6;
-var colori =[
-    [0,2,1],
-    [2,0,-1],
-    [2,1,1],
-    [1,2,-1],
-    [1,0,1],
-    [0,1,-1]
-];
-
-function ciao(ev) {
-    var l = ev.clientX-(getX(container)-400)-pointer.offsetWidth/2;
-    //pointer.style.transform = "translateX("+l+"px)";
-    pointer.style.left = l+"px";
-    var s = Math.floor(l/step);
-    var rest = l/step-s;
-    var colore = colori[s];
-    var a = [];
-    a[colore[0]] = 255;
-    if(colore[2]>0){
-        a[colore[1]] = 255*rest;
-    }else{
-        a[colore[1]] = 255-255*rest;
-    }
-    for (var i = 0; i<3; i++){
-        if(!a[i]){
-            a[i] = 0;
-        }
-    }
-    pointer.style.backgroundColor = "rgb("+a[0]+","+a[1]+","+a[2]+")";
-}
-function getX(element) {
-    var xPosition = 0;
-    while(element) {
-        xPosition += (element.offsetLeft - element.scrollLeft + element.clientLeft);
-        element = element.offsetParent;
-    }
-    return xPosition;
-}
-
-pointer.onmousedown = dragMouseDown;
-var pos1 = 0, pos2 = 0;
-
-function dragMouseDown(e) {
-    e = e || window.event;
-    e.preventDefault();
-    pos2 = e.clientX;
-    document.onmouseup = closeDragElement;
-    document.onmousemove = elementDrag;
-}
-
-function elementDrag(e) {
-    e = e || window.event;
-    e.preventDefault();
-    pos1 = pos2 - e.clientX;
-    pos2 = e.clientX;
-    l = pointer.offsetLeft - pos1;
-    if(l<0 || l>w-pointer.offsetWidth) return;
-    pointer.style.left = l + "px";
-
-    l = l+pointer.offsetWidth/2;
-    var s = Math.floor(l/step);
-    var rest = l/step-s;
-    var colore = colori[s];
-    var a = [];
-    a[colore[0]] = 255;
-    if(colore[2]>0){
-        a[colore[1]] = 255*rest;
-    }else{
-        a[colore[1]] = 255-255*rest;
-    }
-    for (var i = 0; i<3; i++){
-        if(!a[i]){
-            a[i] = 0;
-        }
-    }
-    pointer.style.backgroundColor = "rgb("+a[0]+","+a[1]+","+a[2]+")";
-}
-
-function closeDragElement() {
-    document.onmouseup = null;
-    document.onmousemove = null;
-}

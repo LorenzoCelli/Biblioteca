@@ -20,25 +20,39 @@ $row = mysqli_fetch_assoc($result);
 $nome = $row["nome"];
 $descr = $row["descr"];
 $n_scaffali = $row["n_scaffali"];
+$colore = $row["colore"];
 ?>
 
 <div class="info_button_bar">
-   <div onclick="edit_book(<?php echo $id_libreria;?>)" class="info_hover_div"><img src="../imgs/matita.svg" style="height: 50px"></div><!--
---><div onclick="delete_book(<?php echo $id_libreria;?>,this)" class="info_hover_div"><img src="../imgs/cestino.svg" style="height: 50px"></div><!--
+   <div onclick="modifica_libreria(<?php echo $id_libreria;?>)" class="info_hover_div"><img src="../imgs/matita.svg" style="height: 50px"></div><!--
+--><div onclick="elimina_libreria(this, <?php echo $id_libreria;?>)" class="info_hover_div"><img src="../imgs/cestino.svg" style="height: 50px"></div><!--
 --><div onclick="close_info_menu()" class="info_hover_div"><img src="../imgs/croce.svg" style="height: 50px"></div>
 </div>
-<h1 style="margin-top: 20px;"><?php echo $nome;?></h1>
-<h4 style="margin-top: 0px; margin-bottom: 5px;"><?php echo $descr;?></h4>
 
-<div class="cercaInput"><input class="cercaLib"><img src="../imgs/lente.png" width="32px" class="cercaImg"></div>
+<div class="info_box">
+    <div style="display: none" class="info_tooltip">titolo</div>
+    <h1 class="info_p"><?php echo $nome;?></h1>
+</div>
+<div class="info_box">
+    <div style="display: none" class="info_tooltip">descrizione</div>
+    <p class="info_p"><?php echo $descr;?></p>
+</div>
+<div class="info_box" style="display: none">
+    <div style="display: none" class="info_tooltip">colore etichetta</div>
+    <p class="info_p"><?php echo $colore;?></p>
+</div>
+<div class="info_box" style="display: none">
+    <div class="info_tooltip">numero scaffali</div>
+    <p class="info_p"><?php echo $n_scaffali;?></p>
+</div>
+
+<div class="to_hide">
 
 <?php
 for ($i=1; $i <= $n_scaffali; $i++) {
   echo "
-  <div class='scaffaleTitolo'>
-    <h5>Scaffale $i</h5>
-  </div>
-  <div class='libscaffale_menu'>
+  <div class='scaffale_titolo'>Scaffale $i</div>
+  <div class='scaffale_info_menu'>
   ";
 
   $sql_libri = "SELECT * FROM libri
@@ -48,8 +62,7 @@ for ($i=1; $i <= $n_scaffali; $i++) {
 
   while ($riga = mysqli_fetch_assoc($result_libri)) {
     echo "
-      <div class='boxlibro_menu'>
-        <img src='".$riga['img_url']."' class='libriscaffali' onclick='fill_info_book2(".$riga['id'].")'>
+      <div style=\"background-image: url('".$riga['img_url']."')\" onclick='fill_info_book2(".$riga['id'].")'>
       </div>
     ";
   }
@@ -59,3 +72,8 @@ for ($i=1; $i <= $n_scaffali; $i++) {
   ";
 }
 ?>
+</div>
+<div class="to_show">
+    <button>Salva</button>
+    <button>Annulla</button>
+</div>
