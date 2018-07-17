@@ -20,7 +20,7 @@ Main container
 <div id="main_container">
     <div id="main_menu">
         <a href=""><button class="main_menu_button" disabled>La mia biblioteca</button></a>
-        <a href="../librerie/librerie.php"><button class="main_menu_button">Le mie librerie</button></a>
+        <a href="../librerie/index.php"><button class="main_menu_button">Le mie librerie</button></a>
         <a href=""><button class="main_menu_button">I miei amici</button></a>
         <a href=""><button class="main_menu_button">Tua sorella</button></a>
     </div><!--
@@ -150,7 +150,7 @@ Info book aside menu
 </div>
 
 
-<script src="animazioni.js"></script>
+<script src="comune.js"></script>
 <script src="main.js"></script>
 </body>
 </html>

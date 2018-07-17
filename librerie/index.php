@@ -7,9 +7,9 @@ $uname = $_SESSION['uname'];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Le tue librerie</title>
-    <link rel="stylesheet" type="text/css" href="../opensans/opensans.css">
-    <link rel="stylesheet" type="text/css" href="../main/main.css">
-    <link rel="stylesheet" type="text/css" href="librerie.css">
+    <link rel="stylesheet" type="text/css" href="/opensans/opensans.css">
+    <link rel="stylesheet" type="text/css" href="/main/main.css">
+    <link rel="stylesheet" type="text/css" href="/librerie/librerie.css">
     <link href="https://fonts.googleapis.com/css?family=Vollkorn:400,900" rel="stylesheet">
 </head>
 <body>
@@ -65,7 +65,7 @@ Main container
 
          while($row = mysqli_fetch_assoc($result)){
            echo "
-            <div class='book_container' onclick='fill_info_library(".$row['id'].")'>
+            <div class='book_container' onclick='info_libreria(".$row['id'].")'>
                 <div class='book_image' style='background-color: ".$row['colore']."'></div><!--
              --><div class='book_text'>
                     <p class='book_title'>".$row['nome']."</p>".$row['descr']."
@@ -110,8 +110,9 @@ New book aside
 <div id="info_book_menu" style="left: 100%;">
 </div>
 
-<script src="colorpicker.js"></script>
-<script src="librerie.js"></script>
-<script src="../main/animazioni.js"></script>
+<script src="/librerie/colorpicker.js"></script>
+<script src="/librerie/chiamate.js"></script>
+<script src="/librerie/librerie.js"></script>
+<script src="/main/comune.js"></script>
 </body>
 </html>

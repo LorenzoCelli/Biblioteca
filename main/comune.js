@@ -1,3 +1,11 @@
+/*
+//--------------------------------------------------------------//
+//                                                              //
+//  animazioni                                                  //
+//                                                              //
+//--------------------------------------------------------------//
+*/
+
 var search_bar = document.getElementById("search_bar");
 
 function slide_search_bar() {
@@ -70,4 +78,51 @@ function loading_img(l) {
     l_img.style.width = l+"px";
     l_img.style.height = l+"px";
     return l_img;
+}
+
+/*
+//--------------------------------------------------------------//
+//                                                              //
+//  chiamate ajax                                               //
+//                                                              //
+//--------------------------------------------------------------//
+*/
+
+function chiama_post(query_diz, file, callback, loading_el, loading_width) {
+    if(loading_el) {
+        loading_el.innerHTML = "";
+        loading_el.appendChild(loading_img(loading_width));
+    }
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            callback(this);
+        }
+    };
+    xhttp.open("POST", file, true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    var a = "";
+    for(var chiave in query_diz){
+        a+= chiave+"="+query_diz[chiave]+"&";
+    }
+    xhttp.send(a);
+}
+
+function chiama_get(query_diz, file, callback, loading_el, loading_width) {
+    if(loading_el) {
+        loading_el.innerHTML = "";
+        loading_el.appendChild(loading_img(loading_width));
+    }
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            callback(this);
+        }
+    };
+    var a = "?";
+    for(var chiave in query_diz){
+        a+= chiave+"="+query_diz[chiave]+"&";
+    }
+    xhttp.open("GET", file+a, true);
+    xhttp.send(null);
 }

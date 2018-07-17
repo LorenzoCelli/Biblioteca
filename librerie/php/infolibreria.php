@@ -2,7 +2,7 @@
 error_reporting(-1);
 ini_set('display_errors', 'On');
 
-include '../connection.php';
+include $_SERVER['DOCUMENT_ROOT'].'/connection.php';
 
 $uname = $_SESSION['uname'];
 $id_utente = $_SESSION['id_utente'];
@@ -74,6 +74,6 @@ for ($i=1; $i <= $n_scaffali; $i++) {
 ?>
 </div>
 <div class="to_show">
-    <button>Salva</button>
+    <button onclick="aggiorna_libreria(this, <?echo $id_libreria?>)">Salva</button>
     <button>Annulla</button>
 </div>

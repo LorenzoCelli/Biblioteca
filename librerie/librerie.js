@@ -54,7 +54,6 @@ function nuovi_scaffali() {
   }
   contatoreScaffali = count;
 }
-
 function reset_new_book() {
     new_menu.querySelector('input[name=nome]').value = "";
     new_menu.querySelector('input[name=descr]').value = "";
@@ -62,80 +61,6 @@ function reset_new_book() {
     box_scaffali.innerHTML = "";
     slide_new_menu()
 }
-
-var content = document.getElementsByClassName("content")[0];
-
-function nuova_libreria(el) {
-    el.innerHTML = "";
-    el.appendChild(loading_img(40));
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            var div = document.createElement("DIV");
-            div.innerHTML = this.responseText;
-            content.insertBefore(div.getElementsByTagName("DIV")[0], content.getElementsByClassName("book_container")[0]);
-            reset_new_book();
-        }
-    };
-    xhttp.open("POST", "nuovalibreria.php", true);
-    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-
-    var nome = new_menu.querySelector('input[name=nome]').value;
-    var descr = new_menu.querySelector('input[name=descr]').value;
-    var scaffali = new_menu.querySelector('input[name=n_scaffali]').value;
-    var colore = pointer.style.backgroundColor;
-
-    var a = "nome="+nome+"&descr="+descr+"&scaffali="+scaffali+"&colore="+colore;
-    xhttp.send(a);
-}
-
-function elimina_libreria(el, id) {
-    el.innerHTML = "";
-    el.appendChild(loading_img(50));
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            close_info_menu();
-            info_menu.innerHTML = this.responseText;
-            if (this.responseText === "libreria eliminata") {
-                var e = document.querySelector('.book_container[onclick="fill_info_library(' + id + ')"]');
-                e.parentNode.removeChild(e);
-            }
-        }
-    };
-    xhttp.open("POST", "eliminalibreria.php", true);
-    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhttp.send("id="+id);
-}
-
-function fill_info_library(id_libreria) {
-    document.getElementById("info_menu").innerHTML = "";
-    document.getElementById("info_menu").appendChild(loading_img(120));
-    document.getElementById("info_menu").style.transform = "translateX(-500px)";
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("info_menu").innerHTML = this.responseText;
-        }
-    };
-    xhttp.open("GET", "infolibrerie.php" + "?id=" + id_libreria, true);
-    xhttp.send(null);
-}
-
-function fill_info_book2(id_libro) {
-    document.getElementById("info_book_menu").innerHTML = "";
-    document.getElementById("info_book_menu").appendChild(loading_img(120));
-    document.getElementById("info_book_menu").style.transform = "translateX(-500px)";
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("info_book_menu").innerHTML = this.responseText;
-        }
-    };
-    xhttp.open("GET", "../main/infolibro.php" + "?id=" + id_libro, true);
-    xhttp.send(null);
-}
-
 function modifica_libreria() {
     var info_boxes = info_menu.getElementsByClassName("info_box");
     console.log(info_boxes);
@@ -146,6 +71,7 @@ function modifica_libreria() {
         var input = document.createElement("input");
         input.value = info_p.innerHTML;
         var info_tooltip = info_box.getElementsByClassName("info_tooltip")[0];
+        input.name = info_tooltip.innerHTML;
         if(info_tooltip.innerHTML === "colore etichetta"){
             input = color_picker(500);
         }
@@ -158,21 +84,6 @@ function modifica_libreria() {
     info_menu.getElementsByClassName("to_hide")[0].style.display = "none";
     info_menu.getElementsByClassName("to_show")[0].style.display = "block";
 }
-
-var l_img = document.createElement("IMG");
-l_img.id = "loading";
-l_img.src = "../imgs/loading.svg";
-
-function loading_img(l) {
-    l_img.alt = "loading..";
-    l_img.style.width = l+"px";
-    l_img.style.height = l+"px";
-    return l_img;
-}
-
-/*
-color picker
-*/
 
 var container = document.getElementsByClassName("box_colorpicker")[0];
 container.parentElement.replaceChild(color_picker(400),container);
