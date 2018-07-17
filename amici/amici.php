@@ -46,11 +46,14 @@ $img = avatar($id_avatar);
   </div>
 
   <h1 style="margin-top:0;">Trova un utente:</h1>
-  <div style="display:inline-block; margin-bottom:10px;">
+  <div style="display:inline-block;">
     <input id="search_bar" type="text"><!--
     --><input type="submit" id="search_button" value="" onclick="ricerca_utenti();">
   </div>
 
+  <div id="ris_div" style="padding:20px;">
+
+  </div>
 
   <h1>Lista amici</h1>
 
@@ -72,7 +75,7 @@ $img = avatar($id_avatar);
       $avatar_amico = $row['id_avatar'];
       $img_avatar = avatar($avatar_amico);
       echo "
-      <a><div style='display:inline-block;cursor:pointer;margin-right:10px;'>
+      <a><div style='display:block;cursor:pointer;margin-right:10px;'>
       <div style='display: inline-block; height: 50px; width: 50px; overflow: hidden'><img id='small_icon' src='$img_avatar' style='width:50px;height:50px;'></div>
       <p2 id='nome_utente'>$uname_amico</p2>
       </div></a>
