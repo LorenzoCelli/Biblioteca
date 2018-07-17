@@ -12,29 +12,27 @@ body {
   padding: 10px 0px;
   text-align: center;
   color: white;
+  background-color: red;
 }
 .headerTitle {
   font-family: open_sans_light,sans-serif;
-  font-size: 40px;
+  font-size: 20px;
   text-decoration: none;
   color: white;
 }
 .login {
   padding-right: 40px;
-  padding-top: 20px;
+  padding-top: 5px;
   text-decoration: none;
   font-family: open_sans_light, sans-serif;
-  font-size: 22px;
+  font-size: 16px;
   color: white;
   position: absolute;
   right: 0;
 }
-.headerContainer {
-  margin-top: 10px;
-}
 .firstBlockContent {
   text-align: center;
-  margin-top: 130px;
+  margin-top: 160px;
   width: 100%;
   color: white;
 }
@@ -44,7 +42,7 @@ body {
 }
 .firstBlockContentSecond {
   font-size:45px;
-  margin-top:-75px;
+  margin-top:-88px;
   font-family: open_sans_light, sans-serif;
 }
 .firstBlockRegisterButton {
@@ -70,6 +68,10 @@ body {
 .secondBlockImg img {
   width: 860px;
   height: 500px;
+}
+.secondBlockImg2 img {
+  width: 45%;
+  display: none;
 }
 .secondBlockContentFirst {
   font-size:40px;
@@ -110,6 +112,12 @@ body {
 }
 /*monitor piccolo*/
 @media screen and (max-width: 860px) {
+  #firstBlock {
+    height: 630px;
+  }
+  #secondBlock {
+    height: 585px;
+  }
   #terzacopertina {
     display: none;
   }
@@ -144,15 +152,16 @@ body {
     margin-top:-75px;
     font-family: open_sans_light, sans-serif;
   }
+  .firstBlockContent{
+    margin-top: 147px;
+  }
   }
 
 /*tablet*/
 @media screen and (max-width: 650px) {
-  .block {
-    width: 100%;
-    height: 630px;
+  #firstBlock{
+    height: 600px;
   }
-
   .thirdBlockbooksContainer {
     margin-bottom: 60px;
   }
@@ -162,24 +171,41 @@ body {
   #primacopertina {
     display: none;
   }
+  .secondBlockImg img {
+    display: none;
+  }
+  .secondBlockImg2 {
+    width: 100%;
+    text-align: center;
+  }
+  .secondBlockImg2 img {
+    display: inline-block;
+    margin-top: -40px;
+  }
   .thirdBlockLibrary {
     margin-top: 60px;
     height: auto;
   }
   .thirdBlockLibrary img {
     height: 25%;
-width: 35%;
-border-radius: 10px;
-margin-top: 20px;
-margin-left: 10px;
-margin-right: 10px;
+    width: 35%;
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
   }
   .secondBlockContentFirst{
-    margin-top: 75px;
+    margin-top: 40px;
+    font-size: 30px;
+  }
+  #secondBlock {
+    height: auto;
+    padding-bottom: 50px;
   }
   .secondBlockImg img {
     width: 90%;
     height: 90%;
+    margin-top: -40px;
   }
   .secondBlockImg {
     margin-top: 80px;
@@ -201,26 +227,19 @@ margin-right: 10px;
     font-family: open_sans_light, sans-serif;
   }
   .headerTitle {
-    margin-top: 15px;
-    font-size: 30px;
     float: left;
+    margin-left: 10px;
     padding-left: 15px;
   }
   .login {
-    font-size: 18px;
     display: block;
-    margin-top: 5px;
     padding-right: 15px;
+    margin-right: 10px;
   }
 }
 
 /*smartphone*/
   @media screen and (max-width: 390px) {
-    .block {
-      width: 100%;
-      height: 580px;
-    }
-
     .thirdBlockContentFirst {
     font-size: 30px;
 }
@@ -232,7 +251,9 @@ margin-right: 10px;
       font-size: 22px;
       font-family: open_sans_light, sans-serif;
     }
-
+    .firstBlockContent{
+      margin-top: 160px;
+    }
     .firstBlockContentFirst {
       font-size:32px;
       font-family: open_sans_bold, sans-serif;
@@ -241,12 +262,5 @@ margin-right: 10px;
       font-size:25px;
       margin-top:-31px;
       font-family: open_sans_light, sans-serif;
-    }
-    .headerTitle {
-      font-size: 20px;
-      margin-top: 20px;
-    }
-    .login {
-      font-size: 16px;
     }
   }
