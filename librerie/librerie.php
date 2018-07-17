@@ -87,7 +87,7 @@ New book aside
     <input type="text" placeholder="Nome libreria" name="nome"><br>
     <input type="text" placeholder="Descrizione" name="descr"><br>
     Colore etichetta:
-    <div id="box_colorpicker">
+    <div class="box_colorpicker">
       <img onmousedown="ciao(event)" src="../imgs/line.png">
       <div></div>
     </div>
@@ -108,9 +108,9 @@ New book aside
 </div>
 
 <div id="info_book_menu" style="left: 100%;">
-
 </div>
 
+<script src="colorpicker.js"></script>
 <script src="librerie.js"></script>
 <script src="../main/animazioni.js"></script>
 </body>

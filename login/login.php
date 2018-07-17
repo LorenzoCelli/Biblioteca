@@ -39,8 +39,9 @@ if (isset($_POST['username'])) {
     <link href="https://fonts.googleapis.com/css?family=Vollkorn:400,900" rel="stylesheet">
     <link href="../opensans/opensans.css" rel="stylesheet">
 </head>
-<body>
+<body style="background-color: #f43327">
     <div class="container">
+            <img src="../imgs/donnina.svg" style="height: 300px; position: absolute;top:-230px;left;0">
             <h1 style="margin-bottom: 10px;">login</h1>
             <form action="login.php" method="post">
                 <div class="input_container">
