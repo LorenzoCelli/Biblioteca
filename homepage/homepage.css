@@ -5,6 +5,14 @@ body {
   width: 100%;
   height: 700px;
 }
+#secondBlock {
+  height: auto;
+  padding-bottom: 50px;
+}
+#fourthBlock {
+  height: auto;
+  padding-bottom: 180px;
+}
 .header {
   width: 100%;
   height: auto;
@@ -66,8 +74,8 @@ body {
   text-align: center;
 }
 .secondBlockImg img {
-  width: 860px;
-  height: 500px;
+  width: 85%;
+  height: 85%;
 }
 .secondBlockImg2 img {
   width: 45%;
@@ -86,55 +94,65 @@ body {
   font-size:40px;
   font-family: open_sans_light, sans-serif;
 }
-.thirdBlockLibrary {
-  margin-top: 60px;
-  height: 340px;
-  background-color: #3a3a3a;
-  padding: 40px 30px 4px 30px;
+.fourthBlockContent {
+  width: 100%;
   text-align: center;
+  color: white;
+  padding-top: 1px;
 }
-.thirdBlockLibrary img {
-  border-radius: 10px;
-  width: 200px;
-  height: 280px;
-  margin-right: 30px;
-  margin-left: 30px;
-  margin-top: 10px;
+.fourthBlockContentFirst {
+  font-family: open_sans_light, sans-serif;
+  font-size: 40px;
+  margin-top: 125px;
+  margin-bottom: -10px;
 }
-.thirdBlockbooksContainer {
-  border-bottom: 1px solid #fdfdfd;
+.fourthBlockContentSecond {
+  font-family: open_sans_light, sans-serif;
+  font-size: 20px;
+}
+.fourthBlockImg {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  margin-top: 100px;
+}
+.fourthBlockImg img {
+  display: inline-block;
+  margin-left: 4%;
+  margin-right: 4%;
 }
 
+#trattoImageLeft {
+  height: 120px;
+}
+#trattoImageRight {
+  height: 120px;
+}
 @media screen and (max-width: 1120px) {
   #quartacopertina {
     display: none;
   }
+  #userImage {
+    width: 16%;
+  }
+  #bookImage {
+    width: 14%;
+  }
+  #trattoImageLeft {
+    width: 4.2%;
+  }
+  #trattoImageRight {
+    width: 4.2%;
+  }
+
 }
 /*monitor piccolo*/
 @media screen and (max-width: 860px) {
   #firstBlock {
     height: 630px;
   }
-  #secondBlock {
-    height: 585px;
-  }
   #terzacopertina {
     display: none;
-  }
-  .thirdBlockContent {
-      padding: 20px 45px 2px 20px;
-  }
-  .thirdBlockLibrary img {
-    border-radius: 10px;
-    width: 200px;
-    height: 280px;
-    margin-right: 30px;
-    margin-left: 30px;
-    margin-top: 10px;
-  }
-  .secondBlockImg img {
-    width: 660px;
-    height: 380px;
   }
   .firstBlockRegisterButton button {
     width: 500px;
@@ -159,11 +177,25 @@ body {
 
 /*tablet*/
 @media screen and (max-width: 650px) {
+  #userImage {
+    vertical-align: text-top;
+  }
+  #trattoImageLeft {
+    vertical-align: middle;
+    transform: rotate(325deg);
+  }
+  #trattoImageRight {
+    vertical-align: middle;
+    transform: rotate(32deg);
+  }
+  .fourthBlockContentFirst {
+    font-size: 27px;
+}
+  .fourthBlockContentSecond {
+    font-size: 17px;
+  }
   #firstBlock{
     height: 600px;
-  }
-  .thirdBlockbooksContainer {
-    margin-bottom: 60px;
   }
   #quartacopertina {
     display: inline;
@@ -182,26 +214,11 @@ body {
     display: inline-block;
     margin-top: -40px;
   }
-  .thirdBlockLibrary {
-    margin-top: 60px;
-    height: auto;
-  }
-  .thirdBlockLibrary img {
-    height: 25%;
-    width: 35%;
-    border-radius: 10px;
-    margin-top: 20px;
-    margin-left: 10px;
-    margin-right: 10px;
-  }
   .secondBlockContentFirst{
     margin-top: 40px;
     font-size: 30px;
   }
-  #secondBlock {
-    height: auto;
-    padding-bottom: 50px;
-  }
+
   .secondBlockImg img {
     width: 90%;
     height: 90%;
@@ -240,6 +257,15 @@ body {
 
 /*smartphone*/
   @media screen and (max-width: 390px) {
+    .fourthBlockContentFirst {
+    font-size: 20px;
+}
+    .fourthBlockContentSecond {
+    font-size: 15px;
+}
+    .secondBlockContentFirst{
+      font-size: 24px;
+    }
     .thirdBlockContentFirst {
     font-size: 30px;
 }
