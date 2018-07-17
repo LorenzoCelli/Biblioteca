@@ -15,10 +15,10 @@ $img = avatar($id_avatar);
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Biblioteca - Amici</title>
-  <link rel="stylesheet" type="text/css" href="../main/main.css">
-  <link rel="stylesheet" type="text/css" href="amici.css">
+  <link rel="stylesheet" type="text/css" href="/main/main.css">
+  <link rel="stylesheet" type="text/css" href="/amici/amici.css">
   <link href="https://fonts.googleapis.com/css?family=Vollkorn:400,600,900" rel="stylesheet">
-  <link href="../opensans/opensans.css" rel="stylesheet">
+  <link href="/opensans/opensans.css" rel="stylesheet">
 </head>
 <body>
 
@@ -41,7 +41,7 @@ $img = avatar($id_avatar);
   </div></a>
   <div id="menu_account" style="background-color:white;">
     <p class="account_menu_header">Il tuo account</p>
-    <a href=""><button class="account_button">Impostazioni</button></a>
+    <a href="../account/account.php"><button class="account_button">Impostazioni</button></a>
     <button style="border-bottom: none;border-radius:0 0 10px 10px;" class="account_button">Logout</button>
   </div>
 
@@ -51,13 +51,13 @@ $img = avatar($id_avatar);
     --><input type="submit" id="search_button" value="" onclick="ricerca_utenti();">
   </div>
 
-  <div id="ris_div" style="padding:20px;">
+  <div id="ris_div" style="padding:20px 0;">
 
   </div>
 
   <h1>Lista amici</h1>
 
-  <div style="padding:20px;">
+  <div style="padding:20px 0;">
   <?php
   $sql = "SELECT * FROM amici
   INNER JOIN utenti
@@ -89,8 +89,8 @@ $img = avatar($id_avatar);
 
 </div></div>
 
-<script src="../main/main.js"></script>
-<script src="../main/animazioni.js"></script>
-<script src="amici.js"></script>
+<script src="/main/main.js"></script>
+<script src="/main/animazioni.js"></script>
+<script src="/amici/amici.js"></script>
 </body>
 </html>

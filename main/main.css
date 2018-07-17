@@ -413,11 +413,13 @@ account menu
 
 #nome_utente {
     font-family: open_sans_semibold, sans-serif;
-    line-height: 50px;
+    line-height: 40px;
     vertical-align: top;
-    padding: 3px;
+    padding: 0px 3px;
     margin-right: 5px;
 }
+
+
 
 #menu_account {
   position: absolute;
