@@ -15,7 +15,7 @@ $img = avatar($id_avatar);
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Biblioteca - Amici</title>
-  <link rel="stylesheet" type="text/css" href="/main/main.css">
+  <link rel="stylesheet" type="text/css" href="/libri/libri.css">
   <link rel="stylesheet" type="text/css" href="/amici/amici.css">
   <link href="https://fonts.googleapis.com/css?family=Vollkorn:400,600,900" rel="stylesheet">
   <link href="/opensans/opensans.css" rel="stylesheet">
@@ -124,9 +124,8 @@ $img = avatar($id_avatar);
 
 </div></div>
 
-<script src="/libri/comuni.js"></script>
-<script src="/main/main.js"></script>
-<script src="/main/animazioni.js"></script>
+<script src="/libri/comune.js"></script>
+<script src="/libri/libri.js"></script>
 <script src="/amici/amici.js"></script>
 </body>
 </html>
