@@ -13,6 +13,9 @@ body {
   height: auto;
   padding-bottom: 180px;
 }
+#fifthBlock {
+  position: relative;
+}
 .header {
   width: 100%;
   height: auto;
@@ -20,7 +23,7 @@ body {
   padding: 10px 0px;
   text-align: center;
   color: white;
-  background-color: red;
+  background-color: #4ea8de;
 }
 .headerTitle {
   font-family: open_sans_light,sans-serif;
@@ -121,6 +124,51 @@ body {
   margin-left: 4%;
   margin-right: 4%;
 }
+.fifthBlockFooter {
+  width: 100%;
+  height: auto;
+  background-color: #4ea8de;
+  color: white;
+  padding: 24px 6%;
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 0;
+}
+
+.fifthBlockFooter img{
+  width: 130px;
+  border-right: 1px solid white;
+  padding-right: 4%;
+}
+.fifthBlockContent {
+    /*font-size: 1.4vw;*/
+    font-size: 17px;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 2.2%;
+    font-family: open_sans_light, sans-serif;
+}
+.scanIsbn {
+  position: absolute;
+    width: 280px;
+    left: 65%;
+    bottom: 6%;
+    z-index: 1;
+}
+.fifthBlockGraffetta {
+  background-color: #3a3a3a;
+  height: auto;
+  width: 450px;
+  font-size: 37px;
+  padding: 5px 35px;
+  font-family: open_sans_light, sans-serif;
+  color: white;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 10px;
+  border-right: 4px solid lightgrey;
+  position: absolute;
+  top: 90px;
+}
 
 #trattoImageLeft {
   height: 120px;
@@ -148,6 +196,26 @@ body {
 }
 /*monitor piccolo*/
 @media screen and (max-width: 860px) {
+  .fifthBlockGraffetta {
+    box-sizing: border-box;
+    width: 100%;
+    color: black;
+    background-color: #f5f5f5;
+    margin-left: auto;
+    margin-right: auto;
+    border-right: 0px;
+    margin-bottom: 25px;
+    position: initial;
+  }
+  #fifthBlock {
+    text-align: center;
+    padding-bottom: 340px;
+    padding-top: 20px;
+  }
+  .scanIsbn {
+    position: unset;
+    z-index: 1;
+}
   #firstBlock {
     height: 630px;
   }
@@ -177,19 +245,62 @@ body {
 
 /*tablet*/
 @media screen and (max-width: 650px) {
+  .fifthBlockGraffetta {
+    font-size: 24px;
+  }
+  .fifthBlockContent {
+    font-size: 15px;
+  }
+  #fifthBlock {
+    padding-bottom: 54%;
+    height: auto;
+}
+.scanIsbn {
+  width: 220px;
+}
+  .fifthBlockFooter {
+    padding: 5px 4%;
+  }
+  .fifthBlockFooter img{
+    width: 20%;
+    border-right: 0px;
+    border-bottom: 1px solid white;
+    display: block;
+    padding-right: 0px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .fourthBlockImg {
+    margin-top: 70px;
+}
+.fourthBlockImg img {
+    margin-left: 0.6%;
+    margin-right: 0.6%;
+}
+  #bookImage {
+    width: 22%;
+  }
+  #fourthBlock {
+    height: auto;
+    padding-bottom: 82px;
+}
   #userImage {
     vertical-align: text-top;
+    width: 23%;
   }
   #trattoImageLeft {
     vertical-align: middle;
     transform: rotate(325deg);
+    width: 7.2%;
   }
   #trattoImageRight {
     vertical-align: middle;
     transform: rotate(32deg);
+    width: 7.2%;
   }
   .fourthBlockContentFirst {
-    font-size: 27px;
+    margin-top: 55px;
+    font-size: 30px;
 }
   .fourthBlockContentSecond {
     font-size: 17px;
@@ -257,8 +368,22 @@ body {
 
 /*smartphone*/
   @media screen and (max-width: 390px) {
+    .scanIsbn {
+      width: 47%;
+    }
+    .fifthBlockGraffetta {
+      margin-bottom: 0;
+      font-size: 6vw;
+    }
+    .fifthBlockContent {
+      margin-left: 0;
+      font-size: 3.8vw;
+    }
+    .fifthBlockFooter {
+      text-align: center;
+    }
     .fourthBlockContentFirst {
-    font-size: 20px;
+    font-size: 24px;
 }
     .fourthBlockContentSecond {
     font-size: 15px;
