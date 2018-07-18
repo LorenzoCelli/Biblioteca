@@ -14,3 +14,16 @@ function ricerca_utenti() {
     xhttp.open("GET", "cerca.php" + "?ris_cerca=" + ris_cerca.value, true);
     xhttp.send(null);
 }
+function aggiungi_utenti(id_amico,button) {
+    var risp_richiesta = button.parentElement.getElementsByClassName("risp_richiesta")[0];
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            button.disabled = "true";
+            risp_richiesta.style.height = "30px";
+            risp_richiesta.innerHTML = this.responseText;
+        }
+    };
+    xhttp.open("GET", "aggiungi.php" + "?id_amico=" + id_amico, true);
+    xhttp.send(null);
+}
