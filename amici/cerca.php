@@ -20,14 +20,15 @@ if ($results->num_rows == 0) {
   while ($row = mysqli_fetch_assoc($results)) {
     $uname_amico = $row['username'];
     $avatar_amico = $row['id_avatar'];
+    $id_amico = $row['id'];
     $img_avatar = avatar($avatar_amico);
     echo "
-    <div style='display:block;'>
     <a><div id='scheda_utente'>
     <img src='$img_avatar' id='avatar_img'>
-    <p2 id='nome_utente' style='display:inline-block;'>$uname_amico</p2></div></a><!--
-    --><a><img src='../imgs/add.png' id='friend_button'></a>
-    </div>
+    <p2 id='nome_utente' style='display:inline-block;'>$uname_amico</p2><!--
+    --><button id='friend_button' onclick='aggiungi_utenti($id_amico,this)'></button><!--
+    --><div class='risp_richiesta'></div>
+    </div></a>
     ";
   }
 }

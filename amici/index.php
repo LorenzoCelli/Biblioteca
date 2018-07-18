@@ -45,47 +45,76 @@ $img = avatar($id_avatar);
     <button style="border-bottom: none;border-radius:0 0 10px 10px;" class="account_button">Logout</button>
   </div>
 
-  <h1 style="margin-top:0;">Trova un utente:</h1>
-  <div style="display:inline-block;">
-    <input id="search_bar" type="text"><!--
-    --><input type="submit" id="search_button" value="" onclick="ricerca_utenti();">
-  </div>
-
-  <div id="ris_div" style="padding:20px 0;">
-
-  </div>
-
-  <h1>Lista amici</h1>
-
-  <div style="padding:20px 0;">
   <?php
   $sql = "SELECT * FROM amici
-  INNER JOIN utenti
-  ON amici.id_amico = utenti.id OR amici.id_utente = utenti.id
-  WHERE amici.accettato = 1
-  AND utenti.id != '$id_utente'
-  AND (amici.id_utente = '$id_utente'
-  OR amici.id_amico = '$id_utente')";
+  INNER JOIN utenti ON amici.id_utente = utenti.id
+  WHERE amici.accettato = 0 AND amici.id_amico = '$id_utente'";
   $results = mysqli_query($conn, $sql);
-  if ($results->num_rows == 0) {
-    echo "<p id='no_amici'>Non hai ancora aggiunto nessun amico!</p>";
-  }else{
+  if ($results->num_rows != 0) {
     while ($row = mysqli_fetch_assoc($results)) {
       $uname_amico = $row['username'];
       $avatar_amico = $row['id_avatar'];
       $img_avatar = avatar($avatar_amico);
       echo "
-      <a><div style='display:block;cursor:pointer;margin-right:10px;'>
-      <div style='display: inline-block; height: 50px; width: 50px; overflow: hidden'><img id='small_icon' src='$img_avatar' style='width:50px;height:50px;'></div>
-      <p2 id='nome_utente'>$uname_amico</p2>
+      <a><div id='scheda_utente'>
+      <img src='$img_avatar' id='avatar_img'>
+      <p2 id='nome_utente' style='display:inline-block;'>$uname_amico</p2>
       </div></a>
       ";
     }
   }
   ?>
+  <div style="display:block;">
+
   </div>
 
-  <h1>Biblioteche preferite</h1>
+  <div style="width:33%;display:inline-block;vertical-align:top;min-width: 350px;">
+    <h1 style="margin-top:0;">Trova un utente:</h1>
+    <div style="display:inline-block;padding:20px 0">
+      <input id="search_bar" type="text"><!--
+      --><input type="submit" id="search_button" value="" onclick="ricerca_utenti();">
+    </div>
+    <div id="ris_div" style="padding:20px 0;">
+
+    </div>
+  </div>
+
+  <div style="width:33%;display:inline-block;min-width:350px;">
+    <h1>Lista amici</h1>
+
+    <div style="padding:20px 0;">
+    <?php
+    $sql = "SELECT * FROM amici
+    INNER JOIN utenti
+    ON amici.id_amico = utenti.id OR amici.id_utente = utenti.id
+    WHERE amici.accettato = 1
+    AND utenti.id != '$id_utente'
+    AND (amici.id_utente = '$id_utente'
+    OR amici.id_amico = '$id_utente')";
+    $results = mysqli_query($conn, $sql);
+    if ($results->num_rows == 0) {
+      echo "<p id='no_amici'>Non hai ancora aggiunto nessun amico!</p>";
+    }else{
+      while ($row = mysqli_fetch_assoc($results)) {
+        $uname_amico = $row['username'];
+        $avatar_amico = $row['id_avatar'];
+        $img_avatar = avatar($avatar_amico);
+        echo "
+        <a><div id='scheda_utente'>
+        <img src='$img_avatar' id='avatar_img'>
+        <p2 id='nome_utente' style='display:inline-block;'>$uname_amico</p2>
+        </div></a>
+        ";
+      }
+    }
+    ?>
+    </div>
+
+  </div>
+
+  <div style="width:33%;display:inline-block;vertical-align:top;min-width: 350px;">
+    <h1>Biblioteche preferite</h1>
+  </div>
 
 </div></div>
 
