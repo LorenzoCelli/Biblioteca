@@ -1,10 +1,16 @@
 body {
   margin: 0;
+  font-family: 'Vollkorn', serif;
+}
+button {
+  cursor: pointer;
+  outline: none;
 }
 .block {
   width: 100%;
   height: 700px;
 }
+
 #secondBlock {
   height: auto;
   padding-bottom: 50px;
@@ -31,7 +37,6 @@ body {
   background-color: #4ea8de;
 }
 .headerTitle {
-  font-family: open_sans_light,sans-serif;
   font-size: 20px;
   text-decoration: none;
   color: white;
@@ -40,7 +45,6 @@ body {
   padding-right: 40px;
   padding-top: 5px;
   text-decoration: none;
-  font-family: open_sans_light, sans-serif;
   font-size: 16px;
   color: white;
   position: absolute;
@@ -54,12 +58,10 @@ body {
 }
 .firstBlockContentFirst {
   font-size:90px;
-  font-family: open_sans_bold, sans-serif;
 }
 .firstBlockContentSecond {
   font-size:45px;
   margin-top:-88px;
-  font-family: open_sans_light, sans-serif;
 }
 .firstBlockRegisterButton {
   text-align: center;
@@ -70,7 +72,6 @@ body {
   border-radius: 10px;
   background-color: #fdfdfd;
   font-size: 40px;
-  font-family: open_sans_light, sans-serif;
 }
 .secondBlockContent {
   text-align: center;
@@ -91,7 +92,6 @@ body {
 }
 .secondBlockContentFirst {
   font-size:40px;
-  font-family: open_sans_light, sans-serif;
 }
 .thirdBlockContent {
   text-align: center;
@@ -100,7 +100,6 @@ body {
 }
 .thirdBlockContentFirst {
   font-size:40px;
-  font-family: open_sans_light, sans-serif;
 }
 .fourthBlockContent {
   width: 100%;
@@ -109,13 +108,11 @@ body {
   padding-top: 1px;
 }
 .fourthBlockContentFirst {
-  font-family: open_sans_light, sans-serif;
   font-size: 40px;
   margin-top: 125px;
   margin-bottom: -10px;
 }
 .fourthBlockContentSecond {
-  font-family: open_sans_light, sans-serif;
   font-size: 20px;
 }
 .fourthBlockImg {
@@ -146,12 +143,10 @@ body {
   padding-right: 4%;
 }
 .fifthBlockContent {
-    /*font-size: 1.4vw;*/
     font-size: 17px;
     display: inline-block;
     vertical-align: top;
     margin-left: 2.2%;
-    font-family: open_sans_light, sans-serif;
 }
 .scanIsbn {
   position: absolute;
@@ -166,7 +161,6 @@ body {
   width: 450px;
   font-size: 37px;
   padding: 5px 35px;
-  font-family: open_sans_light, sans-serif;
   color: white;
   border-top-right-radius: 50px;
   border-bottom-right-radius: 10px;
@@ -188,7 +182,6 @@ body {
   float: right;
 }
 .sixthBlockContent button {
-  font-family: open_sans_light, sans-serif;
   background-color: #4ea8de;
   border-radius: 10px;
   font-size: 25px;
@@ -211,8 +204,6 @@ body {
   margin-top: 0px;
   font-size: 25px;
 }
-
-
 #trattoImageLeft {
   height: 120px;
 }
@@ -288,16 +279,13 @@ body {
     border-radius: 10px;
     background-color: #fdfdfd;
     font-size: 40px;
-    font-family: open_sans_light, sans-serif;
   }
   .firstBlockContentFirst {
     font-size:70px;
-    font-family: open_sans_bold, sans-serif;
   }
   .firstBlockContentSecond {
     font-size:45px;
     margin-top:-75px;
-    font-family: open_sans_light, sans-serif;
   }
   .firstBlockContent{
     margin-top: 147px;
@@ -417,16 +405,13 @@ body {
     border-radius: 10px;
     background-color: #fdfdfd;
     font-size: 27px;
-    font-family: open_sans_light, sans-serif;
   }
   .firstBlockContentFirst {
     font-size:40px;
-    font-family: open_sans_bold, sans-serif;
   }
   .firstBlockContentSecond {
     font-size:29px;
     margin-top:-35px;
-    font-family: open_sans_light, sans-serif;
   }
   .headerTitle {
     float: left;
@@ -486,18 +471,15 @@ body {
       border-radius: 10px;
       background-color: #fdfdfd;
       font-size: 22px;
-      font-family: open_sans_light, sans-serif;
     }
     .firstBlockContent{
       margin-top: 160px;
     }
     .firstBlockContentFirst {
       font-size:32px;
-      font-family: open_sans_bold, sans-serif;
     }
     .firstBlockContentSecond {
       font-size:25px;
       margin-top:-31px;
-      font-family: open_sans_light, sans-serif;
     }
   }
