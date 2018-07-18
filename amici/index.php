@@ -51,22 +51,28 @@ $img = avatar($id_avatar);
   WHERE amici.accettato = 0 AND amici.id_amico = '$id_utente'";
   $results = mysqli_query($conn, $sql);
   if ($results->num_rows != 0) {
+    echo "
+    <div style='display:block;margin:0 0 10px 0;'>
+    <h1>Richieste d'amicizia:</h1>
+    ";
     while ($row = mysqli_fetch_assoc($results)) {
+      $id_amico = $row['id'];
       $uname_amico = $row['username'];
       $avatar_amico = $row['id_avatar'];
       $img_avatar = avatar($avatar_amico);
       echo "
-      <a><div id='scheda_utente'>
-      <img src='$img_avatar' id='avatar_img'>
-      <p2 id='nome_utente' style='display:inline-block;'>$uname_amico</p2>
-      </div></a>
+        <a><div id='scheda_utente' style='width:400px;'>
+        <img src='$img_avatar' id='avatar_img'>
+        <p2 id='nome_utente' style='display:inline-block;'>$uname_amico</p2>
+        <button class='accetta_rifiuta' onclick='accetta_rifiuta($id_amico,false,this)'>Rifiuta</button>
+        <button class='accetta_rifiuta' onclick='accetta_rifiuta($id_amico,true,this)'>Accetta</button>
+        </div></a>
+
       ";
     }
+    echo "</div>";
   }
   ?>
-  <div style="display:block;">
-
-  </div>
 
   <div style="width:33%;display:inline-block;vertical-align:top;min-width: 350px;">
     <h1 style="margin-top:0;">Trova un utente:</h1>
@@ -118,6 +124,7 @@ $img = avatar($id_avatar);
 
 </div></div>
 
+<script src="/libri/comuni.js"></script>
 <script src="/main/main.js"></script>
 <script src="/main/animazioni.js"></script>
 <script src="/amici/amici.js"></script>

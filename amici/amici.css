@@ -76,3 +76,21 @@ h1{
   height: 0;
   transition: height 500ms;
 }
+.accetta_rifiuta{
+  background-color: #f8f8f8;
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+  padding: 0;
+  line-height: 40px;
+  width: 70px;
+  height: 40px;
+  margin:0;
+  float: right;
+  border-radius: 0;
+  border: none;
+  border-left: 1px solid #cbcbcb;
+}
+.accetta_rifiuta:hover{
+  background-color: #cbcbcb;
+}
