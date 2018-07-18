@@ -21,6 +21,29 @@ $nome = $row["nome"];
 $descr = $row["descr"];
 $n_scaffali = $row["n_scaffali"];
 $colore = $row["colore"];
+$scaffali = "";
+for ($i=1; $i <= $n_scaffali; $i++) {
+  $scaffali.="
+  <div class='scaffale_titolo'>Scaffale $i</div>
+  <div class='scaffale_info_menu'>
+  ";
+
+  $sql_libri = "SELECT * FROM libri
+  INNER JOIN posizione ON libri.id = posizione.id_libro
+  WHERE libri.id_utente = ".$id_utente." AND posizione.id_libreria = ".$id_libreria." AND posizione.n_scaffale = ".$i;
+  $result_libri = mysqli_query($conn, $sql_libri) or trigger_error(mysqli_error($conn));
+
+  while ($riga = mysqli_fetch_assoc($result_libri)) {
+    $scaffali.="
+      <div style=\"background-image: url('".$riga['img_url']."')\" onclick='fill_info_book2(".$riga['id'].")'>
+      </div>
+    ";
+  }
+
+  $scaffali.="
+  </div>
+  ";
+}
 ?>
 
 <div class="info_barrabottoni">
@@ -49,28 +72,7 @@ $colore = $row["colore"];
 <div class="to_hide">
 
 <?php
-for ($i=1; $i <= $n_scaffali; $i++) {
-  echo "
-  <div class='scaffale_titolo'>Scaffale $i</div>
-  <div class='scaffale_info_menu'>
-  ";
-
-  $sql_libri = "SELECT * FROM libri
-  INNER JOIN posizione ON libri.id = posizione.id_libro
-  WHERE libri.id_utente = ".$id_utente." AND posizione.id_libreria = ".$id_libreria." AND posizione.n_scaffale = ".$i;
-  $result_libri = mysqli_query($conn, $sql_libri) or trigger_error(mysqli_error($conn));
-
-  while ($riga = mysqli_fetch_assoc($result_libri)) {
-    echo "
-      <div style=\"background-image: url('".$riga['img_url']."')\" onclick='fill_info_book2(".$riga['id'].")'>
-      </div>
-    ";
-  }
-
-  echo "
-  </div>
-  ";
-}
+echo $scaffali;
 ?>
 </div>
 <div class="to_show">
