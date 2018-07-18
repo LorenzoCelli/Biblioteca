@@ -43,7 +43,7 @@ var new_menu = document.getElementById("menu_aggiungi");
 function slide_new_menu() {
     if (!new_menu.is_open) {
         close_info_menu();
-        new_menu.style.transform = "translateX(-400px)";
+        new_menu.style.transform = "translateX(-100%)";
         new_menu.is_open = true;
     } else {
         new_menu.style.transform = "translateX(0)";

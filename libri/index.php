@@ -98,8 +98,10 @@ $uname = $_SESSION['uname'];
 <div id="menu_aggiungi" style="left: 100%">
         <div id="img_aggiungi" class="immagine_pillola_libro"></div>
         <h1>Nuovo libro</h1>
+
         <div class="scatola_aggiungi"><!--
-         --><input type="number" placeholder="ISBN" name="isbn"><!--
+         --><div id="finestra_scan"></div><!--
+         --><div class="input_con_immagine"><input type="text" placeholder="ISBN" name="isbn"><img onclick="mostra_scanner()" src="/imgs/foto.svg"></div><!--
          --><div id="isbn_menu_options"></div></div>
 
         <div class="scatola_aggiungi"><!--
@@ -161,6 +163,7 @@ $uname = $_SESSION['uname'];
 <div id="menu_info" style="left: 100%">
 </div>
 
+<script src="/quaggaJS/quagga.js"></script>
 <script src="/libri/comune.js"></script>
 <script src="/libri/libri.js"></script>
 </body>

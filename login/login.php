@@ -17,7 +17,7 @@ if (isset($_POST['username'])) {
   $_SESSION['id_utente'] = $row['id'];
 
   if ($results->num_rows == 1){
-    header('Location: ../main/main.php');
+    header('Location: /libri/');
     return;
   }
   elseif ($results->num_rows == 0){

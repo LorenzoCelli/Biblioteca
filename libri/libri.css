@@ -137,9 +137,30 @@ h2 {
     transition: transform 300ms;
     overflow: auto;
 
-    -webkit-box-shadow: -15px 0px 62px -24px rgba(0,0,0,0.45);
-    -moz-box-shadow: -15px 0px 62px -24px rgba(0,0,0,0.45);
-    box-shadow: -15px 0px 62px -24px rgba(0,0,0,0.45);
+    -webkit-box-shadow: -15px 0 62px -24px rgba(0,0,0,0.45);
+    -moz-box-shadow: -15px 0 62px -24px rgba(0,0,0,0.45);
+    box-shadow: -15px 0 62px -24px rgba(0,0,0,0.45);
+}
+
+#finestra_scan{
+    position: relative;
+    display: block;
+}
+
+canvas.drawingBuffer {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+#finestra_scan > video {
+    max-width: 100%;
+    width: 100%;
+    vertical-align: middle;
+}
+
+#finestra_scan > canvas {
+    max-width: 100%;
+    width: 100%;
 }
 
 input, select, textarea, button {
@@ -154,6 +175,22 @@ input, select, textarea, button {
     font-size: 15px;
     padding-left: 10px;
     box-sizing: border-box;
+}
+
+.input_con_immagine{
+    height: 40px;
+    position: relative;
+    width: 100%;
+}
+.input_con_immagine img{
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 40px;
+    transition: transform 100ms;
+}
+.input_con_immagine img:hover{
+    transform: scale(1.1);
 }
 
 textarea {
@@ -501,4 +538,14 @@ a {
 
 #menu_account button:hover{
   background-color: #efefef;
+}
+
+
+
+
+
+@media only screen and (max-width: 400px) {
+    #menu_aggiungi {
+        width: 100%;
+    }
 }
