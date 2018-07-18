@@ -1,9 +1,9 @@
 <?php
 session_start();
-include "../connection.php";
+include "../../connection.php";
 $id_utente = $_SESSION['id_utente'];
 $ris_cerca = $_GET['ris_cerca'];
-include '../scriptusericon.php';
+include '../../scriptusericon.php';
 $ricerca = "%";
 for ($i=0; $i < strlen($ris_cerca); $i++) {
   $ricerca .= $ris_cerca{$i}."%";

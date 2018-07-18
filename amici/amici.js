@@ -1,23 +1,5 @@
 var ris_cerca = document.getElementById("search_bar");
 var ris_div = document.getElementById("ris_div");
-/*function ricerca_utenti() {
-    /*if (ris_cerca.value == "") {
-      return;
-    }else{
-    ris_div.innerHTML = "";
-    var img = caricamento_img(120);
-    img.style.margin = "0";
-    ris_div.appendChild(img);
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            ris_div.innerHTML = this.responseText;
-        }
-    };
-    xhttp.open("GET", "cerca.php" + "?ris_cerca=" + ris_cerca.value, true);
-    xhttp.send(null);
-    //}
-}*/
 function ricerca_utenti() {
     /*if (ris_cerca.value == "") {
       return;
@@ -25,7 +7,7 @@ function ricerca_utenti() {
     function cb(r) {
       ris_div.innerHTML = r.responseText;
     }
-    chiama_get({ris_cerca:ris_cerca.value},"cerca.php",cb,ris_div,120);
+    chiama_get({ris_cerca:ris_cerca.value},"php/cerca.php",cb,ris_div,120);
     //}
 }
 /*function aggiungi_utenti(id_amico,button) {
@@ -48,24 +30,13 @@ function aggiungi_utenti(id_amico,button) {
       risp_richiesta.style.height = "30px";
       risp_richiesta.innerHTML = r.responseText;
     }
-    chiama_get({id_amico:id_amico},"aggiungi.php",cb);
+    chiama_get({id_amico:id_amico},"php/aggiungi.php",cb);
 }
-/*function accetta_rifiuta(id_amico,bool,button) {
-    var scheda_utente = button.parentElement.getElementsByClassName("scheda_utente")[0];
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            scheda_utente.style.display = "none";
-        }
-    };
-    xhttp.open("GET", "accetta_rifiuta.php" + "?bool=" + bool + "?id_amico=" + id_amico, true);
-    xhttp.send(null);
-}*/
 function accetta_rifiuta(id_amico,bool,button) {
     var scheda_utente = button.parentElement.getElementsByClassName("scheda_utente")[0];
     function cb(r) {
       scheda_utente.style.display = "none";
     }
     var a = {bool:bool,id_amico:id_amico}
-    chiama_get(a,"accetta_rifiuta.php",cb);
+    chiama_get(a,"php/accetta_rifiuta.php",cb);
 }
