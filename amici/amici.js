@@ -1,6 +1,9 @@
 var ris_cerca = document.getElementById("search_bar");
 var ris_div = document.getElementById("ris_div");
 function ricerca_utenti() {
+    /*if (ris_cerca.value == "") {
+      return;
+    }else{*/
     ris_div.innerHTML = "";
     var img = caricamento_img(120);
     img.style.margin = "0";
@@ -13,6 +16,7 @@ function ricerca_utenti() {
     };
     xhttp.open("GET", "cerca.php" + "?ris_cerca=" + ris_cerca.value, true);
     xhttp.send(null);
+    //}
 }
 function aggiungi_utenti(id_amico,button) {
     var risp_richiesta = button.parentElement.getElementsByClassName("risp_richiesta")[0];
@@ -25,5 +29,16 @@ function aggiungi_utenti(id_amico,button) {
         }
     };
     xhttp.open("GET", "aggiungi.php" + "?id_amico=" + id_amico, true);
+    xhttp.send(null);
+}
+function accetta_rifiuta(id_amico,bool,button) {
+    var scheda_utente = button.parentElement.getElementsByClassName("scheda_utente")[0];
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            scheda_utente.style.display = "none";
+        }
+    };
+    xhttp.open("GET", "accetta_rifiuta.php" + "?bool=" + bool + "?id_amico=" + id_amico, true);
     xhttp.send(null);
 }

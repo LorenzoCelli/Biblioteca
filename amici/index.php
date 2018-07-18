@@ -15,7 +15,7 @@ $img = avatar($id_avatar);
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Biblioteca - Amici</title>
-  <link rel="stylesheet" type="text/css" href="/libri/main.css">
+  <link rel="stylesheet" type="text/css" href="/main/main.css">
   <link rel="stylesheet" type="text/css" href="/amici/amici.css">
   <link href="https://fonts.googleapis.com/css?family=Vollkorn:400,600,900" rel="stylesheet">
   <link href="/opensans/opensans.css" rel="stylesheet">
@@ -27,15 +27,15 @@ $img = avatar($id_avatar);
 -->
 
 <div id="main_container">
-  <div id="menu_principe">
-    <a href="../libri/main.php"><button class="main_menu_button">La mia biblioteca</button></a>
+  <div id="main_menu">
+    <a href="../main/main.php"><button class="main_menu_button">La mia biblioteca</button></a>
     <a href="../librerie/librerie.php"><button class="main_menu_button">Le mie librerie</button></a>
     <a href=""><button class="main_menu_button" disabled>I miei amici</button></a>
     <a href=""><button class="main_menu_button">Tua sorella</button></a>
   </div><!--
   --><div class="content">
   <div style="border-radius: 0 10px 10px 0; height: 50px; width:50px; position: absolute; top:20px; left: 0; background-color: #f8f8f8; display: inline-block"><img onclick="slide_main_menu()" src="../imgs/menu.svg" style="height: 50px"></div>
-  <a onclick="show_menu_account()"><div class="scatola_account">
+  <a onclick="show_menu_account()"><div class="account_container">
     <p2 id="nome_utente"><?php echo $uname;?></p2>
     <div style="display: inline-block; height: 50px; width: 50px; overflow: hidden"><img id="small_icon" src="<?php echo $img; ?>" alt="icona_utente_non_trovata" style="width:50px;height:50px;"></div>
   </div></a>
@@ -51,22 +51,28 @@ $img = avatar($id_avatar);
   WHERE amici.accettato = 0 AND amici.id_amico = '$id_utente'";
   $results = mysqli_query($conn, $sql);
   if ($results->num_rows != 0) {
+    echo "
+    <div style='display:block;margin:0 0 10px 0;'>
+    <h1>Richieste d'amicizia:</h1>
+    ";
     while ($row = mysqli_fetch_assoc($results)) {
+      $id_amico = $row['id'];
       $uname_amico = $row['username'];
       $avatar_amico = $row['id_avatar'];
       $img_avatar = avatar($avatar_amico);
       echo "
-      <a><div id='scheda_utente'>
-      <img src='$img_avatar' id='avatar_img'>
-      <p2 id='nome_utente' style='display:inline-block;'>$uname_amico</p2>
-      </div></a>
+        <a><div id='scheda_utente' style='width:400px;'>
+        <img src='$img_avatar' id='avatar_img'>
+        <p2 id='nome_utente' style='display:inline-block;'>$uname_amico</p2>
+        <button class='accetta_rifiuta' onclick='accetta_rifiuta($id_amico,false,this)'>Rifiuta</button>
+        <button class='accetta_rifiuta' onclick='accetta_rifiuta($id_amico,true,this)'>Accetta</button>
+        </div></a>
+
       ";
     }
+    echo "</div>";
   }
   ?>
-  <div style="display:block;">
-
-  </div>
 
   <div style="width:33%;display:inline-block;vertical-align:top;min-width: 350px;">
     <h1 style="margin-top:0;">Trova un utente:</h1>
@@ -118,8 +124,9 @@ $img = avatar($id_avatar);
 
 </div></div>
 
-<script src="/libri/main.js"></script>
-<script src="/libri/animazioni.js"></script>
+<script src="/libri/comuni.js"></script>
+<script src="/main/main.js"></script>
+<script src="/main/animazioni.js"></script>
 <script src="/amici/amici.js"></script>
 </body>
 </html>
