@@ -35,9 +35,9 @@ if (isset($_POST['username'])) {
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
-    <link rel="stylesheet" type="text/css" href="../style.css">
+    <link rel="stylesheet" type="text/css" href="/style.css">
     <link href="https://fonts.googleapis.com/css?family=Vollkorn:400,900" rel="stylesheet">
-    <link href="../opensans/opensans.css" rel="stylesheet">
+    <link href="/opensans/opensans.css" rel="stylesheet">
 </head>
 <body style="background-color: #f43327">
     <div class="container">
@@ -59,9 +59,8 @@ if (isset($_POST['username'])) {
             if ($flagerror) {
               if ($results->num_rows == 0) echo $error;
             }
-
             ?>
-            <a href="../index.html">indietro</a>
+            <a href="/index.html">indietro</a>
     </div>
 </body>
 </html>

@@ -16,7 +16,7 @@ $img = avatar($id_avatar);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Le tue librerie</title>
     <link rel="stylesheet" type="text/css" href="/opensans/opensans.css">
-    <link rel="stylesheet" type="text/css" href="/libri/main.css">
+    <link rel="stylesheet" type="text/css" href="/libri/libri.css">
     <link rel="stylesheet" type="text/css" href="/librerie/librerie.css">
     <link href="https://fonts.googleapis.com/css?family=Vollkorn:400,900" rel="stylesheet">
 </head>
