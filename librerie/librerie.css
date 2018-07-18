@@ -1,13 +1,13 @@
-.book_image {
+.immagine_pillola_libro {
     display: inline-block;
     height: 100px;
     width: 20px;
 }
-.book_container {
+.pillola_libro {
     white-space: normal;
     height: 100px;
 }
-.book_text {
+.testo_pillola_libro {
     max-width: 500px;
     height: 100px;
     overflow-x: auto;
@@ -116,14 +116,14 @@ input[name=n_scaffali]{
 Info box
 */
 
-.info_button_bar{
+.info_barrabottoni{
     float: none;
     display: inline-block;
 }
 .to_show{
     display: none;
 }
-p.info_p{
+p.testo_scatola_info{
     margin: 0 0 20px 0;
 }
 .scaffale_titolo{

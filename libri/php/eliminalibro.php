@@ -5,7 +5,7 @@ ini_set('display_errors', 'On');
 
 $id_utente = $_SESSION['id_utente'];
 $id_libro = $_POST["id"];
-include '../connection.php';
+include $_SERVER['DOCUMENT_ROOT'].'/connection.php';
 
 $sql = "SELECT * FROM libri WHERE id_utente = ".$id_utente." AND id = ".$id_libro;
 $result = mysqli_query($conn, $sql) or trigger_error(mysqli_error($conn));

@@ -3,7 +3,7 @@ session_start();
 error_reporting(-1);
 ini_set('display_errors', 'On');
 
-include '../connection.php';
+include $_SERVER['DOCUMENT_ROOT'].'/connection.php';
 
 $id_utente = $_SESSION['id_utente'];
 $id_libro = $_POST["id"];
@@ -62,9 +62,9 @@ if($result && $result->num_rows == 1){
 
         if($err == 0){
             echo "
-                <div class='book_image' style='background-image: url(" . $img_url . ")'></div><!--
-             --><div class='book_text'>
-                <p class='book_title'>" . $titolo . "</p>
+                <div class='immagine_pillola_libro' style='background-image: url(" . $img_url . ")'></div><!--
+             --><div class='testo_pillola_libro'>
+                <p class='titolo_pillola_libro'>" . $titolo . "</p>
                 " . $autore . "
                 </div>
             ";

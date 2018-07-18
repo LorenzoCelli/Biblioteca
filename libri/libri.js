@@ -1,4 +1,12 @@
-var preview_img = document.getElementById("new_menu_img");
+/*
+|--------------------------------------------------------------|
+|                                                              |
+|  Autocompilazione isbn, titolo, autore                       |
+|                                                              |
+|--------------------------------------------------------------|
+*/
+
+var preview_img = document.getElementById("img_aggiungi");
 var img_url = new_menu.querySelector('input[name=img_url]');
 var isbn = new_menu.querySelector('input[name=isbn]');
 var titolo = new_menu.querySelector('input[name=titolo]');
@@ -84,7 +92,7 @@ function fill_isbn_data(volumeInfo) {
         preview_img.style.backgroundImage = "url('')";
     }
     if('categories' in volumeInfo) {
-        generi.innerHTML = '<div class="genere_box" contenteditable="true"><img onclick="nuovo_genere(this)" src="../imgs/piu_pillola.svg"></div>';
+        generi.innerHTML = '<div class="pillola_genere" contenteditable="true"><img onclick="nuovo_genere(this)" src="../imgs/piu_pillola.svg"></div>';
         for(var category in volumeInfo.categories){
             generi.append(grigio_genere(volumeInfo.categories[category]));
         }
@@ -102,11 +110,11 @@ function authors(volumeInfo) {
     return authors;
 }
 
-function isbn_menu_option(titolo, autore, volumeInfo,l){ // <div class="isbn_menu_option"><b>Giovanninoioino</b> autore tuo padre</div>
+function isbn_menu_option(titolo, autore, volumeInfo,l){ // <div class="opzione_scatola_aggiungi"><b>Giovanninoioino</b> autore tuo padre</div>
     var div = document.createElement("DIV");
     div.className = "isbn_menu_option";
     if(l){
-        div.appendChild(loading_img(40));
+        div.appendChild(caricamento_img(40));
     }else{
         div.innerHTML = "<b>"+titolo+"</b> "+autore;
         div.vi = volumeInfo;
@@ -126,25 +134,27 @@ function isbn_hide_option(){
     return div;
 }
 
-function fill_info_book(id_libro) {
-    info_menu.innerHTML = "";
-    info_menu.appendChild(loading_img(120));
+/*
+|--------------------------------------------------------------|
+|                                                              |
+|  Modifica libri                                              |
+|                                                              |
+|--------------------------------------------------------------|
+*/
+
+function info_libro(id) {
     info_menu.style.transform = "translateX(-500px)";
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            info_menu.innerHTML = this.responseText;
-        }
-    };
-    xhttp.open("GET", "infolibro.php" + "?id=" + id_libro, true);
-    xhttp.send(null);
+    function cb (r) {
+        info_menu.innerHTML = r.responseText;
+    }
+    chiama_get({id : id}, "/libri/php/infolibro.php", cb, info_menu, 120);
 }
 
-function edit_book(id_libro) {
-    var edit = info_menu.getElementsByClassName("info_p");
+function modifica_libro(id_libro) {
+    var edit = info_menu.getElementsByClassName("testo_scatola_info");
     while (edit.length) {
         var input = document.createElement("INPUT");
-        var tt = edit[0].parentElement.getElementsByClassName("info_tooltip")[0];
+        var tt = edit[0].parentElement.getElementsByClassName("nome_scatola_info")[0];
         tt.style.display = "inline-block";
         if (tt.innerText === "descrizione") {
             input = document.createElement("TEXTAREA")
@@ -161,7 +171,7 @@ function edit_book(id_libro) {
         input.value = value;
         if (tt.innerText === "generi") {
             var div = document.createElement("DIV");
-            div.innerHTML = '<div class="genere_box" contenteditable="true"><img onclick="nuovo_genere(this)" src="../imgs/piu_pillola.svg"></div>';
+            div.innerHTML = '<div class="pillola_genere" contenteditable="true"><img onclick="nuovo_genere(this)" src="../imgs/piu_pillola.svg"></div>';
             gi = edit[0].innerHTML.split(",");
             for (var i = 0; i<gi.length; i++){
                 if(gi[i] === "nessuno") continue;
@@ -177,95 +187,74 @@ function edit_book(id_libro) {
     }
     var salva = document.createElement("BUTTON");
     salva.innerText = "salva modifiche";
-    salva.onclick = function () { update_book(id_libro, this) };
+    salva.onclick = function () { aggiorna_libro(id_libro, this) };
     info_menu.appendChild(salva);
     var annulla = document.createElement("BUTTON");
     annulla.innerText = "annulla modifiche";
-    annulla.onclick = function () { fill_info_book(id_libro) };
+    annulla.onclick = function () { info_libro(id_libro) };
     info_menu.appendChild(annulla);
 }
 
-function update_book(id_libro, el) {
-    el.innerHTML = "";
-    el.appendChild(loading_img(40));
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            fill_info_book(id_libro);
-            document.querySelector('.book_container[onclick="fill_info_book(' + id_libro + ')"]').innerHTML = this.responseText;
-        }
-    };
-    xhttp.open("POST", "aggiornalibro.php", true);
-    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-
-    var titolo = info_menu.querySelector('input[name=titolo]').value;
-    var autore = info_menu.querySelector('input[name=autore]').value;
-    var isbn = info_menu.querySelector('input[name=isbn]').value;
-    var descr = info_menu.querySelector('textarea[name=descrizione]').value;
-    var libreria = info_menu.querySelector('select[name=libreria]').value;
-    var scaffale = info_menu.querySelector('select[name=scaffale]').value;
-    var img_url = info_menu.querySelector('input[name=img_url]').value;
-
-    var generi_el = info_menu.querySelectorAll('.genere_box[contenteditable=false]');
-    var gi = "";
-    for(var i = 0; i<generi_el.length; i++){
-        gi += generi_el[i].innerText;
-        if(i!==generi_el.length-1) gi += ",";
+function aggiorna_libro(id, el) {
+    function cb(r) {
+        info_libro(id);
+        document.querySelector('.pillola_libro[onclick="info_libro(' + id + ')"]').innerHTML = r.responseText;
     }
-
-    var a = "id="+id_libro+"&generi="+gi+"&titolo="+titolo+"&autore="+autore+"&isbn="+isbn+"&descr="+descr+"&libreria="+libreria+"&scaffale="+scaffale+"&img_url="+encodeURIComponent(img_url);
-    xhttp.send(a);
+    var scatole_generi = info_menu.querySelectorAll('.pillola_genere[contenteditable=false]');
+    var gi = trova_generi(scatole_generi);
+    var a = {
+        id : id,
+        titolo : info_menu.querySelector('input[name=titolo]').value,
+        autore : info_menu.querySelector('input[name=autore]').value,
+        isbn : info_menu.querySelector('input[name=isbn]').value,
+        descr : info_menu.querySelector('textarea[name=descrizione]').value,
+        libreria : info_menu.querySelector('select[name=libreria]').value,
+        scaffale : info_menu.querySelector('select[name=scaffale]').value,
+        img_url : encodeURIComponent(info_menu.querySelector('input[name=img_url]').value),
+        generi : gi
+    };
+    chiama_post(a,"/libri/php/aggiornalibro.php", cb, el, 40);
 }
 
-function new_book(el) {
-    console.log(el);
-    el.innerHTML = "";
-    el.appendChild(loading_img(40));
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            slide_new_menu();
-            new_menu.innerHTML = this.responseText;
-        }
+function nuovo_libro(el) {
+    function cb(r) {
+        slide_new_menu();
+        new_menu.innerHTML = r.responseText;
+    }
+    var scatole_generi = new_menu.querySelectorAll('.pillola_genere[contenteditable=false]');
+    var generi = trova_generi(scatole_generi);
+    var a  = {
+        titolo : new_menu.querySelector('input[name=titolo]').value,
+        autore : new_menu.querySelector('input[name=autore]').value,
+        isbn : new_menu.querySelector('input[name=isbn]').value,
+        descr : new_menu.querySelector('textarea[name=descr]').value,
+        nome_libreria : new_menu.querySelector('select[name=nome_libreria]').value,
+        scaffale : new_menu.querySelector('select[name=scaffale]').value,
+        img_url : encodeURIComponent(new_menu.querySelector('input[name=img_url]').value),
+        generi : generi
     };
-    xhttp.open("POST", "nuovolibro.php", true);
-    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    chiama_post(a,"libri/php/nuovolibro.php", cb, el, 40);
+}
 
-    var titolo = new_menu.querySelector('input[name=titolo]').value;
-    var autore = new_menu.querySelector('input[name=autore]').value;
-    var isbn = new_menu.querySelector('input[name=isbn]').value;
-    var descr = new_menu.querySelector('textarea[name=descr]').value;
-    var libreria = new_menu.querySelector('select[name=nome_libreria]').value;
-    var scaffale = new_menu.querySelector('select[name=scaffale]').value;
-    var img_url = new_menu.querySelector('input[name=img_url]').value;
+function elimina_libro(id, el) {
+    function cb(r) {
+        close_info_menu();
+        info_menu.innerHTML = r.responseText;
+        if (r.responseText === "libro eliminato") {
+            var e = document.querySelector('.pillola_libro[onclick="info_libro(' + id + ')"]');
+            e.parentNode.removeChild(e);
+        }
+    }
+    chiama_post({id : id}, "/libri/php/eliminalibro.php", cb, el, 50);
+}
 
-    var generi_el = new_menu.querySelectorAll('.genere_box[contenteditable=false]');
+function trova_generi(scatole_generi) {
     var generi = "";
-    for(var i = 0; i<generi_el.length; i++){
-        generi += generi_el[i].innerText;
-        if(i!==generi_el.length-1) generi += ",";
+    for(var i = 0; i<scatole_generi.length; i++){
+        generi += scatole_generi[i].innerText;
+        if(i!==scatole_generi.length-1) generi += ",";
     }
-    var a = "titolo="+titolo+"&autore="+autore+"&generi="+generi+"&isbn="+isbn+"&descr="+descr+"&nome_libreria="+libreria+"&scaffale="+scaffale+"&img_url="+encodeURIComponent(img_url);
-    xhttp.send(a);
-}
-
-function delete_book(id_libro, el) {
-    el.innerHTML = "";
-    el.appendChild(loading_img(50));
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            close_info_menu();
-            info_menu.innerHTML = this.responseText;
-            if (this.responseText === "libro eliminato") {
-                var e = document.querySelector('.book_container[onclick="fill_info_book(' + id_libro + ')"]');
-                e.parentNode.removeChild(e);
-            }
-        }
-    };
-    xhttp.open("POST", "eliminalibro.php", true);
-    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhttp.send("id=" + id_libro);
+    return generi;
 }
 
 function librerie_select() {
@@ -320,7 +309,7 @@ function grigio_genere(text) {
 
 function genere(){
     var div = document.createElement("DIV");
-    div.className = "genere_box";
+    div.className = "pillola_genere";
     var img = document.createElement("IMG");
     img.src = "../imgs/piu_pillola.svg";
     div.add_img = img;

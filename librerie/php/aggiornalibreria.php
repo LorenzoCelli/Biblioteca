@@ -23,9 +23,9 @@ if($result && $result->num_rows == 1){
     if($result){
         $result = array(
             "success" => true,
-            "content" => "  <div class='book_image' style='background-color: ".$colore."'></div><!--
-                             --><div class='book_text'>
-                                    <p class='book_title'>".$titolo."</p>".$descr."
+            "content" => "  <div class='immagine_pillola_libro' style='background-color: ".$colore."'></div><!--
+                             --><div class='testo_pillola_libro'>
+                                    <p class='titolo_pillola_libro'>".$titolo."</p>".$descr."
                             </div>"
         );
         echo json_encode($result);

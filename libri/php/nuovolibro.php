@@ -5,7 +5,7 @@ ini_set('display_errors', 'On');
 
 session_start();
 $id_utente = $_SESSION['id_utente'];
-include '../connection.php';
+include $_SERVER['DOCUMENT_ROOT'].'/connection.php';
 
 $isbn = $_POST["isbn"];
 $titolo = mysqli_real_escape_string($conn, $_POST["titolo"]);
@@ -32,6 +32,8 @@ if($result){
         $sql = "INSERT INTO posizione (id_libro,n_scaffale,id_libreria)
                 VALUES ($last_id,'$scaffale','$id_libreria')";
         $results = mysqli_query($conn, $sql);
+    }else{
+        echo "nuuuuuuuuu";
     }
 
     for ($i = 0; $i < count($generi); $i++) {
@@ -40,10 +42,10 @@ if($result){
         mysqli_query($conn, $sql);
     }
 
-    echo   "<div class='book_image' style='background-image: url(" . $img_url . ")'></div><!--
-         --><div class='book_text'>
-            <p class='book_title'>" . $titolo . "</p>
-            " . $autore . "
+    echo   "<div class='immagine_pillola_libro' style='background-image: url(" . $img_url . ")'></div><!--
+             --><div class='testo_pillola_libro'>
+                <p class='titolo_pillola_libro'>" . $titolo . "</p>
+                " . $autore . "
             </div>";
 }
 

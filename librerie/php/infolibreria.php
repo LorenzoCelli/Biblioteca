@@ -23,27 +23,27 @@ $n_scaffali = $row["n_scaffali"];
 $colore = $row["colore"];
 ?>
 
-<div class="info_button_bar">
+<div class="info_barrabottoni">
    <div onclick="modifica_libreria(<?php echo $id_libreria;?>)" class="info_hover_div"><img src="../imgs/matita.svg" style="height: 50px"></div><!--
 --><div onclick="elimina_libreria(this, <?php echo $id_libreria;?>)" class="info_hover_div"><img src="../imgs/cestino.svg" style="height: 50px"></div><!--
 --><div onclick="close_info_menu()" class="info_hover_div"><img src="../imgs/croce.svg" style="height: 50px"></div>
 </div>
 
-<div class="info_box">
-    <div style="display: none" class="info_tooltip">titolo</div>
-    <h1 class="info_p"><?php echo $nome;?></h1>
+<div class="scatola_info">
+    <div style="display: none" class="nome_scatola_info">titolo</div>
+    <h1 class="testo_scatola_info"><?php echo $nome;?></h1>
 </div>
-<div class="info_box">
-    <div style="display: none" class="info_tooltip">descrizione</div>
-    <p class="info_p"><?php echo $descr;?></p>
+<div class="scatola_info">
+    <div style="display: none" class="nome_scatola_info">descrizione</div>
+    <p class="testo_scatola_info"><?php echo $descr;?></p>
 </div>
-<div class="info_box" style="display: none">
-    <div style="display: none" class="info_tooltip">colore etichetta</div>
-    <p class="info_p"><?php echo $colore;?></p>
+<div class="scatola_info" style="display: none">
+    <div style="display: none" class="nome_scatola_info">colore etichetta</div>
+    <p class="testo_scatola_info"><?php echo $colore;?></p>
 </div>
-<div class="info_box" style="display: none">
-    <div class="info_tooltip">numero scaffali</div>
-    <p class="info_p"><?php echo $n_scaffali;?></p>
+<div class="scatola_info" style="display: none">
+    <div class="nome_scatola_info">numero scaffali</div>
+    <p class="testo_scatola_info"><?php echo $n_scaffali;?></p>
 </div>
 
 <div class="to_hide">

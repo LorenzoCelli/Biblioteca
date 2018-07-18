@@ -19,10 +19,10 @@ $result = mysqli_query($conn, $sql) or trigger_error(mysqli_error($conn));;
 if ($result){
     $last_id = $conn->insert_id;
     echo "
-    <div class='book_container' onclick='info_libreria(".$last_id.")'>
-        <div class='book_image' style='background-color: ".$colore."'></div><!--
-     --><div class='book_text'>
-            <p class='book_title'>".$nome."</p>".$descr."
+    <div class='pillola_libro' onclick='info_libreria(".$last_id.")'>
+        <div class='immagine_pillola_libro' style='background-color: ".$colore."'></div><!--
+     --><div class='testo_pillola_libro'>
+            <p class='titolo_pillola_libro'>".$nome."</p>".$descr."
         </div>
     </div>
     ";

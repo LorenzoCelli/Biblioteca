@@ -16,10 +16,14 @@ h2 {
 }
 
 /*
-Info book menu
+|--------------------------------------------------------------|
+|                                                              |
+|  Menu informazioni                                           |
+|                                                              |
+|--------------------------------------------------------------|
 */
 
-#info_menu {
+#menu_info {
     position: fixed;
     height: 100%;
     width: 500px;
@@ -36,33 +40,19 @@ Info book menu
     -moz-box-shadow: -15px 0px 62px -24px rgba(0,0,0,0.45);
     box-shadow: -15px 0px 62px -24px rgba(0,0,0,0.45);
 }
-
-.info_title {
+.titolo_info {
     margin-bottom: 5px;
 }
-
-.info_box {
+.scatola_info {
     margin: 0 0 5px 0;
 }
 
-.info_p{
+.testo_scatola_info{
     display: inline-block;
 }
-.info_tooltip{
+.nome_scatola_info{
     font-weight: 600;
     display: inline-block;
-}
-
-.info_hover_div {
-    height: 50px;
-    width: 50px;
-    display: inline-block;
-    border-right: 1px solid #efefef;
-    background-color: white;
-}
-
-.info_hover_div:hover {
-    background-color: #f8f8f8;
 }
 
 .info_modifica {
@@ -76,7 +66,7 @@ Info book menu
     vertical-align: top;
 }
 
-.info_button_bar {
+.info_barrabottoni {
     height: 50px;
     border-radius: 10px;
     border: 1px solid #efefef;
@@ -84,7 +74,22 @@ Info book menu
     float: right;
 }
 
-#loading {
+.info_barrabottoni div{
+    height: 50px;
+    width: 50px;
+    display: inline-block;
+    border-right: 1px solid #efefef;
+    background-color: white;
+}
+.info_barrabottoni div:hover {
+    background-color: #f8f8f8;
+}
+.info_barrabottoni img{
+    height: 50px;
+    width: 50px;
+}
+
+#caricamento {
     display: block;
     margin: auto;
     -webkit-animation: spin 1s linear infinite;
@@ -113,10 +118,14 @@ Info book menu
 }
 
 /*
-New book menu
+|--------------------------------------------------------------|
+|                                                              |
+|  Menu nuovo libro                                            |
+|                                                              |
+|--------------------------------------------------------------|
 */
 
-#new_menu {
+#menu_aggiungi {
     position: fixed;
     height: 100%;
     width: 400px;
@@ -154,26 +163,26 @@ textarea {
     margin-bottom: 0;
 }
 
-#new_menu_img {
+#img_aggiungi {
     border-radius: 10px;
     border: 1px solid #cbcbcb;
     background-color: white
 }
 
-.menu_container{
+.scatola_aggiungi{
     border-radius: 10px;
     border: 1px solid #cbcbcb;
     overflow: hidden;
     margin-bottom: 5px;
 }
 
-.menu_container input{
+.scatola_aggiungi input{
     margin: 0;
     border: none;
     border-radius: 0;
 }
 
-.isbn_menu_option{
+.opzione_scatola_aggiungi{
     cursor: pointer;
     white-space: nowrap;
     font-family: open_sans_light, sans-serif;
@@ -184,13 +193,13 @@ textarea {
     overflow: hidden;
     width: 100%;
 }
-.isbn_menu_option:hover{
+.opzione_scatola_aggiungi:hover{
     background-color: white;
 }
-.isbn_menu_option b{
+.opzione_scatola_aggiungi b{
     font-family: open_sans_regular, sans-serif;
 }
-.genere_box{
+.pillola_genere{
     vertical-align: middle;
     margin: 0 5px 5px 0;
     position: relative;
@@ -207,7 +216,7 @@ textarea {
     font-family: open_sans_light, sans-serif;
     overflow: hidden;
 }
-.genere_box img{
+.pillola_genere img{
     height: 35px;
     position: absolute;
     right: 0;
@@ -216,14 +225,18 @@ textarea {
 }
 
 /*
-main menu
+|--------------------------------------------------------------|
+|                                                              |
+|  Menu principale a sinistra                                  |
+|                                                              |
+|--------------------------------------------------------------|
 */
 
 a {
     text-decoration: none;
 }
 
-#main_menu {
+#menu_principe {
     display: inline-block;
     height: 100%;
     width: 300px;
@@ -231,7 +244,7 @@ a {
     box-sizing: border-box;
 }
 
-.main_menu_button {
+#menu_principe button{
     border-radius: 0;
     font-family: open_sans_light, sans-serif;
     background-color: transparent;
@@ -245,43 +258,48 @@ a {
     outline: none;
 }
 
-.main_menu_button:hover {
+#menu_principe button{
     background-color: white;
 }
 
 /*
-button bar
+|--------------------------------------------------------------|
+|                                                              |
+|  Barra bottoni                                               |
+|                                                              |
+|--------------------------------------------------------------|
 */
 
-.button_bar {
-    margin: 10px 0;
+.barra_bottoni {
+    height: 50px;
+    border: 1px solid #efefef;
+
     background-color: #f8f8f8;
     border-radius: 10px;
     overflow: hidden;
-    height: 50px;
     display: inline-block
 }
 
-.hover_button {
+.barra_bottoni div{
     height: 50px;
+    width: 50px;
     display: inline-block;
+    border-right: 1px solid #efefef;
 }
 
-.hover_button:hover {
+.barra_bottoni div:hover {
     background-color: #efefef;
 }
 
-.menu_button {
-    margin: 0;
+.barra_bottoni img{
     height: 50px;
     width: 50px;
-    border-right: 1px solid #efefef;
 }
 
 .menu_input {
     height: 50px;
     background-color: transparent;
-    border: 1px solid #efefef;
+    border: none;
     vertical-align: top;
     border-radius: 0;
     width: 0;
@@ -291,11 +309,19 @@ button bar
     box-sizing: border-box;
 }
 
+.content .barra_bottoni{
+    margin: 10px 0;
+}
+
 /*
-Book box
+|--------------------------------------------------------------|
+|                                                              |
+|  Pillola libro                                               |
+|                                                              |
+|--------------------------------------------------------------|
 */
 
-.book_container {
+.pillola_libro {
     border-radius: 5px;
     overflow: hidden;
     display: inline-block;
@@ -306,12 +332,12 @@ Book box
     white-space: nowrap;
 }
 
-.book_container:hover {
+.pillola_libro:hover {
     transform: scale(1.02, 1.02);
 
 }
 
-.book_image {
+.immagine_pillola_libro {
     display: inline-block;
     height: 170px;
     width: 130px;
@@ -319,7 +345,7 @@ Book box
     background-position: center;
 }
 
-.book_text {
+.testo_pillola_libro {
     display: inline-block;
     color: #292929;
     height: 100%;
@@ -328,7 +354,7 @@ Book box
     padding: 20px;
 }
 
-.book_title {
+.titolo_pillola_libro {
     font-weight: 600;
     font-size: 20px;
     line-height: 20px;
@@ -336,7 +362,11 @@ Book box
 }
 
 /*
-Containers
+|--------------------------------------------------------------|
+|                                                              |
+|  Contenitori                                                 |
+|                                                              |
+|--------------------------------------------------------------|
 */
 
 .content {
@@ -351,6 +381,7 @@ Containers
     box-sizing: border-box;
     white-space: normal;
     overflow: auto;
+
     -webkit-box-shadow: inset 10px 0 35px -16px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: inset 10px 0 35px -16px rgba(0, 0, 0, 0.75);
     box-shadow: inset 10px 0 35px -16px rgba(0, 0, 0, 0.75);
@@ -368,10 +399,14 @@ Containers
 }
 
 /*
-little menu
+|--------------------------------------------------------------|
+|                                                              |
+|  Menu ordina                                                 |
+|                                                              |
+|--------------------------------------------------------------|
 */
 
-#little_menu_box {
+#menu_ordina {
     position: absolute;
     top: 190px;
     left: 100px;
@@ -384,7 +419,7 @@ little menu
     display: none;
 }
 
-.little_menu_button {
+#menu_ordina button{
     outline: none;
     width: 100%;
     height: 50px;
@@ -395,15 +430,19 @@ little menu
     background-color: #f8f8f8;
 }
 
-.little_menu_button:hover {
+#menu_ordina button:hover {
     background-color: #efefef;
 }
 
 /*
-account menu
+|--------------------------------------------------------------|
+|                                                              |
+|  Menu account                                                |
+|                                                              |
+|--------------------------------------------------------------|
 */
 
-.account_container {
+.scatola_account {
     position: absolute;
     top: 10px;
     right: 10px;
@@ -415,41 +454,39 @@ account menu
     font-family: open_sans_semibold, sans-serif;
     line-height: 40px;
     vertical-align: top;
-    padding: 0px 3px;
+    padding: 0 3px;
     margin-right: 5px;
 }
 
-
-
 #menu_account {
-  position: absolute;
-  top: 60px;
-  right: 35px;
-  color: white;
-  width: 150px;
-  border-bottom: 1px solid #cbcbcb;
-  border-radius: 10px 0px 10px 10px;
-  overflow: hidden;
-  z-index: 100;
-  height: auto;
-  display: none;
+    position: absolute;
+    top: 60px;
+    right: 35px;
+    width: 150px;
+    border-bottom: 1px solid #cbcbcb;
+    border-radius: 10px 0 10px 10px;
+    z-index: 100;
+    display: none;
+    overflow: hidden;
 }
 
-.account_menu_header{
-  background-color: #fbfbfb;
-  border: 1px solid #cbcbcb;
-  color: #cbcbcb;
-  border-radius: 10px 0 0 0;
-  height: 25px;
-  line-height: 25px;
-  vertical-align:middle;
-  text-align: center;
-  margin:0;
-  font-family: open_sans_light, sans-serif;
-  font-size: 13px;
+#menu_account .menu_account_titolo{
+    background-color: #f8f8f8;
+    font-family: open_sans_light, sans-serif;
+    font-size: 13px;
+    border-radius: 0;
+    border: none;
+    border-bottom: 1px solid #cbcbcb;
+    margin-bottom: 0;
+    outline: none;
+    width: 100%;
+    height: 30px;
+}
+#menu_account .menu_account_titolo:hover{
+    background-color: #f8f8f8;
 }
 
-.account_button {
+#menu_account button{
   background-color: #f8f8f8;
   font-family: open_sans_light, sans-serif;
   font-size: 13px;
@@ -462,6 +499,6 @@ account menu
   height: 35px;
 }
 
-.account_button:hover {
+#menu_account button:hover{
   background-color: #efefef;
 }

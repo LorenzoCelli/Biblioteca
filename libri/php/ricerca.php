@@ -3,7 +3,7 @@
 error_reporting(-1);
 ini_set('display_errors', 'On');
 
-include '../connection.php';
+include $_SERVER['DOCUMENT_ROOT'].'/connection.php';
 
 $uname = $_SESSION['uname'];
 $id_utente = $_SESSION['id_utente'];
@@ -16,10 +16,10 @@ $result = mysqli_query($conn, $sql) or trigger_error(mysqli_error($conn));
 
 while($row = mysqli_fetch_assoc($result)){
   echo "
-  <div class='book_container' onclick='fill_info_book(".$row['id'].")'>
-  <div class='book_image' style='background-image: url(".$row['img_url'].")'></div><!--
-  --><div class='book_text'>
-  <p class='book_title'>".$row['titolo']."</p>
+  <div class='pillola_libro' onclick='info_libro(".$row['id'].")'>
+  <div class='immagine_pillola_libro' style='background-image: url(".$row['img_url'].")'></div><!--
+  --><div class='testo_pillola_libro'>
+  <p class='titolo_pillola_libro'>".$row['titolo']."</p>
   ".$row['autore']."
   </div>
   </div>

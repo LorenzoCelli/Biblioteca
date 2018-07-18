@@ -1,9 +1,9 @@
 /*
-//--------------------------------------------------------------//
-//                                                              //
-//  animazioni                                                  //
-//                                                              //
-//--------------------------------------------------------------//
+|--------------------------------------------------------------|
+|                                                              |
+|  animazioni                                                  |
+|                                                              |
+|--------------------------------------------------------------|
 */
 
 var search_bar = document.getElementById("search_bar");
@@ -16,7 +16,7 @@ function slide_search_bar() {
     }
 }
 
-var little_menu = document.getElementById("little_menu_box");
+var little_menu = document.getElementById("menu_ordina");
 
 function show_little_menu() {
     if (little_menu.style.height === "" || little_menu.style.height === "0px") {
@@ -38,7 +38,7 @@ function show_menu_account() {
     }
 }
 
-var new_menu = document.getElementById("new_menu");
+var new_menu = document.getElementById("menu_aggiungi");
 
 function slide_new_menu() {
     if (!new_menu.is_open) {
@@ -63,35 +63,34 @@ function slide_main_menu() {
     }
 }
 
-var info_menu = document.getElementById("info_menu");
+var info_menu = document.getElementById("menu_info");
 
 function close_info_menu() {
     info_menu.style.transform = "translateX(0)";
 }
 
 var l_img = document.createElement("IMG");
-l_img.id = "loading";
+l_img.id = "caricamento";
 l_img.src = "../imgs/loading.svg";
 
-function loading_img(l) {
-    l_img.alt = "loading..";
+function caricamento_img(l) {
     l_img.style.width = l+"px";
     l_img.style.height = l+"px";
     return l_img;
 }
 
 /*
-//--------------------------------------------------------------//
-//                                                              //
-//  chiamate ajax                                               //
-//                                                              //
-//--------------------------------------------------------------//
+|--------------------------------------------------------------|
+|                                                              |
+|  chiamate ajax                                               |
+|                                                              |
+|--------------------------------------------------------------|
 */
 
 function chiama_post(query_diz, file, callback, loading_el, loading_width) {
     if(loading_el) {
         loading_el.innerHTML = "";
-        loading_el.appendChild(loading_img(loading_width));
+        loading_el.appendChild(caricamento_img(loading_width));
     }
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
@@ -107,11 +106,10 @@ function chiama_post(query_diz, file, callback, loading_el, loading_width) {
     }
     xhttp.send(a);
 }
-
 function chiama_get(query_diz, file, callback, loading_el, loading_width) {
     if(loading_el) {
         loading_el.innerHTML = "";
-        loading_el.appendChild(loading_img(loading_width));
+        loading_el.appendChild(caricamento_img(loading_width));
     }
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
