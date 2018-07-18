@@ -17,7 +17,7 @@ if (isset($_POST['username'])) {
   $_SESSION['id_utente'] = $row['id'];
 
   if ($results->num_rows == 1){
-    header('Location: ../main/main.php');
+    header('Location: /libri/libri.php');
     return;
   }
   elseif ($results->num_rows == 0){
@@ -61,7 +61,7 @@ if (isset($_POST['username'])) {
             }
 
             ?>
-            <a href="../index.html">indietro</a>
+            <a href="/index.html">indietro</a>
     </div>
 </body>
 </html>
