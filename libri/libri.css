@@ -295,7 +295,7 @@ a {
     outline: none;
 }
 
-#menu_principe button{
+#menu_principe button:hover{
     background-color: white;
 }
 
@@ -488,14 +488,16 @@ a {
     height: 55px;
 }
 
-#nome_utente {
-    font-family: open_sans_regular, sans-serif;
+.scatola_account p{
+    display: inline-block;
+    margin: 0;
     line-height: 55px;
+    font-family: open_sans_regular, sans-serif;
     vertical-align: top;
-    margin-right: 5px;
 }
 
 .scatola_account img {
+    margin-left: 5px;
     height: 100%;
     border-radius: 5px;
 }
@@ -545,12 +547,67 @@ a {
   background-color: #efefef;
 }
 
+/*
+|--------------------------------------------------------------|
+|                                                              |
+|  Menu volante                                                |
+|                                                              |
+|--------------------------------------------------------------|
+*/
 
+.menu_volante {
+    position: absolute;
+    height: 0;
+    width: 150px;
+    transition: height 200ms, width 200ms;
+    background-color: #f8f8f8;
+    border-radius: 10px 10px 10px 10px;
+    z-index: 100;
+    overflow: hidden;
+    font-size: 15px;
+}
 
+.menu_volante div{
+    background-color: #f8f8f8;
+    font-family: open_sans_light, sans-serif;
+    border-bottom: 1px solid #e7e7e7;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: #d1d1d1;
+}
 
+.menu_volante button{
+    font-family: open_sans_light, sans-serif;
+    border-radius: 0;
+    border: none;
+    border-bottom: 1px solid #e7e7e7;
+    margin-bottom: 0;
+    outline: none;
+    height: 35px;
+    width: 150px;
+    font-size: 15px;
+}
 
-@media only screen and (max-width: 400px) {
-    #menu_aggiungi {
-        width: 100%;
-    }
+.menu_volante button:hover{
+    background-color: #efefef;
+}
+
+/*
+|--------------------------------------------------------------|
+|  Menu volanti                                                |
+|--------------------------------------------------------------|
+*/
+
+#menu_volante_account{
+     right: 47.5px;
+     top: 75px;
+     border-top-right-radius: 0;
+}
+
+#menu_volante_ordina{
+    top: 195px;
+    left: 100px;
+    border-top-left-radius: 0;
 }

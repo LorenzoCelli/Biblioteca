@@ -81,6 +81,33 @@ function caricamento_img(l) {
 
 /*
 |--------------------------------------------------------------|
+|  menu volante                                                |
+|--------------------------------------------------------------|
+*/
+
+var menu_volanti = document.getElementsByClassName("menu_volante");
+for (var i = 0; i<menu_volanti.length; i++){
+    menu_volanti[i].apri = function () {
+        if (this.style.height !== "0px" && this.style.height !== ""){
+            this.style.height = "0px";
+            return;
+        }
+        var h = 0;
+        for (var i = 0; i<this.childNodes.length; i++){
+            var o_h = this.childNodes[i].offsetHeight;
+            h += o_h ? o_h : 0;
+        }
+        this.style.height = h+"px";
+    }
+}
+function apri_menu_volante(id) {
+    document.getElementById(id).apri();
+}
+
+
+
+/*
+|--------------------------------------------------------------|
 |                                                              |
 |  chiamate ajax                                               |
 |                                                              |

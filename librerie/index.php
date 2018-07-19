@@ -23,7 +23,11 @@ $img = avatar($id_avatar);
 <body>
 
 <!--
-Main container
+|--------------------------------------------------------------|
+|                                                              |
+|  Contenitore principale                                      |
+|                                                              |
+|--------------------------------------------------------------|
 -->
 
 <div id="main_container">
@@ -34,20 +38,34 @@ Main container
         <a href=""><button>Tua sorella</button></a>
     </div><!--
  --><div class="content">
-         <div id="menu_ordina">
-           <button style="height: 30px" disabled>ordina per:</button>
-           <button>nome</button>
-           <button>autore</button>
-           <button style="border-bottom:none">genere</button>
-         </div>
+        <!--
+        |--------------------------------------------------------------|
+        |  Menu volante ordina                                         |
+        |--------------------------------------------------------------|
+        -->
+        <div id="menu_volante_ordina" class="menu_volante">
+            <div>Ordina:</div>
+            <button>dalla a alla z</button>
+            <button style="border: none">dalla z alla a</button>
+        </div>
+        <!--
+        |--------------------------------------------------------------|
+        |  Menu volante account                                        |
+        |--------------------------------------------------------------|
+        -->
+        <div id="menu_volante_account" class="menu_volante">
+            <div>Il tuo account:</div>
+            <button>impostazioni</button>
+            <button style="border: none">logout</button>
+        </div>
 
         <div style="border-radius: 0 10px 10px 0; height: 50px; width:50px; position: absolute; top:20px; left: 0; background-color: #f8f8f8; display: inline-block"><img onclick="slide_main_menu()" src="../imgs/menu.svg" style="height: 50px"></div>
 
-        <a onclick="show_menu_account()"><div class="scatola_account">
-          <p2 id="nome_utente"><?php echo $uname;?></p2>
-          <img src=<?php echo $img; ?>>
-        </div></a>
-        <div id="menu_account">
+        <div onclick="apri_menu_volante('menu_volante_account')" class="scatola_account">
+            <p><?php echo $uname;?></p>
+            <img src=<?php echo $img; ?>>
+        </div>
+        <div id="menu_account" style="border-top-left-radius: 0; left: 200px; top: 200px">
             <button class="account_button" disabled>Il tuo account</button>
             <button class="account_button">Impostazioni</button>
             <button style="border-bottom: none" class="account_button">Logout</button>
@@ -57,7 +75,7 @@ Main container
 
         <div class="barra_bottoni"><!--
          --><div onclick="slide_new_menu()"><img  src="../imgs/piu.svg"></div><!--
-         --><div><img  src="../imgs/ordina.svg"></div><!--
+         --><div onclick="apri_menu_volante('menu_volante_ordina')"><img  src="../imgs/ordina.svg"></div><!--
          --><div onclick="slide_search_bar()" ><img src="../imgs/lente.svg"></div><!--
          --><input id="search_bar" class="menu_input" type="text"></div>
          <br>
