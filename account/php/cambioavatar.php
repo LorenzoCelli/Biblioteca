@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "../connection.php";
+include "../../connection.php";
 $id_utente = $_SESSION['id_utente'];
 $id_avatar = $_GET['id_avatar'];
 
