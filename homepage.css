@@ -1,0 +1,473 @@
+body {
+  margin: 0;
+  font-family: 'Vollkorn', serif;
+}
+button {
+  cursor: pointer;
+  outline: none;
+  font-family: open_sans_light, sans-serif;
+}
+.block {
+  width: 100%;
+  height: auto;
+}
+#firstBlock {
+  padding-bottom: 220px;
+}
+#secondBlock {
+  padding: 50px 0;
+}
+#fourthBlock {
+  padding: 100px 0 180px;
+}
+#fifthBlock {
+  position: relative;
+  height: 700px;
+}
+#sixthBlock {
+  padding: 150px 0;
+  position: relative;
+}
+.header {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  padding: 10px 0px;
+  text-align: center;
+  color: white;
+  background-color: #4ea8de;
+}
+.headerTitle {
+  font-size: 20px;
+  text-decoration: none;
+  color: white;
+}
+.login {
+  padding-right: 40px;
+  padding-top: 5px;
+  text-decoration: none;
+  font-size: 16px;
+  color: white;
+  position: absolute;
+  right: 0;
+}
+.firstBlockContent {
+  text-align: center;
+  margin-top: 160px;
+  width: 100%;
+  color: white;
+}
+.firstBlockContentFirst {
+  font-size:90px;
+}
+.firstBlockContentSecond {
+  font-size:45px;
+  margin-top:-88px;
+}
+.firstBlockRegisterButton {
+  text-align: center;
+}
+.firstBlockRegisterButton button {
+  width: 700px;
+  border-radius: 10px;
+  background-color: #fdfdfd;
+  font-size: 40px;
+  padding: 5px 0;
+}
+.secondBlockContent {
+  text-align: center;
+  width: 100%;
+  padding-top: 1px;
+}
+.secondBlockImg {
+  width: 100%;
+  text-align: center;
+}
+.secondBlockImg img {
+  width: 85%;
+  height: 85%;
+}
+.secondBlockImg2 img {
+  width: 45%;
+  display: none;
+}
+.secondBlockContentFirst {
+  font-size: 40px;
+  margin-top: 0px;
+}
+.fourthBlockContent {
+  width: 100%;
+  text-align: center;
+  color: white;
+  padding-top: 1px;
+}
+.fourthBlockContentFirst {
+  font-size: 40px;
+  margin-top: 0px;
+  margin-bottom: -10px;
+}
+.fourthBlockContentSecond {
+  font-size: 20px;
+}
+.fourthBlockImg {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  margin-top: 100px;
+}
+.fourthBlockImg img {
+  display: inline-block;
+  margin-left: 4%;
+  margin-right: 4%;
+}
+.fifthBlockFooter {
+  width: 100%;
+  height: auto;
+  background-color: #4ea8de;
+  color: white;
+  padding: 24px 6%;
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 0;
+}
+.fifthBlockFooter img{
+  width: 130px;
+  border-right: 1px solid white;
+  padding-right: 4%;
+}
+.fifthBlockContentThird {
+  margin: 0;
+}
+.fifthBlockContent {
+  font-size: 17px;
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 2.2%;
+}
+.fifthBlockGraffetta {
+  background-color: #3a3a3a;
+  height: auto;
+  width: 450px;
+  font-size: 37px;
+  padding: 5px 35px;
+  color: white;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 10px;
+  border-right: 4px solid lightgrey;
+  position: absolute;
+  top: 90px;
+}
+.scanIsbn {
+  position: absolute;
+  width: 280px;
+  left: 65%;
+  bottom: 6%;
+  z-index: 1;
+}
+.sixthBlockDiv {
+  height: auto;
+  width: 100%;
+  background-color: #3a3a3a;
+  padding: 80px 60px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.sixthBlockContent {
+  color: white;
+  text-align: center;
+  float: right;
+}
+.sixthBlockContent button {
+  background-color: #4ea8de;
+  border-radius: 10px;
+  font-size: 25px;
+  color: white;
+  border: 0px;
+  padding: 13px 130px;
+}
+.sixthBlockLibri {
+  width: 500px;
+  position: absolute;
+  padding-left: 60px;
+  bottom: 38%;
+}
+.sixthContentFirst {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-size: 45px;
+}
+.sixthContentSecond {
+  margin-top: 0px;
+  font-size: 25px;
+}
+#trattoImageLeft {
+  height: 120px;
+}
+#trattoImageRight {
+  height: 120px;
+}
+@media screen and (max-width: 1120px) {
+  #sixthBlock {
+    text-align: center;
+  }
+  #userImage {
+    width: 16%;
+  }
+  #bookImage {
+    width: 14%;
+  }
+  #trattoImageLeft {
+    width: 4.2%;
+  }
+  #trattoImageRight {
+    width: 4.2%;
+  }
+  .sixthBlockLibri {
+    padding-left: 0px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    bottom: 50%;
+  }
+  .sixthBlockContent {
+    float: none;
+  }
+  .sixthBlockDiv {
+    padding-top: 250px;
+    padding-bottom: 30px;
+  }
+}
+
+/*monitor piccolo*/
+@media screen and (max-width: 860px) {
+  #fifthBlock {
+    text-align: center;
+    padding: 50px 0 200px;
+  }
+  .firstBlockRegisterButton button {
+    width: 500px;
+    font-size: 32px;
+  }
+  .firstBlockContentFirst {
+    font-size:70px;
+  }
+  .firstBlockContentSecond {
+    font-size:45px;
+    margin-top:-75px;
+  }
+  .firstBlockContent{
+    margin-top: 147px;
+  }
+  .fifthBlockGraffetta {
+    box-sizing: border-box;
+    width: 100%;
+    color: black;
+    background-color: #f5f5f5;
+    margin-left: auto;
+    margin-right: auto;
+    border-right: 0px;
+    margin-bottom: 25px;
+    position: initial;
+    font-size: 28px;
+  }
+  .scanIsbn {
+    position: unset;
+    z-index: 1;
+    margin-top: 10px;
+  }
+}
+
+/*tablet*/
+@media screen and (max-width: 650px) {
+  #fourthBlock {
+    padding: 60px 0px 100px;
+  }
+  #fifthBlock {
+    padding: 40px 0 250px;
+    height: auto;
+  }
+  #sixthBlock {
+    padding: 80px 0;
+  }
+  #bookImage {
+    width: 22%;
+  }
+  #userImage {
+    vertical-align: text-top;
+    width: 23%;
+  }
+  #trattoImageLeft {
+    vertical-align: middle;
+    transform: rotate(325deg);
+    width: 7.2%;
+  }
+  #trattoImageRight {
+    vertical-align: middle;
+    transform: rotate(32deg);
+    width: 7.2%;
+  }
+  .firstBlockRegisterButton button {
+    width: 300px;
+    font-size: 23px;
+  }
+  .firstBlockContentFirst {
+    font-size:40px;
+  }
+  .firstBlockContentSecond {
+    font-size:29px;
+    margin-top:-35px;
+  }
+  .secondBlockImg img {
+    display: none;
+  }
+  .secondBlockImg2 {
+    width: 100%;
+    text-align: center;
+  }
+  .secondBlockImg2 img {
+    display: inline-block;
+    margin-top: -40px;
+  }
+  .secondBlockContentFirst{
+    font-size: 30px;
+  }
+  .secondBlockImg img {
+    width: 90%;
+    height: 90%;
+    margin-top: -40px;
+  }
+  .secondBlockImg {
+    margin-top: 80px;
+  }
+  .fourthBlockImg {
+    margin-top: 70px;
+  }
+  .fourthBlockImg img {
+    margin-left: 0.6%;
+    margin-right: 0.6%;
+  }
+  .fourthBlockContentFirst {
+    font-size: 30px;
+  }
+  .fourthBlockContentSecond {
+    font-size: 17px;
+  }
+  .fifthBlockGraffetta {
+    font-size: 24px;
+  }
+  .fifthBlockContent {
+    font-size: 15px;
+  }
+  .fifthBlockFooter {
+    padding: 15px 4px;
+  }
+  .fifthBlockFooter img{
+    width: 20%;
+    border-right: 0px;
+    border-bottom: 1px solid white;
+    display: block;
+    padding-right: 0px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .sixthBlockLibri {
+    bottom: 48%;
+    width: 350px;
+  }
+  .sixthBlockContent button{
+    padding: 9px 20%;
+  }
+  .sixthContentFirst {
+    font-size: 35px;
+  }
+  .sixthContentSecond {
+    font-size: 20px;
+  }
+  .scanIsbn {
+    width: 45%;
+  }
+  .headerTitle {
+    float: left;
+    margin-left: 10px;
+    padding-left: 15px;
+  }
+  .login {
+    display: block;
+    padding-right: 15px;
+    margin-right: 10px;
+  }
+}
+
+/*smartphone*/
+@media screen and (max-width: 390px) {
+  #secondBlock {
+    padding: 13% 0;
+  }
+  #fourthBlock {
+    padding: 14% 0px 24%;
+  }
+  #fifthBlock {
+    padding: 40px 0 225px;
+  }
+  #sixthBlock {
+    padding: 24% 0;
+  }
+  .firstBlockRegisterButton button {
+    width: 50%;
+    font-size: 6vw;
+  }
+  .firstBlockContent{
+    margin-top: 160px;
+  }
+  .firstBlockContentFirst {
+    font-size: 9vw;
+  }
+  .firstBlockContentSecond {
+    font-size: 6vw;
+    margin-top: -8%;
+  }
+  .secondBlockContentFirst{
+    font-size: 6.5vw;
+  }
+  .fourthBlockContentFirst {
+    font-size: 6.5vw;
+  }
+  .fourthBlockContentSecond {
+    font-size: 4.2vw;
+  }
+  .fifthBlockContentThird {
+    font-size: 6.5vw;
+  }
+  .fifthBlockGraffetta {
+    margin-bottom: 0;
+    font-size: 6vw;
+  }
+  .fifthBlockContent {
+    margin-left: 0;
+    font-size: 3.8vw;
+  }
+  .fifthBlockFooter {
+    text-align: center;
+  }
+  .sixthBlockDiv {
+    padding-top: 70%;
+    padding-bottom: 5%;
+  }
+  .sixthContentFirst {
+    font-size: 6vw;
+  }
+  .sixthContentSecond {
+    font-size: 4vw;
+  }
+  .sixthBlockContent button {
+    font-size: 5vw;
+  }
+  .sixthBlockLibri {
+    width: 90%;
+  }
+  .scanIsbn {
+    width: 47%;
+    margin-top: 23px;
+  }
+}
