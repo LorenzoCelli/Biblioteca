@@ -22,28 +22,34 @@ $descr = $row["descr"];
 $n_scaffali = $row["n_scaffali"];
 $colore = $row["colore"];
 $scaffali = "";
-for ($i=1; $i <= $n_scaffali; $i++) {
-  $scaffali.="
-  <div class='scaffale_titolo'>Scaffale $i</div>
-  <div class='scaffale_info_menu'>
-  ";
+$c = 0;
 
-  $sql_libri = "SELECT * FROM libri
-  INNER JOIN posizione ON libri.id = posizione.id_libro
-  WHERE libri.id_utente = ".$id_utente." AND posizione.id_libreria = ".$id_libreria." AND posizione.n_scaffale = ".$i;
-  $result_libri = mysqli_query($conn, $sql_libri) or trigger_error(mysqli_error($conn));
-
-  while ($riga = mysqli_fetch_assoc($result_libri)) {
-    $scaffali.="
-      <div style=\"background-image: url('".$riga['img_url']."')\" onclick='fill_info_book2(".$riga['id'].")'>
-      </div>
-    ";
-  }
-
-  $scaffali.="
-  </div>
-  ";
+$sql_libri = "SELECT * FROM libri
+INNER JOIN posizione ON libri.id = posizione.id_libro
+WHERE libri.id_utente = '$id_utente' AND posizione.id_libreria = '$id_libreria'
+ORDER BY posizione.n_scaffale ASC";
+$result_libri = mysqli_query($conn, $sql_libri) or trigger_error(mysqli_error($conn));
+$cont_libri = [];
+while ($riga = mysqli_fetch_assoc($result_libri)) {
+  $cont_libri[$c][0] = $riga['n_scaffale'];
+  $cont_libri[$c][1] = $riga['img_url'];
+  $cont_libri[$c][2] = $riga['id'];
+  $c++;
 }
+for ($i=1; $i <= $n_scaffali; $i++) {
+  $scaffali .= "<div class='scaffale_titolo'>Scaffale $i</div><div class='scaffale_info_menu'>";
+  for ($j=0; $j < count($cont_libri); $j++) {
+    if ($cont_libri[$j][0] == $i) {
+      $scaffali.="
+        <div style=\"background-image: url('".$cont_libri[$j][1]."')\" onclick='fill_info_book2(".$cont_libri[$j][2].")'>
+        </div>
+      ";
+    }
+  }
+  $scaffali.="
+  </div>";
+}
+
 ?>
 
 <div class="info_barrabottoni">
