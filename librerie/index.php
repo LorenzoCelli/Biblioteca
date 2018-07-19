@@ -45,7 +45,7 @@ Main container
 
         <a onclick="show_menu_account()"><div class="scatola_account">
           <p2 id="nome_utente"><?php echo $uname;?></p2>
-          <img src=<?php echo $img; ?> alt="icona_utente_non_trovata" style="width:50px;height:50px;">
+          <img src=<?php echo $img; ?>>
         </div></a>
         <div id="menu_account">
             <button class="account_button" disabled>Il tuo account</button>
