@@ -4,6 +4,12 @@
 h1{
   margin-bottom: 5px;
 }
+.scatola_liste{
+  width:33%;
+  display:inline-block;
+  vertical-align:top;
+  min-width:350px;
+}
 #no_amici{
   margin-bottom: 10px;
   padding: 20px;
@@ -12,7 +18,7 @@ h1{
 #search_bar{
   display: inline-block;
   vertical-align: top;
-  width: 300px;
+  width: 260px;
   border-radius: 10px 0 0 10px;
 }
 @media screen and (max-width: 600px) {
@@ -46,7 +52,7 @@ h1{
 #friend_button:hover{
   background-color: #cbcbcb;
 }
-#scheda_utente{
+.scheda_utente{
   background-color: #f8f8f8;
   overflow: hidden;
   border-radius: 10px 10px 10px 10px;

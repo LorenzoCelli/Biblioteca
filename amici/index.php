@@ -63,31 +63,30 @@ $img = avatar($id_avatar);
       $avatar_amico = $row['id_avatar'];
       $img_avatar = avatar($avatar_amico);
       echo "
-        <a><div id='scheda_utente' style='width:400px;'>
+        <div class='scheda_utente' style='width:400px;'>
         <img src='$img_avatar' id='avatar_img'>
-        <p2 id='nome_utente' style='display:inline-block;'>$uname_amico</p2>
-        <button class='accetta_rifiuta' onclick='accetta_rifiuta($id_amico,false,this)'>Rifiuta</button>
-        <button class='accetta_rifiuta' onclick='accetta_rifiuta($id_amico,true,this)'>Accetta</button>
-        </div></a>
-
+        <p id='nome_utente' style='display:inline-block;'>$uname_amico</p>
+        <button class='accetta_rifiuta' onclick='accetta_rifiuta($id_amico,\"0\",this)'>Rifiuta</button>
+        <button class='accetta_rifiuta' onclick='accetta_rifiuta($id_amico,\"1\",this)'>Accetta</button>
+        </div>
       ";
     }
     echo "</div>";
   }
   ?>
 
-  <div style="width:33%;display:inline-block;vertical-align:top;min-width: 350px;">
+  <div class="scatola_liste">
     <h1 style="margin-top:0;">Trova un utente:</h1>
     <div style="display:inline-block;padding:20px 0">
       <input id="search_bar" type="text"><!--
       --><input type="submit" id="search_button" value="" onclick="ricerca_utenti();">
     </div>
-    <div id="ris_div" style="padding:20px 0;">
+    <div id="ris_div" style="padding:20px 0;overflow:hidden;">
 
     </div>
   </div>
 
-  <div style="width:33%;display:inline-block;min-width:350px;">
+  <div class="scatola_liste">
     <h1>Lista amici</h1>
 
     <div style="padding:20px 0;">
@@ -108,10 +107,10 @@ $img = avatar($id_avatar);
         $avatar_amico = $row['id_avatar'];
         $img_avatar = avatar($avatar_amico);
         echo "
-        <a><div id='scheda_utente'>
+        <div class='scheda_utente'>
         <img src='$img_avatar' id='avatar_img'>
         <p2 id='nome_utente' style='display:inline-block;'>$uname_amico</p2>
-        </div></a>
+        </div>
         ";
       }
     }
@@ -120,7 +119,7 @@ $img = avatar($id_avatar);
 
   </div>
 
-  <div style="width:33%;display:inline-block;vertical-align:top;min-width: 350px;">
+  <div class="scatola_liste">
     <h1>Biblioteche preferite</h1>
   </div>
 

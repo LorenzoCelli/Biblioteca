@@ -19,19 +19,17 @@ if ($results->num_rows == 0) {
 }else{
   while ($row = mysqli_fetch_assoc($results)) {
     $id_amico = $row['id'];
-    //if ($id_amico != $id_utente) {
       $uname_amico = $row['username'];
       $avatar_amico = $row['id_avatar'];
       $img_avatar = avatar($avatar_amico);
       echo "
-      <a><div id='scheda_utente'>
+      <div class='scheda_utente' >
       <img src='$img_avatar' id='avatar_img'>
-      <p2 id='nome_utente' style='display:inline-block;'>$uname_amico</p2><!--
+      <p id='nome_utente' style='display:inline-block;'>$uname_amico</p><!--
       --><button id='friend_button' onclick='aggiungi_utenti($id_amico,this)'></button><!--
       --><div class='risp_richiesta'></div>
-      </div></a>
+      </div>
       ";
-    //}
   }
 }
 
