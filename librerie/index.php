@@ -53,8 +53,8 @@ $img = avatar($id_avatar);
         -->
         <div id="menu_volante_account" class="menu_volante">
             <div>Il tuo account:</div>
-            <a href="/account/"><button>impostazioni</button></a>
-            <a href="/logout.php"><button style="border: none">logout</button></a>
+            <button onclick="window.location.href='/account/'">impostazioni</button>
+            <button onclick="window.location.href='/logout.php'" style="border: none">logout</button>
         </div>
 
         <div style="border-radius: 0 10px 10px 0; height: 50px; width:50px; position: absolute; top:20px; left: 0; background-color: #f8f8f8; display: inline-block"><img onclick="slide_main_menu()" src="../imgs/menu.svg" style="height: 50px"></div>

@@ -46,13 +46,13 @@ $img = avatar($id_avatar);
         -->
         <div id="menu_volante_account" class="menu_volante">
             <div>Il tuo account:</div>
-            <a href="/account/"><button>impostazioni</button></a>
-            <a href="/logout.php"><button style="border: none">logout</button></a>
+            <button onclick="window.location.href='/account/'">impostazioni</button>
+            <button onclick="window.location.href='/logout.php'" style="border: none">logout</button>
         </div>
 
         <div onclick="apri_menu_volante('account')" class="scatola_account">
             <p><?php echo $uname;?></p>
-            <img src=<?php echo $img; ?>>
+            <img src=<?php echo $img; ?> id="small_icon">
         </div>
 
         <div id="risultato_cambio_avatar"></div><br>

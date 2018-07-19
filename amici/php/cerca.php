@@ -1,9 +1,8 @@
 <?php
 session_start();
-include "../../connection.php";
+include $_SERVER['DOCUMENT_ROOT'].'/connection.php';
 $id_utente = $_SESSION['id_utente'];
 $ris_cerca = $_GET['ris_cerca'];
-include '../../scriptusericon.php';
 $ricerca = "%";
 for ($i=0; $i < strlen($ris_cerca); $i++) {
   $ricerca .= $ris_cerca{$i}."%";
@@ -19,17 +18,17 @@ if ($results->num_rows == 0) {
 }else{
   while ($row = mysqli_fetch_assoc($results)) {
     $id_amico = $row['id'];
-      $uname_amico = $row['username'];
-      $avatar_amico = $row['id_avatar'];
-      $img_avatar = avatar($avatar_amico);
-      echo "
-      <div class='scheda_utente' >
-      <img src='$img_avatar' id='avatar_img'>
-      <p id='nome_utente' style='display:inline-block;'>$uname_amico</p><!--
+    $uname_amico = $row['username'];
+    $avatar_amico = $row['id_avatar'];
+    $img_avatar = avatar($avatar_amico);
+    echo "
+    <div class='scheda_utente'>
+      <img src='$img_avatar'>
+      <p style='display:inline-block;'>$uname_amico</p><!--
       --><button id='friend_button' onclick='aggiungi_utenti($id_amico,this)'></button><!--
       --><div class='risp_richiesta'></div>
-      </div>
-      ";
+    </div>
+    ";
   }
 }
 

@@ -46,8 +46,8 @@ $img = avatar($id_avatar);
   -->
   <div id="menu_volante_account" class="menu_volante">
       <div>Il tuo account:</div>
-      <a href="/account/"><button>impostazioni</button></a>
-      <a href="/logout.php"><button style="border: none">logout</button></a>
+      <button onclick="window.location.href='/account/'">impostazioni</button>
+      <button onclick="window.location.href='/logout.php'" style="border: none">logout</button>
   </div>
 
   <div onclick="apri_menu_volante('account')" class="scatola_account">
@@ -71,12 +71,12 @@ $img = avatar($id_avatar);
       $avatar_amico = $row['id_avatar'];
       $img_avatar = avatar($avatar_amico);
       echo "
-        <div class='scheda_utente' style='width:400px;'>
-        <img src='$img_avatar' id='avatar_img'>
-        <p id='nome_utente' style='display:inline-block;'>$uname_amico</p>
+      <div class='scheda_utente' style='width:400px;'>
+        <img src='$img_avatar'>
+        <p style=''>$uname_amico</p>
         <button class='accetta_rifiuta' onclick='accetta_rifiuta($id_amico,\"0\",this)'>Rifiuta</button>
         <button class='accetta_rifiuta' onclick='accetta_rifiuta($id_amico,\"1\",this)'>Accetta</button>
-        </div>
+      </div>
       ";
     }
     echo "</div>";
@@ -89,6 +89,7 @@ $img = avatar($id_avatar);
       <input id="search_bar" type="text"><!--
       --><input type="submit" id="search_button" value="" onclick="ricerca_utenti();">
     </div>
+
     <div id="ris_div" style="padding:20px 0;overflow:hidden;">
 
     </div>
@@ -116,8 +117,8 @@ $img = avatar($id_avatar);
         $img_avatar = avatar($avatar_amico);
         echo "
         <div class='scheda_utente'>
-        <img src='$img_avatar' id='avatar_img'>
-        <p2 id='nome_utente' style='display:inline-block;'>$uname_amico</p2>
+        <img src='$img_avatar'>
+        <p style='display:inline-block;'>$uname_amico</p>
         </div>
         ";
       }
