@@ -1,5 +1,11 @@
 <?php session_start();
+include $_SERVER['DOCUMENT_ROOT'].'/connection.php';
 $uname = $_SESSION['uname'];
+$id_utente = $_SESSION['id_utente'];
+$sql = "SELECT id_avatar FROM utenti WHERE id = '$id_utente'";
+$row = mysqli_fetch_assoc(mysqli_query($conn, $sql));
+$id_avatar = $row['id_avatar'];
+$img = avatar($id_avatar);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,38 +35,43 @@ $uname = $_SESSION['uname'];
         <a href=""><button>Tua sorella</button></a>
     </div><!--
  --><div class="content">
-        <div id="menu_ordina">
-            <button style="height: 30px" disabled>ordina per:</button>
-            <button>nome</button>
-            <button>autore</button>
-            <button style="border-bottom: none">genere</button>
+        <!--
+        |--------------------------------------------------------------|
+        |  Menu volante ordina                                         |
+        |--------------------------------------------------------------|
+        -->
+        <div id="menu_volante_ordina" class="menu_volante">
+            <div>Ordina:</div>
+            <button>dalla a alla z</button>
+            <button style="border: none">dalla z alla a</button>
+        </div>
+        <!--
+        |--------------------------------------------------------------|
+        |  Menu volante account                                        |
+        |--------------------------------------------------------------|
+        -->
+        <div id="menu_volante_account" class="menu_volante">
+            <div>Il tuo account:</div>
+            <button>impostazioni</button>
+            <button style="border: none">logout</button>
         </div>
 
         <div style="border-radius: 0 10px 10px 0; height: 50px; width:50px; position: absolute; top:20px; left: 0; background-color: #f8f8f8; display: inline-block"><img onclick="slide_main_menu()" src="../imgs/menu.svg" style="height: 50px"></div>
-        <a onclick="show_menu_account()"><div class="scatola_account">
-          <p2 id="nome_utente"><?php echo $uname;?></p2>
-          <div style="display: inline-block; height: 50px; width: 50px; overflow: hidden"><img src="../imgs/usericon.svg" alt="icona_utente_non_trovata" style="width:50px;height:50px;"></div>
-        </div></a>
-        <div id="menu_account">
-            <button class="account_button" disabled>Il tuo account</button>
-            <a href="../account/account.php"><button class="account_button">Impostazioni</button></a>
-            <button style="border-bottom: none" class="account_button">Logout</button>
+        <div onclick="apri_menu_volante('account')" class="scatola_account">
+          <p><?php echo $uname;?></p>
+          <img src=<?php echo $img; ?>>
         </div>
 
         <h1 style="color: white; margin: 0; line-height: 30px"> La tua biblioteca. </h1>
 
         <div class="barra_bottoni"><!--
          --><div onclick="slide_new_menu()"><img src="../imgs/piu.svg"></div><!--
-         --><div onclick="show_little_menu()"><img src="../imgs/ordina.svg"></div><!--
+         --><div onclick="apri_menu_volante('ordina')"><img src="../imgs/ordina.svg"></div><!--
          --><div onclick="slide_search_bar()"><img src="../imgs/lente.svg"></div><!--
          --><input id="search_bar" class="menu_input" type="text"></div>
         <br>
 
         <?php
-
-        $id_utente = $_SESSION['id_utente'];
-
-        include '../connection.php';
 
         $sql = "SELECT * FROM libri WHERE id_utente = '$id_utente'";
         $result = mysqli_query($conn, $sql);

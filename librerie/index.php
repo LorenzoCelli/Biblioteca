@@ -1,12 +1,10 @@
 <?php session_start();
-include "../connection.php";
+include $_SERVER['DOCUMENT_ROOT'].'/connection.php';
 $uname = $_SESSION['uname'];
 $id_utente = $_SESSION['id_utente'];
-$sql = "SELECT * FROM utenti WHERE id = '$id_utente'";
-$results = mysqli_query($conn, $sql);
-$row = mysqli_fetch_assoc($results);
+$sql = "SELECT id_avatar FROM utenti WHERE id = '$id_utente'";
+$row = mysqli_fetch_assoc(mysqli_query($conn, $sql));
 $id_avatar = $row['id_avatar'];
-include '../scriptusericon.php';
 $img = avatar($id_avatar);
 ?>
 <!DOCTYPE html>
@@ -61,7 +59,7 @@ $img = avatar($id_avatar);
 
         <div style="border-radius: 0 10px 10px 0; height: 50px; width:50px; position: absolute; top:20px; left: 0; background-color: #f8f8f8; display: inline-block"><img onclick="slide_main_menu()" src="../imgs/menu.svg" style="height: 50px"></div>
 
-        <div onclick="apri_menu_volante('menu_volante_account')" class="scatola_account">
+        <div onclick="apri_menu_volante('account')" class="scatola_account">
             <p><?php echo $uname;?></p>
             <img src=<?php echo $img; ?>>
         </div>
@@ -75,16 +73,12 @@ $img = avatar($id_avatar);
 
         <div class="barra_bottoni"><!--
          --><div onclick="slide_new_menu()"><img  src="../imgs/piu.svg"></div><!--
-         --><div onclick="apri_menu_volante('menu_volante_ordina')"><img  src="../imgs/ordina.svg"></div><!--
+         --><div onclick="apri_menu_volante('ordina')"><img  src="../imgs/ordina.svg"></div><!--
          --><div onclick="slide_search_bar()" ><img src="../imgs/lente.svg"></div><!--
          --><input id="search_bar" class="menu_input" type="text"></div>
          <br>
 
          <?php
-
-         $id_utente = $_SESSION['id_utente'];
-
-         include '../connection.php';
 
          $sql = "SELECT * FROM libreria WHERE id_utente = '$id_utente'";
          $result = mysqli_query($conn, $sql);

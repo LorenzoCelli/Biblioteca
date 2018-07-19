@@ -8,7 +8,7 @@ if (isset($_POST['username'])) {
   $_SESSION['uname'] = $uname;
   $pass = $_POST["password"];
 
-  include '../connection.php';
+  include $_SERVER['DOCUMENT_ROOT'].'/connection.php';
 
   $sql = "SELECT * FROM utenti WHERE username = '$uname' AND password = '$pass'";
 

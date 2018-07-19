@@ -100,8 +100,8 @@ for (var i = 0; i<menu_volanti.length; i++){
         this.style.height = h+"px";
     }
 }
-function apri_menu_volante(id) {
-    document.getElementById(id).apri();
+function apri_menu_volante(nome) {
+    document.getElementById("menu_volante_"+nome).apri();
 }
 
 
