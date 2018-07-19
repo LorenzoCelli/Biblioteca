@@ -2,8 +2,6 @@
 
 function avatar($id_avatar){
     switch ($id_avatar) {
-        case 0:
-            return "../imgs/usericon.svg";
         case 1:
             return "../imgs/avatars/1.png";
         case 2:
@@ -25,5 +23,3 @@ $password = "MyLibrary5%";
 $database = "my_library";
 
 $conn = mysqli_connect($servername, $username, $password, $database) or die ("Connessione non riuscita");
-
-
