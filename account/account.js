@@ -1,5 +1,5 @@
 var avatars = document.getElementById("avatars");
-function show_avatars() {
+function mostra_avatars() {
     if (avatars.style.display === "" || avatars.style.display === "none") {
         avatars.style.display = "block";
     } else {
@@ -12,16 +12,16 @@ function change_avatar(elem) {
   big_icon.src = elem.src;
   big_icon.alt = elem.alt;
 }
-var change_div = document.getElementById("change_div");
+var risultato_cambio_avatar = document.getElementById("risultato_cambio_avatar");
 function update_avatar() {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            change_div.innerHTML = this.responseText;
+            risultato_cambio_avatar.innerHTML = this.responseText;
             document.getElementById('small_icon').src = big_icon.src;
             avatars.style.display = "none";
         }
     };
-    xhttp.open("GET", "cambioavatar.php" + "?id_avatar=" + big_icon.alt, true);
+    xhttp.open("GET", "php/cambioavatar.php" + "?id_avatar=" + big_icon.alt, true);
     xhttp.send(null);
 }

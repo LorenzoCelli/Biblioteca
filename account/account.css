@@ -2,7 +2,7 @@
   text-align: center;
   color: white;
 }
-#change_div{
+#risultato_cambio_avatar{
   display: inline-block;
   background-color: #464646;
   color: white;
@@ -11,6 +11,13 @@
   line-height: 50px;
   border-radius: 10px;
   margin-bottom: 10px;
+}
+.scatola_avatar{
+  position: relative;
+  width: 225px;
+  height: 225px;
+  display: inline-block;
+  border-radius: 100%;
 }
 #big_icon{
   width: 225px;
@@ -22,7 +29,7 @@ h1{
   color: white;
   margin-bottom: 10px;
 }
-#avatar_button{
+.scatola_avatar button{
   background-color: rgba(255, 255, 255, 0.5);
   font-family: open_sans_light, sans-serif;
   font-size: 18pt;
@@ -37,17 +44,20 @@ h1{
   opacity: 0;
   transition: opacity 200ms;
 }
-#avatar_button:hover{
+.scatola_avatar button:hover{
   opacity: 1;
 }
-
-.scelta{
+#avatars img{
   width: 100px;
   height: 100px;
   margin-right: 10px;
   border-radius: 10px;
   transition: transform 500ms;
 }
-.scelta:hover{
+#avatars img:hover{
   transform: scale(1.2);
+}
+#avatars button{
+  width: 70px;
+  padding: 10px;
 }

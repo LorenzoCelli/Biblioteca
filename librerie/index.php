@@ -12,7 +12,7 @@ $img = avatar($id_avatar);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Le tue librerie</title>
+    <title>Biblioteca - Librerie</title>
     <link rel="stylesheet" type="text/css" href="/opensans/opensans.css">
     <link rel="stylesheet" type="text/css" href="/libri/libri.css">
     <link rel="stylesheet" type="text/css" href="/librerie/librerie.css">
@@ -32,8 +32,8 @@ $img = avatar($id_avatar);
     <div id="menu_principe">
         <a href="/libri/"><button>La mia biblioteca</button></a>
         <a href=""><button disabled>Le mie librerie</button></a>
-        <a href="../amici/"><button>I miei amici</button></a>
-        <a href=""><button>Tua sorella</button></a>
+        <a href="/amici/"><button>I miei amici</button></a>
+        <a href=""><button>I miei prestiti</button></a>
     </div><!--
  --><div class="content">
         <!--
@@ -53,8 +53,8 @@ $img = avatar($id_avatar);
         -->
         <div id="menu_volante_account" class="menu_volante">
             <div>Il tuo account:</div>
-            <button>impostazioni</button>
-            <button style="border: none">logout</button>
+            <a href="/account/"><button>impostazioni</button></a>
+            <a href="/logout.php"><button style="border: none">logout</button></a>
         </div>
 
         <div style="border-radius: 0 10px 10px 0; height: 50px; width:50px; position: absolute; top:20px; left: 0; background-color: #f8f8f8; display: inline-block"><img onclick="slide_main_menu()" src="../imgs/menu.svg" style="height: 50px"></div>
