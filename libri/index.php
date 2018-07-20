@@ -42,12 +42,12 @@ $img = avatar($id_avatar);
         -->
         <div id="menu_volante_ordina" class="menu_volante">
             <div>Ordina:</div>
-            <button>Autore A-Z</button>
-            <button>Autore Z-A</button>
-            <button>Titolo A-Z</button>
-            <button>Titolo Z-A</button>
-            <button>Generi</button>
-            <button style="border: none">Libreria</button>
+            <button onclick="ordina(this, 'autoreaz')">Autore A-Z</button>
+            <button onclick="ordina(this, 'autoreza')">Autore Z-A</button>
+            <button onclick="ordina(this, 'titoloaz')">Titolo A-Z</button>
+            <button onclick="ordina(this, 'titoloza')">Titolo Z-A</button>
+            <button >Generi</button>
+            <button onclick="ordina(this, 'libreria')" style="border: none">Libreria</button>
         </div>
         <!--
         |--------------------------------------------------------------|
@@ -76,6 +76,7 @@ $img = avatar($id_avatar);
          --><input id="search_bar" class="menu_input" type="text"></div>
         <br>
 
+        <div id="pillole_libro">
         <?php
 
         $sql = "SELECT * FROM libri WHERE id_utente = '$id_utente'";
@@ -97,6 +98,7 @@ $img = avatar($id_avatar);
           }
         }
         ?>
+        </div>
     </div></div>
 
 <!--

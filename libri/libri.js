@@ -236,6 +236,17 @@ function nuovo_libro(el) {
     chiama_post(a,"libri/php/nuovolibro.php", cb, el, 40);
 }
 
+var pillole_libro = document.getElementById("pillole_libro");
+
+function ordina(el, ordina) {
+    function cb(r) {
+        console.log(r.responseText);
+        pillole_libro.innerHTML = r.responseText;
+        el.parentElement.apri();
+    }
+    chiama_post({ordina: ordina}, "/libri/php/ordina.php", cb, el, 35);
+}
+
 function elimina_libro(id, el) {
     function cb(r) {
         close_info_menu();

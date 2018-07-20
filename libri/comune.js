@@ -116,6 +116,7 @@ function apri_menu_volante(nome) {
 
 function chiama_post(query_diz, file, callback, loading_el, loading_width) {
     if(loading_el) {
+        var loading_inner = loading_el.innerHTML;
         loading_el.innerHTML = "";
         loading_el.appendChild(caricamento_img(loading_width));
     }
@@ -123,6 +124,9 @@ function chiama_post(query_diz, file, callback, loading_el, loading_width) {
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             callback(this);
+            if(loading_el) {
+                loading_el.innerHTML =loading_inner;
+            }
         }
     };
     xhttp.open("POST", file, true);
@@ -135,12 +139,16 @@ function chiama_post(query_diz, file, callback, loading_el, loading_width) {
 }
 function chiama_get(query_diz, file, callback, loading_el, loading_width) {
     if(loading_el) {
+        var loading_inner = loading_el.innerHTML;
         loading_el.innerHTML = "";
         loading_el.appendChild(caricamento_img(loading_width));
     }
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
+            if(loading_el) {
+                loading_el.innerHTML = loading_inner;
+            }
             callback(this);
         }
     };

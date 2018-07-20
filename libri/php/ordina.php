@@ -1,13 +1,12 @@
-<link rel="stylesheet" type="text/css" href="main.css">
-<?php session_start();
+<?php
+session_start();
 error_reporting(-1);
 ini_set('display_errors', 'On');
 
 include $_SERVER['DOCUMENT_ROOT'].'/connection.php';
 
-$uname = $_SESSION['uname'];
 $id_utente = $_SESSION['id_utente'];
-$ordina = 'libreria';//$_POST['ordina'];
+$ordina = $_POST['ordina'];
 
 if ($ordina == 'titoloaz') {
   $sql = "SELECT * FROM libri
@@ -40,6 +39,10 @@ if ($ordina == 'titoloaz') {
 }
 
 $result = mysqli_query($conn, $sql) or trigger_error(mysqli_error($conn));
+
+if(!$result){
+    return;
+}
 
 while($row = mysqli_fetch_assoc($result)){
   echo "

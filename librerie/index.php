@@ -69,7 +69,7 @@ $img = avatar($id_avatar);
             <button style="border-bottom: none" class="account_button">Logout</button>
         </div>
 
-        <h1 style="color: white; margin: 0; line-height: 30px"> La tua biblioteca. </h1>
+        <h1 style="color: white; margin: 0; line-height: 30px"> Le tue librerie. </h1>
 
         <div class="barra_bottoni"><!--
          --><div onclick="slide_new_menu()"><img  src="../imgs/piu.svg"></div><!--
@@ -78,6 +78,7 @@ $img = avatar($id_avatar);
          --><input id="search_bar" class="menu_input" type="text"></div>
          <br>
 
+        <div id="pillole_libro">
          <?php
 
          $sql = "SELECT * FROM libreria WHERE id_utente = '$id_utente'";
@@ -94,6 +95,7 @@ $img = avatar($id_avatar);
            ";
          }
          ?>
+        </div>
 
        </div>
      </div>

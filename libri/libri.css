@@ -588,6 +588,7 @@ a {
     height: 35px;
     width: 150px;
     font-size: 15px;
+    vertical-align: middle;
 }
 
 .menu_volante button:hover{
