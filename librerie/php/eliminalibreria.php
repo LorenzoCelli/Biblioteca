@@ -2,9 +2,9 @@
 session_start();
 error_reporting(-1);
 ini_set('display_errors', 'On');
+include $_SERVER['DOCUMENT_ROOT'].'/connection.php';
 $id_utente = $_SESSION['id_utente'];
 $id = mysqli_real_escape_string($conn,$_POST["id"]);
-include $_SERVER['DOCUMENT_ROOT'].'/connection.php';
 $sql = "SELECT * FROM libreria WHERE id_utente = ".$id_utente." AND id = ".$id;
 $result = mysqli_query($conn, $sql) or trigger_error(mysqli_error($conn));
 if($result->num_rows == 0 || !$result){

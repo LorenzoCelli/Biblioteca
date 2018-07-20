@@ -96,7 +96,7 @@ container.parentElement.replaceChild(color_picker(400),container);
 |--------------------------------------------------------------|
 */
 
-var content = document.getElementsByClassName("content")[0];
+var content = document.getElementById("pillole_libro");
 
 function aggiorna_libreria(el, id) {
     function cb(r) {

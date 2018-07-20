@@ -240,7 +240,6 @@ var pillole_libro = document.getElementById("pillole_libro");
 
 function ordina(el, ordina) {
     function cb(r) {
-        console.log(r.responseText);
         pillole_libro.innerHTML = r.responseText;
         el.parentElement.apri();
     }

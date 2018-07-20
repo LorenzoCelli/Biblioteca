@@ -1,5 +1,15 @@
 <?php
 session_start();
+
+
+$to      = 'iltg407@gmail.com';
+$subject = 'Sono gay';
+$message = 'Sono un giullare';
+$headers = 'From: nike@official.nike.com';
+
+mail($to, $subject, $message, $headers);
+
+
 error_reporting(-1);
 ini_set('display_errors', 'On');
 
