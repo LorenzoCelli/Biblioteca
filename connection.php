@@ -10,3 +10,4 @@ $password = "MyLibrary5%";
 $database = "my_library";
 
 $conn = mysqli_connect($servername, $username, $password, $database) or die ("Connessione non riuscita");
+?>
