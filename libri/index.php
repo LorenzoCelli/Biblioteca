@@ -46,7 +46,7 @@ $img = avatar($id_avatar);
             <button onclick="ordina(this, 'autoreza')">Autore Z-A</button>
             <button onclick="ordina(this, 'titoloaz')">Titolo A-Z</button>
             <button onclick="ordina(this, 'titoloza')">Titolo Z-A</button>
-            <button >Generi</button>
+            <button onclick="ordina(this, 'generi')">Generi</button>
             <button onclick="ordina(this, 'libreria')" style="border: none">Libreria</button>
         </div>
         <!--

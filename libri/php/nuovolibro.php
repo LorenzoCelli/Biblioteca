@@ -7,7 +7,7 @@ session_start();
 $id_utente = $_SESSION['id_utente'];
 include $_SERVER['DOCUMENT_ROOT'].'/connection.php';
 
-$isbn = $_POST["isbn"];
+$isbn = mysqli_real_escape_string($conn,$_POST["isbn"]);
 $titolo = mysqli_real_escape_string($conn, $_POST["titolo"]);
 $autore = mysqli_real_escape_string($conn,$_POST["autore"]);
 $generi = explode(",",mysqli_real_escape_string($conn, $_POST["generi"]));
