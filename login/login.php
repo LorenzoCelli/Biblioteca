@@ -4,9 +4,9 @@ $flagerror = false;
 
 if (isset($_POST['username'])) {
 
-  $uname = $_POST["username"];
+  $uname = mysqli_real_escape_string($conn,$_POST["username"]);
   $_SESSION['uname'] = $uname;
-  $pass = $_POST["password"];
+  $pass = mysqli_real_escape_string($conn,$_POST["password"]);
 
   include $_SERVER['DOCUMENT_ROOT'].'/connection.php';
 

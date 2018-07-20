@@ -5,15 +5,15 @@ ini_set('display_errors', 'On');
 
 include $_SERVER['DOCUMENT_ROOT'].'/connection.php';
 
-$id_utente = $_SESSION['id_utente'];
-$id_libro = $_POST["id"];
-$isbn = $_POST["isbn"];
+$id_utente = mysqli_real_escape_string($conn,$_SESSION['id_utente']);
+$id_libro = mysqli_real_escape_string($conn,$_POST["id"]);
+$isbn = mysqli_real_escape_string($conn,$_POST["isbn"]);
 $generi = explode(",",mysqli_real_escape_string($conn, $_POST["generi"]));
-$titolo = $_POST["titolo"];
-$autore = $_POST["autore"];
-$libreria = $_POST["libreria"];
-$scaffale = $_POST["scaffale"];
-$img_url = $_POST["img_url"];
+$titolo = mysqli_real_escape_string($conn,$_POST["titolo"]);
+$autore = mysqli_real_escape_string($conn,$_POST["autore"]);
+$libreria = mysqli_real_escape_string($conn,$_POST["libreria"]);
+$scaffale = mysqli_real_escape_string($conn,$_POST["scaffale"]);
+$img_url = mysqli_real_escape_string($conn,$_POST["img_url"]);
 $descr = mysqli_real_escape_string($conn,$_POST["descr"]);
 
 $sql = "SELECT id FROM libreria WHERE id_utente = '$id_utente' AND nome = '$libreria'";

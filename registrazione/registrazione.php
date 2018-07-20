@@ -6,10 +6,10 @@ $flag = false;
 if (isset($_POST['username'])) {
 
   $flag = true;
-  $uname = $_POST["username"];
+  $uname = mysqli_real_escape_string($conn,$_POST["username"]);
   $_SESSION['uname'] = $uname;
-  $email = $_POST["email"];
-  $pass = $_POST["password"];
+  $email = mysqli_real_escape_string($conn,$_POST["email"]);
+  $pass = mysqli_real_escape_string($conn,$_POST["password"]);
 
   include '../connection.php';
 

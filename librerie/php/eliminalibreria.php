@@ -3,7 +3,7 @@ session_start();
 error_reporting(-1);
 ini_set('display_errors', 'On');
 $id_utente = $_SESSION['id_utente'];
-$id = $_POST["id"];
+$id = mysqli_real_escape_string($conn,$_POST["id"]);
 include $_SERVER['DOCUMENT_ROOT'].'/connection.php';
 $sql = "SELECT * FROM libreria WHERE id_utente = ".$id_utente." AND id = ".$id;
 $result = mysqli_query($conn, $sql) or trigger_error(mysqli_error($conn));

@@ -2,7 +2,7 @@
 session_start();
 include $_SERVER['DOCUMENT_ROOT'].'/connection.php';
 $id_utente = $_SESSION['id_utente'];
-$ris_cerca = $_GET['ris_cerca'];
+$ris_cerca = mysqli_real_escape_string($conn,$_GET['ris_cerca']);
 $ricerca = "%";
 for ($i=0; $i < strlen($ris_cerca); $i++) {
   $ricerca .= $ris_cerca{$i}."%";

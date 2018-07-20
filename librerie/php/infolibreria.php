@@ -6,7 +6,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/connection.php';
 
 $uname = $_SESSION['uname'];
 $id_utente = $_SESSION['id_utente'];
-$id_libreria = $_GET['id'];
+$id_libreria = mysqli_real_escape_string($conn,$_GET['id']);
 
 $sql = "SELECT * FROM libreria WHERE id_utente = ".$id_utente." AND id = ".$id_libreria;
 $result = mysqli_query($conn, $sql) or trigger_error(mysqli_error($conn));
