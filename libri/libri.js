@@ -246,6 +246,16 @@ function ordina(el, ordina) {
     chiama_post({ordina: ordina}, "/libri/php/ordina.php", cb, el, 35);
 }
 
+search_bar.onkeyup = function (e) {
+    if (e.keyCode == 13) {
+        console.log("ciaoo");
+        function cb(r) {
+            pillole_libro.innerHTML = r.responseText;
+        }
+        chiama_get({ordina: search_bar.value}, "/libri/php/cercalibro.php", cb, document.querySelector("div[onclick=\"slide_search_bar()\"]"), 50);
+    }
+};
+
 function elimina_libro(id, el) {
     function cb(r) {
         close_info_menu();
