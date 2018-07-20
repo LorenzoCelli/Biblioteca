@@ -69,7 +69,7 @@ $img = avatar($id_avatar);
             <button style="border-bottom: none" class="account_button">Logout</button>
         </div>
 
-        <h1 style="color: white"> Le tue librerie. </h1>
+        <h1 style="color: white; margin: 0; line-height: 30px"> La tua biblioteca. </h1>
 
         <div class="barra_bottoni"><!--
          --><div onclick="slide_new_menu()"><img  src="../imgs/piu.svg"></div><!--
