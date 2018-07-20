@@ -42,8 +42,12 @@ $img = avatar($id_avatar);
         -->
         <div id="menu_volante_ordina" class="menu_volante">
             <div>Ordina:</div>
-            <button>dalla a alla z</button>
-            <button style="border: none">dalla z alla a</button>
+            <button>Autore A-Z</button>
+            <button>Autore Z-A</button>
+            <button>Titolo A-Z</button>
+            <button>Titolo Z-A</button>
+            <button>Generi</button>
+            <button style="border: none">Libreria</button>
         </div>
         <!--
         |--------------------------------------------------------------|
@@ -77,26 +81,22 @@ $img = avatar($id_avatar);
         $sql = "SELECT * FROM libri WHERE id_utente = '$id_utente'";
         $result = mysqli_query($conn, $sql);
 
-        while($row = mysqli_fetch_assoc($result)){
-          echo "
-          <div class='pillola_libro' onclick='info_libro(".$row['id'].")'>
-                <div class='immagine_pillola_libro' style='background-image: url(".$row['img_url'].")'></div><!--
-             --><div class='testo_pillola_libro'>
-                    <p class='titolo_pillola_libro'>".$row['titolo']."</p>
-                    ".$row['autore']."
-                </div>
-          </div>
-          ";
+        if ($results->num_rows == 0) {
+          echo "<p>Non hai ancora aggiunto libri alla tua biblioteca, fallo ora!</p>";
+        }else{
+          while($row = mysqli_fetch_assoc($result)){
+            echo "
+            <div class='pillola_libro' onclick='info_libro(".$row['id'].")'>
+            <div class='immagine_pillola_libro' style='background-image: url(".$row['img_url'].")'></div><!--
+            --><div class='testo_pillola_libro'>
+            <p class='titolo_pillola_libro'>".$row['titolo']."</p>
+            ".$row['autore']."
+            </div>
+            </div>
+            ";
+          }
         }
         ?>
-
-        <div class="pillola_libro">
-            <div class="immagine_pillola_libro" style="background-image: url(https://images-na.ssl-images-amazon.com/images/I/51V%2Bb2rUV3L._SX356_BO1,204,203,200_.jpg)"></div><!--
-         --><div class="testo_pillola_libro">
-                <p class="titolo_pillola_libro">La mia casa è dove sono</p>
-                Giovannino
-            </div>
-        </div>
     </div></div>
 
 <!--
