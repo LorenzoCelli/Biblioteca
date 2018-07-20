@@ -1,6 +1,7 @@
 .content{
   text-align: center;
   color: white;
+  padding: 100px 0 0 0;
 }
 #risultato_cambio_avatar{
   display: inline-block;
@@ -46,6 +47,9 @@ h1{
 }
 .scatola_avatar button:hover{
   opacity: 1;
+}
+#avatars{
+  transition: height 500ms;
 }
 #avatars img{
   width: 100px;
