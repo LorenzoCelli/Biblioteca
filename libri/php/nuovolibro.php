@@ -26,14 +26,16 @@ if($result){
     $sql = "SELECT * FROM libreria WHERE id_utente = '$id_utente' AND nome = '$nome_libreria'";
     $result = mysqli_query($conn, $sql) or trigger_error(mysqli_error($conn));
 
-    if($result && $result->num_rows == 1) {
+    if ($nome_libreria != "") {
+      if($result && $result->num_rows == 1) {
         $libr = mysqli_fetch_assoc($result);
         $id_libreria = $libr['id'];
         $sql = "INSERT INTO posizione (id_libro,n_scaffale,id_libreria)
-                VALUES ($last_id,'$scaffale','$id_libreria')";
+        VALUES ($last_id,'$scaffale','$id_libreria')";
         $results = mysqli_query($conn, $sql);
-    }else{
+      }else{
         echo "nuuuuuuuuu";
+      }
     }
 
     for ($i = 0; $i < count($generi); $i++) {
