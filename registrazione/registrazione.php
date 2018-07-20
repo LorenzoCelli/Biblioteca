@@ -5,13 +5,13 @@ $flag = false;
 
 if (isset($_POST['username'])) {
 
+  include $_SERVER['DOCUMENT_ROOT'].'/connection.php';
+
   $flag = true;
   $uname = mysqli_real_escape_string($conn,$_POST["username"]);
   $_SESSION['uname'] = $uname;
   $email = mysqli_real_escape_string($conn,$_POST["email"]);
   $pass = mysqli_real_escape_string($conn,$_POST["password"]);
-
-  include '../connection.php';
 
   $usercheck = mysqli_query($conn, "SELECT * FROM utenti WHERE username = '$uname'")->num_rows;
   $emailcheck = mysqli_query($conn, "SELECT * FROM utenti WHERE email = '$email'")->num_rows;

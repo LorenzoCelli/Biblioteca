@@ -81,7 +81,7 @@ $img = avatar($id_avatar);
         $sql = "SELECT * FROM libri WHERE id_utente = '$id_utente'";
         $result = mysqli_query($conn, $sql);
 
-        if ($results->num_rows == 0) {
+        if ($result->num_rows == 0) {
           echo "<p>Non hai ancora aggiunto libri alla tua biblioteca, fallo ora!</p>";
         }else{
           while($row = mysqli_fetch_assoc($result)){

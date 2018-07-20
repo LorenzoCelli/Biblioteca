@@ -30,7 +30,7 @@ $img = avatar($id_avatar);
 
 <div id="main_container">
     <div id="menu_principe">
-        <a href="/libri/"><button disabled>La mia biblioteca</button></a>
+        <a href="/libri/"><button>La mia biblioteca</button></a>
         <a href="/librerie/"><button>Le mie librerie</button></a>
         <a href="/amici/"><button>I miei amici</button></a>
         <a href=""><button>I miei prestiti</button></a>
@@ -64,12 +64,11 @@ $img = avatar($id_avatar);
 
         <div id="avatars" style="display:none;">
           <h1>Scegli il tuo avatar:</h1>
-          <img src="../imgs/avatars/1.png" alt="1" onclick="change_avatar(this);">
-          <img src="../imgs/avatars/2.png" alt="2" onclick="change_avatar(this);">
-          <img src="../imgs/avatars/3.png" alt="3" onclick="change_avatar(this);">
-          <img src="../imgs/avatars/4.png" alt="4" onclick="change_avatar(this);">
-          <img src="../imgs/avatars/5.png" alt="5" onclick="change_avatar(this);">
-          <img src="../imgs/avatars/6.png" alt="6" onclick="change_avatar(this);">
+          <?php
+          for ($i=1; $i < 7; $i++) {
+            echo "<img src='".avatar($i)."' alt='$i' onclick='change_avatar(this);'>";
+          }
+          ?>
           <br><button onclick="update_avatar();">Salva</button>
         </div>
 

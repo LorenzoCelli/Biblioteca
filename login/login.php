@@ -4,11 +4,11 @@ $flagerror = false;
 
 if (isset($_POST['username'])) {
 
+  include $_SERVER['DOCUMENT_ROOT'].'/connection.php';
+
   $uname = mysqli_real_escape_string($conn,$_POST["username"]);
   $_SESSION['uname'] = $uname;
   $pass = mysqli_real_escape_string($conn,$_POST["password"]);
-
-  include $_SERVER['DOCUMENT_ROOT'].'/connection.php';
 
   $sql = "SELECT * FROM utenti WHERE username = '$uname' AND password = '$pass'";
 

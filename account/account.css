@@ -55,7 +55,7 @@ h1{
   transition: transform 500ms;
 }
 #avatars img:hover{
-  transform: scale(1.2);
+  transform: scale(1.07);
 }
 #avatars button{
   width: 70px;
