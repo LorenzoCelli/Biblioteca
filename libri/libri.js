@@ -7,24 +7,24 @@
 */
 
 var preview_img = document.getElementById("img_aggiungi");
-var img_url = new_menu.querySelector('input[name=img_url]');
-var isbn = new_menu.querySelector('input[name=isbn]');
-var titolo = new_menu.querySelector('input[name=titolo]');
-var autore = new_menu.querySelector('input[name=autore]');
-var descr = new_menu.querySelector('textarea[name=descr]');
+var img_url = menu_aggiungi.querySelector('input[name=img_url]');
+var isbn = menu_aggiungi.querySelector('input[name=isbn]');
+var titolo = menu_aggiungi.querySelector('input[name=titolo]');
+var autore = menu_aggiungi.querySelector('input[name=autore]');
+var descr = menu_aggiungi.querySelector('textarea[name=descr]');
 
 isbn.oninput = function (){
     var l = this.value.toString().length;
     if(l<10 || l>13) return;
-    request_isbn_data(isbn_menu_options, "q=isbn:"+this.value);
+    richiedi_dati(isbn_menu_options, "q=isbn:"+this.value);
 };
 titolo.onblur = function () {
     if(this.value.length < 1) return;
-    request_isbn_data(title_menu_options, "q=intitle:"+this.value);
+    richiedi_dati(title_menu_options, "q=intitle:"+this.value);
 };
 autore.onblur = function () {
     if(this.value.length < 1) return;
-    request_isbn_data(author_menu_options, "q=inauthor:"+this.value);
+    richiedi_dati(author_menu_options, "q=inauthor:"+this.value);
 };
 
 var isbn_menu_options = document.getElementById("isbn_menu_options");
@@ -46,7 +46,7 @@ function defocussers(avoid_name, func){
     }
 }
 
-function request_isbn_data(menu_options, query) {
+function richiedi_dati(menu_options, query) {
     menu_options.innerHTML = "";
     menu_options.appendChild(isbn_menu_option(null,null,null,true));
     var xhttp = new XMLHttpRequest();
@@ -77,7 +77,8 @@ function request_isbn_data(menu_options, query) {
 }
 
 function fill_isbn_data(volumeInfo) {
-    isbn.value = parseInt(volumeInfo.industryIdentifiers[0]["identifier"]);
+    console.log(volumeInfo);
+    isbn.value = parseInt(volumeInfo.industryIdentifiers[1]["identifier"]);
     titolo.value = volumeInfo.title;
     autore.value = authors(volumeInfo);
     if('description' in volumeInfo){
@@ -89,7 +90,8 @@ function fill_isbn_data(volumeInfo) {
         preview_img.style.backgroundImage = "url('" + volumeInfo.imageLinks.thumbnail + "')";
         img_url.value = volumeInfo.imageLinks.thumbnail;
     }else{
-        preview_img.style.backgroundImage = "url('')";
+        preview_img.style.backgroundImage = "url('/imgs/librosconosciuto.svg')";
+        img_url.value = '/imgs/librosconosciuto.svg';
     }
     if('categories' in volumeInfo) {
         generi.innerHTML = '<div class="pillola_genere" contenteditable="true"><img onclick="nuovo_genere(this)" src="../imgs/piu_pillola.svg"></div>';
@@ -110,9 +112,9 @@ function authors(volumeInfo) {
     return authors;
 }
 
-function isbn_menu_option(titolo, autore, volumeInfo,l){ // <div class="opzione_scatola_aggiungi"><b>Giovanninoioino</b> autore tuo padre</div>
+function isbn_menu_option(titolo, autore, volumeInfo,l){ // <div class="suggerimento"><b>Giovanninoioino</b> autore tuo padre</div>
     var div = document.createElement("DIV");
-    div.className = "isbn_menu_option";
+    div.className = "suggerimento";
     if(l){
         div.appendChild(caricamento_img(40));
     }else{
@@ -125,7 +127,7 @@ function isbn_menu_option(titolo, autore, volumeInfo,l){ // <div class="opzione_
 
 function isbn_hide_option(){
     var div = document.createElement("DIV");
-    div.className = "isbn_menu_option";
+    div.className = "suggerimento";
     div.style.fontStyle = "italic";
     div.style.height = "30px";
     div.style.padding = "0";
@@ -133,6 +135,11 @@ function isbn_hide_option(){
     div.onclick = function () { this.parentElement.innerHTML = "" };
     return div;
 }
+
+img_url.onchange  = function () {
+    preview_img.style.backgroundImage = "url("+img_url.value+")";
+};
+img_url.oninput = img_url.onchange;
 
 /*
 |--------------------------------------------------------------|
@@ -143,15 +150,15 @@ function isbn_hide_option(){
 */
 
 function info_libro(id) {
-    info_menu.style.transform = "translateX(-500px)";
+    menu_info.style.transform = "translateX(-500px)";
     function cb (r) {
-        info_menu.innerHTML = r.responseText;
+        menu_info.innerHTML = r.responseText;
     }
-    chiama_get({id : id}, "/libri/php/infolibro.php", cb, info_menu, 120);
+    chiama_get({id : id}, "/libri/php/infolibro.php", cb, menu_info, 120);
 }
 
 function modifica_libro(id_libro) {
-    var edit = info_menu.getElementsByClassName("testo_scatola_info");
+    var edit = menu_info.getElementsByClassName("testo_scatola_info");
     while (edit.length) {
         var input = document.createElement("INPUT");
         var tt = edit[0].parentElement.getElementsByClassName("nome_scatola_info")[0];
@@ -181,18 +188,32 @@ function modifica_libro(id_libro) {
         }
         edit[0].parentElement.replaceChild(input, edit[0]);
         if (tt.innerText === "scaffale"){
-            info_menu.querySelector('select[name=libreria]').onchange();
+            menu_info.querySelector('select[name=libreria]').onchange();
             input.value = value;
         }
     }
     var salva = document.createElement("BUTTON");
     salva.innerText = "salva modifiche";
     salva.onclick = function () { aggiorna_libro(id_libro, this) };
-    info_menu.appendChild(salva);
+    menu_info.appendChild(salva);
     var annulla = document.createElement("BUTTON");
     annulla.innerText = "annulla modifiche";
     annulla.onclick = function () { info_libro(id_libro) };
-    info_menu.appendChild(annulla);
+    menu_info.appendChild(annulla);
+}
+
+function azzera_menu_aggiungi() {
+    document.getElementById("finestra_scan").innerHTML = "";
+    document.getElementById("img_aggiungi").style.backgroundImage = "url('/imgs/librosconosciuto.svg')";
+    var inputs = menu_aggiungi.getElementsByTagName("input");
+    for(var i = 0; i<inputs.length; i++){
+        inputs[i].value = "";
+    }
+    menu_aggiungi.getElementsByTagName("textarea")[0].value = "";
+    menu_aggiungi.querySelector("select[name=nome_libreria]").value = "nessuna";
+    menu_aggiungi.querySelector("select[name=scaffale]").value = 0;
+    generi.innerHTML = '<div class="pillola_genere" contenteditable="true"><img onclick="nuovo_genere(this)" src="../imgs/piu_pillola.svg"></div>';
+    Quagga.stop();
 }
 
 function aggiorna_libro(id, el) {
@@ -200,17 +221,17 @@ function aggiorna_libro(id, el) {
         info_libro(id);
         document.querySelector('.pillola_libro[onclick="info_libro(' + id + ')"]').innerHTML = r.responseText;
     }
-    var scatole_generi = info_menu.querySelectorAll('.pillola_genere[contenteditable=false]');
+    var scatole_generi = menu_info.querySelectorAll('.pillola_genere[contenteditable=false]');
     var gi = trova_generi(scatole_generi);
     var a = {
         id : id,
-        titolo : info_menu.querySelector('input[name=titolo]').value,
-        autore : info_menu.querySelector('input[name=autore]').value,
-        isbn : info_menu.querySelector('input[name=isbn]').value,
-        descr : info_menu.querySelector('textarea[name=descrizione]').value,
-        libreria : info_menu.querySelector('select[name=libreria]').value,
-        scaffale : info_menu.querySelector('select[name=scaffale]').value,
-        img_url : encodeURIComponent(info_menu.querySelector('input[name=img_url]').value),
+        titolo : menu_info.querySelector('input[name=titolo]').value,
+        autore : menu_info.querySelector('input[name=autore]').value,
+        isbn : menu_info.querySelector('input[name=isbn]').value,
+        descr : menu_info.querySelector('textarea[name=descrizione]').value,
+        libreria : menu_info.querySelector('select[name=libreria]').value,
+        scaffale : menu_info.querySelector('select[name=scaffale]').value,
+        img_url : encodeURIComponent(menu_info.querySelector('input[name=img_url]').value),
         generi : gi
     };
     chiama_post(a,"/libri/php/aggiornalibro.php", cb, el, 40);
@@ -218,22 +239,22 @@ function aggiorna_libro(id, el) {
 
 function nuovo_libro(el) {
     function cb(r) {
-        slide_new_menu();
-        new_menu.innerHTML = r.responseText;
+        chiama_menu_aggiungi();
+        menu_aggiungi.innerHTML = r.responseText;
     }
-    var scatole_generi = new_menu.querySelectorAll('.pillola_genere[contenteditable=false]');
+    var scatole_generi = menu_aggiungi.querySelectorAll('.pillola_genere[contenteditable=false]');
     var generi = trova_generi(scatole_generi);
     var a  = {
-        titolo : new_menu.querySelector('input[name=titolo]').value,
-        autore : new_menu.querySelector('input[name=autore]').value,
-        isbn : new_menu.querySelector('input[name=isbn]').value,
-        descr : new_menu.querySelector('textarea[name=descr]').value,
-        nome_libreria : new_menu.querySelector('select[name=nome_libreria]').value,
-        scaffale : new_menu.querySelector('select[name=scaffale]').value,
-        img_url : encodeURIComponent(new_menu.querySelector('input[name=img_url]').value),
+        titolo : menu_aggiungi.querySelector('input[name=titolo]').value,
+        autore : menu_aggiungi.querySelector('input[name=autore]').value,
+        isbn : menu_aggiungi.querySelector('input[name=isbn]').value,
+        descr : menu_aggiungi.querySelector('textarea[name=descr]').value,
+        nome_libreria : menu_aggiungi.querySelector('select[name=nome_libreria]').value,
+        scaffale : menu_aggiungi.querySelector('select[name=scaffale]').value,
+        img_url : encodeURIComponent(menu_aggiungi.querySelector('input[name=img_url]').value),
         generi : generi
     };
-    chiama_post(a,"libri/php/nuovolibro.php", cb, el, 40);
+    chiama_post(a,"/libri/php/nuovolibro.php", cb, el, 40);
 }
 
 var pillole_libro = document.getElementById("pillole_libro");
@@ -246,20 +267,20 @@ function ordina(el, ordina) {
     chiama_post({ordina: ordina}, "/libri/php/ordina.php", cb, el, 35);
 }
 
-search_bar.onkeyup = function (e) {
+barra_ricerca.onkeyup = function (e) {
     if (e.keyCode == 13) {
         console.log("ciaoo");
         function cb(r) {
             pillole_libro.innerHTML = r.responseText;
         }
-        chiama_get({ordina: search_bar.value}, "/libri/php/cercalibro.php", cb, document.querySelector("div[onclick=\"slide_search_bar()\"]"), 50);
+        chiama_get({ordina: barra_ricerca.value}, "/libri/php/cercalibro.php", cb, document.querySelector("div[onclick=\"slide_search_bar()\"]"), 50);
     }
 };
 
 function elimina_libro(id, el) {
     function cb(r) {
         close_info_menu();
-        info_menu.innerHTML = r.responseText;
+        menu_info.innerHTML = r.responseText;
         if (r.responseText === "libro eliminato") {
             var e = document.querySelector('.pillola_libro[onclick="info_libro(' + id + ')"]');
             e.parentNode.removeChild(e);
@@ -288,7 +309,7 @@ function librerie_select() {
         option.textContent = prop;
         selectBox.add(option);
     }
-    selectBox.onchange = function () { scaffali(this, info_menu.querySelector('select[name=scaffale]')); };
+    selectBox.onchange = function () { scaffali(this, menu_info.querySelector('select[name=scaffale]')); };
     return selectBox;
 }
 
@@ -379,6 +400,7 @@ function mostra_scanner() {
         Quagga.start();
     });
 }
+
 Quagga.onProcessed(function(result) {
     var drawingCtx = Quagga.canvas.ctx.overlay,
         drawingCanvas = Quagga.canvas.dom.overlay;

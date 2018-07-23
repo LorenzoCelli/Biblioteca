@@ -57,7 +57,7 @@ $img = avatar($id_avatar);
             <button onclick="window.location.href='/logout.php'" style="border: none">logout</button>
         </div>
 
-        <div style="border-radius: 0 10px 10px 0; height: 50px; width:50px; position: absolute; top:20px; left: 0; background-color: #f8f8f8; display: inline-block"><img onclick="slide_main_menu()" src="../imgs/menu.svg" style="height: 50px"></div>
+        <div style="border-radius: 0 10px 10px 0; height: 50px; width:50px; position: absolute; top:20px; left: 0; background-color: #f8f8f8; display: inline-block"><img onclick="chiama_menu_principe()" src="../imgs/menu.svg" style="height: 50px"></div>
 
         <div onclick="apri_menu_volante('account')" class="scatola_account">
             <p><?php echo $uname;?></p>
@@ -72,7 +72,7 @@ $img = avatar($id_avatar);
         <h1 style="color: white; margin: 0; line-height: 30px"> Le tue librerie. </h1>
 
         <div class="barra_bottoni"><!--
-         --><div onclick="slide_new_menu()"><img  src="../imgs/piu.svg"></div><!--
+         --><div onclick="chiama_menu_aggiungi()"><img src="../imgs/piu.svg"></div><!--
          --><div onclick="apri_menu_volante('ordina')"><img  src="../imgs/ordina.svg"></div><!--
          --><div onclick="slide_search_bar()" ><img src="../imgs/lente.svg"></div><!--
          --><input id="search_bar" class="menu_input" type="text"></div>

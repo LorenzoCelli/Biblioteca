@@ -60,7 +60,7 @@ $img = avatar($id_avatar);
             <button onclick="window.location.href='/logout.php'" style="border: none">logout</button>
         </div>
 
-        <div style="border-radius: 0 10px 10px 0; height: 50px; width:50px; position: absolute; top:20px; left: 0; background-color: #f8f8f8; display: inline-block"><img onclick="slide_main_menu()" src="../imgs/menu.svg" style="height: 50px"></div>
+        <div style="border-radius: 0 10px 10px 0; height: 50px; width:50px; position: absolute; top:20px; left: 0; background-color: #f8f8f8; display: inline-block"><img onclick="chiama_menu_principe()" src="../imgs/menu.svg" style="height: 50px"></div>
 
         <div onclick="apri_menu_volante('account')" class="scatola_account">
           <p><?php echo $uname;?></p>
@@ -70,7 +70,7 @@ $img = avatar($id_avatar);
         <h1 style="color: white; margin: 0; line-height: 30px"> La tua biblioteca. </h1>
 
         <div class="barra_bottoni"><!--
-         --><div onclick="slide_new_menu()"><img src="../imgs/piu.svg"></div><!--
+         --><div onclick="chiama_menu_aggiungi()"><img src="../imgs/piu.svg"></div><!--
          --><div onclick="apri_menu_volante('ordina')"><img src="../imgs/ordina.svg"></div><!--
          --><div onclick="slide_search_bar()"><img src="../imgs/lente.svg"></div><!--
          --><input id="search_bar" class="menu_input" type="text"></div>
@@ -110,19 +110,19 @@ $img = avatar($id_avatar);
 -->
 
 <div id="menu_aggiungi" style="left: 100%">
-        <div id="img_aggiungi" class="immagine_pillola_libro"></div>
+        <div id="img_aggiungi" style="background-image: url('/imgs/librosconosciuto.svg')" class="immagine_pillola_libro"></div>
         <h1>Nuovo libro</h1>
 
-        <div class="scatola_aggiungi"><!--
+        <div class="scatola_suggerimenti"><!--
          --><div id="finestra_scan"></div><!--
          --><div class="input_con_immagine"><input type="text" placeholder="ISBN" name="isbn"><img onclick="mostra_scanner()" src="/imgs/foto.svg"></div><!--
          --><div id="isbn_menu_options"></div></div>
 
-        <div class="scatola_aggiungi"><!--
+        <div class="scatola_suggerimenti"><!--
          --><input type="text" placeholder="Titolo" name="titolo" required><!--
          --><div id="title_menu_options"></div></div>
 
-        <div class="scatola_aggiungi"><!--
+        <div class="scatola_suggerimenti"><!--
          --><input type="text" placeholder="Autore" name="autore" required><!--
          --><div id="author_menu_options"></div></div>
 
@@ -134,7 +134,7 @@ $img = avatar($id_avatar);
         <h2>Dove si trova?</h2>
         Libreria:
         <select name="nome_libreria" onchange="scaffali(this, this.parentElement.querySelector('select[name=scaffale]'))">
-            <option value="">Nessuna</option>
+            <option value="nessuna">Nessuna</option>
             <?php
             $sql = "SELECT * FROM libreria WHERE id_utente = '$id_utente'";
             $result = mysqli_query($conn, $sql);
@@ -163,7 +163,7 @@ $img = avatar($id_avatar);
             <option></option>
         </select>
         <button onclick="nuovo_libro(this)">aggiungi</button>
-        <input type="reset" value="annulla" onclick="slide_new_menu()">
+        <button onclick="azzera_menu_aggiungi()">annulla</button>
 </div>
 
 <!--

@@ -206,20 +206,20 @@ textarea {
     background-color: white
 }
 
-.scatola_aggiungi{
+.scatola_suggerimenti{
     border-radius: 10px;
     border: 1px solid #cbcbcb;
     overflow: hidden;
     margin-bottom: 5px;
 }
 
-.scatola_aggiungi input{
+.scatola_suggerimenti input{
     margin: 0;
     border: none;
     border-radius: 0;
 }
 
-.opzione_scatola_aggiungi{
+.suggerimento{
     cursor: pointer;
     white-space: nowrap;
     font-family: open_sans_light, sans-serif;
@@ -230,10 +230,10 @@ textarea {
     overflow: hidden;
     width: 100%;
 }
-.opzione_scatola_aggiungi:hover{
+.suggerimento:hover{
     background-color: white;
 }
-.opzione_scatola_aggiungi b{
+.suggerimento b{
     font-family: open_sans_regular, sans-serif;
 }
 .pillola_genere{
@@ -344,6 +344,7 @@ a {
     padding: 0;
     transition: width 500ms;
     box-sizing: border-box;
+    text-indent: 20px;
 }
 
 .content .barra_bottoni{

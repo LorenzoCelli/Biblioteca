@@ -37,7 +37,7 @@ $img = avatar($id_avatar);
     </div><!--
  --><div class="content">
 
-        <div style="border-radius: 0 10px 10px 0; height: 50px; width:50px; position: absolute; top:20px; left: 0; background-color: #f8f8f8; display: inline-block"><img onclick="slide_main_menu()" src="../imgs/menu.svg" style="height: 50px"></div>
+        <div style="border-radius: 0 10px 10px 0; height: 50px; width:50px; position: absolute; top:20px; left: 0; background-color: #f8f8f8; display: inline-block"><img onclick="chiama_menu_principe()" src="../imgs/menu.svg" style="height: 50px"></div>
 
         <!--
         |--------------------------------------------------------------|
@@ -65,7 +65,7 @@ $img = avatar($id_avatar);
         <div id="avatars" style="display:none;">
           <h1>Scegli il tuo avatar:</h1>
           <?php
-          for ($i=1; $i < 7; $i++) {
+          for ($i=1; $i < 8; $i++) {
             echo "<img src='".avatar($i)."' alt='$i' onclick='change_avatar(this);'>";
           }
           ?>

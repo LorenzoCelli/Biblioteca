@@ -55,14 +55,14 @@ function nuovi_scaffali() {
   contatoreScaffali = count;
 }
 function reset_new_book() {
-    new_menu.querySelector('input[name=nome]').value = "";
-    new_menu.querySelector('input[name=descr]').value = "";
-    new_menu.querySelector('input[name=n_scaffali]').value = 1;
+    menu_aggiungi.querySelector('input[name=nome]').value = "";
+    menu_aggiungi.querySelector('input[name=descr]').value = "";
+    menu_aggiungi.querySelector('input[name=n_scaffali]').value = 1;
     box_scaffali.innerHTML = "";
-    slide_new_menu()
+    chiama_menu_aggiungi()
 }
 function modifica_libreria() {
-    var info_boxes = info_menu.getElementsByClassName("scatola_info");
+    var info_boxes = menu_info.getElementsByClassName("scatola_info");
     console.log(info_boxes);
     for(var i=0; i<info_boxes.length; i++){
         var info_box = info_boxes[i];
@@ -81,8 +81,8 @@ function modifica_libreria() {
         info_box.replaceChild(input, info_p);
         info_tooltip.style.display = "block";
     }
-    info_menu.getElementsByClassName("to_hide")[0].style.display = "none";
-    info_menu.getElementsByClassName("to_show")[0].style.display = "block";
+    menu_info.getElementsByClassName("to_hide")[0].style.display = "none";
+    menu_info.getElementsByClassName("to_show")[0].style.display = "block";
 }
 
 var container = document.getElementsByClassName("box_colorpicker")[0];
@@ -108,10 +108,10 @@ function aggiorna_libreria(el, id) {
     }
     a = {
         id : id,
-        titolo : info_menu.querySelector("input[name = titolo]").value,
-        descr : info_menu.querySelector("input[name = descrizione]").value,
-        colore : info_menu.querySelector(".box_colorpicker div").style.backgroundColor,
-        n_scaffali : info_menu.querySelector("input[name = 'numero scaffali']").value
+        titolo : menu_info.querySelector("input[name = titolo]").value,
+        descr : menu_info.querySelector("input[name = descrizione]").value,
+        colore : menu_info.querySelector(".box_colorpicker div").style.backgroundColor,
+        n_scaffali : menu_info.querySelector("input[name = 'numero scaffali']").value
     };
     chiama_post(a, "/librerie/php/aggiornalibreria.php", cb, el, 40);
 }
@@ -131,11 +131,11 @@ function fill_info_book2(id_libro) {
 }
 
 function info_libreria(id) {
-    info_menu.style.transform = "translateX(-500px)";
+    menu_info.style.transform = "translateX(-500px)";
     function cb(r) {
-        info_menu.innerHTML = r.responseText;
+        menu_info.innerHTML = r.responseText;
     }
-    chiama_get({id:id},"/librerie/php/infolibreria.php",cb,info_menu,120);
+    chiama_get({id:id},"/librerie/php/infolibreria.php",cb,menu_info,120);
 }
 
 function elimina_libreria(el, id) {
@@ -159,10 +159,10 @@ function nuova_libreria(el) {
         reset_new_book();
     }
     var a = {
-        nome : new_menu.querySelector('input[name=nome]').value,
-        descr : new_menu.querySelector('input[name=descr]').value,
-        scaffali : new_menu.querySelector('input[name=n_scaffali]').value,
-        colore : new_menu.querySelector(".box_colorpicker div").style.backgroundColor
+        nome : menu_aggiungi.querySelector('input[name=nome]').value,
+        descr : menu_aggiungi.querySelector('input[name=descr]').value,
+        scaffali : menu_aggiungi.querySelector('input[name=n_scaffali]').value,
+        colore : menu_aggiungi.querySelector(".box_colorpicker div").style.backgroundColor
     };
     chiama_post(a, "/librerie/php/nuovalibreria.php", cb, el, 40);
 }

@@ -134,7 +134,7 @@ while($row = mysqli_fetch_assoc($result)){
 
 for($i=0; $i<count($titoli); $i++){
     $row = $titoli[$i][0];
-    if($titoli[$i][0] < 1) continue;
+    if($titoli[$i][1] < 1) continue;
     echo "
         <div class='pillola_libro' onclick='info_libro(".$row['id'].")'>
         <div class='immagine_pillola_libro' style='background-image: url(".$row['img_url'].")'></div><!--
