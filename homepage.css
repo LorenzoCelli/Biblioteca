@@ -28,6 +28,10 @@ button {
   padding: 150px 0;
   position: relative;
 }
+#thirdBlock {
+  padding: 0px 25px 65px 0px;
+  box-sizing: border-box;
+}
 .header {
   width: 100%;
   height: auto;
@@ -94,6 +98,22 @@ button {
 .secondBlockContentFirst {
   font-size: 40px;
   margin-top: 0px;
+}
+.thirdBlockContent {
+  display: inline-block;
+vertical-align: top;
+padding-top: 100px;
+padding-left: 200px;
+}
+.thirdBlockContentFirst {
+  font-size: 55px;
+  color: white;
+  margin-bottom: 0px;
+}
+.thirdBlockContentSecond {
+  font-size: 25px;
+  color: #66ccff;
+  font-style: italic;
 }
 .fourthBlockContent {
   width: 100%;
@@ -206,8 +226,36 @@ button {
 #trattoImageRight {
   height: 120px;
 }
+#astromano {
+    width: 200px;
+    margin-top: 110px;
+    position: absolute;
+}
+#astronauta {
+  margin-left: 200px;
+  width: 350px;
+  text-align: center;
+  will-change: transform;
+  -webkit-animation: mymove 1.2s 1.2s alternate ease-in-out infinite; /* Safari 4.0 - 8.0 */
+  animation: mymove 1.2s 1.2s alternate ease-in-out infinite;
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes mymove {
+    from {transform: translateY(-8px);}
+    to {transform: translateY(8px);}
+}
+
+/* Standard */
+@keyframes mymove {
+    from {transform: translateY(-8px);}
+    to {transform: translateY(8px);}
+}
 @media screen and (max-width: 1120px) {
   #sixthBlock {
+    text-align: center;
+  }
+  #thirdBlock {
     text-align: center;
   }
   #userImage {
@@ -221,6 +269,19 @@ button {
   }
   #trattoImageRight {
     width: 4.2%;
+  }
+  #astromano {
+    display: none;
+  }
+  #astronauta {
+    margin: 0;
+  }
+  .thirdBlockContent {
+    display: block;
+    padding: 5px;
+  }
+  .thirdBlockContentFirst {
+    font-size: 40px;
   }
   .sixthBlockLibri {
     padding-left: 0px;
@@ -307,6 +368,9 @@ button {
     transform: rotate(32deg);
     width: 7.2%;
   }
+  #astronauta {
+    width: 300px;
+  }
   .firstBlockRegisterButton button {
     width: 300px;
     font-size: 23px;
@@ -339,6 +403,12 @@ button {
   }
   .secondBlockImg {
     margin-top: 80px;
+  }
+  .thirdBlockContentFirst {
+    font-size: 30px;
+  }
+  .thirdBlockContentSecond {
+    font-size: 20px;
   }
   .fourthBlockImg {
     margin-top: 70px;
@@ -413,6 +483,9 @@ button {
   #sixthBlock {
     padding: 24% 0;
   }
+  #astronauta {
+    width: 80%;
+  }
   .firstBlockRegisterButton button {
     width: 50%;
     font-size: 6vw;
@@ -429,6 +502,12 @@ button {
   }
   .secondBlockContentFirst{
     font-size: 6.5vw;
+  }
+  .thirdBlockContentFirst {
+    font-size: 6.5vw;
+  }
+  .thirdBlockContentSecond {
+    font-size: 5vw;
   }
   .fourthBlockContentFirst {
     font-size: 6.5vw;
@@ -455,7 +534,7 @@ button {
     padding-bottom: 5%;
   }
   .sixthContentFirst {
-    font-size: 6vw;
+    font-size: 6.5vw;
   }
   .sixthContentSecond {
     font-size: 4vw;
