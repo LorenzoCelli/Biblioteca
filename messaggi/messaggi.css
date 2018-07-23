@@ -1,0 +1,63 @@
+.content{
+  color: white;
+  padding: 0 0 0 0;
+  box-sizing: border-box;
+}
+.scatola_account p{
+  color: black;
+}
+.scatola_contatti{
+  box-sizing: border-box;
+  background-color: inherit;
+  display: inline-block;
+  vertical-align: top;
+  width: 15%;
+  height: 100%;
+  padding: 100px 30px;
+}
+.scatola_chat{
+  box-sizing: border-box;
+  background-color: #f8f8f8;
+  background-image: url("/imgs/whatsapp.jpg");
+  background-position: center;
+  background-size: cover;
+  display: inline-block;
+  vertical-align: top;
+  overflow: auto;
+  width: 85%;
+  height: 100%;
+}
+.scatola_chat h1{
+  background-color: #f8f8f8;
+  color: black;
+  padding: 30px;
+}
+.scatola_chat footer{
+  box-sizing: border-box;
+  background-color: #f8f8f8;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  border-top: 1px solid #3a3a3a;
+  padding: 20px 30px;
+}
+.scatola_chat footer textarea{
+  display: inline-block;
+  vertical-align: top;
+  resize: none;
+  min-width: inherit;
+  width: 77%;
+  height: 75px;
+  padding: 13px;
+}
+.scatola_chat footer button{
+  display: inline-block;
+  vertical-align: top;
+  width: 75px;
+  height: 75px;
+  padding: 10px;
+  cursor: pointer;
+}
+.scatola_chat footer button:hover{
+  background-color: #cbcbcb;
+}
