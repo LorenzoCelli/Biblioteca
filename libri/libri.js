@@ -46,38 +46,37 @@ function defocussers(avoid_name, func){
     }
 }
 
-function richiedi_dati(menu_options, query) {
-    menu_options.innerHTML = "";
-    menu_options.appendChild(isbn_menu_option(null,null,null,true));
+function richiedi_dati(menu_suggerimenti, query) {
+    menu_suggerimenti.innerHTML = "";
+    menu_suggerimenti.appendChild(suggerimento(null,null,null,true));
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            menu_options.innerHTML = "";
+            menu_suggerimenti.innerHTML = "";
             var r = JSON.parse(this.response);
             if(!r.items){
                 console.log("nothing found"); return;
             }
             if (r.totalItems == 1){
-                fill_isbn_data(r.items[0].volumeInfo)
+                riempi_dati(r.items[0].volumeInfo)
             }else{
                 var items = r.items;
-                menu_options.appendChild(isbn_hide_option());
+                menu_suggerimenti.appendChild(suggerimento_nascondi());
                 for(var i = 0; i< items.length; i++){
                     var titolo = items[i].volumeInfo.title;
                     var autore = authors(items[i].volumeInfo);
-                    menu_options.appendChild(isbn_menu_option(titolo, autore, items[i].volumeInfo));
+                    menu_suggerimenti.appendChild(suggerimento(titolo, autore, items[i].volumeInfo));
                 }
             }
         }else{
-            menu_options.innerHTML = "";
+            menu_suggerimenti.innerHTML = "";
         }
     };
     xhttp.open("GET", "https://www.googleapis.com/books/v1/volumes?"+query, true);
     xhttp.send();
 }
 
-function fill_isbn_data(volumeInfo) {
-    console.log(volumeInfo);
+function riempi_dati(volumeInfo) {
     isbn.value = parseInt(volumeInfo.industryIdentifiers[1]["identifier"]);
     titolo.value = volumeInfo.title;
     autore.value = authors(volumeInfo);
@@ -87,11 +86,11 @@ function fill_isbn_data(volumeInfo) {
         descr.value = "";
     }
     if('imageLinks' in volumeInfo) {
-        preview_img.style.backgroundImage = "url('" + volumeInfo.imageLinks.thumbnail + "')";
         img_url.value = volumeInfo.imageLinks.thumbnail;
+        img_url.onchange();
     }else{
-        preview_img.style.backgroundImage = "url('/imgs/librosconosciuto.svg')";
-        img_url.value = '/imgs/librosconosciuto.svg';
+        img_url.value = '';
+        img_url.onchange();
     }
     if('categories' in volumeInfo) {
         generi.innerHTML = '<div class="pillola_genere" contenteditable="true"><img onclick="nuovo_genere(this)" src="../imgs/piu_pillola.svg"></div>';
@@ -103,7 +102,6 @@ function fill_isbn_data(volumeInfo) {
 
 function authors(volumeInfo) {
     if(!("authors" in volumeInfo)) return "";
-    console.log(volumeInfo);
     var authors = "";
     for (var i = 0; i < volumeInfo.authors.length; i++) {
         authors += volumeInfo.authors[i];
@@ -112,7 +110,7 @@ function authors(volumeInfo) {
     return authors;
 }
 
-function isbn_menu_option(titolo, autore, volumeInfo,l){ // <div class="suggerimento"><b>Giovanninoioino</b> autore tuo padre</div>
+function suggerimento(titolo, autore, volumeInfo, l){
     var div = document.createElement("DIV");
     div.className = "suggerimento";
     if(l){
@@ -120,12 +118,12 @@ function isbn_menu_option(titolo, autore, volumeInfo,l){ // <div class="suggerim
     }else{
         div.innerHTML = "<b>"+titolo+"</b> "+autore;
         div.vi = volumeInfo;
-        div.onclick = function () { this.parentElement.innerHTML = ""; fill_isbn_data(this.vi) };
+        div.onclick = function () { this.parentElement.innerHTML = ""; riempi_dati(this.vi) };
     }
     return div;
 }
 
-function isbn_hide_option(){
+function suggerimento_nascondi(){
     var div = document.createElement("DIV");
     div.className = "suggerimento";
     div.style.fontStyle = "italic";
@@ -137,9 +135,14 @@ function isbn_hide_option(){
 }
 
 img_url.onchange  = function () {
-    preview_img.style.backgroundImage = "url("+img_url.value+")";
+    preview_img.imposta(this.value);
 };
 img_url.oninput = img_url.onchange;
+
+preview_img.imposta = function (url) {
+    if(url === "") url = "/imgs/librosconosciuto.svg";
+    this.style.backgroundImage = "url("+url+")";
+};
 
 /*
 |--------------------------------------------------------------|

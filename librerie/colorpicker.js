@@ -10,6 +10,7 @@ var colori =[
 function color_picker(translation) {
     var container = document.createElement("DIV");
     var pointer = document.createElement("DIV");
+    pointer.style.backgroundColor = "rgb(255,0,255)";
     var img = document.createElement("IMG");
     container.className = "box_colorpicker";
     img.src = "../imgs/line.png";

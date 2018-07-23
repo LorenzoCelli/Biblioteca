@@ -14,8 +14,12 @@
 }
 
 /*
-Color picker
- */
+|--------------------------------------------------------------|
+|                                                              |
+|  Color picker                                                |
+|                                                              |
+|--------------------------------------------------------------|
+*/
 
 .box_colorpicker{
     position: relative;
@@ -40,17 +44,20 @@ Color picker
     position: absolute;
     display: inline-block;
     height: 100%;
-    width: 40px;
+    width: 20px;
     border-radius: 10px;
-    border: 5px solid #f8f8f8;
-    background-color: #ff00ff;
+    border: 3px solid #f8f8f8;
     top:0;
-    left: 20px;
+    left: 30px;
     box-sizing: border-box;
 }
 
 /*
-Scaffali
+|--------------------------------------------------------------|
+|                                                              |
+|  Scaffali                                                    |
+|                                                              |
+|--------------------------------------------------------------|
 */
 
 .primo_scaffale{

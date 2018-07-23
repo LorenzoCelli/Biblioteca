@@ -19,6 +19,8 @@ $img = avatar($id_avatar);
 </head>
 <body>
 
+
+
 <!--
 |--------------------------------------------------------------|
 |                                                              |
@@ -110,6 +112,7 @@ $img = avatar($id_avatar);
 -->
 
 <div id="menu_aggiungi" style="left: 100%">
+
         <div id="img_aggiungi" style="background-image: url('/imgs/librosconosciuto.svg')" class="immagine_pillola_libro"></div>
         <h1>Nuovo libro</h1>
 
@@ -176,6 +179,7 @@ $img = avatar($id_avatar);
 
 <div id="menu_info" style="left: 100%">
 </div>
+
 
 <script src="/quaggaJS/quagga.js"></script>
 <script src="/libri/comune.js"></script>

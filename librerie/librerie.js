@@ -96,14 +96,14 @@ container.parentElement.replaceChild(color_picker(400),container);
 |--------------------------------------------------------------|
 */
 
-var content = document.getElementById("pillole_libro");
+var pillole_libro = document.getElementById("pillole_libro");
 
 function aggiorna_libreria(el, id) {
     function cb(r) {
         close_info_menu();
         var result = JSON.parse(r.responseText);
         if(result["success"]){
-            content.querySelector('.pillola_libro[onclick="info_libreria(' + id + ')"]').innerHTML = result["content"];
+            pillole_libro.querySelector('.pillola_libro[onclick="info_libreria(' + id + ')"]').innerHTML = result["pillole_libro"];
         }
     }
     a = {
@@ -143,7 +143,7 @@ function elimina_libreria(el, id) {
         close_info_menu();
         console.log(r.responseText);
         if (r.responseText === "libreria eliminata") {
-            var e = content.querySelector('.pillola_libro[onclick="info_libreria(' + id + ')"]');
+            var e = pillole_libro.querySelector('.pillola_libro[onclick="info_libreria(' + id + ')"]');
             e.parentNode.removeChild(e);
         }
     };
@@ -155,7 +155,7 @@ function nuova_libreria(el) {
         var div = document.createElement("DIV");
         div.innerHTML = r.responseText;
         console.log(r.responseText);
-        content.insertBefore(div.getElementsByTagName("DIV")[0], content.getElementsByClassName("pillola_libro")[0]);
+        pillole_libro.insertBefore(div.getElementsByTagName("DIV")[0], pillole_libro.getElementsByClassName("pillola_libro")[0]);
         reset_new_book();
     }
     var a = {
@@ -165,5 +165,13 @@ function nuova_libreria(el) {
         colore : menu_aggiungi.querySelector(".box_colorpicker div").style.backgroundColor
     };
     chiama_post(a, "/librerie/php/nuovalibreria.php", cb, el, 40);
+}
+
+function ordina(el, ordina) {
+    function cb(r) {
+        pillole_libro.innerHTML = r.responseText;
+        el.parentElement.apri();
+    }
+    chiama_post({ordina: ordina}, "/librerie/php/ordina.php", cb, el, 35);
 }
 

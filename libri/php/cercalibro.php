@@ -45,44 +45,6 @@ function allineamento($str1, $str2){
     }
     return $punteggio;
 }
-/*
-
-function differenze($str1, $str2) {
-    $str1 = strtolower($str1);
-    $str2 = strtolower($str2);
-    $comuni = parole_comuni($str1, $str2);
-    $mancanti = 0;
-    $ultimo = 0;
-    while (strlen($str1)) {
-        $futuro_ultimo = ! strpos($str2, $str1[0]) === false;
-        if ($futuro_ultimo) {
-            $str2 = preg_replace("/".$str1[0]."/","",$str2,1);
-            $ultimo*=2;
-        } else {
-            $mancanti++;
-        }
-        $str1 = preg_replace("/" . $str1[0] . "/", "", $str1, 1);
-    }
-    return ($mancanti + strlen($str2))/$comuni;
-}
-
-function parole_comuni($str1, $str2){
-    $str1 = trim(pulisci($str1));
-    $str2 = trim(pulisci($str2));
-    $arr = explode(" ", $str1);
-    $non_trovate = 0;
-    $trovate = 0;
-    for($i=0; $i<count($arr); $i++){
-        if(strpos($str2, $arr[$i]) === false){
-            $non_trovate += 1;
-        }else{
-            $trovate +=1;
-        }
-    }
-    $non_trovate += count(explode(" ",$str2))-$trovate;
-    return $trovate/($non_trovate+$trovate)+0.05;
-}
-*/
 
 function contains($cercaqui, $trovami){
     return strpos($cercaqui, $trovami) !== false;
@@ -96,14 +58,14 @@ function pulisci($str){
     return $str;
 }
 function elimina_punteggiatura($str){
-    $str = str_replace(";","",$str);
-    $str = str_replace(",","",$str);
-    $str = str_replace(":","",$str);
-    $str = str_replace("-","",$str);
-    $str = str_replace("_","",$str);
-    $str = str_replace("'","",$str);
-    $str = str_replace('"',"",$str);
-    $str = str_replace(".","",$str);
+    $str = str_replace(";"," ",$str);
+    $str = str_replace(","," ",$str);
+    $str = str_replace(":"," ",$str);
+    $str = str_replace("-"," ",$str);
+    $str = str_replace("_"," ",$str);
+    $str = str_replace("'"," ",$str);
+    $str = str_replace('"'," ",$str);
+    $str = str_replace("."," ",$str);
     return $str;
 }
 
@@ -145,19 +107,3 @@ for($i=0; $i<count($titoli); $i++){
         </div>
      ";
 }
-
-
-
-
-
-/*
-echo "
-<div class='pillola_libro' onclick='info_libro(".$row['id'].")'>
-<div class='immagine_pillola_libro' style='background-image: url(".$row['img_url'].")'></div><!--
---><div class='testo_pillola_libro'>
-<p class='titolo_pillola_libro'>".$row['titolo']."</p>
-".$row['autore']."
-</div>
-</div>
- ";
-*/

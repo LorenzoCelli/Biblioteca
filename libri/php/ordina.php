@@ -8,12 +8,12 @@ include $_SERVER['DOCUMENT_ROOT'].'/connection.php';
 $id_utente = $_SESSION['id_utente'];
 $ordina = mysqli_real_escape_string($conn,$_POST['ordina']);
 
-if ($ordina == 'titoloaz') {
+if ($ordina == 'az') {
   $sql = "SELECT * FROM libri
   WHERE id_utente = '$id_utente'
   ORDER BY titolo ASC";
 
-}elseif ($ordina == 'titoloza') {
+}elseif ($ordina == 'za') {
   $sql = "SELECT * FROM libri
   WHERE id_utente = '$id_utente'
   ORDER BY titolo DESC";

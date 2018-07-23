@@ -43,8 +43,8 @@ $img = avatar($id_avatar);
         -->
         <div id="menu_volante_ordina" class="menu_volante">
             <div>Ordina:</div>
-            <button>dalla a alla z</button>
-            <button style="border: none">dalla z alla a</button>
+            <button onclick="ordina(this, 'az')">dalla a alla z</button>
+            <button onclick="ordina(this, 'za')" style="border: none">dalla z alla a</button>
         </div>
         <!--
         |--------------------------------------------------------------|

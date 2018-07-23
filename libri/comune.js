@@ -6,6 +6,21 @@
 |--------------------------------------------------------------|
 */
 
+
+function funzioni_on_off(el, tipo_evento, funz1, funz2) {
+    el[stato] = true;
+    el.addEventListener(tipo_evento, function () {
+        console.log(stato);
+        if(this[stato]){
+            funz1(this);
+            this[stato] = false;
+        }else{
+            funz2(this);
+            this[stato] = true;
+        }
+    });
+}
+
 var barra_ricerca = document.getElementById("search_bar");
 
 function chiama_barra_ricerca() {
