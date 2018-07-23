@@ -273,7 +273,7 @@ barra_ricerca.onkeyup = function (e) {
         function cb(r) {
             pillole_libro.innerHTML = r.responseText;
         }
-        chiama_get({ordina: barra_ricerca.value}, "/libri/php/cercalibro.php", cb, document.querySelector("div[onclick=\"slide_search_bar()\"]"), 50);
+        chiama_get({ordina: barra_ricerca.value}, "/libri/php/cercalibro.php", cb, document.querySelector("div[onclick=\"chiama_barra_ricerca()\"]"), 50);
     }
 };
 

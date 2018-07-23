@@ -8,7 +8,7 @@
 
 var barra_ricerca = document.getElementById("search_bar");
 
-function slide_search_bar() {
+function chiama_barra_ricerca() {
     if (barra_ricerca.style.width === "" || barra_ricerca.style.width === "0px") {
         barra_ricerca.style.width = "500px";
     } else {
@@ -20,7 +20,7 @@ var menu_aggiungi = document.getElementById("menu_aggiungi");
 
 function chiama_menu_aggiungi() {
     if (!menu_aggiungi.is_open) {
-        close_info_menu();
+        if(menu_info) close_info_menu();
         menu_aggiungi.style.transform = "translateX(-100%)";
         menu_aggiungi.is_open = true;
     }else{

@@ -72,7 +72,7 @@ $img = avatar($id_avatar);
         <div class="barra_bottoni"><!--
          --><div onclick="chiama_menu_aggiungi()"><img src="../imgs/piu.svg"></div><!--
          --><div onclick="apri_menu_volante('ordina')"><img src="../imgs/ordina.svg"></div><!--
-         --><div onclick="slide_search_bar()"><img src="../imgs/lente.svg"></div><!--
+         --><div onclick="chiama_barra_ricerca()"><img src="../imgs/lente.svg"></div><!--
          --><input id="search_bar" class="menu_input" type="text"></div>
         <br>
 
