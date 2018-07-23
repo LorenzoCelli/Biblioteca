@@ -272,7 +272,6 @@ function ordina(el, ordina) {
 
 barra_ricerca.onkeyup = function (e) {
     if (e.keyCode == 13) {
-        console.log("ciaoo");
         function cb(r) {
             pillole_libro.innerHTML = r.responseText;
         }

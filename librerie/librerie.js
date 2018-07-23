@@ -175,3 +175,11 @@ function ordina(el, ordina) {
     chiama_post({ordina: ordina}, "/librerie/php/ordina.php", cb, el, 35);
 }
 
+barra_ricerca.onkeyup = function (e) {
+    if (e.keyCode == 13) {
+        function cb(r) {
+            pillole_libro.innerHTML = r.responseText;
+        }
+        chiama_get({ordina: barra_ricerca.value}, "/librerie/php/cerca.php", cb, document.querySelector("div[onclick=\"chiama_barra_ricerca()\"]"), 50);
+    }
+};
