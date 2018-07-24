@@ -1,0 +1,347 @@
+.content{
+  color: white;
+  padding-top: 150px;
+}
+h1{
+  margin-bottom: 5px;
+}
+.scatola_cerca {
+    height: auto;
+    position: absolute;
+    top: 25px;
+    left: 0;
+    right: 0;
+    margin-right: auto;
+    margin-left: auto;
+    width: 330px;
+}
+.scatola_amici {
+  width: 65%;
+  display: inline-block;
+}
+.scatola_biblioteca {
+  display: inline-block;
+  vertical-align: top;
+  height: 85%;
+  float: right;
+  margin-right: 15%;
+}
+.contenitore_biblioteche {
+  overflow: scroll;
+  border-radius: 10px;
+  height: 95%;
+  width: auto;
+  text-align: center;
+}
+#ris_div {
+  overflow:hidden;
+  background-color: #f3f3f3;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  box-shadow: -15px 0 62px -3px rgba(0,0,0,0.45);
+  transition: height 200ms, width 200ms;
+}
+#no_amici{
+  margin-bottom: 10px;
+  padding: 20px 10px;
+  color: lightgrey;
+}
+#search_bar{
+  border:none;
+  display: inline-block;
+  vertical-align: bottom;
+  width: 290px;
+  border-radius: 10px 0 0 10px;
+  margin-bottom: 0px;
+  padding-left: 55%;
+}
+#search_button:hover{
+  cursor: pointer;
+}
+#search_button{
+  display: inline-block;
+  background-color: white;
+  background-image: url("../imgs/lente.svg");
+  background-size: 40px;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 0px;
+  border-top-left-radius: 0px;
+  border-bottom-right-radius: 10px;
+  margin-bottom: 0px;
+  vertical-align: bottom;
+}
+.scheda_biblioteche {
+  background-color: #232222;
+  overflow: hidden;
+  border-radius: 5px;
+  cursor: pointer;
+  display: block;
+  margin: 0 5px 10px 0;
+  width: 100%;
+  height: auto;
+  color: white;
+  text-align: left;
+  box-sizing: border-box;
+}
+.scheda_biblioteche p {
+    margin: 0;
+    vertical-align: top;
+    line-height: 50px;
+}
+.scheda_biblioteche img{
+  display: inline-block;
+  vertical-align: bottom;
+  background-color: #292929;
+  width: 50px;
+  height: 50px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+.scheda_utente{
+  background-color: #f8f8f8;
+  overflow: hidden;
+  border-radius: 10px;
+  cursor: pointer;
+  display: inline-block;
+  margin: 0 5px 5px 0;
+  width: 240px;
+  height: auto;
+  color: black;
+}
+.scheda_utente2 {
+    background-color: #f9f8f8;
+    overflow: hidden;
+    cursor: pointer;
+    display: inline-block;
+    width: 100%;
+    height: auto;
+    color: black;
+    vertical-align: middle;
+}
+.scheda_utente2:hover {
+  background-color: #f1efef;
+}
+.scheda_utente2 img {
+    display: inline-block;
+    vertical-align: bottom;
+    background-color: white;
+    width: 39px;
+    height: 40px;
+}
+.scheda_utente2 p {
+    margin: 0;
+    vertical-align: top;
+    padding: 0px 4px;
+    line-height: 40px;
+}
+.scheda_utente p {
+    margin: 0;
+    vertical-align: top;
+    padding: 4px 4px;
+}
+.scheda_utente img{
+  display: inline-block;
+  vertical-align: bottom;
+  background-color: #292929;
+  width: 50px;
+  height: 50px;
+}
+
+#friend_button {
+    background-image: url(../imgs/add.png);
+    background-size: 40px;
+    border: none;
+    margin: 0;
+    border-left: 1px solid #cbcbcb;
+    border-radius: 0 0 0 0;
+    vertical-align: top;
+    display: inline-block;
+    float: right;
+    width: 40px;
+    height: 40px;
+}
+#friend_button:hover{
+  background-color: #f1efef;
+}
+.risp_richiesta {
+  border: none;
+  margin: 0;
+  border-left: 1px solid #cbcbcb;
+  background-color: #f9f8f8;
+  border-radius: 0 0 0 0;
+  vertical-align: top;
+  display: inline-block;
+  float: right;
+  width: 40px;
+  height: 40px;
+}
+.accetta_rifiuta{
+  background-color: white;
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+  padding: 0;
+  line-height: 40px;
+  width: 70px;
+  height: 40px;
+  margin:0;
+  float: right;
+  border-radius: 0;
+  border: none;
+  border-left: 1px solid #cbcbcb;
+}
+.accetta_rifiuta:hover{
+  background-color: #efefef;
+}
+.scheda_biblioteche:hover {
+  background-color: #545353;
+}
+.notifica {
+  right: 10px;
+  height: 20px;
+  width: 20px;
+  border-radius: 100%;
+  background-color: #FF4500;
+  color: white;
+  position: absolute;
+  top: 10px;
+  text-align: center;
+  border: 2px solid white;
+  z-index: 1;
+  line-height: 20px;
+}
+.menu_amici {
+    height: 0px;
+    left: 50px;
+    top: 198px;
+    width: 83%;
+    position: absolute;
+    background: none;
+    border-radius: 10px;
+    border: none;
+    text-align: left;
+    margin-bottom: 10px;
+    overflow: hidden;
+    background-color: #f8f8f8;
+    color: black;
+    transition: height 200ms, width 200ms;
+}
+.menu_amici_img {
+  cursor: pointer;
+    transform: rotate(90deg);
+    width: 27px;
+    height: 27px;
+    display: none;
+    left: 86%;
+    position: absolute;
+}
+.opzione_menu {
+  padding: 10px 4%;
+  border-bottom: 1px solid #e7e7e7;
+  cursor: pointer;
+}
+.opzione_menu:hover {
+  background-color: #efefef;
+}
+
+@media screen and (max-width: 1190px) {
+  .menu_amici {
+    display: none;
+  }
+  .scatola_amici {
+    width: 55%;
+  }
+}
+@media screen and (max-width: 975px) {
+  .menu_amici {
+    display: none;
+  }
+  .scatola_amici {
+    width: 35%;
+  }
+  .scheda_utente {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 650px) {
+  .scatola_cerca {
+    top: 25px;
+    width: 230px;
+}
+  .scatola_amici {
+    display: block;
+    width: 90%;
+  }
+  .scatola_biblioteca {
+    display: none;
+    float: none;
+    width: 90%;
+  }
+  .menu_amici_img {
+    display: inline-block;
+  }
+  .scheda_biblioteche p {
+    vertical-align: top;
+    padding: 4px 4px;
+    line-height:normal;
+  }
+  #search_bar {
+    width: 70%;
+    padding-left: 70%;
+}
+.scatola_account p {
+    position: absolute;
+    top: 45px;
+}
+.scheda_utente2 {
+  width: 201px;
+}
+#ris_div {
+  width: 201px;
+}
+}
+@media screen and (max-width:390px) {
+  #ris_div {
+    width: 152px;
+  }
+  .scheda_utente2 {
+    width: 152px;
+}
+  .scatola_cerca {
+    top: 25px;
+    width: 160px;
+}
+  .scheda_biblioteche p {
+    font-size: 4.2vw;
+  }
+  .content {
+    padding-left:7%;
+  }
+  .menu_amici_img {
+    left: 82%;
+  }
+  .menu_amici {
+    left: auto;
+    width: 80%;
+  }
+  .title {
+    font-size: 8.3vw;
+  }
+  #no_amici {
+    font-size: 4.2vw;
+  }
+  .scheda_utente p {
+    font-size: 4.2vw;
+  }
+  .scheda_utente img {
+    width: 11%;
+    height: 11%;
+  }
+  .scheda_biblioteche img {
+    width: 11%;
+    height: 11%;
+  }
+}

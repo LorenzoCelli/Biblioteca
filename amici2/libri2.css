@@ -1,0 +1,630 @@
+body {
+    font-family: 'Vollkorn', serif;
+    background-color: #f8f8f8;
+    color: #3a3a3a;
+    margin: 0;
+    overflow: hidden;
+}
+
+h1 {
+    margin: 0;
+    line-height: 35px;
+}
+
+h2 {
+    margin: 0;
+}
+
+/*
+|--------------------------------------------------------------|
+|                                                              |
+|  Menu informazioni                                           |
+|                                                              |
+|--------------------------------------------------------------|
+*/
+
+#menu_info {
+    position: fixed;
+    height: 100%;
+    width: 500px;
+    top: 0;
+    display: inline-block;
+    border: 1px solid #efefef;
+    padding: 20px 30px;
+    box-sizing: border-box;
+    background-color: #f8f8f8;
+    transition: transform 500ms;
+    overflow: auto;
+
+    -webkit-box-shadow: -15px 0px 62px -24px rgba(0,0,0,0.45);
+    -moz-box-shadow: -15px 0px 62px -24px rgba(0,0,0,0.45);
+    box-shadow: -15px 0px 62px -24px rgba(0,0,0,0.45);
+}
+.titolo_info {
+    margin-bottom: 5px;
+}
+.scatola_info {
+    margin: 0 0 5px 0;
+}
+
+.testo_scatola_info{
+    display: inline-block;
+}
+.nome_scatola_info{
+    font-weight: 600;
+    display: inline-block;
+}
+
+.info_modifica {
+    height: 50px;
+    line-height: 50px;
+    font-family: 'Open Sans', sans-serif;
+    padding: 0 10px;
+    background-color: white;
+    border-right: 1px solid #efefef;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.info_barrabottoni {
+    height: 50px;
+    border-radius: 10px;
+    border: 1px solid #efefef;
+    overflow: hidden;
+    float: right;
+}
+
+.info_barrabottoni div{
+    height: 50px;
+    width: 50px;
+    display: inline-block;
+    border-right: 1px solid #efefef;
+    background-color: white;
+}
+.info_barrabottoni div:hover {
+    background-color: #f8f8f8;
+}
+.info_barrabottoni img{
+    height: 50px;
+    width: 50px;
+}
+
+#caricamento {
+    display: block;
+    margin: auto;
+    -webkit-animation: spin 1s linear infinite;
+    -moz-animation: spin 1s linear infinite;
+    animation: spin 1s linear infinite;
+    opacity: 0.3;
+}
+
+@-moz-keyframes spin {
+    100% {
+        -moz-transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+/*
+|--------------------------------------------------------------|
+|                                                              |
+|  Menu nuovo libro                                            |
+|                                                              |
+|--------------------------------------------------------------|
+*/
+
+#menu_aggiungi {
+    position: fixed;
+    height: 100%;
+    width: 400px;
+    top: 0;
+    display: inline-block;
+    padding: 20px 30px;
+    box-sizing: border-box;
+    background-color: #f8f8f8;
+    transition: transform 300ms;
+    overflow: auto;
+
+    -webkit-box-shadow: -15px 0 62px -24px rgba(0,0,0,0.45);
+    -moz-box-shadow: -15px 0 62px -24px rgba(0,0,0,0.45);
+    box-shadow: -15px 0 62px -24px rgba(0,0,0,0.45);
+}
+
+#finestra_scan{
+    position: relative;
+    display: block;
+}
+
+canvas.drawingBuffer {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+#finestra_scan > video {
+    max-width: 100%;
+    width: 100%;
+    vertical-align: middle;
+}
+
+#finestra_scan > canvas {
+    max-width: 100%;
+    width: 100%;
+}
+
+input, select, textarea, button {
+    background-color: white;
+    border: 1px solid #cbcbcb;
+    height: 40px;
+    width: 100%;
+    border-radius: 10px;
+    outline: none;
+    margin-bottom: 5px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+
+.input_con_immagine{
+    height: 40px;
+    position: relative;
+    width: 100%;
+}
+.input_con_immagine img{
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 40px;
+    transition: transform 100ms;
+}
+.input_con_immagine img:hover{
+    transform: scale(1.1);
+}
+
+textarea {
+    min-width: 100%;
+    height: 80px;
+    padding-top: 8px;
+    margin-bottom: 0;
+}
+
+#img_aggiungi {
+    border-radius: 10px;
+    border: 1px solid #cbcbcb;
+    background-color: white
+}
+
+.scatola_suggerimenti{
+    border-radius: 10px;
+    border: 1px solid #cbcbcb;
+    overflow: hidden;
+    margin-bottom: 5px;
+}
+
+.scatola_suggerimenti input{
+    margin: 0;
+    border: none;
+    border-radius: 0;
+}
+
+.suggerimento{
+    cursor: pointer;
+    white-space: nowrap;
+    font-family: open_sans_light, sans-serif;
+    height: 40px;
+    line-height: 40px;
+    box-sizing: border-box;
+    padding: 0 10px;
+    overflow: hidden;
+    width: 100%;
+}
+.suggerimento:hover{
+    background-color: white;
+}
+.suggerimento b{
+    font-family: open_sans_regular, sans-serif;
+}
+.pillola_genere{
+    vertical-align: middle;
+    margin: 0 5px 5px 0;
+    position: relative;
+    display: inline-block;
+    height: 35px;
+    line-height: 35px;
+    padding: 0 35px 0 10px;
+    outline: none;
+    background-color: white;
+    border: 1px solid #cbcbcb;
+    min-width: 50px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-family: open_sans_light, sans-serif;
+    overflow: hidden;
+}
+.pillola_genere img{
+    height: 35px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: transform 500ms;
+}
+
+/*
+|--------------------------------------------------------------|
+|                                                              |
+|  Menu principale a sinistra                                  |
+|                                                              |
+|--------------------------------------------------------------|
+*/
+
+a {
+    text-decoration: none;
+}
+
+#menu_principe {
+    display: inline-block;
+    height: 100%;
+    width: 300px;
+    transition: transform 500ms;
+    box-sizing: border-box;
+}
+
+#menu_principe button{
+    border-radius: 0;
+    font-family: open_sans_light, sans-serif;
+    background-color: transparent;
+    display: block;
+    height: 70px;
+    width: 100%;
+    margin: 0;
+    border: none;
+    border-bottom: 1px solid #efefef;
+    font-size: 18px;
+    outline: none;
+}
+
+#menu_principe button:hover{
+    background-color: white;
+}
+
+/*
+|--------------------------------------------------------------|
+|                                                              |
+|  Barra bottoni                                               |
+|                                                              |
+|--------------------------------------------------------------|
+*/
+
+.barra_bottoni {
+    height: 50px;
+    border: 1px solid #efefef;
+
+    background-color: #f8f8f8;
+    border-radius: 10px;
+    overflow: hidden;
+    display: inline-block
+}
+
+.barra_bottoni div{
+    height: 50px;
+    width: 50px;
+    display: inline-block;
+    border-right: 1px solid #efefef;
+}
+
+.barra_bottoni div:hover {
+    background-color: #efefef;
+}
+
+.barra_bottoni img{
+    height: 50px;
+    width: 50px;
+}
+
+.menu_input {
+    height: 50px;
+    background-color: transparent;
+    border: none;
+    vertical-align: top;
+    border-radius: 0;
+    width: 0;
+    margin: 0;
+    padding: 0;
+    transition: width 500ms;
+    box-sizing: border-box;
+    text-indent: 20px;
+}
+
+.content .barra_bottoni{
+    margin: 10px 0;
+}
+
+/*
+|--------------------------------------------------------------|
+|                                                              |
+|  Pillola libro                                               |
+|                                                              |
+|--------------------------------------------------------------|
+*/
+
+.pillola_libro {
+    border-radius: 5px;
+    overflow: hidden;
+    display: inline-block;
+    background-color: white;
+    height: 170px;
+    margin: 0 10px 10px 0;
+    transition: transform 500ms, width 500ms, height 500ms;
+    white-space: nowrap;
+}
+
+.pillola_libro:hover {
+    transform: scale(1.02, 1.02);
+
+}
+
+.immagine_pillola_libro {
+    display: inline-block;
+    height: 170px;
+    width: 130px;
+    background-size: cover;
+    background-position: center;
+}
+
+.testo_pillola_libro {
+    display: inline-block;
+    color: #292929;
+    height: 100%;
+    vertical-align: top;
+    font-size: 18px;
+    padding: 20px;
+}
+
+.titolo_pillola_libro {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 20px;
+    margin: 0;
+}
+
+/*
+|--------------------------------------------------------------|
+|                                                              |
+|  Contenitori                                                 |
+|                                                              |
+|--------------------------------------------------------------|
+*/
+
+.content {
+    position: relative;
+    vertical-align: top;
+    /*background-color: #3a3a3a;*/
+    background-color: #292929;
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    padding: 100px 0 0 50px;
+    box-sizing: border-box;
+    white-space: normal;
+    overflow: auto;
+
+    -webkit-box-shadow: inset 10px 0 35px -16px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: inset 10px 0 35px -16px rgba(0, 0, 0, 0.75);
+    box-shadow: inset 10px 0 35px -16px rgba(0, 0, 0, 0.75);
+}
+
+#main_container {
+    transform: translateX(-300px);
+    transition: transform 300ms;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    white-space: nowrap;
+}
+
+/*
+|--------------------------------------------------------------|
+|                                                              |
+|  Menu ordina                                                 |
+|                                                              |
+|--------------------------------------------------------------|
+*/
+
+#menu_ordina {
+    position: absolute;
+    top: 190px;
+    left: 100px;
+    width: 150px;
+    border-bottom: 1px solid #cbcbcb;
+    border-radius: 0 10px 10px 10px;
+    overflow: hidden;
+    z-index: 100;
+    height: 0;
+    display: none;
+}
+
+#menu_ordina button{
+    outline: none;
+    width: 100%;
+    height: 50px;
+    border: none;
+    font-size: 13px;
+    border-bottom: 1px solid #cbcbcb;
+    font-family: 'Open Sans', serif;
+    background-color: #f8f8f8;
+}
+
+#menu_ordina button:hover {
+    background-color: #efefef;
+}
+
+/*
+|--------------------------------------------------------------|
+|                                                              |
+|  Menu account                                                |
+|                                                              |
+|--------------------------------------------------------------|
+*/
+
+.scatola_account {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: white;
+    cursor: pointer;
+    height: 55px;
+}
+
+.scatola_account p{
+    display: inline-block;
+    margin: 0;
+    line-height: 55px;
+    font-family: open_sans_regular, sans-serif;
+    vertical-align: top;
+}
+
+.scatola_account img {
+    margin-left: 5px;
+    height: 100%;
+    border-radius: 5px;
+}
+
+#menu_account {
+    position: absolute;
+    top: 60px;
+    right: 35px;
+    width: 150px;
+    border-bottom: 1px solid #cbcbcb;
+    border-radius: 10px 0 10px 10px;
+    z-index: 100;
+    display: none;
+    overflow: hidden;
+}
+
+#menu_account .menu_account_titolo{
+    background-color: #f8f8f8;
+    font-family: open_sans_light, sans-serif;
+    font-size: 13px;
+    border-radius: 0;
+    border: none;
+    border-bottom: 1px solid #cbcbcb;
+    margin-bottom: 0;
+    outline: none;
+    width: 100%;
+    height: 30px;
+}
+#menu_account .menu_account_titolo:hover{
+    background-color: #f8f8f8;
+}
+
+#menu_account button{
+  background-color: #f8f8f8;
+  font-family: open_sans_light, sans-serif;
+  font-size: 13px;
+  border-radius: 0;
+  border: none;
+  border-bottom: 1px solid #cbcbcb;
+  margin-bottom: 0;
+  outline: none;
+  width: 100%;
+  height: 35px;
+}
+
+#menu_account button:hover{
+  background-color: #efefef;
+}
+
+/*
+|--------------------------------------------------------------|
+|                                                              |
+|  Menu volante                                                |
+|                                                              |
+|--------------------------------------------------------------|
+*/
+
+.menu_volante {
+    position: absolute;
+    height: 0;
+    transition: height 200ms, width 200ms;
+    background-color: #f8f8f8;
+    border-radius: 10px 10px 10px 10px;
+    z-index: 100;
+    overflow: auto;
+    font-size: 15px;
+    min-width: 150px;
+}
+
+.menu_volante div{
+    background-color: #f8f8f8;
+    font-family: open_sans_light, sans-serif;
+    border-bottom: 1px solid #e7e7e7;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: #d1d1d1;
+}
+
+.menu_volante button{
+    font-family: open_sans_light, sans-serif;
+    border-radius: 0;
+    border: none;
+    border-bottom: 1px solid #e7e7e7;
+    margin-bottom: 0;
+    outline: none;
+    height: 35px;
+    font-size: 15px;
+    vertical-align: middle;
+    display: block;
+    line-height: 0;
+}
+
+.menu_volante button:hover{
+    background-color: #efefef;
+}
+
+.menu_volante p {
+    margin: 0px 75px 0px 5px;
+    float: left;
+    text-align: left;
+    color: black;
+    width: auto;
+    display: inline-block;
+}
+.menu_volante img {
+    float: left;
+    width: 30px;
+    height: 30px;
+}
+
+/*
+|--------------------------------------------------------------|
+|  Menu volanti                                                |
+|--------------------------------------------------------------|
+*/
+
+#menu_volante_account{
+     right: 47.5px;
+     top: 75px;
+     border-top-right-radius: 0;
+}
+
+#menu_volante_ordina{
+    top: 190px;
+    left: 100px;
+    border-top-left-radius: 0;
+}
