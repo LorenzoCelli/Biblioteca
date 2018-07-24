@@ -13,17 +13,34 @@
   vertical-align: top;
   width: 15%;
   height: 100%;
-  padding: 100px 30px;
+  padding: 100px 10px;
+}
+.contatti{
+  cursor: pointer;
+}
+.contatti img{
+  display: inline-block;
+  vertical-align: top;
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+}
+.contatti p{
+  display: inline-block;
+  vertical-align: top;
+  line-height: 40px;
+  margin: 0;
 }
 .scatola_chat{
+  font-family: open_sans_regular;
   box-sizing: border-box;
-  background-color: #f8f8f8;
-  background-image: url("/imgs/whatsapp.jpg");
+  background-color: #3a3a3a;
+  background-image: url("/imgs/donnina.svg");
   background-position: center;
   background-size: cover;
   display: inline-block;
   vertical-align: top;
-  overflow: auto;
+  overflow: hidden;
   width: 85%;
   height: 100%;
 }
@@ -32,6 +49,40 @@
   color: black;
   padding: 30px;
 }
+#scatola_messaggi{
+  background-color: transparent;
+  box-sizing: border-box;
+  overflow: auto;
+  padding: 20px 10px;
+  width: 100%;
+  height: 100%;
+}
+.messaggio{
+  display: block;
+  margin: 0 10px 10px 0;
+  width: 100%;
+  min-height: 35px;
+}
+.messaggio div{
+  background-color: rgba(248, 248, 248, 1);
+  padding: 7px 10px 3px 10px;
+  max-width: 400px;
+  border-radius: 5px;
+  vertical-align: top;
+  color: black;
+  text-align: left;
+  display: inline-block;
+}
+.messaggio p{
+  margin:0;
+}
+.messaggio i{
+  display: block;
+  font-size: 9pt;
+  text-align: right;
+  vertical-align: top;
+  margin-top: -15px;
+}
 .scatola_chat footer{
   box-sizing: border-box;
   background-color: #f8f8f8;
@@ -39,7 +90,7 @@
   bottom: 0;
   width: 100%;
   border-top: 1px solid #3a3a3a;
-  padding: 20px 30px;
+  padding: 20px;
 }
 .scatola_chat footer textarea{
   display: inline-block;

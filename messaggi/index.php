@@ -57,16 +57,59 @@ $img = avatar($id_avatar);
 
 <div class="scatola_contatti">
   <aside>
-    Gino<br>
-    Denis<br>
-    Bruno<br>
+    <h1>Contatti:</h1>
+    <?php
+    $sql = "SELECT * FROM amici
+    INNER JOIN utenti
+    ON amici.id_amico = utenti.id OR amici.id_utente = utenti.id
+    WHERE amici.accettato = 1
+    AND utenti.id != '$id_utente'
+    AND (amici.id_utente = '$id_utente'
+    OR amici.id_amico = '$id_utente')";
+    $results = mysqli_query($conn, $sql);
+    if ($results->num_rows == 0) {
+      echo "<p id='no_amici'>Aggiungi amici per messaggiare</p>";
+    }else{
+      while ($row = mysqli_fetch_assoc($results)) {
+        $id_amico = $row['id'];
+        $uname_amico = $row['username'];
+        $avatar_amico = $row['id_avatar'];
+        $img_avatar = avatar($avatar_amico);
+        echo "
+        <div class='contatti' onclick='mostra_messaggi($id_amico,\"$uname_amico\");'>
+          <img src='$img_avatar'>
+          <p>$uname_amico</p>
+        </div>
+        ";
+      }
+    }
+    ?>
   </aside>
 </div><!--
 --><div class="scatola_chat">
-  <h1>Gino</h1>
+  <h1 id="amico_msg">Gino</h1>
+  <div id="scatola_messaggi">
+    <div class="messaggio" style="text-align:right">
+      <div>
+        <p style="margin-right:40px;">Ciao Gino</p>
+        <i>18:00</i>
+      </div>
+    </div>
+    <div class="messaggio" style="text-align:left">
+      <div>
+        <p style="margin-left:30px;">Ciao Denis</p>
+      </div>
+    </div>
+    <div class="messaggio" style="text-align:right">
+      <div>Come sta Ale?</div>
+    </div>
+    <div class="messaggio" style="text-align:left">
+      <div>Bene</div>
+    </div>
+  </div>
   <footer>
-    <textarea name="msg" placeholder="Invia un messaggio..."></textarea>
-    <button>INVIA</button>
+    <textarea id="testo" placeholder="Invia un messaggio..."></textarea>
+    <button onclick="invia_messaggio()">INVIA</button>
   </footer>
 </div>
 
