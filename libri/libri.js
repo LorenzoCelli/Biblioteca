@@ -206,8 +206,8 @@ function modifica_libro(id_libro) {
 }
 
 function azzera_menu_aggiungi() {
-    document.getElementById("finestra_scan").innerHTML = "";
-    document.getElementById("img_aggiungi").style.backgroundImage = "url('/imgs/librosconosciuto.svg')";
+    finestra_scan.innerHTML = "";
+    preview_img.style.backgroundImage = "url('/imgs/librosconosciuto.svg')";
     var inputs = menu_aggiungi.getElementsByTagName("input");
     for(var i = 0; i<inputs.length; i++){
         inputs[i].value = "";
@@ -216,6 +216,7 @@ function azzera_menu_aggiungi() {
     menu_aggiungi.querySelector("select[name=nome_libreria]").value = "nessuna";
     menu_aggiungi.querySelector("select[name=scaffale]").value = 0;
     generi.innerHTML = '<div class="pillola_genere" contenteditable="true"><img onclick="nuovo_genere(this)" src="../imgs/piu_pillola.svg"></div>';
+    chiama_menu_aggiungi();
     Quagga.stop();
 }
 
@@ -281,7 +282,7 @@ barra_ricerca.onkeyup = function (e) {
 
 function elimina_libro(id, el) {
     function cb(r) {
-        close_info_menu();
+        chiudi_menu_info();
         menu_info.innerHTML = r.responseText;
         if (r.responseText === "libro eliminato") {
             var e = document.querySelector('.pillola_libro[onclick="info_libro(' + id + ')"]');
@@ -368,7 +369,14 @@ function genere(){
 |--------------------------------------------------------------|
 */
 
+var finestra_scan = document.getElementById("finestra_scan");
+
 function mostra_scanner() {
+    if(finestra_scan.innerHTML !== ""){
+        finestra_scan.innerHTML = "";
+        Quagga.stop();
+        return;
+    }
     Quagga.init({
         inputStream: {
             type: "LiveStream",
@@ -435,9 +443,22 @@ Quagga.onDetected(function(result) {
     if (lastResult !== code) {
         lastResult = code;
         isbn.value = code;
+        if( lastResult.length === 13 && !lastResult.startsWith("978") && !lastResult.startsWith("979") ){
+            finestra_scan.appendChild(avviso("Il codice scannerizzato non è un isbn"));
+        }else{
+            finestra_scan.innerHTML = "";
+            Quagga.stop();
+        }
         isbn.oninput();
     }
 });
+
+function avviso(testo){
+    var div = document.createElement("DIV");
+    div.className = "avviso";
+    div.innerText = testo;
+    return div;
+}
 
 isbn.onkeyup = function (e) {
     if (e.keyCode == 13) {

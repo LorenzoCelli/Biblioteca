@@ -126,10 +126,9 @@ New book aside
 </div>
 
 <div id="menu_info" style="left: 100%;">
-
 </div>
 
-<div id="info_book_menu" style="left: 100%;">
+<div id="menu_info2" style="left: 100%;">
 </div>
 
 <script src="/librerie/colorpicker.js"></script>

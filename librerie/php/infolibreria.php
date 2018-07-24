@@ -41,7 +41,7 @@ for ($i=1; $i <= $n_scaffali; $i++) {
   for ($j=0; $j < count($cont_libri); $j++) {
     if ($cont_libri[$j][0] == $i) {
       $scaffali.="
-        <div style=\"background-image: url('".$cont_libri[$j][1]."')\" onclick='fill_info_book2(".$cont_libri[$j][2].")'>
+        <div style=\"background-image: url('".$cont_libri[$j][1]."')\" onclick='info_libro(".$cont_libri[$j][2].")'>
         </div>
       ";
     }
@@ -55,7 +55,7 @@ for ($i=1; $i <= $n_scaffali; $i++) {
 <div class="info_barrabottoni">
    <div onclick="modifica_libreria(<?php echo $id_libreria;?>)" class="info_hover_div"><img src="../imgs/matita.svg" style="height: 50px"></div><!--
 --><div onclick="elimina_libreria(this, <?php echo $id_libreria;?>)" class="info_hover_div"><img src="../imgs/cestino.svg" style="height: 50px"></div><!--
---><div onclick="close_info_menu()" class="info_hover_div"><img src="../imgs/croce.svg" style="height: 50px"></div>
+--><div onclick="chiudi_menu_info()" class="info_hover_div"><img src="../imgs/croce.svg" style="height: 50px"></div>
 </div>
 
 <div class="scatola_info">

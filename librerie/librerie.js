@@ -100,7 +100,7 @@ var pillole_libro = document.getElementById("pillole_libro");
 
 function aggiorna_libreria(el, id) {
     function cb(r) {
-        close_info_menu();
+        chiudi_menu_info();
         var result = JSON.parse(r.responseText);
         if(result["success"]){
             pillole_libro.querySelector('.pillola_libro[onclick="info_libreria(' + id + ')"]').innerHTML = result["pillole_libro"];
@@ -116,18 +116,12 @@ function aggiorna_libreria(el, id) {
     chiama_post(a, "/librerie/php/aggiornalibreria.php", cb, el, 40);
 }
 
-function fill_info_book2(id_libro) {
-    document.getElementById("info_book_menu").innerHTML = "";
-    document.getElementById("info_book_menu").appendChild(caricamento_img(120));
-    document.getElementById("info_book_menu").style.transform = "translateX(-500px)";
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("info_book_menu").innerHTML = this.responseText;
-        }
-    };
-    xhttp.open("GET", "/main/infolibro.php" + "?id=" + id_libro, true);
-    xhttp.send(null);
+function info_libro(id) {
+    menu_info2.style.transform = "translateX(-500px)";
+    function cb (r) {
+        menu_info2.innerHTML = r.responseText;
+    }
+    chiama_get({id : id}, "/libri/php/infolibro.php", cb, menu_info2, 120);
 }
 
 function info_libreria(id) {
@@ -140,7 +134,7 @@ function info_libreria(id) {
 
 function elimina_libreria(el, id) {
     var cb = function (r) {
-        close_info_menu();
+        chiudi_menu_info();
         console.log(r.responseText);
         if (r.responseText === "libreria eliminata") {
             var e = pillole_libro.querySelector('.pillola_libro[onclick="info_libreria(' + id + ')"]');
