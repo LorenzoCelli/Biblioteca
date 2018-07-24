@@ -87,25 +87,39 @@ $img = avatar($id_avatar);
   </aside>
 </div><!--
 --><div class="scatola_chat">
-  <h1 id="amico_msg">Gino</h1>
+  <h1 id="amico_msg">Cellino</h1>
   <div id="scatola_messaggi">
-    <div class="messaggio" style="text-align:right">
-      <div>
-        <p style="margin-right:40px;">Ciao Gino</p>
-        <i>18:00</i>
-      </div>
-    </div>
-    <div class="messaggio" style="text-align:left">
-      <div>
-        <p style="margin-left:30px;">Ciao Denis</p>
-      </div>
-    </div>
-    <div class="messaggio" style="text-align:right">
-      <div>Come sta Ale?</div>
-    </div>
-    <div class="messaggio" style="text-align:left">
-      <div>Bene</div>
-    </div>
+    <?php
+    $sql = "SELECT * FROM messaggi
+    WHERE (id_mittente='$id_utente' AND id_destinatario='5')
+    OR (id_mittente='5' AND id_destinatario='$id_utente')
+    ORDER BY data_ora ASC";
+    $result = mysqli_query($conn, $sql) or trigger_error(mysqli_error($conn));
+
+    if ($result->num_rows == 0) {
+      echo "";
+    }else {
+      while ($row = mysqli_fetch_assoc($result)) {
+        if ($row['id_mittente'] == $id_utente) {
+          echo "
+          <div class='messaggio' style='text-align:right'>
+            <div>
+              <p style='//margin-right:40px;'>".$row['testo']."</p>
+              <!--<i>".$row['data_ora']."</i>-->
+            </div>
+          </div>";
+        }else{
+          echo "
+          <div class='messaggio' style='text-align:left'>
+            <div>
+              <p style='//margin-left:40px;'>".$row['testo']."</p>
+              <!--<i>".$row['data_ora']."</i>-->
+            </div>
+          </div>";
+        }
+      }
+    }
+    ?>
   </div>
   <footer>
     <textarea id="testo" placeholder="Invia un messaggio..."></textarea>

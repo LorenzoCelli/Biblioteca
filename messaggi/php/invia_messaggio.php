@@ -7,6 +7,7 @@ session_start();
 include $_SERVER['DOCUMENT_ROOT'].'/connection.php';
 $id_utente = $_SESSION['id_utente'];
 $id_amico = mysqli_real_escape_string($conn,$_GET['id_amico']);
+date_default_timezone_set(“Europe/Rome”);
 $data=time();
 $data=date('Y-m-d H:i:s', $data);
 $testo = mysqli_real_escape_string($conn,$_GET['testo']);

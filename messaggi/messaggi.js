@@ -22,7 +22,8 @@ function invia_messaggio(id_amico) {
 function num_msg() {
   return document.querySelectorAll(".messaggio[style='text-align:left']").length;
 }
-function nuovi_messaggi(id_amico) {
+function nuovi_messaggi() {
+  console.log("ciao");
   function cb(r) {
     var div = document.createElement("div");
     div.innerHTML = r.responseText;
@@ -30,7 +31,7 @@ function nuovi_messaggi(id_amico) {
       ris_div.appendChild(div.childNodes[0]);
     }
   }
-  chiama_get({id_amico:id_amico,num_msg:num_msg()},"php/nuovi_messaggi.php",cb);
+  chiama_get({id_amico:amico_id,num_msg:num_msg()},"php/nuovi_messaggi.php",cb);
 }
 
-setInterval(nuovi_messaggi(), 1000);
+setInterval(nuovi_messaggi, 1000);
