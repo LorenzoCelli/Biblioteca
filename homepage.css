@@ -271,7 +271,8 @@ padding-left: 200px;
     width: 4.2%;
   }
   #astromano {
-    display: none;
+    left: 0;
+    margin-top: 11%;
   }
   #astronauta {
     margin: 0;
@@ -485,6 +486,9 @@ padding-left: 200px;
   }
   #astronauta {
     width: 80%;
+  }
+  #astromano {
+    width: 50%;
   }
   .firstBlockRegisterButton button {
     width: 50%;
