@@ -100,7 +100,7 @@ var pillole_libro = document.getElementById("pillole_libro");
 
 function aggiorna_libreria(el, id) {
     function cb(r) {
-        close_info_menu();
+        chiudi_menu_info();
         var result = JSON.parse(r.responseText);
         if(result["success"]){
             pillole_libro.querySelector('.pillola_libro[onclick="info_libreria(' + id + ')"]').innerHTML = result["pillole_libro"];
@@ -134,7 +134,7 @@ function info_libreria(id) {
 
 function elimina_libreria(el, id) {
     var cb = function (r) {
-        close_info_menu();
+        chiudi_menu_info();
         console.log(r.responseText);
         if (r.responseText === "libreria eliminata") {
             var e = pillole_libro.querySelector('.pillola_libro[onclick="info_libreria(' + id + ')"]');

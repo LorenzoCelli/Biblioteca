@@ -282,7 +282,7 @@ barra_ricerca.onkeyup = function (e) {
 
 function elimina_libro(id, el) {
     function cb(r) {
-        close_info_menu();
+        chiudi_menu_info();
         menu_info.innerHTML = r.responseText;
         if (r.responseText === "libro eliminato") {
             var e = document.querySelector('.pillola_libro[onclick="info_libro(' + id + ')"]');
