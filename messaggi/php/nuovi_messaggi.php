@@ -12,7 +12,7 @@ $num_msg = mysqli_real_escape_string($conn,$_GET['num_msg']);
 $sql = "SELECT * FROM messaggi
 WHERE id_mittente='$id_amico' AND id_destinatario='$id_utente'
 ORDER BY data_ora ASC";
-$result = mysqli_query($conn, $sql)
+$result = mysqli_query($conn, $sql);
 if ($result->num_rows == $num_msg) {
   return;
 }elseif ($result->num_rows > $num_msg) {
