@@ -23,7 +23,7 @@ h2 {
 |--------------------------------------------------------------|
 */
 
-#menu_info {
+#menu_info, #menu_info2 {
     position: fixed;
     height: 100%;
     width: 500px;
@@ -163,6 +163,19 @@ canvas.drawingBuffer {
     width: 100%;
 }
 
+#finestra_scan .avviso {
+    position: absolute;
+    display: inline-block;
+    top: 10px;
+    left: 10px;
+    background-color: #ff5151;
+    padding: 6px 10px;
+    color: white;
+    font-family: open_sans_semibold, sans-serif;
+    font-size: 15px;
+    border-radius: 15px;
+}
+
 input, select, textarea, button {
     background-color: white;
     border: 1px solid #cbcbcb;
@@ -203,7 +216,9 @@ textarea {
 #img_aggiungi {
     border-radius: 10px;
     border: 1px solid #cbcbcb;
-    background-color: white
+    background-color: white;
+    width: 130px;
+    height: 170px;
 }
 
 .scatola_suggerimenti{
@@ -415,7 +430,7 @@ a {
     display: inline-block;
     height: 100%;
     width: 100%;
-    padding: 100px 0 0 50px;
+    padding: 100px 50px;
     box-sizing: border-box;
     white-space: normal;
     overflow: auto;
@@ -610,6 +625,6 @@ a {
 
 #menu_volante_ordina{
     top: 190px;
-    left: 100px;
+    left: 150px;
     border-top-left-radius: 0;
 }

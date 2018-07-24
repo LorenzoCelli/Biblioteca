@@ -41,7 +41,7 @@ for ($i=1; $i <= $n_scaffali; $i++) {
   for ($j=0; $j < count($cont_libri); $j++) {
     if ($cont_libri[$j][0] == $i) {
       $scaffali.="
-        <div style=\"background-image: url('".$cont_libri[$j][1]."')\" onclick='fill_info_book2(".$cont_libri[$j][2].")'>
+        <div style=\"background-image: url('".$cont_libri[$j][1]."')\" onclick='info_libro(".$cont_libri[$j][2].")'>
         </div>
       ";
     }

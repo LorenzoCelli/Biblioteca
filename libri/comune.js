@@ -5,21 +5,33 @@
 |                                                              |
 |--------------------------------------------------------------|
 */
+function stati(el, funz1, funz2, stato){
+    if(!stato) stato = "stato";
+    if(el[stato]){
+        funz2();
+        el[stato] = false;
+    }else{
+        funz1();
+        el[stato] = true;
+    }
 
-
-function funzioni_on_off(el, tipo_evento, funz1, funz2) {
-    el[stato] = true;
-    el.addEventListener(tipo_evento, function () {
-        console.log(stato);
-        if(this[stato]){
-            funz1(this);
-            this[stato] = false;
-        }else{
-            funz2(this);
-            this[stato] = true;
-        }
-    });
 }
+
+function espandi_pillole(el) {
+    stati(el, function () {
+            var pillole = pillole_libro.getElementsByClassName("pillola_libro");
+            for(var i=0; i<pillole.length; i++){
+                pillole[i].style.width = "100%";
+            }
+        },function () {
+            var pillole = pillole_libro.getElementsByClassName("pillola_libro");
+            for(var i=0; i<pillole.length; i++){
+                pillole[i].style.width = "auto";
+            }
+        }
+    )
+}
+
 
 var barra_ricerca = document.getElementById("search_bar");
 
@@ -57,6 +69,7 @@ function chiama_menu_principe() {
 }
 
 var menu_info = document.getElementById("menu_info");
+var menu_info2 = document.getElementById("menu_info2");
 
 function close_info_menu() {
     menu_info.style.transform = "translateX(0)";
