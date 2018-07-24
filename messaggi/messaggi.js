@@ -1,5 +1,5 @@
 var ris_div = document.getElementById("scatola_messaggi");
-var amico_id = 0;
+var amico_id = 5;
 function mostra_messaggi(id_amico,uname_amico) {
   amico_id = id_amico;
   function cb(r) {
@@ -23,15 +23,15 @@ function num_msg() {
   return document.querySelectorAll(".messaggio[style='text-align:left']").length;
 }
 function nuovi_messaggi() {
-  console.log("ciao");
   function cb(r) {
     var div = document.createElement("div");
     div.innerHTML = r.responseText;
     while (div.childNodes.length > 0) {
       ris_div.appendChild(div.childNodes[0]);
     }
+    nuovi_messaggi();
   }
   chiama_get({id_amico:amico_id,num_msg:num_msg()},"php/nuovi_messaggi.php",cb);
 }
 
-setInterval(nuovi_messaggi, 1000);
+nuovi_messaggi();
