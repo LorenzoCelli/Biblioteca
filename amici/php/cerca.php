@@ -22,11 +22,11 @@ if ($results->num_rows == 0) {
     $avatar_amico = $row['id_avatar'];
     $img_avatar = avatar($avatar_amico);
     echo "
-    <div class='scheda_utente'>
+    <div class='scheda_utente2'>
       <img src='$img_avatar'>
       <p style='display:inline-block;'>$uname_amico</p><!--
-      --><button id='friend_button' onclick='aggiungi_utenti($id_amico,this)'></button><!--
-      --><div class='risp_richiesta'></div>
+      --><div class='loading' style='display:inline-block;float:right;background-color:none;'></div><img src='/imgs/check.svg' style='display:none;' class='risp_richiesta'><!--
+      --><button id='friend_button' onclick='aggiungi_utenti($id_amico,this)'></button>
     </div>
     ";
   }
