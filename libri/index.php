@@ -1,5 +1,9 @@
 <?php session_start();
 include $_SERVER['DOCUMENT_ROOT'].'/connection.php';
+if (!isset($_SESSION['uname'])) {
+    header('Location: /login/login.php');
+}
+
 $uname = $_SESSION['uname'];
 $id_utente = $_SESSION['id_utente'];
 $sql = "SELECT id_avatar FROM utenti WHERE id = '$id_utente'";

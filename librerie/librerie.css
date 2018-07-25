@@ -1,3 +1,7 @@
+#menu_info2 .barrabottoni{
+
+}
+
 .immagine_pillola_libro {
     display: inline-block;
     height: 100px;
@@ -121,10 +125,14 @@ input[name=n_scaffali]{
 }
 
 /*
-Info box
+|--------------------------------------------------------------|
+|                                                              |
+|  Menu info                                                   |
+|                                                              |
+|--------------------------------------------------------------|
 */
 
-.info_barrabottoni{
+#menu_info .info_barrabottoni{
     float: none;
     display: inline-block;
 }

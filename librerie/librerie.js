@@ -117,11 +117,11 @@ function aggiorna_libreria(el, id) {
 }
 
 function info_libro(id) {
-    menu_info2.style.transform = "translateX(-500px)";
+    menu_info.style.transform = "translateX(-500px)";
     function cb (r) {
-        menu_info2.innerHTML = r.responseText;
+        menu_info.innerHTML = r.responseText;
     }
-    chiama_get({id : id}, "/libri/php/infolibro.php", cb, menu_info2, 120);
+    chiama_get({id : id}, "/libri/php/infolibro.php", cb, menu_info, 120);
 }
 
 function info_libreria(id) {

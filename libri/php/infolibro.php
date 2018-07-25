@@ -25,6 +25,16 @@ $isbn = $row["isbn"];
 $img_url = $row["img_url"];
 $generi = "";
 
+if($autore === ""){
+    $autore = "Autore sconosciuto";
+}
+if($descr === ""){
+    $descr = "Nessuna descrizione";
+}
+if($isbn === ""){
+    $isbn = "non specificato";
+}
+
 $gen = mysqli_query($conn, "SELECT * FROM generi WHERE id_libro = ".$id_libro);
 if ($gen->num_rows == 0) $generi = "nessuno";
 else{
@@ -37,8 +47,9 @@ else{
 $sql = "SELECT libreria.nome, posizione.n_scaffale FROM libreria INNER JOIN posizione ON libreria.id = posizione.id_libreria WHERE id_libro = ".$id_libro;
 $result = mysqli_query($conn, $sql) or trigger_error(mysqli_error($conn));
 
-$scaffale = "";
-$libreria = "";
+$scaffale = "nessuno";
+$libreria = "nessuna";
+
 if($result && $result->num_rows > 0){
     $row = mysqli_fetch_assoc($result);
     $scaffale = $row["n_scaffale"];

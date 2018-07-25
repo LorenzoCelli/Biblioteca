@@ -147,6 +147,18 @@ preview_img.imposta = function (url) {
 /*
 |--------------------------------------------------------------|
 |                                                              |
+|  Riduzione pillole                                           |
+|                                                              |
+|--------------------------------------------------------------|
+*/
+
+var pillole_libro = document.getElementById("pillole_libro");
+
+
+
+/*
+|--------------------------------------------------------------|
+|                                                              |
 |  Chiamate ajax                                               |
 |                                                              |
 |--------------------------------------------------------------|
@@ -174,11 +186,13 @@ function modifica_libro(id_libro) {
         }
         if (tt.innerText === "scaffale") {
             input = document.createElement("SELECT");
-
         }
         input.name = tt.innerText;
-        var value = edit[0].innerHTML;
-        input.value = value;
+        input.value = edit[0].innerHTML;
+        var val = edit[0].innerHTML;
+        if (tt.innerText === "isbn" && edit[0].innerHTML === "non specificato") {
+            input.value = "";
+        }
         if (tt.innerText === "generi") {
             var div = document.createElement("DIV");
             div.innerHTML = '<div class="pillola_genere" contenteditable="true"><img onclick="nuovo_genere(this)" src="../imgs/piu_pillola.svg"></div>';
@@ -192,7 +206,7 @@ function modifica_libro(id_libro) {
         edit[0].parentElement.replaceChild(input, edit[0]);
         if (tt.innerText === "scaffale"){
             menu_info.querySelector('select[name=libreria]').onchange();
-            input.value = value;
+            input.value = parseInt(val);
         }
     }
     var salva = document.createElement("BUTTON");
@@ -216,17 +230,18 @@ function azzera_menu_aggiungi() {
     menu_aggiungi.querySelector("select[name=nome_libreria]").value = "nessuna";
     menu_aggiungi.querySelector("select[name=scaffale]").value = 0;
     generi.innerHTML = '<div class="pillola_genere" contenteditable="true"><img onclick="nuovo_genere(this)" src="../imgs/piu_pillola.svg"></div>';
-    chiama_menu_aggiungi();
-    Quagga.stop();
+    if(quagga_acceso) Quagga.stop();
 }
 
 function aggiorna_libro(id, el) {
     function cb(r) {
+        console.log(r.responseText);
         info_libro(id);
         document.querySelector('.pillola_libro[onclick="info_libro(' + id + ')"]').innerHTML = r.responseText;
     }
     var scatole_generi = menu_info.querySelectorAll('.pillola_genere[contenteditable=false]');
     var gi = trova_generi(scatole_generi);
+    console.log("."+gi+".");
     var a = {
         id : id,
         titolo : menu_info.querySelector('input[name=titolo]').value,
@@ -261,7 +276,16 @@ function nuovo_libro(el) {
     chiama_post(a,"/libri/php/nuovolibro.php", cb, el, 40);
 }
 
-var pillole_libro = document.getElementById("pillole_libro");
+function trova_generi(scatole_generi) {
+    var generi = "";
+    for(var i = 0; i<scatole_generi.length; i++){
+        generi += scatole_generi[i].innerText;
+        if(i!==scatole_generi.length-1) generi += ",";
+    }
+    return generi;
+}
+
+
 
 function ordina(el, ordina) {
     function cb(r) {
@@ -290,15 +314,6 @@ function elimina_libro(id, el) {
         }
     }
     chiama_post({id : id}, "/libri/php/eliminalibro.php", cb, el, 50);
-}
-
-function trova_generi(scatole_generi) {
-    var generi = "";
-    for(var i = 0; i<scatole_generi.length; i++){
-        generi += scatole_generi[i].innerText;
-        if(i!==scatole_generi.length-1) generi += ",";
-    }
-    return generi;
 }
 
 function librerie_select() {
@@ -370,9 +385,11 @@ function genere(){
 */
 
 var finestra_scan = document.getElementById("finestra_scan");
+var quagga_acceso = false;
 
 function mostra_scanner() {
-    if(finestra_scan.innerHTML !== ""){
+    if(quagga_acceso){
+        quagga_acceso = false;
         finestra_scan.innerHTML = "";
         Quagga.stop();
         return;
@@ -406,15 +423,14 @@ function mostra_scanner() {
             console.log(err);
             return
         }
-        console.log("Initialization finished. Ready to start");
+        quagga_acceso = true;
         Quagga.start();
     });
 }
 
 Quagga.onProcessed(function(result) {
     var drawingCtx = Quagga.canvas.ctx.overlay,
-        drawingCanvas = Quagga.canvas.dom.overlay;
-
+    drawingCanvas = Quagga.canvas.dom.overlay;
     if (result) {
         if (result.boxes) {
             drawingCtx.clearRect(0, 0, parseInt(drawingCanvas.getAttribute("width")), parseInt(drawingCanvas.getAttribute("height")));
@@ -424,7 +440,6 @@ Quagga.onProcessed(function(result) {
                 Quagga.ImageDebug.drawPath(box, {x: 0, y: 1}, drawingCtx, {color: "green", lineWidth: 2});
             });
         }
-
         if (result.box) {
             Quagga.ImageDebug.drawPath(result.box, {x: 0, y: 1}, drawingCtx, {color: "#00F", lineWidth: 2});
         }

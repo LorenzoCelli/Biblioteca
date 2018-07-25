@@ -133,6 +133,7 @@ New book aside
 
 <script src="/librerie/colorpicker.js"></script>
 <script src="/libri/comune.js"></script>
+<script src="/libri/libri.js"></script>
 <script src="/librerie/librerie.js"></script>
 </body>
 </html>

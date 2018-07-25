@@ -383,6 +383,7 @@ a {
     margin: 0 10px 10px 0;
     transition: transform 500ms, width 500ms, height 500ms;
     white-space: nowrap;
+    max-width: 100%;
 }
 
 .pillola_libro:hover {
