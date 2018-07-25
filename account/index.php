@@ -65,7 +65,7 @@ $img = avatar($id_avatar);
         <div id="avatars" style="display:none;">
           <h1>Scegli il tuo avatar:</h1>
           <?php
-          for ($i=1; $i < 8; $i++) {
+          for ($i=1; $i < 9; $i++) {
             echo "<img src='".avatar($i)."' alt='$i' onclick='change_avatar(this);'>";
           }
           ?>
