@@ -1,12 +1,11 @@
 var ris_cerca = document.getElementById("search_bar");
 var ris_div = document.getElementById("ris_div");
-var contatoreMenu = 0;
 function ricerca_utenti() {
-  document.getElementById("search_button").style.borderBottomRightRadius = "0px";
-  document.getElementById("search_bar").style.borderBottomLeftRadius = "0px";
   if (ris_cerca.value == "") {
     return;
   }else{
+    document.getElementById("search_button").style.borderBottomRightRadius = "0px";
+    document.getElementById("search_bar").style.borderBottomLeftRadius = "0px";
     function cb(r) {
       ris_div.innerHTML = r.responseText;
     }
@@ -23,12 +22,11 @@ function aggiungi_utenti(id_amico,button) {
   chiama_get({id_amico:id_amico},"php/aggiungi.php",cb,loading_div,40);
 }
 function accetta_rifiuta(id_amico,bool,button) {
-  var scheda_utente = button.parentElement.parentElement.parentElement;
+  var scheda_utente = button.parentElement;
   function cb(r) {
     scheda_utente.style.display = "none";
   }
-  var a = {bool:bool,id_amico:id_amico}
-  chiama_get(a,"php/accetta_rifiuta.php",cb);
+  chiama_get({bool:bool,id_amico:id_amico},"php/accetta_rifiuta.php",cb);
 }
 function searchAnimation() {
   window.addEventListener('click', function(e){
@@ -38,27 +36,42 @@ function searchAnimation() {
     }
   });
 }
+var amici = document.getElementsByClassName("menu_amici")[0];
 function dropDown() {
-  if(contatoreMenu%2 == 0) {
+  if(amici.style.height == "0px" || amici.style.height == "") {
     document.getElementsByClassName("menu_amici_img")[0].style.transform = "rotate(0deg)";
     document.getElementsByClassName("menu_amici_img")[0].style.transition = "all 0.4s";
     document.getElementsByClassName("title")[0].style.marginBottom = "120px";
     document.getElementsByClassName("title")[0].style.transition = "all 0.4s";
     document.getElementsByClassName("title")[1].style.marginBottom = "120px";
     document.getElementsByClassName("title")[1].style.transition = "all 0.4s";
-    document.getElementsByClassName("menu_amici")[0].style.height = "85px";
-    document.getElementsByClassName("menu_amici")[0].style.transition = "all 0.4s";
-    contatoreMenu++;
+    amici.style.height = "85px";
+    amici.style.transition = "all 0.4s";
   } else {
     document.getElementsByClassName("menu_amici_img")[0].style.transform = "rotate(90deg)";
     document.getElementsByClassName("menu_amici_img")[0].style.transition = "all 0.4s";
     document.getElementsByClassName("title")[0].style.marginBottom = "10px";
     document.getElementsByClassName("title")[1].style.marginBottom = "10px";
-    document.getElementsByClassName("menu_amici")[0].style.height = "0px";
-    contatoreMenu--;
+    amici.style.height = "0px";
   }
 }
 function menuScelto(opzione,nascondi) {
+  amici.style.height = "0px";
+  document.getElementsByClassName("menu_amici_img")[0].style.transform = "rotate(90deg)";
+  document.getElementsByClassName("menu_amici_img")[0].style.transition = "all 0.4s";
+  document.getElementsByClassName("title")[0].style.marginBottom = "10px";
+  document.getElementsByClassName("title")[1].style.marginBottom = "10px";
   document.getElementsByClassName(nascondi)[0].style.display = "none";
-    document.getElementsByClassName(opzione)[0].style.display = "block";
+  document.getElementsByClassName(opzione)[0].style.display = "block";
 }
+function myFunction(x) {
+    if (x.matches) {
+      document.getElementsByClassName('scatola_amici')[0].style.display = "inline-block";
+      document.getElementsByClassName('scatola_biblioteca')[0].style.display = "inline-block";
+    }else {
+      document.getElementsByClassName('scatola_biblioteca')[0].style.display = "none";
+    }
+}
+var x = window.matchMedia("(min-width: 650px)");
+myFunction(x);
+x.addListener(myFunction);
