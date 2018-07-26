@@ -24,7 +24,7 @@ if ($result->num_rows == $num_msg) {
       echo "
       <div class='messaggio' style='text-align:left'>
         <div>
-          <p style='//margin-right:40px;'>".$row['testo']."</p>
+          <p>".$row['testo']."</p>
           <!--<i>".$row['data_ora']."</i>-->
         </div>
       </div>
