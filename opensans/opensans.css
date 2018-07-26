@@ -10,3 +10,7 @@
     src: url(OpenSans-SemiBold.ttf);
     font-family: open_sans_semibold;
 }
+@font-face {
+    src: url(/aileron/Aileron-Light.otf);
+    font-family: aileron_light;
+}

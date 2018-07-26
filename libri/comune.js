@@ -111,6 +111,22 @@ function chiudi_menu_info() {
     menu_info.style.transform = "translateX(0)";
 }
 
+var box_color_picker = menu_aggiungi.getElementsByClassName("box_colorpicker")[0];
+var new_picker = color_picker(400, menu_aggiungi.getElementsByClassName("etichetta")[0]);
+box_color_picker.parentElement.replaceChild(new_picker, box_color_picker);
+box_color_picker = new_picker;
+
+if(box_color_picker)
+function chiama_color_picker() {
+    stati(box_color_picker, function () {
+        box_color_picker.style.width = "100%";
+        box_color_picker.style.height = "40px";
+    }, function () {
+        box_color_picker.style.width = "0";
+        box_color_picker.style.height = "0";
+    });
+}
+
 function apri_menu_volante(nome) {
     var menu = document.getElementById("menu_volante_"+nome);
     stati(this, function () {
