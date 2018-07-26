@@ -1,0 +1,10 @@
+#stellina{
+  width: 25px;
+  height: 25px;
+  display: inline-block;
+  margin-right: 5px;
+  transition: transform 750ms;
+}
+#menu_volante_ordina{
+  left: 100px;
+}

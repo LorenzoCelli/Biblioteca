@@ -30,6 +30,9 @@ function accetta_rifiuta(id_amico,bool,button) {
 function nascondi_notifiche() {
   document.getElementsByClassName("notifica")[0].style.display = "none";
 }
+function visita_profilo(id_profilo,uname_profilo) {
+  window.location.href = "/profili/index.php?id_profilo="+id_profilo+"&uname_profilo="+uname_profilo;
+}
 function searchAnimation() {
   window.addEventListener('click', function(e){
     if (document.getElementById('barra_ricerca').contains(e.target) || document.getElementById('search_button').contains(e.target)){

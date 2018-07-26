@@ -30,10 +30,10 @@ $img = avatar($id_avatar);
 
 <div id="main_container">
   <div id="menu_principe">
-    <a href="/libri/"><button>La mia biblioteca</button></a>
-    <a href="/librerie/"><button>Le mie librerie</button></a>
-    <a href=""><button disabled>I miei amici</button></a>
-    <a href="/prestiti/"><button>I miei prestiti</button></a>
+    <a href="/libri/"><button>Biblioteca</button></a>
+    <a href="/librerie/"><button>Librerie</button></a>
+    <a href=""><button disabled>Amici</button></a>
+    <a href="/prestiti/"><button>Prestiti</button></a>
   </div><!--
   --><div class="content">
 
@@ -62,7 +62,7 @@ $img = avatar($id_avatar);
         $avatar_amico = $row['id_avatar'];
         $img_avatar = avatar($avatar_amico);
         echo "
-        <div style='background-color:white;'>
+        <div style='background-color:white;' onclick='visita_profilo($id_utente_amico,\"$uname_amico\")'>
           <img src='$img_avatar'>
           <p style='display:inline-block;'>$uname_amico</p>
           <button class='accetta_rifiuta' style='height:30px;border-bottom:0px;' onclick='accetta_rifiuta($id_utente_amico,\"0\",this)'>Rifiuta</button>
@@ -101,7 +101,7 @@ $img = avatar($id_avatar);
   <div class="scatola_amici">
     <h1 class="title">Amici</h1>
     <?php
-    $sql = "SELECT * FROM amici
+    $sql = "SELECT utenti.id id_utente_amico,username,email,id_avatar,id_amico,accettato,id_utente FROM amici
     INNER JOIN utenti
     ON amici.id_amico = utenti.id OR amici.id_utente = utenti.id
     WHERE amici.accettato = 1
@@ -113,11 +113,12 @@ $img = avatar($id_avatar);
       echo "<p id='no_amici'>Non hai ancora aggiunto nessun amico!</p>";
     }else{
       while ($row = mysqli_fetch_assoc($results)) {
+        $id_profilo = $row['id_utente_amico'];
         $uname_amico = $row['username'];
         $avatar_amico = $row['id_avatar'];
         $img_avatar = avatar($avatar_amico);
         echo "
-        <div class='scheda_utente'>
+        <div class='scheda_utente' onclick='visita_profilo($id_profilo,\"$uname_amico\")'>
         <img src='$img_avatar'>
         <p style='display:inline-block;'>$uname_amico</p>
         </div>
@@ -130,10 +131,25 @@ $img = avatar($id_avatar);
   <div class="scatola_biblioteca">
     <h1 class="title">Biblioteche</h1>
     <div class="contenitore_biblioteche">
-      <div class="scheda_biblioteche">
-        <img src="/imgs/avatars/1.png">
-        <p style="display:inline-block;">biblioteca di @cellino</p>
-      </div>
+      <?php
+      $sql = "SELECT * FROM preferiti
+      INNER JOIN utenti
+      ON preferiti.id_biblioteca = utenti.id
+      WHERE preferiti.id_utente = $id_utente";
+      $results = mysqli_query($conn, $sql);
+      while ($row = mysqli_fetch_assoc($results)) {
+        $id_profilo = $row['id'];
+        $uname_pref = $row['username'];
+        $avatar_amico = $row['id_avatar'];
+        $img_avatar = avatar($avatar_amico);
+        echo "
+        <div class='scheda_biblioteche' onclick='visita_profilo($id_profilo,\"$uname_pref\")'>
+          <img src='$img_avatar'>
+          <p style='display:inline-block;'>biblioteca di $uname_pref</p>
+        </div>
+        ";
+      }
+      ?>
     </div>
   </div>
 </div>
