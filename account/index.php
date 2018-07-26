@@ -75,7 +75,7 @@ $img = avatar($id_avatar);
     </div>
 </div>
 
-<script src="/libri/libri.js"></script>
+
 <script src="/libri/comune.js"></script>
 <script src="account.js"></script>
 </body>
