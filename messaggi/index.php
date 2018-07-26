@@ -60,7 +60,7 @@ $img = avatar($id_avatar);
                         $avatar_amico = $row['id_avatar'];
                         $img_avatar = avatar($avatar_amico);
                         echo "
-                        <div class='contatti' onclick='mostra_messaggi($id_amico,\"$uname_amico\");'>
+                        <div class='contatti' onclick='nuova_sessione($id_amico,\"$uname_amico\");'>
                           <img src='$img_avatar'>
                           <p>$uname_amico</p>
                         </div>

@@ -9,8 +9,8 @@ $id_utente = $_SESSION['id_utente'];
 $id_amico = mysqli_real_escape_string($conn,$_GET['id_amico']);
 
 $sql = "SELECT * FROM messaggi
-WHERE id_mittente='$id_utente' OR id_destinatario='$id_utente'
-OR id_mittente='$id_amico' OR id_destinatario='$id_amico'
+WHERE (id_mittente=$id_utente AND id_destinatario=$id_amico)
+OR (id_mittente=$id_amico AND id_destinatario=$id_utente)
 ORDER BY data_ora ASC";
 $result = mysqli_query($conn, $sql) or trigger_error(mysqli_error($conn));
 
