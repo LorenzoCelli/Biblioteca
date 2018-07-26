@@ -23,7 +23,7 @@ if ($results->num_rows == 0) {
     $img_avatar = avatar($avatar_amico);
     if (is_null($row['id_amico'])) {
       echo "
-      <div class='scheda_utente2' onclick='visita_profilo($id_amico,\"$uname_amico\")>
+      <div class='scheda_utente2' onclick='visita_profilo($id_amico,\"$uname_amico\")'>
         <img src='$img_avatar'>
         <p style='display:inline-block;'>$uname_amico</p><!--
         --><div class='loading' style='display:inline-block;float:right;background-color:none;'></div><img src='/imgs/check.svg' style='display:none;' class='risp_richiesta'><!--
@@ -41,7 +41,7 @@ if ($results->num_rows == 0) {
         }
       }
       echo "
-      <div class='scheda_utente2' onclick='visita_profilo($id_amico,\"$uname_amico\")>
+      <div class='scheda_utente2' onclick='visita_profilo($id_amico,\"$uname_amico\")'>
         <img src='$img_avatar'>
         <p style='display:inline-block;'>$uname_amico</p><!--
         --><p style='display:inline-block;float:right'>$p</p>
