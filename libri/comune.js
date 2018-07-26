@@ -39,7 +39,7 @@ var seconda_barra = document.getElementById("seconda_barra_ricerca");
 var barra_attiva = prima_barra;
 var tipo_display = "block";
 
-if(prima_barra) {
+if(prima_barra && seconda_barra) {
     prima_barra.apri = function () {
         prima_barra["stato"] = true;
         prima_barra.style.width = "500px";

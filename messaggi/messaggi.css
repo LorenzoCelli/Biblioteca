@@ -1,114 +1,170 @@
-.content{
-  color: white;
-  padding: 0 0 0 0;
-  box-sizing: border-box;
+.content {
+    color: white;
+    padding: 0 0 0 0;
+    box-sizing: border-box;
 }
-.scatola_account p{
-  color: black;
+
+.scatola_account p {
+    color: black;
 }
-.scatola_contatti{
-  box-sizing: border-box;
-  background-color: inherit;
-  display: inline-block;
-  vertical-align: top;
-  width: 15%;
-  height: 100%;
-  padding: 100px 10px;
+
+/*
+|--------------------------------------------------------------|
+|                                                              |
+|  Scatola contatti                                            |
+|                                                              |
+|--------------------------------------------------------------|
+*/
+
+.scatola_contatti {
+    box-sizing: border-box;
+    display: inline-block;
+    vertical-align: top;
+    width: 20%;
+    height: 100%;
+    padding: 100px 0 0 20px;
 }
-.contatti{
-  cursor: pointer;
+.scatola_contatti > p{
+    margin: 0 0 10px 0;
+    font-size: 20px;
+    font-weight: 600;
 }
-.contatti img{
-  display: inline-block;
-  vertical-align: top;
-  width: 40px;
-  height: 40px;
-  border-radius: 5px;
+.contatti {
+    cursor: pointer;
+    overflow: hidden;
+    margin-bottom: 1px;
+    background-color: rgba(255,255,255,0.13);
 }
-.contatti p{
-  display: inline-block;
-  vertical-align: top;
-  line-height: 40px;
-  margin: 0;
+.contatti img {
+    display: inline-block;
+    vertical-align: top;
+    width: 50px;
+    height: 50px;
 }
-.scatola_chat{
-  font-family: open_sans_regular;
-  box-sizing: border-box;
-  background-color: #3a3a3a;
-  background-image: url("/imgs/donnina.svg");
-  background-position: center;
-  background-size: cover;
-  display: inline-block;
-  vertical-align: top;
-  overflow: hidden;
-  width: 85%;
-  height: 100%;
+.contatti p {
+    font-family: open_sans_light, sans-serif;
+    font-size: 15px;
+    display: inline-block;
+    vertical-align: top;
+    line-height: 50px;
+    margin: 0;
+    margin-left: 10px;
 }
-.scatola_chat h1{
-  background-color: #f8f8f8;
-  color: black;
-  padding: 30px;
+
+/*
+|--------------------------------------------------------------|
+|                                                              |
+|  Scatola chat                                                |
+|                                                              |
+|--------------------------------------------------------------|
+*/
+
+.scatola_chat {
+    position: relative;
+    font-family: open_sans_regular, sans-serif;
+    box-sizing: border-box;
+    background-color: #ff6970;
+    display: inline-block;
+    vertical-align: top;
+    overflow: hidden;
+    width: 80%;
+    height: 100%;
 }
-#scatola_messaggi{
-  background-color: transparent;
-  box-sizing: border-box;
-  overflow: auto;
-  padding: 20px 10px;
-  width: 100%;
-  height: 400px;
+
+.scatola_chat h1 {
+    position: absolute;
+    width: 100%;
+    top:0;
+    left: 0;
+    background-color: #f8f8f8;
+    color: black;
+    height: 95px;
+    line-height: 95px;
+    text-indent: 30px;
 }
-.messaggio{
-  display: block;
-  margin: 0 10px 10px 0;
-  width: 100%;
-  min-height: 35px;
+
+.scatola_chat footer {
+    box-sizing: border-box;
+    background-color: #f8f8f8;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 95px;
+    padding: 15px;
 }
-.messaggio div{
-  background-color: rgba(248, 248, 248, 1);
-  padding: 7px 10px 3px 10px;
-  max-width: 400px;
-  border-radius: 5px;
-  vertical-align: top;
-  color: black;
-  text-align: left;
-  display: inline-block;
+
+.scatola_chat footer textarea {
+    display: inline-block;
+    vertical-align: top;
+    min-width: auto;
+    resize: none;
+    width: 77%;
+    height: 100%;
+    padding: 13px;
+    border-right: none;
+    border-radius: 10px 0 0 10px;
 }
-.messaggio p{
-  margin:0;
+
+.scatola_chat footer button {
+    font-family: open_sans_regular, sans-serif;
+    font-size: 15px;
+    border-radius:0 10px 10px 0;
+    box-sizing: border-box;
+    display: inline-block;
+    vertical-align: top;
+    width: 23%;
+    height: 100%;
+    cursor: pointer;
 }
-.messaggio i{
-  display: block;
-  font-size: 9pt;
-  text-align: right;
-  vertical-align: top;
-  margin-top: -15px;
+
+.scatola_chat footer button:hover {
+    background-color: #f4f4f4;
 }
-.scatola_chat footer{
-  box-sizing: border-box;
-  background-color: #f8f8f8;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  border-top: 1px solid #3a3a3a;
-  padding: 20px;
+
+/*
+|--------------------------------------------------------------|
+|                                                              |
+|  Messaggi                                                    |
+|                                                              |
+|--------------------------------------------------------------|
+*/
+
+#scatola_messaggi {
+    height: 100%;
+    background-color: transparent;
+    box-sizing: border-box;
+    overflow: auto;
+    padding: 103px 10px 105px 10px;
+    width: 100%;
 }
-.scatola_chat footer textarea{
-  display: inline-block;
-  vertical-align: top;
-  resize: none;
-  min-width: inherit;
-  width: 77%;
-  height: 75px;
-  padding: 13px;
+
+.messaggio {
+    display: block;
+    margin: 4px 0 0 0;
+    width: 100%;
 }
-.scatola_chat footer button{
-  display: inline-block;
-  vertical-align: top;
-  width: 75px;
-  height: 75px;
-  padding: 10px;
-  cursor: pointer;
+
+.messaggio div {
+    background-color: rgba(248, 248, 248, 1);
+    padding: 3px 5px;
+    max-width: 400px;
+    min-height: 10px;
+    border-radius: 5px;
+    vertical-align: middle;
+    color: black;
+    text-align: left;
+    display: inline-block;
 }
-.scatola_chat footer button:hover{
-  background-color: #cbcbcb;
+
+.messaggio p {
+    margin: 0;
+}
+
+.messaggio i {
+    display: block;
+    font-size: 9pt;
+    text-align: right;
+    vertical-align: top;
+    margin-top: -15px;
 }
