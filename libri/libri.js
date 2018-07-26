@@ -290,7 +290,7 @@ function trova_generi(scatole_generi) {
 function ordina(el, ordina) {
     function cb(r) {
         pillole_libro.innerHTML = r.responseText;
-        el.parentElement.apri();
+        apri_menu_volante(el.parentElement.id.replace("menu_volante_",""));
     }
     chiama_post({ordina: ordina}, "/libri/php/ordina.php", cb, el, 35);
 }

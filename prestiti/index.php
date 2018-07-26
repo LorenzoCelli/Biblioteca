@@ -60,7 +60,7 @@ $img = avatar($id_avatar);
 <div class="barra_bottoni"><!--
 --><div onclick="chiama_menu_aggiungi()"><img src="../imgs/piu.svg"></div><!--
 --><div onclick="slide_search_bar()"><img src="../imgs/lente.svg"></div><!--
---><input id="search_bar" class="menu_input" type="text" style="width:0;"></div>
+--><input id="barra_ricerca" class="menu_input" type="text" style="width:0;"></div>
 <br>
 <?php
 $sql = "SELECT * FROM prestiti

@@ -89,7 +89,7 @@ $img = avatar($id_avatar);
       <img src=<?php echo $img;?>>
   </div>
   <div class="scatola_cerca">
-      <input id="search_bar" type="text" placeholder="cerca utente" onclick="searchAnimation();"><!--
+      <input id="barra_ricerca" type="text" placeholder="cerca utente" onclick="searchAnimation();"><!--
       --><input type="submit" id="search_button" value="" onclick="ricerca_utenti();">
       <div id="ris_div">
 

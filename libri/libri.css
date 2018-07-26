@@ -322,10 +322,30 @@ a {
 |--------------------------------------------------------------|
 */
 
+#barra_ricerca{
+    height: 50px;
+    transition: width 300ms;
+}
+#seconda_barra_ricerca{
+    text-indent: 15px;
+    transition: width 300ms, height 300ms, margin-bottom 300ms;
+    box-sizing: border-box;
+    height: 0;
+    width: 0;
+    border: none;
+    border-radius: 10px;
+    max-width: 100%;
+    padding: 0;
+    display: block;
+    margin: 0;
+}
+
+
 .barra_bottoni {
+    transition: border-radius 500ms;
+    vertical-align: top;
     height: 50px;
     border: 1px solid #efefef;
-
     background-color: #f8f8f8;
     border-radius: 10px;
     overflow: hidden;
@@ -374,7 +394,12 @@ a {
 |--------------------------------------------------------------|
 */
 
+#pillole_libro{
+    display: block;
+}
+
 .pillola_libro {
+    vertical-align: middle;
     border-radius: 5px;
     overflow: hidden;
     display: inline-block;
@@ -628,4 +653,19 @@ a {
     top: 190px;
     left: 150px;
     border-top-left-radius: 0;
+}
+
+/*
+|--------------------------------------------------------------|
+|                                                              |
+|  Schermi piccoli                                             |
+|                                                              |
+|--------------------------------------------------------------|
+*/
+
+@media only screen and (max-width: 810px) {
+    #barra_ricerca {
+        display: block;
+        height: 0;
+    }
 }
