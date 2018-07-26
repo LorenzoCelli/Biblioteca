@@ -34,16 +34,52 @@ function espandi_pillole() {
     )
 }
 
-var barra_ricerca = document.getElementById("search_bar");
+var prima_barra = document.getElementById("barra_ricerca");
+var seconda_barra = document.getElementById("seconda_barra_ricerca");
+var barra_attiva = prima_barra;
+var tipo_display = "block";
 
-function chiama_barra_ricerca() {
-    stati(barra_ricerca,function () {
-        barra_ricerca.style.width = "500px";
-    }, function () {
-        barra_ricerca.style.width = "0px";
-    })
+if(prima_barra) {
+    prima_barra.apri = function () {
+        prima_barra["stato"] = true;
+        prima_barra.style.width = "500px";
+    };
+    prima_barra.chiudi = function () {
+        prima_barra["stato"] = false;
+        prima_barra.style.width = "0";
+    };
+    seconda_barra.apri = function () {
+        seconda_barra["stato"] = true;
+        seconda_barra.style.width = "100%";
+        seconda_barra.style.height = "50px";
+        seconda_barra.style.border = "1px solid #efefef";
+        seconda_barra.style.marginBottom = "10px";
+    };
+    seconda_barra.chiudi = function () {
+        seconda_barra["stato"] = false;
+        seconda_barra.style.width = "0";
+        seconda_barra.style.height = "0";
+        seconda_barra.style.border = "none";
+        seconda_barra.style.marginBottom = "0";
+    };
+
+    function chiama_barra_ricerca(el) {
+        stati(barra_attiva, barra_attiva.apri, barra_attiva.chiudi)
+    }
+
+    function controlla_barra() {
+        if (window.innerWidth > 810) {
+            barra_attiva = prima_barra;
+            seconda_barra.chiudi();
+        } else {
+            barra_attiva = seconda_barra;
+            prima_barra.chiudi();
+        }
+    }
+
+    controlla_barra();
+    window.onresize = controlla_barra;
 }
-
 
 var menu_aggiungi = document.getElementById("menu_aggiungi");
 
@@ -73,6 +109,23 @@ var menu_info2 = document.getElementById("menu_info2");
 
 function chiudi_menu_info() {
     menu_info.style.transform = "translateX(0)";
+}
+
+if(typeof color_picker !== "undefined") {
+    var box_color_picker = menu_aggiungi.getElementsByClassName("box_colorpicker")[0];
+    var new_picker = color_picker(400, menu_aggiungi.getElementsByClassName("etichetta")[0]);
+    box_color_picker.parentElement.replaceChild(new_picker, box_color_picker);
+    box_color_picker = new_picker;
+
+    function chiama_color_picker() {
+        stati(box_color_picker, function () {
+            box_color_picker.style.width = "100%";
+            box_color_picker.style.height = "40px";
+        }, function () {
+            box_color_picker.style.width = "0";
+            box_color_picker.style.height = "0";
+        });
+    }
 }
 
 function apri_menu_volante(nome) {
@@ -116,7 +169,7 @@ function chiama_post(query_diz, file, callback, loading_el, loading_width) {
         loading_el.appendChild(caricamento_img(loading_width));
     }
     var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
+    xhttp.onreadystatechange = function (){
         if (this.readyState == 4 && this.status == 200) {
             callback(this);
             if(loading_el) {

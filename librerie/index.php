@@ -75,8 +75,8 @@ $img = avatar($id_avatar);
          --><div onclick="chiama_menu_aggiungi()"><img src="../imgs/piu.svg"></div><!--
          --><div onclick="apri_menu_volante('ordina')"><img  src="../imgs/ordina.svg"></div><!--
          --><div onclick="chiama_barra_ricerca()" ><img src="../imgs/lente.svg"></div><!--
-         --><input id="search_bar" class="menu_input" type="text"></div>
-         <br>
+         --><input id="barra_ricerca" class="menu_input" type="text"></div><input placeholder="cerca.." id="seconda_barra_ricerca" type="text">
+
 
         <div id="pillole_libro">
          <?php
@@ -109,10 +109,12 @@ New book aside
     <input type="text" placeholder="Nome libreria" name="nome"><br>
     <input type="text" placeholder="Descrizione" name="descr"><br>
     Colore etichetta:
+    <div class="etichetta" onclick="chiama_color_picker()"></div>
     <div class="box_colorpicker">
       <img onmousedown="ciao(event)" src="../imgs/line.png">
       <div></div>
     </div>
+    <script>document.write()</script>
     <h2 style="margin: 5px 0">Aggiungi scaffali</h2>
     Numero scaffali: <input type="number" id="counter" value="1" name="n_scaffali" oninput="nuovi_scaffali()">
     <div class="primo_scaffale">

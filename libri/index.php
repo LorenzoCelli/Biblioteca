@@ -79,10 +79,9 @@ $img = avatar($id_avatar);
          --><div onclick="chiama_menu_aggiungi()"><img src="/imgs/piu.svg"></div><!--
          --><div onclick="espandi_pillole()"><img src="/imgs/occhio.svg"></div><!--
          --><div onclick="apri_menu_volante('ordina')"><img src="/imgs/ordina.svg"></div><!--
-         --><div onclick="chiama_barra_ricerca()"><img src="/imgs/lente.svg"></div><!--
-         --><input id="search_bar" class="menu_input" type="text"></div>
-        <br>
-
+         --><div onclick="chiama_barra_ricerca(this)"><img src="/imgs/lente.svg"></div><!--
+         --><input placeholder="cerca.." id="barra_ricerca" class="menu_input" type="text"></div>
+        <input placeholder="cerca.." id="seconda_barra_ricerca" type="text">
         <div id="pillole_libro">
         <?php
 

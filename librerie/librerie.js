@@ -85,9 +85,6 @@ function modifica_libreria() {
     menu_info.getElementsByClassName("to_show")[0].style.display = "block";
 }
 
-var container = document.getElementsByClassName("box_colorpicker")[0];
-container.parentElement.replaceChild(color_picker(400),container);
-
 /*
 |--------------------------------------------------------------|
 |                                                              |

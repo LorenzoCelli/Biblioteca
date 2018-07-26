@@ -25,10 +25,20 @@
 |--------------------------------------------------------------|
 */
 
+.etichetta{
+    height: 20px;
+    border-radius: 10px;
+    width: 100px;
+    background-color: rgb(255,255,0);
+    border: 1px solid white;
+    margin-bottom: 5px;
+}
+
 .box_colorpicker{
+    height: 0;
+    width: 0;
+    transition: width 100ms, height 100ms;
     position: relative;
-    width: 100%;
-    height: 40px;
     border-radius: 10px;
     overflow: hidden;
 }
@@ -50,10 +60,12 @@
     height: 100%;
     width: 20px;
     border-radius: 10px;
-    border: 3px solid #f8f8f8;
+    border: 2px solid #f8f8f8;
     top:0;
     left: 30px;
     box-sizing: border-box;
+
+    cursor: ew-resize;
 }
 
 /*
@@ -185,3 +197,14 @@ Scrollbar
 
 }
 
+/*
+|--------------------------------------------------------------|
+|                                                              |
+|  Menu volante ordina                                         |
+|                                                              |
+|--------------------------------------------------------------|
+*/
+
+#menu_volante_ordina{
+    left:100px;
+}

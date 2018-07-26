@@ -7,9 +7,10 @@ var colori =[
     [0,1,-1]
 ];
 
-function color_picker(translation) {
+function color_picker(translation, target) {
     var container = document.createElement("DIV");
     var pointer = document.createElement("DIV");
+    if(target) target.style.backgroundColor = "rgb(255,0,255)";
     pointer.style.backgroundColor = "rgb(255,0,255)";
     var img = document.createElement("IMG");
     container.className = "box_colorpicker";
@@ -54,6 +55,7 @@ function color_picker(translation) {
             }
         }
         pointer.style.backgroundColor = "rgb("+Math.round(a[0])+","+Math.round(a[1])+","+Math.round(a[2])+")";
+        if(target) target.style.backgroundColor = pointer.style.backgroundColor;
     }
     function getX(element) {
         var xPosition = 0;
@@ -88,6 +90,7 @@ function color_picker(translation) {
             }
         }
         pointer.style.backgroundColor = "rgb("+Math.round(a[0])+","+Math.round(a[1])+","+Math.round(a[2])+")";;
+        if(target) target.style.backgroundColor = pointer.style.backgroundColor;
     }
     function set_color(r,g,b) {
         // todo

@@ -1,11 +1,11 @@
-var ris_cerca = document.getElementById("search_bar");
+var ris_cerca = document.getElementById("barra_ricerca");
 var ris_div = document.getElementById("ris_div");
 function ricerca_utenti() {
   if (ris_cerca.value == "") {
     return;
   }else{
     document.getElementById("search_button").style.borderBottomRightRadius = "0px";
-    document.getElementById("search_bar").style.borderBottomLeftRadius = "0px";
+    document.getElementById("barra_ricerca").style.borderBottomLeftRadius = "0px";
     function cb(r) {
       ris_div.innerHTML = r.responseText;
     }
@@ -35,9 +35,9 @@ function visita_profilo(id_profilo,uname_profilo) {
 }
 function searchAnimation() {
   window.addEventListener('click', function(e){
-    if (document.getElementById('search_bar').contains(e.target) || document.getElementById('search_button').contains(e.target)){
-      document.getElementById("search_bar").style.transition = "all 0.4s ease"
-      document.getElementById("search_bar").style.paddingLeft = "10px";
+    if (document.getElementById('barra_ricerca').contains(e.target) || document.getElementById('search_button').contains(e.target)){
+      document.getElementById("barra_ricerca").style.transition = "all 0.4s ease"
+      document.getElementById("barra_ricerca").style.paddingLeft = "10px";
     }
   });
 }
