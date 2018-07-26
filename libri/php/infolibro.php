@@ -58,7 +58,7 @@ if($result && $result->num_rows > 0){
 
 ?>
 <div class="info_barrabottoni">
-    <div onclick="modifica_libro(<?echo $id_libro;?>)"><img src="../imgs/matita.svg""></div><!--
+    <div onclick="modifica_libro(<?echo $id_libro;?>)"><img src="../imgs/matita.svg"></div><!--
  --><div onclick="elimina_libro(<?echo $id_libro;?>,this)"><img src="../imgs/cestino.svg"></div><!--
  --><div onclick="chiudi_menu_info()"><img src="../imgs/croce.svg"></div>
 </div>
