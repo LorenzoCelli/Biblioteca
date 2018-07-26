@@ -33,7 +33,7 @@ $img = avatar($id_avatar);
     <a href="/libri/"><button>La mia biblioteca</button></a>
     <a href="/librerie/"><button>Le mie librerie</button></a>
     <a href=""><button disabled>I miei amici</button></a>
-    <a href=""><button>I miei prestiti</button></a>
+    <a href="/prestiti/"><button>I miei prestiti</button></a>
   </div><!--
   --><div class="content">
 
@@ -74,17 +74,15 @@ $img = avatar($id_avatar);
     ?>
     <div>Il tuo account:</div>
     <button onclick="window.location.href='/account/'">impostazioni</button>
-    <button onclick="window.location.href='/logout.php'" style="border: none">logout</button>
+    <button onclick="window.location.href='/logout.php'" style="border:none">logout</button>
   </div>
 
   <?php
-  if ($n_notifiche == 0) {
-    echo "";
-  }else {
+  if ($n_notifiche != 0) {
     echo "<div class='notifica'>$n_notifiche</div>";
   }
   ?>
-  <div onclick="apri_menu_volante('account')" class="scatola_account">
+  <div onclick="apri_menu_volante('account');nascondi_notifiche();" class="scatola_account">
       <p><?php echo $uname;?></p>
       <img src=<?php echo $img;?>>
   </div>

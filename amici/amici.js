@@ -12,7 +12,6 @@ function ricerca_utenti() {
     chiama_get({ris_cerca:ris_cerca.value},"php/cerca.php",cb,ris_div,120);
   }
 }
-
 function aggiungi_utenti(id_amico,button) {
   var loading_div = button.parentElement.getElementsByClassName("loading")[0];
   button.style.display = "none";
@@ -27,6 +26,9 @@ function accetta_rifiuta(id_amico,bool,button) {
     scheda_utente.style.display = "none";
   }
   chiama_get({bool:bool,id_amico:id_amico},"php/accetta_rifiuta.php",cb);
+}
+function nascondi_notifiche() {
+  document.getElementsByClassName("notifica")[0].style.display = "none";
 }
 function searchAnimation() {
   window.addEventListener('click', function(e){
