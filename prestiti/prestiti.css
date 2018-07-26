@@ -10,3 +10,98 @@
 .scatola_aggiungi{
   margin-bottom: 5px;
 }
+.scatola_cronologia {
+  display:none;
+}
+.contenitore_prestiti {
+  width: 100%;
+  display: block;
+}
+.contenitore_prestati {
+  max-width: 45%;
+  min-width: 45%;
+  display: inline-block;
+  vertical-align: top;
+}
+.pillola_libro {
+  max-width: 100%;
+}
+.titolo_pillola_libro {
+  white-space: normal;
+}
+.menu_amici_img {
+  display: inline-block;
+  left: 92%;
+}
+.menu_amici {
+  width: 92%;
+}
+.opzione_menu {
+  padding-left: 2%;
+}
+.menu_amici_img {
+  width: 40px;
+  height: 40px;
+}
+.testo_pillola_libro {
+  width: 1000px;
+}
+
+@media screen and (max-width: 975px) {
+  .testo_pillola_libro {
+    font-size: 15px;
+    padding: 10px;
+  }
+  .titolo_pillola_libro {
+    font-size: 16px;
+  }
+  .immagine_pillola_libro {
+    height: 130px;
+    width: 100px;
+  }
+  .pillola_libro {
+    height: 130px;
+  }
+  .menu_amici {
+    width: 87%;
+  }
+  .menu_amici_img {
+    left: 89%;
+  }
+}
+@media screen and (max-width: 650px) {
+ .contenitore_prestati {
+   display: block;
+   min-width: 100%;
+   max-width: 100%;
+ }
+ .content {
+   padding-left: 5%;
+ }
+ .menu_amici_img {
+   width: 27px;
+   height: 27px;
+   left: 84%;
+ }
+ .menu_amici {
+   left: 4.4%;
+ }
+}
+@media screen and (max-width:390px) {
+  .testo_pillola_libro {
+      font-size: 3.7vw;
+  }
+  .titolo_pillola_libro {
+    font-size: 4.2vw;
+  }
+  .content {
+    padding-left: 7%;
+  }
+  .immagine_pillola_libro {
+    height: 110px;
+    width: 80px;
+  }
+  .pillola_libro {
+    height: 110px;
+  }
+}
