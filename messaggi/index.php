@@ -54,15 +54,21 @@ $img = avatar($id_avatar);
                 if ($results->num_rows == 0) {
                     echo "<p id='no_amici'>Aggiungi amici per messaggiare</p>";
                 } else {
+                    $i = 0;
                     while ($row = mysqli_fetch_assoc($results)) {
+                        if($i==0){
+                            echo "<script>var primo_id = [".$row['id'].",'".$row['username']."']; </script>";
+                            $i++;
+                        }
                         $id_amico = $row['id'];
                         $uname_amico = $row['username'];
                         $avatar_amico = $row['id_avatar'];
                         $img_avatar = avatar($avatar_amico);
                         echo "
-                        <div class='contatti' onclick='nuova_sessione($id_amico,\"$uname_amico\");'>
+                        <div class='contatti' onclick='nuova_sessione($id_amico,\"$uname_amico\", this);'>
                           <img src='$img_avatar'>
                           <p>$uname_amico</p>
+                          <div></div>
                         </div>
                         ";
                     }
@@ -70,11 +76,11 @@ $img = avatar($id_avatar);
                 ?>
         </div><!--
         --><div class="scatola_chat">
-            <h1 id="amico_msg">Cellino</h1>
+            <h1 id="amico_msg"></h1>
             <div id="scatola_messaggi">
             </div>
             <footer>
-                <textarea id="testo" placeholder="Invia un messaggio..."></textarea><button onclick="invia_messaggio()">INVIA</button>
+                <textarea id="testo" placeholder="Invia un messaggio..."></textarea><button onclick="invia_messaggio(this)">INVIA</button>
             </footer>
         </div>
 

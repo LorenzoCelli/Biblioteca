@@ -1,0 +1,81 @@
+body{
+    margin: 0;
+}
+/*
+|--------------------------------------------------------------|
+|                                                              |
+|  Primo contenitore                                           |
+|                                                              |
+|--------------------------------------------------------------|
+*/
+.primo_contenitore{
+    display: inline-block;
+    position: absolute;
+    top:0;
+    width: 100%;
+    height: 100%;
+    background-image: url("/imgs/sfondo.jpg");
+    background-size: cover;
+    font-family: open_sans_bold, sans-serif;
+}
+.primo_contenitore > div{
+    display: block;
+    position: absolute;
+    top:50%;
+    left:20%;
+    width: 60%;
+    height: 211px;
+    transform: translateY(-50%);
+}
+.primo_contenitore > div > div{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+.primo_contenitore div h1{
+    line-height: 30px;
+    color: white;
+    font-family: aileron_bold, sans-serif;
+    font-size: 30px;
+    margin: 0 0 10px 0;
+}
+.primo_contenitore div a{
+    transition: opacity 500ms;
+    letter-spacing: 0.5px;
+    font-family: aileron_ultra_light, sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    text-decoration: none;
+    color: white;
+    display: block;
+}
+.primo_contenitore div a:hover{
+    opacity: 0.5;
+}
+
+/*
+.primo_contenitore .ragazza{
+    position: absolute;
+    top:40%;
+    right: 30%;
+    width: 200px;
+}
+.primo_contenitore .ombra{
+    position: absolute;
+    top:48%;
+    right: 30%;
+    width: 200px;
+}*/
+.primo_contenitore .ragazza{
+    position: absolute;
+    top:0;
+    right: 0;
+    width: 200px;
+}
+.primo_contenitore .ombra{
+    position: absolute;
+    top:100px;
+    right: 0;
+    width: 200px;
+}

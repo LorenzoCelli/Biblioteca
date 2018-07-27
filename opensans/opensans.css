@@ -11,6 +11,22 @@
     font-family: open_sans_semibold;
 }
 @font-face {
+    src: url(OpenSans-Bold.ttf);
+    font-family: open_sans_bold;
+}
+@font-face {
     src: url(/aileron/Aileron-Light.otf);
     font-family: aileron_light;
+}
+@font-face {
+    src: url(/aileron/Aileron-Bold.otf);
+    font-family: aileron_bold;
+}
+@font-face {
+    src: url(/aileron/Aileron-UltraLight.otf);
+    font-family: aileron_ultra_light;
+}
+@font-face {
+    src: url(/aileron/Aileron-Black.otf);
+    font-family: aileron_black;
 }

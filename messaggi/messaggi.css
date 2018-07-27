@@ -20,9 +20,9 @@
     box-sizing: border-box;
     display: inline-block;
     vertical-align: top;
-    width: 20%;
+    width: 30%;
     height: 100%;
-    padding: 100px 0 0 20px;
+    padding: 100px 20px 0 20px;
 }
 .scatola_contatti > p{
     margin: 0 0 10px 0;
@@ -35,11 +35,19 @@
     margin-bottom: 1px;
     background-color: rgba(255,255,255,0.13);
 }
+.contatti:hover{
+    background-color: rgba(255,255,255,0.2);
+}
 .contatti img {
     display: inline-block;
     vertical-align: top;
     width: 50px;
     height: 50px;
+}
+.contatti div{
+    height: 50px;
+    width: 50px;
+    float: right;
 }
 .contatti p {
     font-family: open_sans_light, sans-serif;
@@ -67,7 +75,7 @@
     display: inline-block;
     vertical-align: top;
     overflow: hidden;
-    width: 80%;
+    width: 70%;
     height: 100%;
 }
 
