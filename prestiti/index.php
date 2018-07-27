@@ -1,5 +1,7 @@
 <?php session_start();
 include $_SERVER['DOCUMENT_ROOT'].'/connection.php';
+include $_SERVER['DOCUMENT_ROOT'].'/controllo_set.php';
+
 $uname = $_SESSION['uname'];
 $id_utente = $_SESSION['id_utente'];
 $sql = "SELECT id_avatar FROM utenti WHERE id = '$id_utente'";
@@ -35,6 +37,7 @@ $img = avatar($id_avatar);
     <a href="/librerie/"><button>Le mie librerie</button></a>
     <a href="/amici/"><button>I miei amici</button></a>
     <a href=""><button disabled>I miei prestiti</button></a>
+    <a href="/messaggi/"><button>Messaggi</button></a>
   </div><!--
   --><div class="content">
 
@@ -117,8 +120,9 @@ if ($result->num_rows == 0) {
   <h1 class="title" style="margin-bottom: 0px;">Prestiti in corso</h1>
   <div class="barra_bottoni"><!--
   --><div onclick="chiama_menu_aggiungi()"><img src="../imgs/piu.svg"></div><!--
-  --><div onclick="slide_search_bar()"><img src="../imgs/lente.svg"></div><!--
-  --><input id="search_bar" class="menu_input" type="text" style="width:0;"></div><br>
+  --><div onclick="chiama_barra_ricerca(this)"><img src="../imgs/lente.svg"></div><!--
+  --><input placeholder="cerca.." id="barra_ricerca" class="menu_input" type="text"></div>
+ <input placeholder="cerca.." id="seconda_barra_ricerca" type="text">
   <?php
   $sql = "SELECT * FROM prestiti
   INNER JOIN libri ON libri.id = prestiti.id_libro
@@ -138,9 +142,10 @@ if ($result->num_rows == 0) {
       $data_inizio = date('d-m-Y', $timestamp);
       $timestamp = strtotime($row['data_promemoria']);
       $data_promemoria = date('d-m-Y', $timestamp);
+      $id_prestito = $row['id_prestito'];
       if ($row['id_creditore'] == $id_utente) {
         echo "
-        <div class='pillola_libro'>
+        <div class='pillola_libro' onclick='info_prestito($id_prestito)'>
         <div class='immagine_pillola_libro' style='background-image: url(".$row['img_url'].")'></div><!--
         --><div class='testo_pillola_libro'>
         <p class='titolo_pillola_libro'><b>".$row['titolo']."</b></p>
@@ -182,7 +187,7 @@ if ($result->num_rows == 0) {
     <h1 class="title" style="margin-bottom:15px;">Nuovo prestito</h1>
 
     <div class="scatola_aggiungi"><!--
-    --><input type="text" placeholder="Qual è il libro in prestito?" name="titolo" required><!--
+    --><input type="text" placeholder="Quale libro hai prestato?" name="titolo" required><!--
      --><div id="title_menu_options"></div></div>
 
     <div class="scatola_aggiungi"><!--
@@ -200,6 +205,9 @@ if ($result->num_rows == 0) {
     <input type="submit" value="aggiungi" style="margin-top:20px;">
     <input type="reset" value="annulla" onclick="chiama_menu_aggiungi()">
   </form>
+</div>
+
+<div id="menu_info" style="left: 100%">
 </div>
 
 <script src="/libri/comune.js"></script>

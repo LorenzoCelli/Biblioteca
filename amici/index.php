@@ -1,5 +1,7 @@
 <?php session_start();
 include $_SERVER['DOCUMENT_ROOT'].'/connection.php';
+include $_SERVER['DOCUMENT_ROOT'].'/controllo_set.php';
+
 $uname = $_SESSION['uname'];
 $id_utente = $_SESSION['id_utente'];
 $sql = "SELECT id_avatar FROM utenti WHERE id = '$id_utente'";

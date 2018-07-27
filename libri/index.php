@@ -1,8 +1,6 @@
 <?php session_start();
 include $_SERVER['DOCUMENT_ROOT'].'/connection.php';
-if (!isset($_SESSION['uname'])) {
-    header('Location: /login/login.php');
-}
+include $_SERVER['DOCUMENT_ROOT'].'/controllo_set.php';
 
 $uname = $_SESSION['uname'];
 $id_utente = $_SESSION['id_utente'];
@@ -35,10 +33,11 @@ $img = avatar($id_avatar);
 
 <div id="main_container">
     <div id="menu_principe">
-        <a href=""><button disabled>La mia biblioteca</button></a>
-        <a href="../librerie/index.php"><button>Le mie librerie</button></a>
-        <a href="/amici/"><button>I miei amici</button></a>
-        <a href=""><button>I miei prestiti</button></a>
+        <a href=""><button disabled>Biblioteca</button></a>
+        <a href="/librerie/"><button>Librerie</button></a>
+        <a href="/amici/"><button>Amici</button></a>
+        <a href="/prestiti/"><button>Prestiti</button></a>
+        <a href="/messaggi/"><button>Messaggi</button></a>
     </div><!--
  --><div class="content">
         <!--
@@ -85,20 +84,28 @@ $img = avatar($id_avatar);
         <div id="pillole_libro">
         <?php
 
-        $sql = "SELECT * FROM libri WHERE id_utente = '$id_utente'";
+        $sql = "SELECT * FROM libri
+        LEFT JOIN prestiti ON libri.id = prestiti.id_libro
+        WHERE libri.id_utente = $id_utente
+        ORDER BY libri.id ASC";
         $result = mysqli_query($conn, $sql);
 
         if ($result->num_rows == 0) {
           echo "<p>Non hai ancora aggiunto libri alla tua biblioteca, fallo ora!</p>";
         }else{
           while($row = mysqli_fetch_assoc($result)){
+            if (is_null($row['data_promemoria'])) $p = "";
+            elseif(is_null($row['data_fine'])) $p = "<div>In prestito</div>";
+            if ($row['letto'] == 0) $l = "";
+            elseif ($row['letto'] == 1) $l = "<div>Già letto</div>";
             echo "
             <div class='pillola_libro' onclick='info_libro(".$row['id'].")'>
-            <div class='immagine_pillola_libro' style='background-image: url(".$row['img_url'].")'></div><!--
-            --><div class='testo_pillola_libro'>
-            <p class='titolo_pillola_libro'>".$row['titolo']."</p>
-            ".$row['autore']."
-            </div>
+              <div class='immagine_pillola_libro' style='background-image: url(".$row['img_url'].")'></div><!--
+           --><div class='testo_pillola_libro'>
+                <p class='titolo_pillola_libro'>".$row['titolo']."</p>
+                ".$row['autore']."
+                <div class='info_tag'>$p$l</div>
+              </div>
             </div>
             ";
           }
@@ -170,7 +177,7 @@ $img = avatar($id_avatar);
             <option></option>
         </select>
         <button onclick="nuovo_libro(this)">aggiungi</button>
-        <button onclick="azzera_menu_aggiungi()">annulla</button>
+        <button onclick="chiama_menu_aggiungi()">annulla</button>
 </div>
 
 <!--

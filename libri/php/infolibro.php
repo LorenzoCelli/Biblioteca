@@ -12,7 +12,7 @@ $sql = "SELECT * FROM libri WHERE id_utente = ".$id_utente." AND id = ".$id_libr
 $result = mysqli_query($conn, $sql) or trigger_error(mysqli_error($conn));
 
 if($result->num_rows == 0){
-    echo "<l_img src='http://pa1.narvii.com/6776/24a0a36313ea44f1abac45bcc3c70465fd27f0a2_00.gif' height='200px'>";
+    echo "<img src='http://pa1.narvii.com/6776/24a0a36313ea44f1abac45bcc3c70465fd27f0a2_00.gif' height='200px'>";
     return;
 }
 

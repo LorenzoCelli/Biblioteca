@@ -1,3 +1,11 @@
+var menu_info = document.getElementById("menu_info");
+function info_prestito(id_prestito) {
+  menu_info.style.transform = "translateX(-500px)";
+  function cb(r) {
+    menu_info.innerHTML = r.responseText;
+  }
+  chiama_get({id_prestito:id_prestito},"php/infoprestito.php",cb,menu_info,120);
+}
 var amici = document.getElementsByClassName("menu_amici")[0];
 function dropDown() {
   if(amici.style.height == "0px" || amici.style.height == "") {

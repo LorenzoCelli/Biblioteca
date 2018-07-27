@@ -1,6 +1,11 @@
 .content{
   color: white;
 }
+#barra_ricerca{
+  vertical-align: top;
+  padding-left: 0;
+  width:0;
+}
 #menu_aggiungi h1{
   margin-bottom: 15px;
 }

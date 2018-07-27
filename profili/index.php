@@ -1,8 +1,7 @@
 <?php session_start();
 include $_SERVER['DOCUMENT_ROOT'].'/connection.php';
-if (!isset($_SESSION['uname'])) {
-    header('Location: /login/login.php');
-}
+include $_SERVER['DOCUMENT_ROOT'].'/controllo_set.php';
+
 $id_profilo = $_GET['id_profilo'];
 $uname_profilo = $_GET['uname_profilo'];
 $uname = $_SESSION['uname'];
