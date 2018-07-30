@@ -32,10 +32,11 @@ $img = avatar($id_avatar);
 
 <div id="main_container">
     <div id="menu_principe">
-        <a href="/libri/"><button>La mia biblioteca</button></a>
-        <a href=""><button disabled>Le mie librerie</button></a>
-        <a href="/amici/"><button>I miei amici</button></a>
-        <a href=""><button>I miei prestiti</button></a>
+        <a href="/libri/"><button>Biblioteca</button></a>
+        <a href=""><button  disabled>Librerie</button></a>
+        <a href="/amici/"><button>Amici</button></a>
+        <a href="/prestiti/"><button>Prestiti</button></a>
+        <a href="/messaggi/"><button>Messaggi</button></a>
     </div><!--
  --><div class="content">
         <!--

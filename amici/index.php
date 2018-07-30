@@ -31,13 +31,13 @@ $img = avatar($id_avatar);
 -->
 
 <div id="main_container">
-  <div id="menu_principe">
-    <a href="/libri/"><button>Biblioteca</button></a>
-    <a href="/librerie/"><button>Librerie</button></a>
-    <a href=""><button disabled>Amici</button></a>
-    <a href="/prestiti/"><button>Prestiti</button></a>
-    <a href="/messaggi/"><button>Messaggi</button></a>
-  </div><!--
+    <div id="menu_principe">
+        <a href="/libri/"><button>Biblioteca</button></a>
+        <a href="/librerie/"><button>Librerie</button></a>
+        <a href="/amici/" disabled><button>Amici</button></a>
+        <a href="/prestiti/"><button>Prestiti</button></a>
+        <a href="/messaggi/"><button>Messaggi</button></a>
+    </div><!--
   --><div class="content">
 
   <div style="border-radius:0 10px 10px 0;height:50px;width:50px;position:absolute;top:20px;left:0;background-color: #f8f8f8; display:inline-block"><img onclick="chiama_menu_principe()" src="../imgs/menu.svg" style="height: 50px"></div>
