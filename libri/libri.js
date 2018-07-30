@@ -185,7 +185,6 @@ var f_t = 25;
 
 function f(){
     for (var i = 0; i < pillola_libro.length; i++) {
-        console.log("ciao2");
         var pillola = pillola_libro[i];
         var testo = pillola.getElementsByClassName("testo_pillola_libro")[0];
         var w = pillola.offsetWidth;
@@ -202,7 +201,6 @@ function f(){
                 k += 5;
                 if(k>f_t) break;
             }
-            console.log(k);
         }
     }
 }
@@ -227,7 +225,7 @@ window.addEventListener('resize', function() {
 */
 
 function info_libro(id) {
-    menu_info.style.transform = "translateX(-500px)";
+    menu_info.style.transform = "translateX(-100%)";
     function cb (r) {
         menu_info.innerHTML = r.responseText;
     }

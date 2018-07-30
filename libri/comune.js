@@ -25,11 +25,13 @@ function espandi_pillole() {
             for(var i=0; i<pillole.length; i++){
                 pillole[i].style.width = "100%";
             }
+            if(typeof f !== "undefined") f();
         },function () {
             var pillole = pillole_libro.getElementsByClassName("pillola_libro");
             for(var i=0; i<pillole.length; i++){
                 pillole[i].style.width = "auto";
             }
+            if(typeof f !== "undefined") f();
         }
     )
 }
@@ -52,14 +54,12 @@ if(prima_barra && seconda_barra) {
         seconda_barra["stato"] = true;
         seconda_barra.style.width = "100%";
         seconda_barra.style.height = "50px";
-        seconda_barra.style.border = "1px solid #efefef";
         seconda_barra.style.marginBottom = "10px";
     };
     seconda_barra.chiudi = function () {
         seconda_barra["stato"] = false;
         seconda_barra.style.width = "0";
         seconda_barra.style.height = "0";
-        seconda_barra.style.border = "none";
         seconda_barra.style.marginBottom = "0";
     };
 
