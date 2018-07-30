@@ -1,9 +1,6 @@
 body{
   font-family: 'Vollkorn', serif;
-  background-color: #3a3a3a;
-  /*background-image: url('https://ak1.picdn.net/shutterstock/videos/15630001/thumb/1.jpg');*/
-  background-repeat: no-repeat;
-  background-size: cover;
+  background: #00c3d7;
 }
 h1{
   margin: 0;
@@ -23,7 +20,10 @@ a:hover{
 }
 .container{
   display: inline-block;
-  background-color: #f8f8f8;
+  background: #f8f8f8;
+  background-image: url(/imgs/carta3.png);
+  background-position: center;
+
   padding: 30px 30px 30px 30px;
   border-radius: 10px;
   position: fixed;

@@ -77,7 +77,14 @@ function richiedi_dati(menu_suggerimenti, query) {
 }
 
 function riempi_dati(volumeInfo) {
-    isbn.value = parseInt(volumeInfo.industryIdentifiers[1]["identifier"]);
+    console.log(volumeInfo);
+    if('industryIdentifiers' in volumeInfo){
+        for (var i = 0; i < volumeInfo.industryIdentifiers.length; i++){
+            if(volumeInfo.industryIdentifiers[i].type === "ISBN_13" ){
+                isbn.value = parseInt(volumeInfo.industryIdentifiers[i]["identifier"]);
+            }
+        }
+    }
     titolo.value = volumeInfo.title;
     autore.value = authors(volumeInfo);
     if('description' in volumeInfo){
@@ -315,7 +322,11 @@ function aggiorna_libro(id, el) {
 function nuovo_libro(el) {
     function cb(r) {
         chiama_menu_aggiungi();
-        menu_aggiungi.innerHTML = r.responseText;
+        var div = document.createElement("div");
+        div.className = "pillola_libro";
+        div.innerHTML = r.responseText;
+        console.log(r.responseText);
+        pillole_libro.insertBefore(div, pillole_libro.childNodes[0]);
     }
     var scatole_generi = menu_aggiungi.querySelectorAll('.pillola_genere[contenteditable=false]');
     var generi = trova_generi(scatole_generi);
@@ -347,6 +358,7 @@ function ordina(el, ordina) {
     function cb(r) {
         pillole_libro.innerHTML = r.responseText;
         apri_menu_volante(el.parentElement.id.replace("menu_volante_",""));
+        f();
     }
     chiama_post({ordina: ordina}, "/libri/php/ordina.php", cb, el, 35);
 }

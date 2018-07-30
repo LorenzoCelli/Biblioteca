@@ -33,8 +33,6 @@ if($result){
         $sql = "INSERT INTO posizione (id_libro,n_scaffale,id_libreria)
         VALUES ($last_id,'$scaffale','$id_libreria')";
         $results = mysqli_query($conn, $sql);
-      }else{
-        echo "nuuuuuuuuu";
       }
     }
 
@@ -44,10 +42,12 @@ if($result){
         mysqli_query($conn, $sql);
     }
 
-    echo   "<div class='immagine_pillola_libro' style='background-image: url(" . $img_url . ")'></div><!--
-             --><div class='testo_pillola_libro'>
-                <p class='titolo_pillola_libro'>" . $titolo . "</p>
-                " . $autore . "
+    echo "<div class='immagine_pillola_libro' style='background-image: url(".$img_url.")'></div><!--
+           --><div class='testo_pillola_libro'>
+                <div>".$autore."</div>
+                <div class='titolo_pillola_libro'>".$titolo."</div>
+              </div>
+              <div class='info_tag'></div>
             </div>";
 }
 

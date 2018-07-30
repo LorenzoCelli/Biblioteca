@@ -89,7 +89,7 @@ function chiama_menu_aggiungi() {
         menu_aggiungi.style.transform = "translateX(-100%)";
     },function () {
         menu_aggiungi.style.transform = "translateX(0)";
-        if(typeof variable !== 'undefined') azzera_menu_aggiungi();
+        if(typeof azzera_menu_aggiungi !== 'undefined') azzera_menu_aggiungi();
     })
 }
 

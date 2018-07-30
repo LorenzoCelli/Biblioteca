@@ -69,11 +69,11 @@ if ($ordina == 'generi') {
       echo "
       <div class='pillola_libro' onclick='info_libro(".$row['id'].")'>
       <div class='immagine_pillola_libro' style='background-image: url(".$row['img_url'].")'></div><!--
-      --><div class='testo_pillola_libro'>
-      <p class='titolo_pillola_libro'>".$row['titolo']."</p>
-      ".$row['autore']."
-      <div class='info_tag'>$p$l</div>
+   --><div class='testo_pillola_libro'>
+        <div>".$row['autore']."</div>
+        <div class='titolo_pillola_libro'>".$row['titolo']."</div>
       </div>
+      <div class='info_tag'>$p$l</div>
       </div>
       ";
       $temp = $row['genere'];
@@ -94,11 +94,11 @@ if ($ordina == 'libreria') {
     echo "
     <div class='pillola_libro' onclick='info_libro(".$row['id'].")'>
       <div class='immagine_pillola_libro' style='background-image: url(".$row['img_url'].")'></div><!--
-      --><div class='testo_pillola_libro'>
-        <p class='titolo_pillola_libro'>".$row['titolo']."</p>
-        ".$row['autore']."
-        <div class='info_tag'>$p$l</div>
+   --><div class='testo_pillola_libro'>
+        <div>".$row['autore']."</div>
+        <div class='titolo_pillola_libro'>".$row['titolo']."</div>
       </div>
+      <div class='info_tag'>$p$l</div>
     </div>
     ";
     $temp = $row['nome'];
@@ -113,11 +113,11 @@ while($row = mysqli_fetch_assoc($result)){
   echo "
   <div class='pillola_libro' onclick='info_libro(".$row['id'].")'>
     <div class='immagine_pillola_libro' style='background-image: url(".$row['img_url'].")'></div><!--
-    --><div class='testo_pillola_libro'>
-      <p class='titolo_pillola_libro'>".$row['titolo']."</p>
-      ".$row['autore']."
-      <div class='info_tag'>$p$l</div>
+ --><div class='testo_pillola_libro'>
+      <div>".$row['autore']."</div>
+      <div class='titolo_pillola_libro'>".$row['titolo']."</div>
     </div>
+    <div class='info_tag'>$p$l</div>
   </div>
   ";
 }

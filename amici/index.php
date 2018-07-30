@@ -16,7 +16,7 @@ $img = avatar($id_avatar);
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Biblioteca - Amici</title>
   <link rel="stylesheet" type="text/css" href="/opensans/opensans.css">
-  <link rel="stylesheet" type="text/css" href="/libri/libri2.css">
+  <link rel="stylesheet" type="text/css" href="/libri/libri.css">
   <link rel="stylesheet" type="text/css" href="/amici/amici.css">
   <link href="https://fonts.googleapis.com/css?family=Vollkorn:400,600,900" rel="stylesheet">
 </head>
@@ -33,15 +33,14 @@ $img = avatar($id_avatar);
 <div id="main_container">
     <div id="menu_principe">
         <a href="/libri/"><button>Biblioteca</button></a>
-        <a href="/librerie/"><button>Librerie</button></a>
-        <a href="/amici/" disabled><button>Amici</button></a>
+        <a href=""><button>Librerie</button></a>
+        <a href="/amici/"><button  disabled>Amici</button></a>
         <a href="/prestiti/"><button>Prestiti</button></a>
         <a href="/messaggi/"><button>Messaggi</button></a>
     </div><!--
   --><div class="content">
 
-  <div style="border-radius:0 10px 10px 0;height:50px;width:50px;position:absolute;top:20px;left:0;background-color: #f8f8f8; display:inline-block"><img onclick="chiama_menu_principe()" src="../imgs/menu.svg" style="height: 50px"></div>
-
+        <div class="tasto_menu"><img onclick="chiama_menu_principe()" src="../imgs/menu.svg"></div>
   <!--
   |--------------------------------------------------------------|
   |  Menu volante account                                        |
@@ -93,7 +92,6 @@ $img = avatar($id_avatar);
       <input id="barra_ricerca" type="text" placeholder="cerca utente" onclick="searchAnimation();"><!--
       --><input type="submit" id="search_button" value="" onclick="ricerca_utenti();">
       <div id="ris_div">
-
       </div>
   </div>
   <img src="https://png.icons8.com/ios/100/ffffff/circled-chevron-down.png" onclick="dropDown();" class="menu_amici_img">

@@ -40,8 +40,9 @@ if (isset($_POST['username'])) {
     <link href="/opensans/opensans.css" rel="stylesheet">
 </head>
 <body>
+    <div style="position: fixed; top:0; left:0; height: 100%; width: 100%; background-image: url(/imgs/sfondo.jpg); background-size: cover">
     <div class="container">
-            <img src="../imgs/donnina.svg" style="height: 300px; position: absolute;top:-230px;left;0">
+
             <h1 style="margin-bottom: 10px;">accedi</h1>
             <form action="login.php" method="post">
                 <div class="input_container">
@@ -54,6 +55,7 @@ if (isset($_POST['username'])) {
                     <input class="login_button" type="submit" value="login">
                 </div>
             </form>
+            <img src="../imgs/donnina.svg" style="height: 200px; position: absolute;top:-130px;left;0">
             <?php
 
             if ($flagerror) {
@@ -61,6 +63,7 @@ if (isset($_POST['username'])) {
             }
             ?>
             <a href="/index.html">indietro</a>
+    </div>
     </div>
 </body>
 </html>

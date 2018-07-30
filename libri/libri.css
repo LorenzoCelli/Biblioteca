@@ -222,6 +222,7 @@ textarea {
     border: 1px solid #cbcbcb;
     overflow: hidden;
     margin-bottom: 5px;
+    background-color: #f1f1f1;
 }
 
 .scatola_suggerimenti input{
@@ -231,6 +232,7 @@ textarea {
 }
 
 .suggerimento{
+    border-bottom: 1px solid white;
     cursor: pointer;
     white-space: nowrap;
     font-family: open_sans_light, sans-serif;
