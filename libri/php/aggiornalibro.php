@@ -15,10 +15,11 @@ $libreria = mysqli_real_escape_string($conn,$_POST["libreria"]);
 $scaffale = mysqli_real_escape_string($conn,$_POST["scaffale"]);
 $img_url = mysqli_real_escape_string($conn,$_POST["img_url"]);
 $descr = mysqli_real_escape_string($conn,$_POST["descr"]);
-
+$letto = mysqli_real_escape_string($conn,$_POST["letto"]);
+echo $letto;
 $sql = "SELECT * FROM
 libri LEFT JOIN posizione ON libri.id = posizione.id_libro
-WHERE libri.id_utente = 5 AND libri.id = 90;";
+WHERE libri.id_utente = $id_utente AND libri.id = $id_libro";
 
 $result = mysqli_query($conn, $sql) or trigger_error(mysqli_error($conn));
 
@@ -26,7 +27,7 @@ if($result && $result->num_rows === 1){
     $row = mysqli_fetch_assoc($result);
     $posizione = $row["id_libreria"];
 
-    $sql = "UPDATE libri SET isbn= '".$isbn."', titolo= '".$titolo."', autore= '".$autore."', descr= '".$descr."', img_url= '".$img_url."' WHERE id = ".$id_libro;
+    $sql = "UPDATE libri SET isbn= '".$isbn."', titolo= '".$titolo."', autore= '".$autore."', descr= '".$descr."', img_url= '".$img_url."', letto=$letto WHERE id = ".$id_libro;
     $result = mysqli_query($conn, $sql) or trigger_error(mysqli_error($conn));
 
     if($result){

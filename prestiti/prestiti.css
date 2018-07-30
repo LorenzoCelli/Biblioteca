@@ -51,6 +51,9 @@
 .testo_pillola_libro {
   width: 1000px;
 }
+.input h3{
+  margin-bottom: 0;
+}
 
 @media screen and (max-width: 975px) {
   .testo_pillola_libro {

@@ -8,13 +8,13 @@ include $_SERVER['DOCUMENT_ROOT'].'/connection.php';
 $id_utente = $_SESSION['id_utente'];
 $ordina = mysqli_real_escape_string($conn,$_POST['ordina']);
 
-if ($ordina == 'az') {
+if ($ordina == 'titoloaz') {
   $sql = "SELECT * FROM libri
   LEFT JOIN prestiti ON libri.id = prestiti.id_libro
   WHERE libri.id_utente = '$id_utente'
   ORDER BY libri.titolo ASC";
 
-}elseif ($ordina == 'za') {
+}elseif ($ordina == 'titoloza') {
   $sql = "SELECT * FROM libri
   LEFT JOIN prestiti ON libri.id = prestiti.id_libro
   WHERE libri.id_utente = '$id_utente'
@@ -107,9 +107,9 @@ if ($ordina == 'libreria') {
 }
 while($row = mysqli_fetch_assoc($result)){
   if (is_null($row['data_promemoria'])) $p = "";
-  elseif(is_null($row['data_fine'])) $p = "<div>In prestito</div>";
+  elseif(is_null($row['data_fine'])) $p = "<div> style='background-color:#dc4242;'>In prestito</div>";
   if ($row['letto'] == 0) $l = "";
-  elseif ($row['letto'] == 1) $l = "<div>Già letto</div>";
+  elseif ($row['letto'] == 1) $l = "<div style='background-color:	#dc8f42;'>Già letto</div>";
   echo "
   <div class='pillola_libro' onclick='info_libro(".$row['id'].")'>
     <div class='immagine_pillola_libro' style='background-image: url(".$row['img_url'].")'></div><!--

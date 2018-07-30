@@ -23,9 +23,9 @@ if ($results->num_rows == 0) {
     $img_avatar = avatar($avatar_amico);
     if (is_null($row['id_amico'])) {
       echo "
-      <div class='scheda_utente2' onclick='visita_profilo($id_amico,\"$uname_amico\")'>
+      <div class='scheda_utente2'>
         <img src='$img_avatar'>
-        <p style='display:inline-block;'>$uname_amico</p><!--
+        <a onclick='visita_profilo($id_amico,\"$uname_amico\")' style='display:inline-block;margin: 0;vertical-align: top;padding: 0px 4px;line-height: 40px;'>$uname_amico</a><!--
         --><div class='loading' style='display:inline-block;float:right;background-color:none;'></div><img src='/imgs/check.svg' style='display:none;' class='risp_richiesta'><!--
         --><button id='friend_button' onclick='aggiungi_utenti($id_amico,this)'></button>
       </div>
@@ -43,8 +43,8 @@ if ($results->num_rows == 0) {
       echo "
       <div class='scheda_utente2' onclick='visita_profilo($id_amico,\"$uname_amico\")'>
         <img src='$img_avatar'>
-        <p style='display:inline-block;'>$uname_amico</p><!--
-        --><p style='display:inline-block;float:right'>$p</p>
+        <a onclick='visita_profilo($id_amico,\"$uname_amico\")' style='display:inline-block;margin: 0;vertical-align: top;padding: 0px 4px;line-height: 40px;'>$uname_amico</a><!--
+        --><p style='display:inline-block;float:right;font-family:open_sans_light'>$p</p>
       </div>
       ";
     }

@@ -102,7 +102,7 @@ $img = avatar($id_avatar);
         }else{
           while($row = mysqli_fetch_assoc($result)){
             echo "
-            <div class='pillola_libro' onclick='info_libro(".$row['id'].")'>
+            <div class='pillola_libro' onclick='info_libro_amico(".$row['id'].")'>
             <div class='immagine_pillola_libro' style='background-image: url(".$row['img_url'].")'></div><!--
             --><div class='testo_pillola_libro'>
             <p class='titolo_pillola_libro'>".$row['titolo']."</p>

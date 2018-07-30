@@ -17,3 +17,10 @@ function aggiungi_preferiti(id_profilo) {
   }
   chiama_get({id_profilo:id_profilo},"php/aggiungi_preferiti.php",cb);
 }
+function info_libro_amico(id) {
+    menu_info.style.transform = "translateX(-500px)";
+    function cb (r) {
+        menu_info.innerHTML = r.responseText;
+    }
+    chiama_get({id : id}, "/profili/php/infolibro.php", cb, menu_info, 120);
+}

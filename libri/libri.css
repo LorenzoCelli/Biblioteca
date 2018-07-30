@@ -429,6 +429,7 @@ a {
 }
 
 .testo_pillola_libro {
+    height: 100%;
     max-width: 600px;
     white-space: normal;
     position: relative;
@@ -452,17 +453,22 @@ a {
 .info_tag{
     position: absolute;
     bottom: 10px;
-    left: 15px;
+    right: 20px;
 }
 
 .info_tag div{
-    background-color: rgb(246, 246, 246);
-    border: 1px solid #cbcbcb;
-    border-radius: 20px;
-    padding: 6px 8px 4px 8px;
-    margin-bottom: 3px;
-    text-align: center;
-    font-size: 11pt;
+  font-family: open_sans_light;
+  color: white;
+  padding: 2px;
+  margin-left: 5px;
+  display: inline-block;
+  line-height: 20px;
+  border-radius: 20px;
+  margin-bottom: 3px;
+  text-align: center;
+  font-size: 9.8pt;
+  width: 65px;
+  height: 20px;
 }
 
 /*

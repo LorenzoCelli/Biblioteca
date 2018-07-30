@@ -6,6 +6,36 @@ function info_prestito(id_prestito) {
   }
   chiama_get({id_prestito:id_prestito},"php/infoprestito.php",cb,menu_info,120);
 }
+function input_prestito() {
+  var listainput = document.getElementsByClassName("input");
+  var listainfo = menu_info.getElementsByClassName("info");
+  for (var i = 0; i < listainput.length; i++) {
+    listainput[i].style.display = "block";
+  }
+  for (var i = 0; i < listainfo.length; i++) {
+    listainfo[i].style.display = "none";
+  }
+}
+function elimina_prestito(id_prestito) {
+  function cb(r) {
+    menu_info.style.transform = "translateX(0)";
+  }
+  chiama_get({id_prestito:id_prestito},"php/eliminaprestito.php",cb,menu_info,120);
+}
+function aggiorna_prestito(id_prestito) {
+    function cb(r) {
+        //console.log(r.responseText);
+    }
+    var a = {
+        id_prestito : id_prestito,
+        titolo : menu_info.querySelector('input[name=titolo]').value,
+        debitore : menu_info.querySelector('input[name=debitore]').value,
+        data_inizio : menu_info.querySelector('input[name=data_inizio]').value,
+        data_promemoria : menu_info.querySelector('input[name=data_promemoria]').value,
+        data_fine : menu_info.querySelector('input[name=data_fine]').value
+    };
+    chiama_post(a,"/prestiti/php/aggiornaprestito.php", cb);
+}
 var amici = document.getElementsByClassName("menu_amici")[0];
 function dropDown() {
   if(amici.style.height == "0px" || amici.style.height == "") {
