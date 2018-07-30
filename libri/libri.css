@@ -429,7 +429,6 @@ a {
 }
 
 .testo_pillola_libro {
-    height: 100%;
     max-width: 600px;
     white-space: normal;
     position: relative;
@@ -459,7 +458,7 @@ a {
 .info_tag div{
   font-family: open_sans_light;
   color: white;
-  padding: 2px;
+  padding: 2px 5px;
   margin-left: 5px;
   display: inline-block;
   line-height: 20px;
