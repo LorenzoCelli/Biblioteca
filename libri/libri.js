@@ -185,6 +185,7 @@ var f_t = 25;
 
 function f(){
     for (var i = 0; i < pillola_libro.length; i++) {
+        console.log("ciao2");
         var pillola = pillola_libro[i];
         var testo = pillola.getElementsByClassName("testo_pillola_libro")[0];
         var w = pillola.offsetWidth;
@@ -208,12 +209,13 @@ function f(){
 f();
 
 var resizeTimer;
-window.onresize = function(e) {
+window.addEventListener('resize', function() {
+    console.log("ciao");
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(function() {
         f();
     }, 250);
-};
+});
 
 
 /*

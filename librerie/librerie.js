@@ -63,7 +63,6 @@ function reset_new_book() {
 }
 function modifica_libreria() {
     var info_boxes = menu_info.getElementsByClassName("scatola_info");
-    console.log(info_boxes);
     for(var i=0; i<info_boxes.length; i++){
         var info_box = info_boxes[i];
         info_box.style.display = "block";
