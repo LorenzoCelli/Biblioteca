@@ -62,12 +62,6 @@ $img = avatar($id_avatar);
 <div class="scatola_cronologia">
 <h1 class="title">Prestiti terminati</h1>
 <br>
-<div class="contenitore_prestati">
-  <h3>Ho prestato:</h3>
-</div>
-<div class="contenitore_prestati">
-  <h3>Ho preso in prestito:</h3>
-</div>
 <?php
 $sql = "SELECT * FROM prestiti
 INNER JOIN libri ON libri.id = prestiti.id_libro
@@ -76,10 +70,47 @@ WHERE utenti.id != '$id_utente'
 AND (prestiti.id_creditore = '$id_utente' OR prestiti.id_debitore = '$id_utente')
 AND data_fine is NOT NULL";
 $result = mysqli_query($conn, $sql);
+$results = mysqli_query($conn, $sql);
+?>
+<div class="contenitore_prestati">
+  <h3>Ho prestato:</h3>
+  <?php
+  if ($result->num_rows == 0) {
+    echo "";
+  }else{
+    while ($row = mysqli_fetch_assoc($result)) {
+      date_default_timezone_set('Europe/Rome');
+      $timestamp = strtotime($row['data_inizio']);
+      $data_inizio = date('d-m-Y', $timestamp);
+      $timestamp = strtotime($row['data_promemoria']);
+      $data_promemoria = date('d-m-Y', $timestamp);
+      echo "
+      <div class='pillola_libro'>
+      <div class='immagine_pillola_libro' style='background-image: url(".$row['img_url'].")'></div><!--
+      --><div class='testo_pillola_libro'>
+      <p class='titolo_pillola_libro'><b>".$row['titolo']."</b></p>
+      ";
+      if ($row['id_creditore'] == $id_utente) {
+        echo "
+        Libro di <b>".$uname."</b><br>
+        prestato a <b>".$row['username']."</b><br>
+        il giorno <b>$data_inizio</b><br>
+        restituito il <b>$data_fine</b>
+        ";
+      }
+      echo "</div></div>";
+    }
+  }
+  ?>
+</div>
+<div class="contenitore_prestati">
+  <h3>Ho preso in prestito:</h3>
+</div>
+<?php
 if ($result->num_rows == 0) {
   echo "";
 }else{
-  while ($row = mysqli_fetch_assoc($result)) {
+  while ($row = mysqli_fetch_assoc($results)) {
     date_default_timezone_set('Europe/Rome');
     $timestamp = strtotime($row['data_inizio']);
     $data_inizio = date('d-m-Y', $timestamp);
@@ -91,14 +122,7 @@ if ($result->num_rows == 0) {
     --><div class='testo_pillola_libro'>
     <p class='titolo_pillola_libro'><b>".$row['titolo']."</b></p>
     ";
-    if ($row['id_creditore'] == $id_utente) {
-      echo "
-      Libro di <b>".$uname."</b><br>
-      prestato a <b>".$row['username']."</b><br>
-      il giorno <b>$data_inizio</b><br>
-      restituito il <b>$data_fine</b>
-      ";
-    }else{
+    if ($row['id_creditore'] != $id_utente) {
       echo "
       Libro di <b>".$row['username']."</b><br>
       prestato a <b>".$uname."</b><br>
