@@ -12,7 +12,7 @@ $descr = mysqli_real_escape_string($conn, $_POST["descr"]);
 $colore = mysqli_real_escape_string($conn, $_POST["colore"]);
 $n_scaffali = mysqli_real_escape_string($conn, $_POST["n_scaffali"]);
 
-$sql = "SELECT id FROM libreria WHERE id_utente = '$id_utente' AND id = $id";
+$sql = "SELECT id FROM libreria WHERE id_utente = $id_utente AND id = $id";
 $result = mysqli_query($conn, $sql) or trigger_error(mysqli_error($conn));
 
 if($result && $result->num_rows == 1){

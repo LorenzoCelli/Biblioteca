@@ -91,7 +91,7 @@ $img = avatar($id_avatar);
             <div class='pillola_libro' onclick='info_libreria(".$row['id'].")'>
                 <div class='immagine_pillola_libro' style='background-color: ".$row['colore']."'></div><!--
              --><div class='testo_pillola_libro'>
-                    <p class='titolo_pillola_libro'>".$row['nome']."</p>".$row['descr']."
+                    <div class='titolo_pillola_libro'>".$row['nome']."</div><div>".$row['descr']."</div>
                 </div>
             </div>
            ";
