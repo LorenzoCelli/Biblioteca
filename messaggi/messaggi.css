@@ -71,7 +71,9 @@
     position: relative;
     font-family: open_sans_regular, sans-serif;
     box-sizing: border-box;
-    background-color: #ff6970;
+    background: #00ccdd url(/imgs/sfondomsg.jpg);
+    background-position: center;
+    background-size: cover;
     display: inline-block;
     vertical-align: top;
     overflow: hidden;

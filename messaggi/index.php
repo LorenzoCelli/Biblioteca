@@ -44,6 +44,7 @@ $img = avatar($id_avatar);
 
         <div class="scatola_contatti">
                 <p>contatti</p>
+                <div style="border-radius: 5px; overflow: hidden">
                 <?php
                 $sql = "SELECT * FROM amici
                 INNER JOIN utenti
@@ -75,7 +76,7 @@ $img = avatar($id_avatar);
                         ";
                     }
                 }
-                ?>
+                ?></div>
         </div><!--
         --><div class="scatola_chat">
             <h1 id="amico_msg"></h1>
