@@ -33,20 +33,38 @@ $data_promemoria = date('d-m-Y', $timestamp);
 ?>
 
 <div class="info_barrabottoni">
-    <div onclick="modifica_libro(<?echo $id_libro;?>)"><img src="../imgs/matita.svg"></div><!--
- --><div onclick="elimina_libro(<?echo $id_libro;?>,this)"><img src="../imgs/cestino.svg"></div><!--
+    <div onclick="modifica_libro(<?php echo $id_libro;?>)"><img src="../imgs/matita.svg"></div><!--
+ --><div onclick="elimina_libro(<?php echo $id_prestito;?>,this)"><img src="../imgs/cestino.svg"></div><!--
  --><div onclick="chiudi_menu_info()"><img src="../imgs/croce.svg"></div>
 </div>
 
 <div id="img_aggiungi" class="immagine_pillola_libro" style="background-image: url('<?php echo $img_url;?>')"></div>
 
 <h1><?php echo $titolo;?></h1>
+<div class="" style="display:none;">
+  <h3>Titolo:</h3>
+  <input type="text" name="titolo" value="<?php echo $titolo;?>">
+</div>
 <h3>L'hai prestato a: <?php echo $uname_debitore;?></h3>
+<div class="" style="display:none;">
+  <h3>A chi l'hai prestato?</h3>
+  <input type="text" name="debitore" value="<?php echo $uname_debitore;?>">
+</div>
 <h3>Il giorno: <?php echo $data_inizio;?></h3>
+<div class="" style="display:none;">
+  <h3>Data d'inizio prestito:</h3>
+  <input type="text" name="data_inizio" value="<?php echo $data_inizio;?>">
+</div>
 <h3>Da restituire entro: <?php echo $data_promemoria;?></h3>
-
-
-
+<div class="" style="display:none;">
+  <h3>Data promemoria di fine prestito:</h3>
+  <input type="text" name="data_promemoria" value="<?php echo $data_promemoria;?>">
+</div>
+<h3>Data termine prestito: <?php echo $data_promemoria;?></h3>
+<div class="" style="display:none;">
+  <h3>Data termine prestito:</h3>
+  <input type="text" name="data_fine" value="<?php echo $titolo;?>">
+</div>
 
 
 

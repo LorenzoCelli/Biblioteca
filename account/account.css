@@ -1,43 +1,64 @@
 .content{
-  text-align: center;
   color: white;
-  padding: 100px 0 0 0;
-}
-#risultato_cambio_avatar{
-  display: inline-block;
-  background-color: #464646;
-  color: white;
-  width: 300px;
-  height: auto;
-  line-height: 50px;
-  border-radius: 10px;
-  margin-bottom: 10px;
-}
-.scatola_avatar{
-  position: relative;
-  width: 225px;
-  height: 225px;
-  display: inline-block;
-  border-radius: 100%;
-}
-#big_icon{
-  width: 225px;
-  height: 225px;
-  border-radius: 10px;
-  box-sizing: border-box;
 }
 h1{
   color: white;
   margin-bottom: 10px;
 }
+h4 {
+  padding: 10px 0px;
+  margin: 0px;
+  color: white;
+}
+h5 {
+  margin: 10px 0 0 0;
+  text-align: left;
+  padding-left: 20px;
+}
+#title {
+  margin-top:35px;
+}
+#risultato_cambio_avatar {
+  font-family: open_sans_light;
+  background-color: #5cb85c;
+  color: white;
+  width: 100%;
+  height: 0px;
+  line-height: 30px;
+  margin-bottom: 10px;
+  font-style: bold;
+  text-align: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  overflow: hidden;
+}
+#big_icon{
+  width: 250px;
+  height: 250px;
+  border-radius: 10px 0 0 10px;
+  box-sizing: border-box;
+}
+.scatola_tutto{
+  width: 65%;
+  display: inline-block;
+}
+.scatola_avatar{
+  position: relative;
+  width: 250px;
+  height: 250px;
+  display: inline-block;
+  border-radius: 0px 10px 10px 0;
+}
 .scatola_avatar button{
   background-color: rgba(255, 255, 255, 0.5);
   font-family: open_sans_light, sans-serif;
-  font-size: 18pt;
+  font-size: 14pt;
   box-sizing: border-box;
-  border-radius: 10px;
-  width: 225px;
-  height: 225px;
+  border-radius: 10px 0 0 10px;
+  width: 250px;
+  height: 250px;
   position: absolute;
   left: 0;
   top: 0;
@@ -48,15 +69,65 @@ h1{
 .scatola_avatar button:hover{
   opacity: 1;
 }
+.scatola_informazioni {
+    display: inline-block;
+    width: 100%;
+    white-space: nowrap;
+    border-radius: 10px;
+    height: 250px;
+}
+.scatola_informazioni p{
+  display: inline-block;
+  margin: 7px;
+}
+.titolo_informazioni {
+  padding-left: 20px;
+  font-weight: 600;
+  font-size: 21px;
+  line-height: 20px;
+}
+.scatola_informazioni_dati {
+  height: 100%;
+  display: inline-block;
+  background-color: white;
+  color: black;
+  border-radius: 0px 10px 10px 0;
+  vertical-align: top;
+  width: 65%;
+}
+.scatola_pulsanti {
+  width: 35%;
+  display: inline-block;
+  vertical-align: top;
+  float: right;
+}
+.scatola_pulsanti button {
+  margin: 0px 0px 10px 0;
+  height: 55px;
+  transition: transform 500ms, width 500ms, height 500ms;
+}
+.scatola_pulsanti input {
+  width: 90%;
+  margin: 10px 3px;
+}
+.scatola_pulsanti div div button {
+  width: 45%;
+  height: 35px;
+}
+.scatola_pulsanti button:hover{
+  transform: scale(1.02);
+}
 #avatars{
-  transition: height 500ms;
+  margin-top: 25px;
+  width: 0px;
+  overflow: hidden;
+  transition: width 0.2s, height 0.2s;
 }
 #avatars img{
-  width: 100px;
-  height: 100px;
+  width: 60px;
+  height: 60px;
   margin-right: 10px;
-  border-radius: 10px;
-  transition: transform 500ms;
+  border-radius: 5px;
 }
 #avatars img:hover{
   transform: scale(1.07);
@@ -64,4 +135,235 @@ h1{
 #avatars button{
   width: 70px;
   padding: 10px;
+}
+.contenitore_sfondo {
+  display: none;
+  height: 183px;
+  width: 100%;
+  border-radius: 10px;
+  background-color: white;
+  color: black;
+  text-align: center;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+.contenitore_sfondo div {
+  background-color: red;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: inline-block;
+  margin: 10px 3px;
+  transition: transform 500ms;
+}
+.contenitore_sfondo div:hover {
+  transform: scale(1.07);
+}
+.contenitore_username {
+  display: none;
+  color: black;
+  border-radius: 10px;
+  text-align: center;
+  height: 175px;
+  width: 100%;
+  background-color: white;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+.contenitore_username p {
+  padding-top: 10px;
+  margin-bottom: 2px;
+}
+.contenitore_password {
+  display: none;
+  color: black;
+  border-radius: 10px;
+  text-align: center;
+  height: 96px;
+  width: 100%;
+  background-color: white;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+.contenitore_password button {
+  margin-top: 10px;
+}
+.contenitore_password p {
+  padding-top: 10px;
+  margin-bottom: 5px;
+}
+.contenitore_email {
+  display: none;
+  color: black;
+  border-radius: 10px;
+  text-align: center;
+  height: 275px;
+  width: 100%;
+  background-color: white;
+  overflow: hidden;
+}
+.contenitore_email button {
+  margin-top: 10px;
+}
+.contenitore_email p {
+  margin-bottom: 0px;
+  margin-top: 3px;
+}
+@media screen and (max-width: 1260px) {
+  .scatola_tutto{
+    width: 75%;
+  }
+  .scatola_informazioni {
+    width: 100%;
+    height: 200px;
+  }
+  .scatola_informazioni p {
+    margin: 3px;
+  }
+  .scatola_informazioni_dati {
+    width: 60%;
+    padding-right: 5%;
+  }
+  .scatola_avatar button {
+    width: 200px;
+    height: 200px;
+  }
+  .scatola_avatar {
+    width: 200px;
+    height: 200px;
+  }
+  #big_icon {
+    width: 200px;
+    height: 200px;
+  }
+  #title {
+    margin-top:25px;
+  }
+  #pinfo {
+    font-size:20px;
+  }
+  .scatola_pulsanti button {
+    height: 43px;
+  }
+  .scatola_pulsanti {
+    width: 25%;
+  }
+}
+@media screen and (max-width: 940px) {
+  .scatola_tutto{
+    width: 100%;
+  }
+  .scatola_avatar {
+    width: 250px;
+    height: 250px;
+  }
+  .scatola_pulsanti {
+    display: block;
+    float: none;
+    width:100%;
+    /*margin-top: 210px;*/
+  }
+  .scatola_informazioni {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    border-radius: 10px;
+    height: 250px;
+}
+  .scatola_informazioni_dati {
+    height: 250px;
+    width: 70%;
+    padding-right: 0;
+  }
+  .scatola_avatar button {
+    width: 250px;
+    height: 250px;
+}
+#big_icon {
+    width: 250px;
+    height: 250px;
+}
+.scatola_pulsanti button {
+    height: 55px;
+}
+#avatars {
+  height:0px;
+  text-align: center;
+}
+}
+@media screen and (max-width: 650px) {
+  #title {
+    margin-top: 15px;
+}
+#pinfo {
+  font-size:17px;
+}
+  .scatola_avatar {
+    width: 150px;
+    height: 150px;
+}
+  .scatola_informazioni p {
+    font-size: 16px;
+  }
+  .scatola_informazioni_dati {
+    height: 150px;
+    width: 70%;
+    padding-right: 0;
+    line-height: 3px;
+}
+  .scatola_avatar button {
+      width: 150px;
+      height: 150px;
+  }
+  #big_icon {
+    width: 150px;
+    height: 150px;
+}
+  .scatola_informazioni {
+    height: 150px;
+  }
+}
+@media screen and (max-width:490px) {
+  .scatola_avatar button {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px 10px 0 0;
+    vertical-align: top;
+    font-size: 5vw;
+}
+  #big_icon {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px 10px 0 0;
+    vertical-align: top;
+  }
+  .scatola_avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px 10px 0 0;
+}
+.scatola_informazioni_dati {
+    height: 150px;
+    display: block;
+    border-radius: 0px 0px 10px 10px;
+    width: 100%;
+    overflow: hidden;
+}
+.scatola_informazioni {
+  overflow: inherit;
+    height: 100%;
+}
+#avatars img {
+    width: 40px;
+    height: 40px;
+}
+h1 {
+  font-size: 8vw;
+}
+.scatola_informazioni p {
+    font-size: 5vw;
+}
+#pinfo {
+  font-size: 5vw;
+}
 }
