@@ -1,4 +1,11 @@
 var menu_info = document.getElementById("menu_info");
+function info_tuoprestito(id_prestito) {
+  menu_info.style.transform = "translateX(-500px)";
+  function cb(r) {
+    menu_info.innerHTML = r.responseText;
+  }
+  chiama_get({id_prestito:id_prestito},"php/infotuoprestito.php",cb,menu_info,120);
+}
 function info_prestito(id_prestito) {
   menu_info.style.transform = "translateX(-500px)";
   function cb(r) {
