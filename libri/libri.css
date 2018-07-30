@@ -133,13 +133,11 @@ h2 {
     display: inline-block;
     padding: 20px 30px;
     box-sizing: border-box;
-    background-color: #f8f8f8;
+    background: url(/imgs/carta3.png);
+    background-size: cover;
     transition: transform 300ms;
     overflow: auto;
 
-    -webkit-box-shadow: -15px 0 62px -24px rgba(0,0,0,0.45);
-    -moz-box-shadow: -15px 0 62px -24px rgba(0,0,0,0.45);
-    box-shadow: -15px 0 62px -24px rgba(0,0,0,0.45);
 }
 
 #finestra_scan{
@@ -181,7 +179,7 @@ input, select, textarea, button {
     border: 1px solid #cbcbcb;
     height: 40px;
     width: 100%;
-    border-radius: 10px;
+    border-radius: 5px;
     outline: none;
     margin-bottom: 5px;
     font-family: 'Open Sans', sans-serif;
@@ -333,30 +331,30 @@ a {
     height: 0;
     width: 0;
     border: none;
-    border-radius: 10px;
     max-width: 100%;
     padding: 0;
     display: block;
     margin: 0;
 }
 
-
 .barra_bottoni {
     transition: border-radius 500ms;
     vertical-align: top;
     height: 50px;
-    border: 1px solid #efefef;
-    background-color: #f8f8f8;
-    border-radius: 10px;
+    /*border: 1px solid #efefef;*/
+    /*background-color: #f8f8f8;*/
+    border-radius: 5px;
     overflow: hidden;
-    display: inline-block
+    display: inline-block;
+    background-image: url(/imgs/carta_barra/carta_barra.png), url(/imgs/carta_barra/1.png);
+    background-size: cover;
 }
 
 .barra_bottoni div{
     height: 50px;
     width: 50px;
     display: inline-block;
-    border-right: 1px solid #efefef;
+    /*border-right: 1px solid #efefef;*/
 }
 
 .barra_bottoni div:hover {
@@ -399,6 +397,7 @@ a {
 }
 
 .pillola_libro {
+    position: relative;
     vertical-align: middle;
     border-radius: 5px;
     overflow: hidden;
@@ -413,7 +412,6 @@ a {
 
 .pillola_libro:hover {
     transform: scale(1.02, 1.02);
-
 }
 
 .immagine_pillola_libro {
@@ -424,21 +422,30 @@ a {
     background-position: center;
 }
 
+.pillola_libro .immagine_pillola_libro{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
 .testo_pillola_libro {
-    box-sizing: border-box;
+    max-width: 600px;
+    white-space: normal;
     position: relative;
     display: inline-block;
     color: #292929;
-    height: 100%;
     vertical-align: top;
-    font-size: 18px;
-    padding: 20px;
+    font-size: 23px;
+    width: 100%;
+    float: left;
+    padding: 20px 20px 20px 150px;
+    box-sizing: border-box;
+    transform: scale(1);
 }
 
 .titolo_pillola_libro {
     font-weight: 600;
-    font-size: 20px;
-    line-height: 20px;
+    font-size: 25px;
     margin: 0;
 }
 
@@ -482,6 +489,12 @@ a {
     -webkit-box-shadow: inset 10px 0 35px -16px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: inset 10px 0 35px -16px rgba(0, 0, 0, 0.75);
     box-shadow: inset 10px 0 35px -16px rgba(0, 0, 0, 0.75);
+}
+
+.content > h1{
+    font-weight: 900;
+    font-size: 45px;
+    color: white;
 }
 
 #main_container {
@@ -681,9 +694,31 @@ a {
 |--------------------------------------------------------------|
 */
 
-@media only screen and (max-width: 810px) {
-    #barra_ricerca {
-        display: block;
-        height: 0;
+@media only screen and (max-width: 800px) {
+    .pillola_libro{
+        width: 100%;
+    }
+}
+@media only screen and (max-width: 500px) {
+    .content{
+        padding: 100px 10px;
+    }
+    .content > h1{
+        font-size: 35px;
+    }
+    .immagine_pillola_libro{
+        height: 130px;
+        width: 100px;
+    }
+    .pillola_libro{
+        height: 130px;
+    }
+    .testo_pillola_libro{
+        padding: 20px 20px 20px 120px;
+    }
+}
+@media only screen and (max-width: 330px) {
+    .content > h1{
+        font-size: 30px;
     }
 }

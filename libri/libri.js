@@ -153,7 +153,67 @@ preview_img.imposta = function (url) {
 */
 
 var pillole_libro = document.getElementById("pillole_libro");
+var pillola_libro = pillole_libro.getElementsByClassName("pillola_libro");
+var padding_testo = [20, 20, 20, 150];
+/*function f() {
+    for (var i = 0; i < pillola_libro.length; i++) {
+        var pillola = pillola_libro[i];
+        var testo = pillola.getElementsByClassName("testo_pillola_libro")[0].childNodes[0];
+        var w = pillola.offsetWidth-padding_testo[1]-padding_testo[3];
+        var h = pillola.offsetHeight-padding_testo[0]-padding_testo[2];
+        if(testo.offsetWidth > w || testo.offsetHeight>h){
 
+            var n = w/h;
+            var oh = testo.offsetHeight; //-padding_testo[0]-padding_testo[2];
+            var ow = testo.offsetWidth; //-padding_testo[1]-padding_testo[3];
+            var rh = ( (oh+ow)/(n+1) );
+            var rw = n*rh;
+            console.log(n, oh, ow, rh, rw);
+
+            testo.style.width = (rw) + "px";
+
+            var c = w / testo.offsetWidth;
+            var d = h / testo.offsetHeight;
+            if(d<c) c=d;
+            testo.style.transform = "translate(-" + (100 - 100 * c) / 2 + "%, -"+ (100 - 100 * c) / 2 +"%) scale(" + c + ")";
+        }
+    }
+}*/
+
+var f_a = 23;
+var f_t = 25;
+
+function f(){
+    for (var i = 0; i < pillola_libro.length; i++) {
+        var pillola = pillola_libro[i];
+        var testo = pillola.getElementsByClassName("testo_pillola_libro")[0];
+        var w = pillola.offsetWidth;
+        var h = pillola.offsetHeight;
+        var autore = testo.getElementsByTagName("div")[0];
+        var titolo = testo.getElementsByTagName("div")[1];
+        autore.style.fontSize = f_a+"px";
+        titolo.style.fontSize = f_t+"px";
+        if(testo.offsetWidth > w || testo.offsetHeight>h){
+            var k = 5;
+            while(testo.offsetHeight>h || testo.offsetWidth > w){
+                autore.style.fontSize = (f_a - k)+"px";
+                titolo.style.fontSize = (f_t - k)+"px";
+                k += 5;
+                if(k>f_t) break;
+            }
+            console.log(k);
+        }
+    }
+}
+f();
+
+var resizeTimer;
+window.onresize = function(e) {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function() {
+        f();
+    }, 250);
+};
 
 
 /*

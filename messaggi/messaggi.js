@@ -12,10 +12,11 @@ var sessione = {
       this.id_amico = id_amico;
       this.uname_amico = uname_amico;
       var cb = function(r) {
-          if (i !== this.n_sessione) return;
-          ris_div.innerHTML = r.responseText;
-          if(ris_div.childNodes.length) ris_div.childNodes[ris_div.childNodes.length-1].scrollIntoView(true);
-          this.nuovi_messaggi();
+          if (i === this.n_sessione) {
+              ris_div.innerHTML = r.responseText;
+              if (ris_div.childNodes.length) ris_div.childNodes[ris_div.childNodes.length - 1].scrollIntoView(true);
+              this.nuovi_messaggi();
+          }
       }.bind(this);
       document.getElementById("amico_msg").innerHTML = this.uname_amico;
       ris_div.innerHTML = "";
@@ -27,14 +28,15 @@ var sessione = {
     nuovi_messaggi : function() {
         var i = this.n_sessione;
         var cb = function(r) {
-            if (i !== this.n_sessione) return;
-            var div = document.createElement("div");
-            div.innerHTML = r.responseText;
-            while (div.childNodes.length > 0) {
-                ris_div.appendChild(div.childNodes[0]);
+            if (i === this.n_sessione){
+                var div = document.createElement("div");
+                div.innerHTML = r.responseText;
+                while (div.childNodes.length > 0) {
+                    ris_div.appendChild(div.childNodes[0]);
+                }
+                if(div.childNodes.length) div.childNodes[div.childNodes.length-1].scrollIntoView(true);
+                this.nuovi_messaggi();
             }
-            if(div.childNodes.length) div.childNodes[div.childNodes.length-1].scrollIntoView(true);
-            this.nuovi_messaggi();
         }.bind(this);
         chiama_get({id_amico: this.id_amico, num_msg: this.num_msg()},"/messaggi/php/nuovi_messaggi.php",cb);
     },
@@ -43,13 +45,14 @@ var sessione = {
         var testo = textarea_invia.value;
         textarea_invia.value = "";
         var cb = function(r){
-            if (i !== this.n_sessione) return;
-            var div = document.createElement("div");
-            div.className = "messaggio";
-            div.style.textAlign = "right";
-            div.innerHTML = r.responseText;
-            ris_div.appendChild(div);
-            div.scrollIntoView(true);
+            if (i === this.n_sessione) {
+                var div = document.createElement("div");
+                div.className = "messaggio";
+                div.style.textAlign = "right";
+                div.innerHTML = r.responseText;
+                ris_div.appendChild(div);
+                div.scrollIntoView(true);
+            }
         }.bind(this);
         chiama_get({testo:testo,id_amico:this.id_amico},"php/invia_messaggio.php",cb, el, 40);
     }

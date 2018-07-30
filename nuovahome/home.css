@@ -1,5 +1,7 @@
 body{
     margin: 0;
+    font-family: 'Vollkorn', serif;
+    background-color: #36a9e1;
 }
 /*
 |--------------------------------------------------------------|
@@ -11,7 +13,7 @@ body{
 .primo_contenitore{
     display: inline-block;
     position: absolute;
-    top:0;
+    bottom:100%;
     width: 100%;
     height: 100%;
     background-image: url("/imgs/sfondo.jpg");
@@ -53,20 +55,6 @@ body{
 .primo_contenitore div a:hover{
     opacity: 0.5;
 }
-
-/*
-.primo_contenitore .ragazza{
-    position: absolute;
-    top:40%;
-    right: 30%;
-    width: 200px;
-}
-.primo_contenitore .ombra{
-    position: absolute;
-    top:48%;
-    right: 30%;
-    width: 200px;
-}*/
 .primo_contenitore .ragazza{
     position: absolute;
     top:0;
@@ -78,4 +66,32 @@ body{
     top:100px;
     right: 0;
     width: 200px;
+}
+/*
+|--------------------------------------------------------------|
+|                                                              |
+|  Secondo contenitore                                         |
+|                                                              |
+|--------------------------------------------------------------|
+*/
+.secondo_contenitore{
+    position: relative;
+    width: 100%;
+    padding: 100px 20px;
+    background: #36a9e1 url("/imgs/sfondo2.jpg");
+}
+.center_me{
+    position: absolute;
+    top:50%;
+    left: auto;
+    transform: translateY(-50%);
+}
+.secondo_contenitore img{
+    height: 350px;
+}
+.secondo_contenitore .center_me{
+    color: white;
+    font-size: 25px;
+    font-weight: 300;
+    left: 400px;
 }

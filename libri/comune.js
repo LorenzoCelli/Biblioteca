@@ -78,7 +78,7 @@ if(prima_barra && seconda_barra) {
     }
 
     controlla_barra();
-    window.onresize = controlla_barra;
+    //window.onresize = controlla_barra;
 }
 
 var menu_aggiungi = document.getElementById("menu_aggiungi");
