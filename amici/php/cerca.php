@@ -44,7 +44,7 @@ if ($results->num_rows == 0) {
       <div class='scheda_utente2' onclick='visita_profilo($id_amico,\"$uname_amico\")'>
         <img src='$img_avatar'>
         <a onclick='visita_profilo($id_amico,\"$uname_amico\")' style='display:inline-block;'>$uname_amico</a><!--
-        --><p style='display:inline-block;float:right'>$p</p>
+        --><p style='display:inline-block;float:right;font-family:open_sans_light'>$p</p>
       </div>
       ";
     }
