@@ -5,12 +5,6 @@
 h1{
   margin-bottom: 5px;
 }
-a {
-  margin: 0;
-  vertical-align: top;
-  padding: 0px 4px;
-  line-height: 40px;
-}
 .scatola_cerca {
     height: auto;
     position: absolute;
