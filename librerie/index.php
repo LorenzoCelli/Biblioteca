@@ -107,8 +107,9 @@ New book aside
 -->
 
 <div id="menu_aggiungi" style="left: 100%">
+  <form>
   <h1>Nuova libreria</h1>
-    <input type="text" placeholder="Nome libreria" name="nome"><br>
+    <input type="text" placeholder="Nome libreria" name="nome" required><br>
     <input type="text" placeholder="Descrizione" name="descr"><br>
     Colore etichetta:
     <div class="etichetta" onclick="chiama_color_picker()"></div>
@@ -127,6 +128,7 @@ New book aside
     </div>
     <button onclick="nuova_libreria(this)">Crea nuova libreria</button>
     <input type="reset" name="newlibraryButton" value="Annulla" onclick="reset_new_book()">
+  </form>
 </div>
 
 <div id="menu_info" style="left: 100%;">

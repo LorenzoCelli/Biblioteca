@@ -8,13 +8,13 @@ include $_SERVER['DOCUMENT_ROOT'].'/connection.php';
 $id_utente = $_SESSION['id_utente'];
 $ordina = mysqli_real_escape_string($conn,$_POST['ordina']);
 
-if ($ordina == 'az') {
+if ($ordina == 'titoloaz') {
   $sql = "SELECT * FROM libri
   LEFT JOIN prestiti ON libri.id = prestiti.id_libro
   WHERE libri.id_utente = '$id_utente'
   ORDER BY libri.titolo ASC";
 
-}elseif ($ordina == 'za') {
+}elseif ($ordina == 'titoloza') {
   $sql = "SELECT * FROM libri
   LEFT JOIN prestiti ON libri.id = prestiti.id_libro
   WHERE libri.id_utente = '$id_utente'

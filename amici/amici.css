@@ -5,6 +5,12 @@
 h1{
   margin-bottom: 5px;
 }
+a {
+  margin: 0;
+  vertical-align: top;
+  padding: 0px 4px;
+  line-height: 40px;
+}
 .scatola_cerca {
     height: auto;
     position: absolute;
@@ -53,7 +59,7 @@ h1{
   width: 290px;
   border-radius: 10px 0 0 10px;
   margin-bottom: 0px;
-  padding-left: 55%;
+  padding-left: 60%;
 }
 #search_button:hover{
   cursor: pointer;

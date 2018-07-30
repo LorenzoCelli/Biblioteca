@@ -41,6 +41,15 @@ function searchAnimation() {
     }
   });
 }
+//quando premi invio si apre il div con gli amici
+var input = document.getElementById("barra_ricerca");
+input.addEventListener("keyup", function(event) {
+    event.preventDefault();
+    if (event.keyCode === 13) {
+        document.getElementById("search_button").click();
+    }
+});
+
 var amici = document.getElementsByClassName("menu_amici")[0];
 function dropDown() {
   if(amici.style.height == "0px" || amici.style.height == "") {
