@@ -65,7 +65,7 @@ $img = avatar($id_avatar);
             <button onclick="window.location.href='/logout.php'" style="border: none">logout</button>
         </div>
 
-        <div style="border-radius: 0 5px 5px 0; height: 50px; width:50px; position: absolute; top:20px; left: 0; background-image: url(/imgs/carta_menu.png); background-size: cover"><img onclick="chiama_menu_principe()" src="../imgs/menu.svg" style="height: 50px"></div>
+        <div class="tasto_menu"><img onclick="chiama_menu_principe()" src="../imgs/menu.svg"></div>
 
         <div onclick="apri_menu_volante('account')" class="scatola_account">
           <p><?php echo $uname;?></p>

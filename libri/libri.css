@@ -284,6 +284,19 @@ a {
     text-decoration: none;
 }
 
+.tasto_menu{
+    border-radius: 0 5px 5px 0;
+    height: 50px;
+    width:50px;
+    position: absolute;
+    top:20px; left: 0;
+    background-image: url(/imgs/carta_menu.png);
+    background-size: cover
+}
+.tasto_menu img{
+    height: 50px;
+}
+
 #menu_principe {
     display: inline-block;
     height: 100%;
@@ -303,12 +316,13 @@ a {
     margin: 0;
     border: none;
     /*border-bottom: 1px solid #efefef;*/
-    font-size: 22px;
+    font-size: 20px;
     outline: none;
 }
 
 #menu_principe button:hover{
     background-color: white;
+    color: black;
 }
 
 /*
