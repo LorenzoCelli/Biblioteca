@@ -19,20 +19,20 @@ h5 {
   margin-top:35px;
 }
 #risultato_cambio_avatar {
-  font-family: open_sans_light;
-  background-color: #5cb85c;
-  color: white;
-  width: 100%;
-  height: 0px;
-  line-height: 30px;
-  margin-bottom: 10px;
-  font-style: bold;
-  text-align: center;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  overflow: hidden;
+    font-family: open_sans_light;
+    background-color: #5cb85c;
+    color: white;
+    width: 100%;
+    height: 0px;
+    line-height: 30px;
+    margin-bottom: 10px;
+    font-style: bold;
+    text-align: center;
+    position: fixed;
+    left: 300px;
+    top: 0;
+    overflow: hidden;
+    z-index: 999;
 }
 #big_icon{
   width: 250px;
@@ -241,6 +241,7 @@ h5 {
   }
   #pinfo {
     font-size:20px;
+    font-family: open_sans_light;
   }
   .scatola_pulsanti button {
     height: 43px;
@@ -324,34 +325,42 @@ h5 {
   }
 }
 @media screen and (max-width:490px) {
+  .scatola_pulsanti {
+    width: 80%;
+  }
+  .scatola_pulsanti button {
+    width: 80%;
+  }
   .scatola_avatar button {
-    width: 100%;
+    width: 80%;
     height: 100%;
     border-radius: 10px 10px 0 0;
     vertical-align: top;
     font-size: 5vw;
 }
   #big_icon {
-    width: 100%;
-    height: 100%;
+    width: 80%;
+    height: 80%;
     border-radius: 10px 10px 0 0;
     vertical-align: top;
   }
   .scatola_avatar {
     width: 100%;
-    height: 100%;
+    height: 80%;
     border-radius: 10px 10px 0 0;
 }
 .scatola_informazioni_dati {
     height: 150px;
     display: block;
     border-radius: 0px 0px 10px 10px;
-    width: 100%;
+    width: 80%;
     overflow: hidden;
+    text-align: center;
 }
 .scatola_informazioni {
-  overflow: inherit;
-    height: 100%;
+    overflow: inherit;
+    height: 80%;
+    width: 80%;
 }
 #avatars img {
     width: 40px;
@@ -361,9 +370,9 @@ h1 {
   font-size: 8vw;
 }
 .scatola_informazioni p {
-    font-size: 5vw;
+    font-size: 4vw;
 }
 #pinfo {
-  font-size: 5vw;
+  font-size: 3.5vw;
 }
 }
