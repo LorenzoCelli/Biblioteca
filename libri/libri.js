@@ -269,14 +269,9 @@ function modifica_libro(id_libro) {
             input.value = parseInt(val);
         }
     }
-    var salva = document.createElement("BUTTON");
-    salva.innerText = "salva modifiche";
-    salva.onclick = function () { aggiorna_libro(id_libro, this) };
-    menu_info.appendChild(salva);
-    var annulla = document.createElement("BUTTON");
-    annulla.innerText = "annulla modifiche";
-    annulla.onclick = function () { info_libro(id_libro) };
-    menu_info.appendChild(annulla);
+    document.getElementById("salame3").style.display = "none";
+    document.getElementById("salame2").style.display = "block";
+    document.getElementById("salame").style.display = "block";
 }
 
 function azzera_menu_aggiungi() {
@@ -304,6 +299,7 @@ function aggiorna_libro(id, el) {
     console.log("."+gi+".");
     var a = {
         id : id,
+        letto : menu_info.querySelector('input[name=inputLetto]').value,
         titolo : menu_info.querySelector('input[name=titolo]').value,
         autore : menu_info.querySelector('input[name=autore]').value,
         isbn : menu_info.querySelector('input[name=isbn]').value,

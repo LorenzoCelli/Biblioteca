@@ -17,6 +17,7 @@ if($result->num_rows == 0){
 }
 
 $row = mysqli_fetch_assoc($result);
+$letto= $row["letto"];
 $id_libro = $row["id"];
 $titolo = $row["titolo"];
 $autore = $row["autore"];
@@ -25,6 +26,11 @@ $isbn = $row["isbn"];
 $img_url = $row["img_url"];
 $generi = "";
 
+if($letto == 1) {
+  $le = "Hai letto questo libro";
+} else {
+  $le = "Non hai letto questo libro";
+}
 if($autore === ""){
     $autore = "Autore sconosciuto";
 }
@@ -96,6 +102,19 @@ if($result && $result->num_rows > 0){
 <div class="scatola_info">
     <div style="display: none" class="nome_scatola_info">img_url</div>
     <div style="display: none" class="testo_scatola_info"><?echo $img_url;?></div>
+</div>
+<div id="salame3">
+  <div style="font-weight:600;margin-bottom:0px;"><?php echo $le;?></div>
+</div>
+<div id="salame2" class="scatola_info" style="display:none;">
+  <div style="font-weight:600;margin-bottom:0px;">Hai letto questo libro?</div>
+  Si <input type="radio" name="inputLetto" value="1" style="width:auto;vertical-align:middle;height:auto;border-radius: 100px;" <?php if($letto == 1) {echo "checked";} ?>>
+  No <input type="radio" name="inputLetto" value="0" style="width:auto;vertical-align:middle;height:auto;border-radius: 100px;" <?php if($letto == 0) {echo "checked";} ?>>
+
+</div>
+<div id="salame" class="scatola_info" style="display:none;margin-top:20px;">
+  <button onclick="aggiorna_libro(<?php echo $id_libro?>, this)">Salva</button>
+  <button type="reset" onclick="info_libro(<?php echo $id_libro?>)">Annulla</button>
 </div>
 <?php
 mysqli_close($conn);
