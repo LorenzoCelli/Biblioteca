@@ -84,8 +84,9 @@ $results = mysqli_query($conn, $sql);
       $data_inizio = date('d-m-Y', $timestamp);
       $timestamp = strtotime($row['data_promemoria']);
       $data_promemoria = date('d-m-Y', $timestamp);
+      $id_prestito = $row['id_prestito'];
       echo "
-      <div class='pillola_libro'>
+      <div class='pillola_libro' onclick='info_tuoprestito($id_prestito)'>
       <div class='immagine_pillola_libro' style='background-image: url(".$row['img_url'].")'></div><!--
       --><div class='testo_pillola_libro'>
       <p class='titolo_pillola_libro'><b>".$row['titolo']."</b></p>
@@ -116,8 +117,9 @@ if ($result->num_rows == 0) {
     $data_inizio = date('d-m-Y', $timestamp);
     $timestamp = strtotime($row['data_promemoria']);
     $data_promemoria = date('d-m-Y', $timestamp);
+    $id_prestito = $row['id_prestito'];
     echo "
-    <div class='pillola_libro'>
+    <div class='pillola_libro' onclick='info_prestito($id_prestito)'>
     <div class='immagine_pillola_libro' style='background-image: url(".$row['img_url'].")'></div><!--
     --><div class='testo_pillola_libro'>
     <p class='titolo_pillola_libro'><b>".$row['titolo']."</b></p>
@@ -169,7 +171,7 @@ if ($result->num_rows == 0) {
       $id_prestito = $row['id_prestito'];
       if ($row['id_creditore'] == $id_utente) {
         echo "
-        <div class='pillola_libro' onclick='info_prestito($id_prestito)'>
+        <div class='pillola_libro' onclick='info_tuoprestito($id_prestito)'>
         <div class='immagine_pillola_libro' style='background-image: url(".$row['img_url'].")'></div><!--
         --><div class='testo_pillola_libro'>
         <p class='titolo_pillola_libro'><b>".$row['titolo']."</b></p>
@@ -189,9 +191,10 @@ if ($result->num_rows == 0) {
       $data_inizio = date('d-m-Y', $timestamp);
       $timestamp = strtotime($row['data_promemoria']);
       $data_promemoria = date('d-m-Y', $timestamp);
+      $id_prestito = $row['id_prestito'];
       if ($row['id_creditore'] != $id_utente) {
         echo "
-        <div class='pillola_libro'>
+        <div class='pillola_libro' onclick='info_prestito($id_prestito)'>
         <div class='immagine_pillola_libro' style='background-image: url(".$row['img_url'].")'></div><!--
         --><div class='testo_pillola_libro'>
         <p class='titolo_pillola_libro'><b>".$row['titolo']."</b></p>
