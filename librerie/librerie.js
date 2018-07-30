@@ -74,6 +74,8 @@ function modifica_libreria() {
         input.name = info_tooltip.innerHTML;
         if(info_tooltip.innerHTML === "colore etichetta"){
             input = color_picker(500);
+            input.style.width = "100%";
+            input.style.height = "40px";
         }
         if(info_tooltip.innerHTML === "numero scaffali"){
             input.type = "number";
@@ -84,6 +86,53 @@ function modifica_libreria() {
     menu_info.getElementsByClassName("to_hide")[0].style.display = "none";
     menu_info.getElementsByClassName("to_show")[0].style.display = "block";
 }
+
+/*
+|--------------------------------------------------------------|
+|                                                              |
+|  Riduzione pillole                                           |
+|                                                              |
+|--------------------------------------------------------------|
+*/
+
+var pillole_libro = document.getElementById("pillole_libro");
+var pillola_libro = pillole_libro.getElementsByClassName("pillola_libro");
+
+var f_a = 23;
+var f_t = 25;
+
+function f(){
+    for (var i = 0; i < pillola_libro.length; i++) {
+        var pillola = pillola_libro[i];
+        var testo = pillola.getElementsByClassName("testo_pillola_libro")[0];
+        var w = pillola.offsetWidth;
+        var h = pillola.offsetHeight;
+        var autore = testo.getElementsByTagName("div")[1];
+        var titolo = testo.getElementsByTagName("div")[0];
+        autore.style.fontSize = f_a+"px";
+        titolo.style.fontSize = f_t+"px";
+        if(testo.offsetWidth > w+3 || testo.offsetHeight> h+3){
+            console.log(titolo.innerHTML, testo.offsetWidth, w);
+            var k = 5;
+            while(testo.offsetHeight>h || testo.offsetWidth > w){
+                autore.style.fontSize = (f_a - k)+"px";
+                titolo.style.fontSize = (f_t - k)+"px";
+                k += 5;
+                if(k>f_t) break;
+            }
+            console.log(k);
+        }
+    }
+}
+f();
+
+var resizeTimer;
+window.onresize = function(e) {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function() {
+        f();
+    }, 250);
+};
 
 /*
 |--------------------------------------------------------------|
@@ -100,7 +149,7 @@ function aggiorna_libreria(el, id) {
         chiudi_menu_info();
         var result = JSON.parse(r.responseText);
         if(result["success"]){
-            pillole_libro.querySelector('.pillola_libro[onclick="info_libreria(' + id + ')"]').innerHTML = result["pillole_libro"];
+            pillole_libro.querySelector('.pillola_libro[onclick="info_libreria(' + id + ')"]').innerHTML = result["content"];
         }
     }
     a = {

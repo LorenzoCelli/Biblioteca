@@ -1,7 +1,7 @@
 body{
     margin: 0;
     font-family: 'Vollkorn', serif;
-    background-color: #36a9e1;
+    background: #36a9e1;
 }
 /*
 |--------------------------------------------------------------|
@@ -10,17 +10,17 @@ body{
 |                                                              |
 |--------------------------------------------------------------|
 */
-.primo_contenitore{
+#primo_contenitore{
     display: inline-block;
-    position: absolute;
-    bottom:100%;
+    position: fixed;
     width: 100%;
     height: 100%;
-    background-image: url("/imgs/sfondo.jpg");
+    background: #00c3d7 url("/imgs/sfondo.jpg");
     background-size: cover;
     font-family: open_sans_bold, sans-serif;
+    transition: transform 800ms;
 }
-.primo_contenitore > div{
+#primo_contenitore > div{
     display: block;
     position: absolute;
     top:50%;
@@ -29,20 +29,21 @@ body{
     height: 211px;
     transform: translateY(-50%);
 }
-.primo_contenitore > div > div{
+#primo_contenitore > div > div{
     position: absolute;
     top: 50%;
     left: 0;
     transform: translateY(-50%);
 }
-.primo_contenitore div h1{
+#primo_contenitore div h1{
     line-height: 30px;
     color: white;
-    font-family: aileron_bold, sans-serif;
+    font-family: 'Vollkorn', serif;
+    font-weight: 600;
     font-size: 30px;
     margin: 0 0 10px 0;
 }
-.primo_contenitore div a{
+a{
     transition: opacity 500ms;
     letter-spacing: 0.5px;
     font-family: aileron_ultra_light, sans-serif;
@@ -52,21 +53,53 @@ body{
     color: white;
     display: block;
 }
-.primo_contenitore div a:hover{
+#primo_contenitore div a:hover{
     opacity: 0.5;
 }
-.primo_contenitore .ragazza{
+#primo_contenitore .ragazza{
     position: absolute;
     top:0;
     right: 0;
     width: 200px;
 }
-.primo_contenitore .ombra{
+#primo_contenitore .ombra{
     position: absolute;
     top:100px;
     right: 0;
     width: 200px;
 }
+
+/*
+|--------------------------------------------------------------|
+|                                                              |
+|  Contenitori                                                 |
+|                                                              |
+|--------------------------------------------------------------|
+*/
+
+.contenitore{
+    padding: 50px 50px 0 50px;
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.contenitore img{
+    vertical-align: middle;
+    width: 50%;
+}
+.center_me{
+    display: inline-table;
+    width: 50%;
+    vertical-align: middle;
+}
+.center_me > div{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 23px;
+    text-align: center;
+}
+
 /*
 |--------------------------------------------------------------|
 |                                                              |
@@ -74,24 +107,80 @@ body{
 |                                                              |
 |--------------------------------------------------------------|
 */
-.secondo_contenitore{
-    position: relative;
-    width: 100%;
-    padding: 100px 20px;
-    background: #36a9e1 url("/imgs/sfondo2.jpg");
-}
-.center_me{
-    position: absolute;
-    top:50%;
-    left: auto;
-    transform: translateY(-50%);
+.secondo_contenitore .center_me{
+    height: 500px;
 }
 .secondo_contenitore img{
-    height: 350px;
+    height: 500px;
 }
-.secondo_contenitore .center_me{
-    color: white;
-    font-size: 25px;
-    font-weight: 300;
-    left: 400px;
+
+/*
+|--------------------------------------------------------------|
+|                                                              |
+|  Terzo contenitore                                           |
+|                                                              |
+|--------------------------------------------------------------|
+*/
+.terzo_contenitore img{
+    height: 300px;
+}
+.terzo_contenitore .center_me{
+    height: 300px;
+}
+
+/*
+|--------------------------------------------------------------|
+|                                                              |
+|  Quarto contenitore                                          |
+|                                                              |
+|--------------------------------------------------------------|
+*/
+.quarto_contenitore .center_me{
+    height: 300px;
+}
+.quarto_contenitore img{
+    height: 300px;
+}
+
+/*
+|--------------------------------------------------------------|
+|                                                              |
+|  Quinto contenitore                                          |
+|                                                              |
+|--------------------------------------------------------------|
+*/
+.quinto_contenitore .center_me{
+    height: 200px;
+}
+.quinto_contenitore img{
+    height: 200px;
+}
+
+/*
+|--------------------------------------------------------------|
+|                                                              |
+|  Sesto contenitore                                          |
+|                                                              |
+|--------------------------------------------------------------|
+*/
+.sesto_contenitore .center_me{
+    height: 200px;
+}
+.sesto_contenitore img{
+    height: 200px;
+}
+
+#registrati{
+    display: block;
+    margin:auto;
+    margin-top: 200px;
+    margin-bottom: 200px;
+    height: 50px;
+    width: 300px;
+    font-size: 20px;
+    font-family: open_sans_light, sans-serif;
+    background-color: white;
+    border-radius: 5px;
+    border: none;
+    outline: none;
 }
