@@ -4,10 +4,20 @@ function ricerca_utenti() {
   if (ris_cerca.value == "") {
     return;
   }else{
-    document.getElementById("search_button").style.borderBottomRightRadius = "0px";
-    document.getElementById("barra_ricerca").style.borderBottomLeftRadius = "0px";
     function cb(r) {
       ris_div.innerHTML = r.responseText;
+      document.getElementById("search_button").style.borderBottomRightRadius = "0px";
+      document.getElementById("barra_ricerca").style.borderBottomLeftRadius = "0px";
+      document.getElementById('ris_div').style.display = "block";
+      window.addEventListener('click', function(e){
+        if (!document.getElementById('ris_div').contains(e.target)){
+          document.getElementById('ris_div').style.display = "none";
+          document.getElementById('barra_ricerca').style.borderTopRightRadius = "0px";
+          document.getElementById('barra_ricerca').style.borderBottomRightRadius = "0px";
+          document.getElementById('barra_ricerca').style.borderBottomLeftRadius = "10px";
+          document.getElementById('search_button').style.borderBottomRightRadius = "10px";
+        }
+      });
     }
     chiama_get({ris_cerca:ris_cerca.value},"php/cerca.php",cb,ris_div,120);
   }
