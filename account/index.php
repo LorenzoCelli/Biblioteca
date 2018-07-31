@@ -62,8 +62,8 @@ $img = avatar($id_avatar);
       <button onclick="mostra_avatars();">Cambia avatar</button>
     </div><!--
     --><div class="scatola_informazioni_dati">
-    <p class="titolo_informazioni" id="title">Username: </p><p id="pinfo">botti112</p><br>
-    <p class="titolo_informazioni">Email: </p><p id="pinfo">botti@gmail.com</p><br>
+    <p class="titolo_informazioni" id="title">Username: </p><p id="pinfo"> <?php echo $uname ?> </p><br>
+    <p class="titolo_informazioni">Email: </p><p id="pinfo">cellino@gmail.com</p><br>
     <p class="titolo_informazioni">Libri totali: </p><p id="pinfo">24</p><br>
     <p class="titolo_informazioni">Librerie: </p><p id="pinfo">12</p><br>
     <p class="titolo_informazioni">Libri letti: </p><p id="pinfo">4</p><br>
@@ -72,7 +72,7 @@ $img = avatar($id_avatar);
 <div id="avatars" style="overflow:hidden;">
   <h1>Scegli il tuo avatar:</h1>
   <?php
-  for ($i=1; $i < 10; $i++) {
+  for ($i=1; $i < 8; $i++) {
     echo "<img src='".avatar($i)."' alt='$i' onclick='change_avatar(this);'>";
   }
   ?>

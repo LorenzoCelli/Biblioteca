@@ -128,7 +128,7 @@ New book aside
         <div onclick="nuovo_scaffale()" style="border-right: 1px solid #cbcbcb;"><img src="../imgs/scaffale_piu.svg"></div><div onclick="rimuovi_scaffale()"><img src="../imgs/scaffale_meno.svg"></div>
     </div>
     <button onclick="nuova_libreria(this)">Crea nuova libreria</button>
-    <input type="reset" name="newlibraryButton" value="Annulla" onclick="reset_new_book()">
+    <input type="reset" name="newlibraryButton" value="Annulla" onclick="azzera_menu_aggiungi()">
   </form>
 </div>
 

@@ -168,7 +168,7 @@ function caricamento_img(l, i) {
 */
 
 function chiama_post(query_diz, file, callback, loading_el, loading_width, loading_type) {
-    if(loading_el) {
+    if(loading_el){
         var loading_inner = loading_el.innerHTML;
         loading_el.innerHTML = "";
         loading_el.appendChild(loading_type === undefined ? caricamento_img(loading_width) : caricamento_img(loading_width, 1));

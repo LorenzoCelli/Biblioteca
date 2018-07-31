@@ -63,9 +63,9 @@ if ($ordina == 'generi') {
         echo "<h3 style='color:white'>".$row['genere']."</h3>";
       }
       if (is_null($row['data_promemoria'])) $p = "";
-      elseif(is_null($row['data_fine'])) $p = "<div>In prestito</div>";
+      elseif(is_null($row['data_fine'])) $p = "<div style='background-color:#ff746d;'>In prestito</div>";
       if ($row['letto'] == 0) $l = "";
-      elseif ($row['letto'] == 1) $l = "<div>Già letto</div>";
+      elseif ($row['letto'] == 1) $l = "<div style='background-color:	#dddddd;'>Già letto</div>";
       echo "
       <div class='pillola_libro' onclick='info_libro(".$row['id'].")'>
       <div class='immagine_pillola_libro' style='background-image: url(".$row['img_url'].")'></div><!--
@@ -88,9 +88,9 @@ if ($ordina == 'libreria') {
       echo "<h3 style='color:white'>".$row['nome']."</h3>";
     }
     if (is_null($row['data_promemoria'])) $p = "";
-    elseif(is_null($row['data_fine'])) $p = "<div>In prestito</div>";
+    elseif(is_null($row['data_fine'])) $p = "<div style='background-color:#ff746d;'>In prestito</div>";
     if ($row['letto'] == 0) $l = "";
-    elseif ($row['letto'] == 1) $l = "<div>Già letto</div>";
+    elseif ($row['letto'] == 1) $l = "<div style='background-color:	#dddddd;'>Già letto</div>";
     echo "
     <div class='pillola_libro' onclick='info_libro(".$row['id'].")'>
       <div class='immagine_pillola_libro' style='background-image: url(".$row['img_url'].")'></div><!--
@@ -107,9 +107,9 @@ if ($ordina == 'libreria') {
 }
 while($row = mysqli_fetch_assoc($result)){
   if (is_null($row['data_promemoria'])) $p = "";
-  elseif(is_null($row['data_fine'])) $p = "<div> style='background-color:#dc4242;'>In prestito</div>";
+  elseif(is_null($row['data_fine'])) $p = "<div style='background-color:#ff746d;'>In prestito</div>";
   if ($row['letto'] == 0) $l = "";
-  elseif ($row['letto'] == 1) $l = "<div style='background-color:	#dc8f42;'>Già letto</div>";
+  elseif ($row['letto'] == 1) $l = "<div style='background-color:	#dddddd;'>Già letto</div>";
   echo "
   <div class='pillola_libro' onclick='info_libro(".$row['id'].")'>
     <div class='immagine_pillola_libro' style='background-image: url(".$row['img_url'].")'></div><!--

@@ -54,12 +54,11 @@ function nuovi_scaffali() {
   }
   contatoreScaffali = count;
 }
-function reset_new_book() {
+function azzera_menu_aggiungi() {
     menu_aggiungi.querySelector('input[name=nome]').value = "";
     menu_aggiungi.querySelector('input[name=descr]').value = "";
     menu_aggiungi.querySelector('input[name=n_scaffali]').value = 1;
     box_scaffali.innerHTML = "";
-    chiama_menu_aggiungi()
 }
 function modifica_libreria() {
     var info_boxes = menu_info.getElementsByClassName("scatola_info");
@@ -195,7 +194,7 @@ function nuova_libreria(el) {
         div.innerHTML = r.responseText;
         console.log(r.responseText);
         pillole_libro.insertBefore(div.getElementsByTagName("DIV")[0], pillole_libro.getElementsByClassName("pillola_libro")[0]);
-        reset_new_book();
+        azzera_menu_aggiungi();
     }
     var a = {
         nome : menu_aggiungi.querySelector('input[name=nome]').value,
