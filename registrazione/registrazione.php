@@ -18,16 +18,17 @@ if (isset($_POST['username'])) {
 
   if ($usercheck == 0 && $emailcheck == 0) {
 
-    $id = mysqli_query($conn, "SELECT * FROM utenti")->num_rows;
-    $_SESSION['id_utente'] = $id;
     $sql = "INSERT INTO utenti
-    (username,email,password)
+    (username,email,password, id_avatar)
     VALUES
-    ('$uname','$email','$pass')";
+    ('$uname','$email','$pass', 1)";
     $results = mysqli_query($conn, $sql);
 
+    $id = $conn->insert_id;
+    $_SESSION['id_utente'] = $id;
+
     if ($results){
-      header('Location: /libri/libri.php');
+      header('Location: /libri/');
       return;
     }
     else{
