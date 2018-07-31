@@ -151,7 +151,8 @@ a{
 |--------------------------------------------------------------|
 */
 .terzo_contenitore img{
-    height: 300px;
+    margin-top: 50px;
+    width: 400px;
 }
 
 /*
@@ -162,6 +163,7 @@ a{
 |--------------------------------------------------------------|
 */
 .quarto_contenitore img{
+    margin-bottom: 40px;
     height: 300px;
 }
 

@@ -1,0 +1,39 @@
+<svg id="Livello_10" data-name="Livello 10" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="168.69218mm" height="93.05024mm" viewBox="0 0 478.18254 263.76445">
+  <defs>
+    <linearGradient id="Sfumatura_senza_nome_16" data-name="Sfumatura senza nome 16" x1="113.99409" y1="179.48029" x2="272.97313" y2="179.48029" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f2c8bf" stop-opacity="0"/>
+      <stop offset="0.00865" stop-color="#f2c8bf" stop-opacity="0.02681"/>
+      <stop offset="0.07973" stop-color="#f2c8bf" stop-opacity="0.22893"/>
+      <stop offset="0.15643" stop-color="#f2c8bf" stop-opacity="0.41272"/>
+      <stop offset="0.23701" stop-color="#f2c8bf" stop-opacity="0.57103"/>
+      <stop offset="0.3225" stop-color="#f2c8bf" stop-opacity="0.70423"/>
+      <stop offset="0.41443" stop-color="#f2c8bf" stop-opacity="0.81258"/>
+      <stop offset="0.51512" stop-color="#f2c8bf" stop-opacity="0.89615"/>
+      <stop offset="0.62912" stop-color="#f2c8bf" stop-opacity="0.9551"/>
+      <stop offset="0.76773" stop-color="#f2c8bf" stop-opacity="0.98962"/>
+      <stop offset="1" stop-color="#f2c8bf"/>
+    </linearGradient>
+    <linearGradient id="Sfumatura_senza_nome_38" data-name="Sfumatura senza nome 38" x1="381.52191" y1="264.65198" x2="509.60492" y2="264.65198" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f2c8bf"/>
+      <stop offset="0.37658" stop-color="#f2c8bf" stop-opacity="0.99226"/>
+      <stop offset="0.51225" stop-color="#f2c8bf" stop-opacity="0.96419"/>
+      <stop offset="0.60893" stop-color="#f2c8bf" stop-opacity="0.91533"/>
+      <stop offset="0.68716" stop-color="#f2c8bf" stop-opacity="0.84548"/>
+      <stop offset="0.75419" stop-color="#f2c8bf" stop-opacity="0.75442"/>
+      <stop offset="0.81348" stop-color="#f2c8bf" stop-opacity="0.64208"/>
+      <stop offset="0.86719" stop-color="#f2c8bf" stop-opacity="0.50799"/>
+      <stop offset="0.9165" stop-color="#f2c8bf" stop-opacity="0.35208"/>
+      <stop offset="0.96042" stop-color="#f2c8bf" stop-opacity="0.18209"/>
+      <stop offset="1" stop-color="#f2c8bf" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <title>prestito</title>
+  <polygon points="168.592 108.626 162.353 110.801 370.239 198.72 370.239 185.107 168.592 108.626" style="fill: #3c3c3b"/>
+  <path d="M238.67072,190.34572s5.51352-4.66479,5.95347-17.875,77.60193,21.182,77.60193,21.182L447.449,252.29577s-.94177,18.38-6.512,22.461Z" transform="translate(-72.70824 -80.11565)" style="fill: #ededed"/>
+  <polygon points="169.346 91.264 377.193 179.518 377.776 177.654 377.776 161.575 195.545 81.528 169.346 89.102 169.346 91.264" style="fill: #3c3c3b"/>
+  <path d="M124.9907,120.26411s53.26382-2.8889,59.7712-1.80434,23.31813,5.15168,33.89263,5.42282,30.63894-2.44027,32.26579-1.35571,7.59195,16.81075-8.67651,20.06444-45.82284,2.71141-47.44969,4.6094-3.25369,22.77585-2.98255,24.67384,29.82552,30.63894,32.80807,32.26579,37.41747,13.28591,38.502,14.91276a63.49657,63.49657,0,0,1,2.98255,5.694s5.694,1.35571,6.50739,6.23624a33.75587,33.75587,0,0,1,0,9.76108s-35.24834-9.76108-40.67116-10.03222-19.7933-1.08456-21.96243-1.898-28.19867-12.74363-29.28323-12.74363-11.65907-.54228-17.89531-6.23624-48.80539-45.82284-48.80539-45.82284Z" transform="translate(-72.70824 -80.11565)" style="fill: url(#Sfumatura_senza_nome_16)"/>
+  <polygon points="169.346 91.264 169.346 89.102 377.776 177.654 377.193 179.518 169.346 91.264" style="fill: #575756"/>
+  <polygon points="162.353 110.801 162.353 112.144 369.018 199.79 370.239 198.72 162.353 110.801" style="fill: #575756"/>
+  <rect width="478.18254" height="263.76445" style="fill: none"/>
+  <path d="M485.18073,248.08847c-.05756-.04248-.12347-.0899-.1712-.12665-1.68262-1.29431-13.63635-6.93945-25.0365-13.01605-8.41522-4.48553-15.85828-7.55688-17.9339-8.08331-2.63495-.66821-16.48285-3.32526-18.52966-3.338l.00006.00122-.02966-.00122s-.67426,9.84332,2.11029,12.61029c1.25739,2.30524,6.08484,3.427,13.36584,5.77838.52289.17474,1.05835.35333,1.61224.538,4.92413,1.64142,11.06433,6.754,11.06433,6.754s-.40662,8.80951-.94873,12.19775l.02606.01263c-.35675,2.163-3.56787,4.81427-5.8457,6.45166a21.64586,21.64586,0,0,1-1.91669,4.52716v6.44116l-1.22113,1.07025L381.52191,254.3732c4.35657,3.95544,8.075,7.90692,9.558,10.96008,4.60809,9.48712,28.71759,21.52386,30.271,22.45593s8.83508,8.33923,11.63129,8.96063,44.13721-1.81482,47.39948-1.97015,29.22327,10.99982,29.22327,10.99982V263.48483Z" transform="translate(-72.70824 -80.11565)" style="fill: url(#Sfumatura_senza_nome_38)"/>
+</svg>
