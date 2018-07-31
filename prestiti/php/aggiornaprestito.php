@@ -33,11 +33,6 @@ WHERE id_creditore = $id_utente AND id_prestito = $id_prestito";
 echo $sql;
 $result = mysqli_query($conn, $sql) or trigger_error(mysqli_error($conn));
 
-if ($result) {
-  header('Location: /prestiti/');
-  return;
-}
-
 mysqli_close($conn);
 
 ?>

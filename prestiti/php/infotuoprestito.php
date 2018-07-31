@@ -72,7 +72,7 @@ if (is_null($row['data_fine'])) {
     <input type="date" name="data_fine" value="<?php echo $row['data_fine'];?>" required>
   </div>
   <div class="input" style="display:none;margin-top:30px;">
-    <input type="button" value="salva modifiche" onclick="aggiorna_prestito(<?php echo $id_prestito;?>)">
+    <button onclick="aggiorna_prestito(<?php echo $id_prestito;?>,this)">salva modifiche</button>
   </div>
 
 

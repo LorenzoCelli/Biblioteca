@@ -251,8 +251,12 @@ h5 {
   }
 }
 @media screen and (max-width: 940px) {
+  h1{
+    text-align: center;
+  }
   .scatola_tutto{
     width: 100%;
+    text-align: center;
   }
   .scatola_avatar {
     width: 250px;
@@ -273,7 +277,8 @@ h5 {
 }
   .scatola_informazioni_dati {
     height: 250px;
-    width: 70%;
+    width: 100%;
+    text-align: left;
     padding-right: 0;
   }
   .scatola_avatar button {
@@ -326,41 +331,42 @@ h5 {
 }
 @media screen and (max-width:490px) {
   .scatola_pulsanti {
-    width: 80%;
+    width: 100%;
+    text-align: center;
   }
   .scatola_pulsanti button {
     width: 80%;
   }
   .scatola_avatar button {
-    width: 80%;
-    height: 100%;
+    width: 250px;
+    height: 250px;
     border-radius: 10px 10px 0 0;
     vertical-align: top;
     font-size: 5vw;
 }
   #big_icon {
-    width: 80%;
-    height: 80%;
+    width: 250px;
+    height: 250px;
     border-radius: 10px 10px 0 0;
     vertical-align: top;
   }
   .scatola_avatar {
-    width: 100%;
-    height: 80%;
+    width: 250px;
+    height: 250px;
     border-radius: 10px 10px 0 0;
 }
 .scatola_informazioni_dati {
     height: 150px;
     display: block;
     border-radius: 0px 0px 10px 10px;
-    width: 80%;
+    width: 100%;
     overflow: hidden;
-    text-align: center;
+    text-align: left;
 }
 .scatola_informazioni {
     overflow: inherit;
-    height: 80%;
-    width: 80%;
+    height: 160px;
+    width: 250px;
 }
 #avatars img {
     width: 40px;
