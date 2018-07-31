@@ -42,7 +42,8 @@ if($result){
         mysqli_query($conn, $sql);
     }
 
-    echo "<div class='immagine_pillola_libro' style='background-image: url(".$img_url.")'></div><!--
+    echo "<div class='pillola_libro' onclick='info_libro(".$last_id.")'>
+              <div class='immagine_pillola_libro' style='background-image: url(".$img_url.")'></div><!--
            --><div class='testo_pillola_libro'>
                 <div>".$autore."</div>
                 <div class='titolo_pillola_libro'>".$titolo."</div>

@@ -99,11 +99,12 @@ for($i=0; $i<count($titoli); $i++){
     if($titoli[$i][1] < 1) continue;
     echo "
         <div class='pillola_libro' onclick='info_libro(".$row['id'].")'>
-        <div class='immagine_pillola_libro' style='background-image: url(".$row['img_url'].")'></div><!--
-        --><div class='testo_pillola_libro'>
-        <p class='titolo_pillola_libro'>".$row['titolo']."</p>
-        ".$row['autore']."
-        </div>
-        </div>
+              <div class='immagine_pillola_libro' style='background-image: url(".$row['img_url'].")'></div><!--
+           --><div class='testo_pillola_libro'>
+                <div>".$row['autore']."</div>
+                <div class='titolo_pillola_libro'>".$row['titolo']."</div>
+              </div>
+              <div class='info_tag'></div>
+            </div>
      ";
 }

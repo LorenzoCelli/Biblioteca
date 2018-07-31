@@ -143,13 +143,18 @@ function apri_menu_volante(nome) {
 }
 
 var l_img = document.createElement("IMG");
-l_img.id = "caricamento";
-l_img.src = "../imgs/loading.svg";
+l_img.className = "caricamento";
+l_img.src = "/imgs/loading.svg";
 
-function caricamento_img(l) {
-    l_img.style.width = l+"px";
-    l_img.style.height = l+"px";
-    return l_img;
+var l_img2 = document.createElement("IMG");
+l_img2.className = "caricamento";
+l_img2.src = "/imgs/caricamento_chiaro.svg";
+
+function caricamento_img(l, i) {
+    var c_img = i===undefined ? l_img : l_img2;
+    c_img.style.width = l+"px";
+    c_img.style.height = l+"px";
+    return c_img;
 }
 
 
@@ -162,11 +167,11 @@ function caricamento_img(l) {
 |--------------------------------------------------------------|
 */
 
-function chiama_post(query_diz, file, callback, loading_el, loading_width) {
+function chiama_post(query_diz, file, callback, loading_el, loading_width, loading_type) {
     if(loading_el) {
         var loading_inner = loading_el.innerHTML;
         loading_el.innerHTML = "";
-        loading_el.appendChild(caricamento_img(loading_width));
+        loading_el.appendChild(loading_type === undefined ? caricamento_img(loading_width) : caricamento_img(loading_width, 1));
     }
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function (){
@@ -185,11 +190,11 @@ function chiama_post(query_diz, file, callback, loading_el, loading_width) {
     }
     xhttp.send(a);
 }
-function chiama_get(query_diz, file, callback, loading_el, loading_width) {
+function chiama_get(query_diz, file, callback, loading_el, loading_width, loading_type) {
     if(loading_el) {
         var loading_inner = loading_el.innerHTML;
         loading_el.innerHTML = "";
-        loading_el.appendChild(caricamento_img(loading_width));
+        loading_el.appendChild(loading_type === undefined ? caricamento_img(loading_width) : caricamento_img(loading_width, 1));
     }
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {

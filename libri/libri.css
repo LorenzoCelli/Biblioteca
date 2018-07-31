@@ -87,7 +87,7 @@ h2 {
     width: 50px;
 }
 
-#caricamento {
+.caricamento {
     display: block;
     margin: auto;
     -webkit-animation: spin 1s linear infinite;
