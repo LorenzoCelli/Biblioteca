@@ -25,13 +25,13 @@ function input_prestito() {
 }
 function elimina_prestito(id_prestito) {
   function cb(r) {
-    menu_info.style.transform = "translateX(0)";
+    window.location.href='/prestiti/';
   }
   chiama_get({id_prestito:id_prestito},"php/eliminaprestito.php",cb,menu_info,120);
 }
-function aggiorna_prestito(id_prestito) {
+function aggiorna_prestito(id_prestito,el) {
     function cb(r) {
-        //console.log(r.responseText);
+        window.location.href='/prestiti/';
     }
     var a = {
         id_prestito : id_prestito,
@@ -41,7 +41,7 @@ function aggiorna_prestito(id_prestito) {
         data_promemoria : menu_info.querySelector('input[name=data_promemoria]').value,
         data_fine : menu_info.querySelector('input[name=data_fine]').value
     };
-    chiama_post(a,"/prestiti/php/aggiornaprestito.php", cb);
+    chiama_post(a,"/prestiti/php/aggiornaprestito.php",cb,el,40);
 }
 var amici = document.getElementsByClassName("menu_amici")[0];
 function dropDown() {
