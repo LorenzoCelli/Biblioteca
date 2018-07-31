@@ -39,6 +39,14 @@ h1{
   box-shadow: -15px 0 62px -3px rgba(0,0,0,0.45);
   transition: height 200ms, width 200ms;
 }
+#risposta {
+  display:inline-block;
+  float:right;
+  font-family:open_sans_light;
+  padding-right:5%;
+  padding-left:5%;
+  background-color: #f1f1f1;
+}
 #no_amici{
   margin-bottom: 10px;
   padding: 20px 10px;
@@ -51,7 +59,7 @@ h1{
   width: 290px;
   border-radius: 5px 0 0 5px;
   margin-bottom: 0px;
-  padding-left: 50%;
+  padding-left: 55%;
 }
 #search_button{
     cursor: pointer;
@@ -288,22 +296,31 @@ h1{
     top: 45px;
 }
 .scheda_utente2 {
-  width: 201px;
+  width: 100%;
 }
 #ris_div {
-  width: 201px;
+  width: 211px;
+}
+#risposta {
+  font-size: 14px;
+  display:block;
+  width: 100%;
+  text-align: center;
+  height: 20px;
+  line-height: 20px;
+  padding: 0;
 }
 }
 @media screen and (max-width:390px) {
-  #ris_div {
-    width: 152px;
+  #barra_ricerca {
+    width: 64%;
   }
-  .scheda_utente2 {
-    width: 152px;
-}
+  #ris_div {
+    width: 165px;
+  }
   .scatola_cerca {
     top: 25px;
-    width: 160px;
+    width: 180px;
 }
   .scheda_biblioteche p {
     font-size: 4.2vw;
